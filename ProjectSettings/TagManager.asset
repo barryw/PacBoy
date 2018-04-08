@@ -11,6 +11,7 @@ TagManager:
   - HighScore
   - 1UP
   - 2UP
+  - Fruit
   layers:
   - Default
   - TransparentFX

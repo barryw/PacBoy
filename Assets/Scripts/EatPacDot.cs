@@ -13,11 +13,19 @@ public class EatPacDot : MonoBehaviour {
             gameController = gc.GetComponent<GameController> ();
     }
 
-    void OnTriggerEnter2D(Collider2D co) {
-        if (co.name == "PacMan") {
+    void Update()
+    {
+        if (gameObject != null && gameController.PacManTile == Tile) {
             gameController.AddPoints (GameController.PointSource.SMALLDOT);
             gameController.Chomp ();
-            Destroy(gameObject);
+            Destroy (gameObject);
+        }
+    }
+
+    Vector2 Tile
+    {
+        get {
+            return new Vector2 (Mathf.Round (transform.position.x + 0.25f), Mathf.Round (transform.position.y + 2.5f));
         }
     }
 }

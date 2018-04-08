@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public GameObject gameOver;
     public GameObject extraPac;
     public GameObject pacMan;
+    public GameObject blinky;
 
     public GameObject cherry;
     public GameObject strawberry;
@@ -37,6 +38,10 @@ public class GameController : MonoBehaviour
     private int player2Score = 0;
     private int highScore = 0;
     private int currentPlayer = 1;
+    private int p1SmallDotsEaten = 0;
+    private int p2SmallDotsEaten = 0;
+    private int p1LargeDotsEaten = 0;
+    private int p2LargeDotsEaten = 0;
 
     private bool isReady = false;
 
@@ -80,6 +85,24 @@ public class GameController : MonoBehaviour
     void Update()
     {
         DisplayScore ();
+        DisplayFruit ();
+    }
+
+    public Vector2 PacManTile
+    {
+        get {
+            if (pacMan != null)
+                return new Vector2 (Mathf.Round (pacMan.transform.position.x + 0.25f), Mathf.Round (pacMan.transform.position.y + 2.5f));
+            else
+                return Vector2.zero;
+        }
+    }
+
+    public Vector2 BlinkyTile
+    {
+        get {
+            return new Vector2 (Mathf.Round (blinky.transform.position.x + 0.25f), Mathf.Round (blinky.transform.position.y + 2.5f)); 
+        }
     }
 
     /// <summary>
@@ -117,8 +140,16 @@ public class GameController : MonoBehaviour
     {
         if (currentPlayer == 1) {
             player1Score += (int)source;
+            if (source == PointSource.SMALLDOT)
+                p1SmallDotsEaten++;
+            if (source == PointSource.POWER_PELLET)
+                p1LargeDotsEaten++;
         } else {
             player2Score += (int)source;
+            if (source == PointSource.SMALLDOT)
+                p2SmallDotsEaten++;
+            if (source == PointSource.POWER_PELLET)
+                p2LargeDotsEaten++;
         }
         if (player1Score > highScore) {
             highScore = player1Score;
@@ -213,6 +244,36 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < numberOfPacs; i++) {
             pacMen.Add(Instantiate (extraPac, new Vector3 (3.5f + (2.5f * i), -1.2f, 0), Quaternion.identity));
+        }
+    }
+
+    void DisplayFruit()
+    {
+        GameObject fruit = null;
+
+        if (currentPlayer == 1) {
+            if (p1SmallDotsEaten == 70) {
+                fruit = GetFruit ();
+            }
+        }
+
+        if(fruit != null)
+            Destroy(fruit, Random.Range(9,10));
+    }
+
+    GameObject GetFruit()
+    {
+        switch (currentLevel) {
+        case 1:
+            return Instantiate (cherry);
+        case 2:
+            return Instantiate (strawberry);
+        case 3:
+            return Instantiate (orange);
+        case 4:
+            return Instantiate (apple);
+        default:
+            return null;
         }
     }
 

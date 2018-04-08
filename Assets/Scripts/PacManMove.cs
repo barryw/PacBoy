@@ -2,24 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PacManMove : MonoBehaviour {
-    GameController gameController;
+public class PacManMove : BaseActor {
 
     public float speed = 1.0f;
     Vector2 _dest = Vector2.zero;
     Vector2 _dir = Vector2.right;
     Vector2 _nextDir = Vector2.right;
-    Animator _anim;
 
     bool dying = false;
 
 	// Use this for initialization
-	void Start () {
+    void Start () {
+        base.Start ();
         _dest = transform.position;
-        GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
-        if (gc != null)
-            gameController = gc.GetComponent<GameController> ();
-        _anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +22,8 @@ public class PacManMove : MonoBehaviour {
         if (dying)
             return;
         
-        if (gameController.IsReady) {
+        if (GameController.IsReady) {
+            CheckForGhostCollision ();
             MovePacMan ();
             ReadInput ();
             ReadInputAndMove();
@@ -35,12 +31,12 @@ public class PacManMove : MonoBehaviour {
         }
 	}
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void CheckForGhostCollision()
     {
-        if (coll.gameObject.tag == "Ghost" && ! dying) {
+        if (Tile == GameController.BlinkyTile) {
             dying = true;
-            gameController.StopSiren ();
-            gameController.StopGhosts ();
+            GameController.StopSiren ();
+            GameController.StopGhosts ();
             StartCoroutine (ShowDeathAnimation ());
         }
     }
@@ -50,27 +46,26 @@ public class PacManMove : MonoBehaviour {
         Animation = false;
         yield return new WaitForSeconds (0.75f);
         Animation = true;
-        _anim.SetBool ("Died", true);
-
+        Animator.SetBool ("Died", true);
         yield return new WaitForSeconds (2.0f);
         Destroy (gameObject);
-        gameController.Reset ();
+        GameController.Reset ();
     }
 
     void Animate()
     {
         Vector2 dir = _dest - (Vector2)transform.position;
-        GetComponent<Animator>().SetFloat("DirX", dir.x);
-        GetComponent<Animator>().SetFloat("DirY", dir.y);
+        Animator.SetFloat("DirX", dir.x);
+        Animator.SetFloat("DirY", dir.y);
     }
 
     bool Animation {
         set {
             if (value) {
-                _anim.speed = 0.8f;
+                Animator.speed = 0.8f;
             } else {
-                _anim.speed = 0.0f;
-                _anim.Play ("", 0, 0.0f);
+                Animator.speed = 0.0f;
+                Animator.Play ("", 0, 0.0f);
             }
         }
     }

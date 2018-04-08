@@ -44,3 +44,13 @@
 /Users/barry/PacBoy/Temp/bin/Debug/Unity.Cecil.Mdb.dll
 /Users/barry/PacBoy/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll
 /Users/barry/PacBoy/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.xml
+/Users/barry/PacBoy/Temp/bin/Debug/Mono.Posix.dll
+/Users/barry/PacBoy/Temp/bin/Debug/System.Threading.dll
+/Users/barry/PacBoy/Temp/bin/Debug/GitHub.Logging.dll
+/Users/barry/PacBoy/Temp/bin/Debug/ICSharpCode.SharpZipLib.dll
+/Users/barry/PacBoy/Temp/bin/Debug/sfw.net.dll
+/Users/barry/PacBoy/Temp/bin/Debug/ReadOnlyCollectionsInterfaces.dll
+/Users/barry/PacBoy/Temp/bin/Debug/Mono.Security.dll
+/Users/barry/PacBoy/Temp/bin/Debug/GitHub.Unity.dll
+/Users/barry/PacBoy/Temp/bin/Debug/GitHub.Api.dll
+/Users/barry/PacBoy/Temp/bin/Debug/AsyncBridge.Net35.dll

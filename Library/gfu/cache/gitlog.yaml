@@ -12,9 +12,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 3
-  lastUpdatedAtString: 2018-04-08T12:20:41.3360770-04:00
-  initializedAtString: 2018-04-08T11:51:46.9037680-04:00
+  lastUpdatedAtString: 2018-04-08T15:44:07.9313460-04:00
+  initializedAtString: 2018-04-08T15:44:07.8845930-04:00
   log:
+  - commitID: 7ecbda0d56bb7c41757d9cb8b6906ccad0bffa27
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: GitHub updates
+    description: GitHub updates
+    timeString: 2018-04-08T12:22:22.0000000-04:00
+    commitTimeString: 2018-04-08T12:22:22.0000000-04:00
+    changes:
+    - path: Library/gfu/cache/branches.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/branches.yaml
+      projectPath: Library/gfu/cache/branches.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitlog.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitlog.yaml
+      projectPath: Library/gfu/cache/gitlog.yaml
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/gfu/cache/gitstatusentries.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitstatusentries.yaml
+      projectPath: Library/gfu/cache/gitstatusentries.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gittrackingstatus.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gittrackingstatus.yaml
+      projectPath: Library/gfu/cache/gittrackingstatus.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/repoinfo.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/repoinfo.yaml
+      projectPath: Library/gfu/cache/repoinfo.yaml
+      originalPath: 
+      status: 3
+      staged: 0
   - commitID: b2b3cfbad15dfa3d9f87e24d3d04b0cf2a34e711
     mergeA: 
     mergeB: 
