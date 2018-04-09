@@ -11,7 +11,6 @@ public class PacManMove : BaseActor {
 
     bool dying = false;
 
-	// Use this for initialization
     void Start () {
         base.Start ();
         _dest = transform.position;
@@ -34,15 +33,15 @@ public class PacManMove : BaseActor {
     void CheckForGhostCollision()
     {
         if (Tile == GameController.BlinkyTile) {
-            dying = true;
-            GameController.StopSiren ();
-            GameController.StopGhosts ();
             StartCoroutine (ShowDeathAnimation ());
         }
     }
 
     IEnumerator ShowDeathAnimation()
     {
+        dying = true;
+        GameController.StopSiren ();
+        GameController.StopGhosts ();
         Animation = false;
         yield return new WaitForSeconds (0.75f);
         Animation = true;

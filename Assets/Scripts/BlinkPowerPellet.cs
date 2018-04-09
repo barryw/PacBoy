@@ -9,10 +9,6 @@ public class BlinkPowerPellet : MonoBehaviour {
 	void Start () {
         StartCoroutine (Blink ());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
 
     IEnumerator Blink()
     {

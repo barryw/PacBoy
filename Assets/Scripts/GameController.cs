@@ -11,13 +11,21 @@ public class GameController : MonoBehaviour
     public GameObject blinky;
 
     public GameObject cherry;
+    public GameObject cherryPoints;
     public GameObject strawberry;
+    public GameObject strawberryPoints;
     public GameObject orange;
+    public GameObject orangePoints;
     public GameObject apple;
-    public GameObject melon;
+    public GameObject applePoints;
+    public GameObject grapes;
+    public GameObject grapesPoints;
     public GameObject galaxianBoss;
+    public GameObject galaxianBossPoints;
     public GameObject bell;
+    public GameObject bellPoints;
     public GameObject key;
+    public GameObject keyPoints;
 
     public int numberOfPacs;
     public int startLevel;
@@ -27,6 +35,8 @@ public class GameController : MonoBehaviour
     private AudioSource siren;
     private AudioSource chomp;
     private AudioSource extraLife;
+    private AudioSource eatFruit;
+
     private bool player1ExtraLifeAwarded;
     private bool player2ExtraLifeAwarded;
 
@@ -44,6 +54,7 @@ public class GameController : MonoBehaviour
     private int p2LargeDotsEaten = 0;
 
     private bool isReady = false;
+    private GameObject fruit;
 
     public enum PointSource {
         SMALLDOT = 10,
@@ -52,6 +63,7 @@ public class GameController : MonoBehaviour
         STRAWBERRY = 300,
         ORANGE = 500,
         APPLE = 700,
+        GRAPES = 1000,
         GALAXIAN_BOSS = 2000,
         BELL = 3000,
         KEY = 5000,
@@ -69,6 +81,7 @@ public class GameController : MonoBehaviour
         siren = GetComponents<AudioSource> () [1];
         chomp = GetComponents<AudioSource> () [2];
         extraLife = GetComponents<AudioSource> () [3];
+        eatFruit = GetComponents<AudioSource> () [4];
 
         pacMan.SetActive (false);
 
@@ -78,7 +91,7 @@ public class GameController : MonoBehaviour
         RenderExtraPacs ();
         RenderLevel ();
         StartCoroutine (RemovePac ());
-        StartCoroutine (StartSiren ());
+        StartCoroutine (StartInitialSiren ());
         StartCoroutine (FlashCurrentPlayer ());
 	}
 
@@ -86,6 +99,18 @@ public class GameController : MonoBehaviour
     {
         DisplayScore ();
         DisplayFruit ();
+        CheckClear ();
+    }
+
+    void CheckClear()
+    {
+        if ((currentPlayer == 1 && p1SmallDotsEaten == 240 && p1LargeDotsEaten == 4) || (currentPlayer == 2 && p2SmallDotsEaten == 240 && p2LargeDotsEaten == 4)) {
+            StopSiren ();
+            StopGhosts ();
+            isReady = false;
+            pacMan.GetComponent<Animator> ().speed = 0.0f;
+            pacMan.GetComponent<Animator> ().Play ("", 0, 0.0f);
+        }
     }
 
     public Vector2 PacManTile
@@ -127,6 +152,12 @@ public class GameController : MonoBehaviour
     {
         if (!chomp.isPlaying)
             chomp.Play ();
+    }
+
+    public void EatFruit()
+    {
+        if (!eatFruit.isPlaying)
+            eatFruit.Play ();
     }
 
     public bool IsReady
@@ -218,17 +249,24 @@ public class GameController : MonoBehaviour
         pacMan.GetComponent<Animator> ().speed = 0;
     }
 
-    public IEnumerator StartSiren()
+    public IEnumerator StartInitialSiren()
     {
         yield return new WaitForSeconds (startSound.clip.length);
-        siren.Play ();
+        StartSiren ();
         pacMan.GetComponent<Animator> ().speed = 0.8f;
         isReady = true;
     }
 
+    public void StartSiren()
+    {
+        if(!siren.isPlaying)
+            siren.Play ();
+    }
+
     public void StopSiren()
     {
-        siren.Stop ();
+        if(siren.isPlaying)
+            siren.Stop ();
     }
 
     public void StopGhosts()
@@ -249,19 +287,13 @@ public class GameController : MonoBehaviour
 
     void DisplayFruit()
     {
-        GameObject fruit = null;
-
-        if (currentPlayer == 1) {
-            if (p1SmallDotsEaten == 70) {
-                fruit = GetFruit ();
-            }
+        if ((currentPlayer == 1 && (p1SmallDotsEaten == 70 || p1SmallDotsEaten == 170) || currentPlayer == 2 && (p2SmallDotsEaten == 70 || p2SmallDotsEaten == 170)) && fruit == null) {
+            fruit = GetFruit ();
+            Destroy (fruit, Random.Range (9, 10));
         }
-
-        if(fruit != null)
-            Destroy(fruit, Random.Range(9,10));
     }
 
-    GameObject GetFruit()
+    public GameObject GetFruit()
     {
         switch (currentLevel) {
         case 1:
@@ -269,11 +301,82 @@ public class GameController : MonoBehaviour
         case 2:
             return Instantiate (strawberry);
         case 3:
-            return Instantiate (orange);
         case 4:
+            return Instantiate (orange);
+        case 5:
+        case 6:
             return Instantiate (apple);
+        case 7:
+        case 8:
+            return Instantiate (grapes);
+        case 9:
+        case 10:
+            return Instantiate (galaxianBoss);
+        case 11:
+        case 12:
+            return Instantiate (bell);
+        case 13-255:
+            return Instantiate (key);
         default:
             return null;
+        }
+    }
+
+    public GameObject GetFruitPoints()
+    {
+        switch (currentLevel) {
+        case 1:
+            return Instantiate (cherryPoints);
+        case 2:
+            return Instantiate (strawberryPoints);
+        case 3:
+        case 4:
+            return Instantiate (orangePoints);
+        case 5:
+        case 6:
+            return Instantiate (applePoints);
+        case 7:
+        case 8:
+            return Instantiate (grapesPoints);
+        case 9:
+        case 10:
+            return Instantiate (galaxianBossPoints);
+        case 11:
+        case 12:
+            return Instantiate (bellPoints);
+        case 13-255:
+            return Instantiate (keyPoints);
+        default:
+            return null;
+        }
+    }
+
+    public PointSource GetBonusPoints()
+    {
+        switch (currentLevel) {
+        case 1:
+            return PointSource.CHERRY;
+        case 2:
+            return PointSource.STRAWBERRY;
+        case 3:
+        case 4:
+            return PointSource.ORANGE;
+        case 5:
+        case 6:
+            return PointSource.APPLE;
+        case 7:
+        case 8:
+            return PointSource.GRAPES;
+        case 9:
+        case 10:
+            return PointSource.GALAXIAN_BOSS;
+        case 11:
+        case 12:
+            return PointSource.BELL;
+        case 13-255:
+            return PointSource.KEY;
+        default:
+            return 0;
         }
     }
 
@@ -285,15 +388,15 @@ public class GameController : MonoBehaviour
 
         if (currentLevel >= 1)
             levelFruits.Add(Instantiate(cherry, new Vector3(25.0f, -1.2f, 0), Quaternion.identity));
-        if (currentLevel >=2)
+        if (currentLevel >= 2)
             levelFruits.Add (Instantiate (strawberry, new Vector3 (23.0f, -1.2f, 0), Quaternion.identity));
         if (currentLevel >= 3)
             levelFruits.Add (Instantiate (orange, new Vector3 (21.0f, -1.2f, 0), Quaternion.identity));
         if (currentLevel >= 4)
-            levelFruits.Add (Instantiate (apple, new Vector3 (19.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (orange, new Vector3 (19.0f, -1.2f, 0), Quaternion.identity));
         if (currentLevel >= 5)
-            levelFruits.Add (Instantiate (melon, new Vector3 (17.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (apple, new Vector3 (17.0f, -1.2f, 0), Quaternion.identity));
         if (currentLevel >= 6)
-            levelFruits.Add (Instantiate (galaxianBoss, new Vector3 (15.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (apple, new Vector3 (15.0f, -1.2f, 0), Quaternion.identity));
     }
 }

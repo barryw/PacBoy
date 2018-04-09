@@ -10401,6 +10401,7 @@ MonoBehaviour:
   gameOver: {fileID: 1548835853937496, guid: cbefdbd61342d430d83c44b6c48b60fd, type: 2}
   extraPac: {fileID: 1812072199699320, guid: 67ab0393aa6254c90a57933c140e9a44, type: 2}
   pacMan: {fileID: 172089216}
+  blinky: {fileID: 0}
   cherry: {fileID: 1058824217239668, guid: 1ba8535fc030f419693439ad61c3791f, type: 2}
   strawberry: {fileID: 1302391857467344, guid: 7d59ad382e0fa43608fc36fe28b05ea8, type: 2}
   orange: {fileID: 1938773585412578, guid: 3e2f15db8e849462783075516f3d47cc, type: 2}
