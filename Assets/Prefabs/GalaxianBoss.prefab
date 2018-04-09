@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4146867905830146}
   - component: {fileID: 212998350902863620}
   - component: {fileID: 61246879527967822}
+  - component: {fileID: 114895172016066750}
   m_Layer: 0
   m_Name: GalaxianBoss
   m_TagString: Fruit
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2719574, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &114895172016066750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646863176889164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62306bdc1f9594270a57782c10276f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212998350902863620
 SpriteRenderer:
   m_ObjectHideFlags: 1

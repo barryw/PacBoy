@@ -1170,7 +1170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300042, guid: eb343d7eb70e145d7a262fa8a25d98ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3313,7 +3313,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300106, guid: eb343d7eb70e145d7a262fa8a25d98ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3374,6 +3374,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   speed: 0.3
+  PacMan: {fileID: 443530462}
+  ThisGhost: 1
+  CurrentMode: 0
 --- !u!4 &449697899 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4785104238539466, guid: a40e34a87c5b64a6197930dacdb4de18,
@@ -3462,7 +3465,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300078, guid: eb343d7eb70e145d7a262fa8a25d98ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3509,7 +3512,10 @@ MonoBehaviour:
   - {fileID: 691170463}
   - {fileID: 515142675}
   - {fileID: 1535350042}
-  speed: 0.2
+  speed: 0
+  PacMan: {fileID: 172089216}
+  ThisGhost: 0
+  CurrentMode: 0
 --- !u!61 &450124894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10379,6 +10385,7 @@ GameObject:
   - component: {fileID: 1478579648}
   - component: {fileID: 1478579649}
   - component: {fileID: 1478579650}
+  - component: {fileID: 1478579651}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -10401,18 +10408,32 @@ MonoBehaviour:
   gameOver: {fileID: 1548835853937496, guid: cbefdbd61342d430d83c44b6c48b60fd, type: 2}
   extraPac: {fileID: 1812072199699320, guid: 67ab0393aa6254c90a57933c140e9a44, type: 2}
   pacMan: {fileID: 172089216}
-  blinky: {fileID: 0}
+  blinky: {fileID: 450124888}
   cherry: {fileID: 1058824217239668, guid: 1ba8535fc030f419693439ad61c3791f, type: 2}
+  cherryPoints: {fileID: 1974383690348012, guid: c83a0464a564d4019b0d9ac00723aaa3,
+    type: 2}
   strawberry: {fileID: 1302391857467344, guid: 7d59ad382e0fa43608fc36fe28b05ea8, type: 2}
+  strawberryPoints: {fileID: 1905213661891332, guid: aff7fc10e361d4644951a2e8885485ee,
+    type: 2}
   orange: {fileID: 1938773585412578, guid: 3e2f15db8e849462783075516f3d47cc, type: 2}
+  orangePoints: {fileID: 1690641413922810, guid: 989acf23c6d7f4ce88084cf58f8e3dbc,
+    type: 2}
   apple: {fileID: 1819067493549890, guid: 70728951d0b1c48b5ae2b1b41991f2ac, type: 2}
-  melon: {fileID: 1806535389162166, guid: 48da446c5c14d40b58db0589cbced765, type: 2}
+  applePoints: {fileID: 1327503802723438, guid: 17ff500ea0a164d0f971c9683180e285,
+    type: 2}
+  grapes: {fileID: 1806535389162166, guid: 48da446c5c14d40b58db0589cbced765, type: 2}
+  grapesPoints: {fileID: 1518233765997782, guid: a1faa366f3d5c44868665df994a9df00,
+    type: 2}
   galaxianBoss: {fileID: 1646863176889164, guid: 061d7c8c95a4544e3a80c561726d5a51,
     type: 2}
+  galaxianBossPoints: {fileID: 1987412823243572, guid: 29b3fc52a90f349698151e687a77b0b7,
+    type: 2}
   bell: {fileID: 1201560530270868, guid: 3f129cb263ec442d2809d44794801237, type: 2}
+  bellPoints: {fileID: 1739948994574378, guid: 36fa55e7924cc4f8ab501d2c2c510991, type: 2}
   key: {fileID: 1439427425895662, guid: 03bfdd3067d8b41c48f7e19476e5862c, type: 2}
+  keyPoints: {fileID: 1316693515817260, guid: 835221883ad414478b897434f12d4ea8, type: 2}
   numberOfPacs: 3
-  startLevel: 1
+  startLevel: 3
   extraPacScore: 10000
 --- !u!82 &1478579646
 AudioSource:
@@ -10677,6 +10698,86 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 40fbe6b78f7fa420eb9d52cf81f032bb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &1478579651
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1478579644}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b27c8f9d203924843895af281b2b1cb4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -14709,7 +14810,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300086, guid: eb343d7eb70e145d7a262fa8a25d98ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14770,6 +14871,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   speed: 0.3
+  PacMan: {fileID: 172089216}
+  ThisGhost: 2
+  CurrentMode: 0
 --- !u!1001 &1950327249
 Prefab:
   m_ObjectHideFlags: 0
@@ -15822,7 +15926,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300118, guid: eb343d7eb70e145d7a262fa8a25d98ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15883,6 +15987,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   speed: 0.3
+  PacMan: {fileID: 172089216}
+  ThisGhost: 3
+  CurrentMode: 0
 --- !u!1001 &2117026301
 Prefab:
   m_ObjectHideFlags: 0

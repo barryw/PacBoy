@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4884229392006980}
   - component: {fileID: 212020299849819810}
   - component: {fileID: 61927106612770088}
+  - component: {fileID: 114190300862962190}
   m_Layer: 0
   m_Name: Key
   m_TagString: Fruit
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.82512856, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &114190300862962190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439427425895662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62306bdc1f9594270a57782c10276f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212020299849819810
 SpriteRenderer:
   m_ObjectHideFlags: 1

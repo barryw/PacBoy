@@ -20,13 +20,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4829420138098944}
   - component: {fileID: 212691893828190454}
-  - component: {fileID: 61319742877388572}
+  - component: {fileID: 114148741916734064}
   m_Layer: 0
   m_Name: Orange
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4829420138098944
 Transform:
@@ -41,31 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61319742877388572
-BoxCollider2D:
+--- !u!114 &114148741916734064
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1938773585412578}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.04156065, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5132742, y: 2}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62306bdc1f9594270a57782c10276f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212691893828190454
 SpriteRenderer:
   m_ObjectHideFlags: 1
