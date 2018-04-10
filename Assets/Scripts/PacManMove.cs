@@ -20,7 +20,8 @@ public class PacManMove : BaseActor {
 	void FixedUpdate () {
         if (dying)
             return;
-        
+
+        print (Tile);
         if (GameController.IsReady) {
             CheckForGhostCollision ();
             MovePacMan ();

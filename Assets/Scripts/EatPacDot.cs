@@ -12,12 +12,12 @@ public class EatPacDot : MonoBehaviour {
         GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
             gameController = gc.GetComponent<GameController> ();
-        Tile = new Vector2 (Mathf.Round (transform.position.x + 0.25f), Mathf.Round (transform.position.y + 2.5f));
+        Tile = new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
     }
 
     void FixedUpdate()
     {
-        if (gameObject != null && gameController.PacManTile == Tile) {
+        if (gameController.PacManTile == Tile) {
             gameController.AddPoints (GameController.PointSource.SMALLDOT);
             gameController.Chomp ();
             Destroy (gameObject);

@@ -117,7 +117,7 @@ public class GameController : MonoBehaviour
     {
         get {
             if (pacMan != null)
-                return new Vector2 (Mathf.Round (pacMan.transform.position.x + 0.25f), Mathf.Round (pacMan.transform.position.y + 2.5f));
+                return new Vector2 (Mathf.Ceil (pacMan.transform.position.x), Mathf.Ceil (pacMan.transform.position.y));
             else
                 return Vector2.zero;
         }
@@ -126,7 +126,7 @@ public class GameController : MonoBehaviour
     public Vector2 BlinkyTile
     {
         get {
-            return new Vector2 (Mathf.Round (blinky.transform.position.x + 0.25f), Mathf.Round (blinky.transform.position.y + 2.5f)); 
+            return new Vector2 (Mathf.Ceil (blinky.transform.position.x), Mathf.Ceil (blinky.transform.position.y));
         }
     }
 
@@ -209,13 +209,6 @@ public class GameController : MonoBehaviour
 
     private void DisplayScore()
     {
-        GameObject p1score = GameObject.FindGameObjectWithTag ("Score1");
-        GameObject p2score = GameObject.FindGameObjectWithTag ("Score2");
-        GameObject highscore = GameObject.FindGameObjectWithTag ("HighScore");
-
-        p1score.GetComponent<UnityEngine.UI.Text> ().text = player1Score.ToString ("000000");
-        p2score.GetComponent<UnityEngine.UI.Text> ().text = player2Score.ToString ("000000");
-        highscore.GetComponent<UnityEngine.UI.Text> ().text = highScore.ToString ("000000");
     }
 
     private IEnumerator FlashCurrentPlayer()
@@ -228,15 +221,9 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds (0.5f);
             display = !display;
             if (currentPlayer == 1) {
-                if (display)
-                    oneUp.GetComponent<UnityEngine.UI.Text> ().text = "1UP";
-                else
-                    oneUp.GetComponent<UnityEngine.UI.Text> ().text = "";
+                oneUp.SetActive (!oneUp.activeSelf);
             } else {
-                if (display)
-                    oneUp.GetComponent<UnityEngine.UI.Text> ().text = "2UP";
-                else
-                    oneUp.GetComponent<UnityEngine.UI.Text> ().text = "";
+                twoUp.SetActive (!twoUp.activeSelf);
             }
         }
     }

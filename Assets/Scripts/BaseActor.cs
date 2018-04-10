@@ -17,7 +17,7 @@ public class BaseActor : MonoBehaviour
     public Vector2 Tile
     {
         get {
-            return new Vector2 (Mathf.Round (transform.position.x + 0.25f), Mathf.Round (transform.position.y + 2.5f));
+            return new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
         }
     }
 
