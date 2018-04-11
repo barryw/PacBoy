@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class PacManMove : BaseActor {
 
-    public float speed = 1.0f;
-    Vector2 _dest = Vector2.zero;
-    Vector2 _dir = Vector2.right;
     Vector2 _nextDir = Vector2.right;
-    Maze _maze = Maze.Instance();
 
     bool dying = false;
 
-    void Start () {
+    new void Start () {
         base.Start ();
-        _dest = TileCenter + _dir;
+        Direction = Vector2.right;
+        SetDestination (Direction);
+        Animation = true;
+        Speed = 7.0f;
 	}
 	
 	// Update is called once per frame
@@ -24,7 +23,7 @@ public class PacManMove : BaseActor {
 
         if (GameController.IsReady) {
             CheckForGhostCollision ();
-            MovePacMan ();
+            Move ();
             ReadInput ();
             ReadInputAndMove();
             Animate();
@@ -52,35 +51,6 @@ public class PacManMove : BaseActor {
         GameController.Reset ();
     }
 
-    void Animate()
-    {
-        Vector2 dir = _dest - TileCenter;
-        Animator.SetFloat("DirX", dir.x);
-        Animator.SetFloat("DirY", dir.y);
-    }
-
-    bool Animation {
-        set {
-            if (value) {
-                Animator.speed = 0.8f;
-            } else {
-                Animator.speed = 0.0f;
-                Animator.Play ("", 0, 0.0f);
-            }
-        }
-    }
-
-    bool Valid(Vector2 direction)
-    {
-        return _maze.ValidLocations ().Contains (Tile + direction);
-    }
-
-    void MovePacMan()
-    {
-        Vector2 p = Vector2.MoveTowards(transform.position, _dest, 10f * Time.deltaTime);
-        GetComponent<Rigidbody2D>().MovePosition(p);
-    }
-
     void ReadInput()
     {
         if (Input.GetAxis("Horizontal") > 0) 
@@ -100,32 +70,14 @@ public class PacManMove : BaseActor {
     {
         // Continue in _dir if no button was pressed
         if (_nextDir == Vector2.zero) {
-            // Is the current direction valid?
-            if (Valid (_dir)) {
-                SetDestination (_dir);
-                Animation = true;
-            } else {
-                Animation = false;
-            }
+            SetDestination (Direction);
         } else {
             if (Valid (_nextDir)) {
-                _dir = _nextDir;
+                Direction = _nextDir;
                 SetDestination (_nextDir);
-                Animation = true;
             } else {
-                if (Valid (_dir)) {
-                    // Keep on truckin' good buddy!
-                    SetDestination(_dir);
-                    Animation = true;
-                } else {
-                    Animation = false;
-                }
+                SetDestination (Direction);
             }
         }
-    }
-
-    void SetDestination(Vector2 direction)
-    {
-        _dest = TileCenter + direction;
     }
 }

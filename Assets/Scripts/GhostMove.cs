@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostMove : BaseActor {
-    public float speed = 0.3f;
     public GameObject PacMan;
     public enum Ghost
     {
@@ -24,10 +23,7 @@ public class GhostMove : BaseActor {
     public Mode CurrentMode = Mode.CHASE;
 
     private Dictionary<Ghost, Vector2> ScatterTargets = new Dictionary<Ghost, Vector2>();
-    private List<Vector2> NormalIntersections = new List<Vector2> ();
-    private List<Vector2> SpecialIntersections = new List<Vector2> ();
     private List<Vector2> Directions = new List<Vector2> ();
-    private Vector2 Waypoint = Vector2.zero;
 
     new void Start()
     {
@@ -39,71 +35,28 @@ public class GhostMove : BaseActor {
         ScatterTargets.Add (Ghost.INKY, new Vector2 (26, 2));
         ScatterTargets.Add (Ghost.CLYDE, new Vector2 (2, 2));
 
-        // There are 4 special intersections that ghosts cannot turn "up" at
-        SpecialIntersections.Add (new Vector2 (16, 10));
-        SpecialIntersections.Add (new Vector2 (13, 10));
-        SpecialIntersections.Add (new Vector2 (16, 22));
-        SpecialIntersections.Add (new Vector2 (13, 22));
-
-        // And a bunch of normal intersections
-        NormalIntersections.Add (new Vector2 (16, 4));
-        NormalIntersections.Add (new Vector2 (13, 4));
-        NormalIntersections.Add (new Vector2 (4, 7));
-        NormalIntersections.Add (new Vector2 (25, 7));
-        NormalIntersections.Add (new Vector2 (7, 10));
-        NormalIntersections.Add (new Vector2 (10, 10));
-        NormalIntersections.Add (new Vector2 (19, 10));
-        NormalIntersections.Add (new Vector2 (22, 10));
-        NormalIntersections.Add (new Vector2 (7, 13));
-        NormalIntersections.Add (new Vector2 (10, 13));
-        NormalIntersections.Add (new Vector2 (19, 13));
-        NormalIntersections.Add (new Vector2 (22, 13));
-        NormalIntersections.Add (new Vector2 (10, 16));
-        NormalIntersections.Add (new Vector2 (19, 16));
-        NormalIntersections.Add (new Vector2 (7, 19));
-        NormalIntersections.Add (new Vector2 (10, 19));
-        NormalIntersections.Add (new Vector2 (19, 19));
-        NormalIntersections.Add (new Vector2 (22, 19));
-        NormalIntersections.Add (new Vector2 (7, 25));
-        NormalIntersections.Add (new Vector2 (22, 25));
-        NormalIntersections.Add (new Vector2 (2, 28));
-        NormalIntersections.Add (new Vector2 (7, 28));
-        NormalIntersections.Add (new Vector2 (10, 28));
-        NormalIntersections.Add (new Vector2 (13, 28));
-        NormalIntersections.Add (new Vector2 (16, 28));
-        NormalIntersections.Add (new Vector2 (19, 28));
-        NormalIntersections.Add (new Vector2 (22, 28));
-        NormalIntersections.Add (new Vector2 (27, 28));
-        NormalIntersections.Add (new Vector2 (7, 32));
-        NormalIntersections.Add (new Vector2 (22, 32));
-
         Directions.Add (Vector2.up);
         Directions.Add (Vector2.down);
         Directions.Add (Vector2.left);
         Directions.Add (Vector2.right);
 
-        Waypoint = Tile + Vector2.left;
+        // Start off moving left
+        SetDestination (Vector2.left);
+        Direction = Vector2.left;
+        Speed = 6.0f;
     }
 
 	// Update is called once per frame
 	void FixedUpdate () {
-        List<Vector2> exits = GetExits(Waypoint);
+        Move ();
+        Animate ();
            
-        if ((Vector2)transform.position != Waypoint) {
-            Vector2 p = Vector2.MoveTowards (transform.position, Waypoint, speed);
-            GetComponent<Rigidbody2D> ().MovePosition (p);
-        } else {
-            if (SpecialIntersections.Contains (Tile)) {
-                // Cannot move up in chase or scatter
-                if (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER) {
-                    Vector2 direction = GetDirection (exits);
-                    Waypoint = Tile + direction;
-                }
-            } else if (NormalIntersections.Contains (Tile)) {
-                Vector2 direction = GetDirection (exits);
-                Waypoint = Waypoint + direction;
-            }
+        if (TileCenter == Destination) {
+            List<Vector2> exits = GetExits (Tile);
+            if (exits.Count == 1)
+                SetDestination (exits [0]);
         }
+
 //        if (waypoints != null && waypoints.Length > 0) {
 //            if (transform.position != waypoints[cur].position) {
 //                Vector2 p = Vector2.MoveTowards(transform.position,
@@ -121,23 +74,22 @@ public class GhostMove : BaseActor {
         //}
 	}
 
+
     private List<Vector2> GetExits(Vector2 pos)
     {
         bool canGoUp = true;
-        if (SpecialIntersections.Contains (pos) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
+        if (_maze.SpecialLocations().Contains (pos) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
             canGoUp = false;
         
         List<Vector2> exits = new List<Vector2> ();
 
-        foreach (Vector2 direction in Directions) {
-            if (direction == Vector2.up && !canGoUp)
+        foreach (Vector2 dir in Directions) {
+            if (dir == Vector2.up && !canGoUp)
                 continue;
-            if (Tile != (pos + direction)) {
-                Vector2 dest = pos + direction;
-                RaycastHit2D hit = Physics2D.Linecast (pos, dest, LayerMask.GetMask ("Maze"));
-                if (hit.collider == null) {
-                    exits.Add (direction);
-                    Debug.DrawLine (pos, pos + direction, Color.white);
+            if (dir != -Direction) {
+                Vector2 dest = pos + dir;
+                if (_maze.ValidLocations ().Contains (dest)) {
+                    exits.Add (dir);
                 }
             }
         }
@@ -157,11 +109,6 @@ public class GhostMove : BaseActor {
             }
         }
         return shortestVector;
-    }
-
-    public void SetSpeed(float newSpeed)
-    {
-        speed = newSpeed;
     }
 
     // Get this ghost's target based on mode

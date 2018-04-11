@@ -335,7 +335,7 @@ public class GameController : MonoBehaviour
         GameObject[] ghosts = GameObject.FindGameObjectsWithTag ("Ghost");
         foreach (GameObject ghost in ghosts) {
             GhostMove m = ghost.GetComponent<GhostMove> ();
-            m.SetSpeed (0.0f);
+            m.Speed = 0.0f;
         }
     }
 
