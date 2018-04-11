@@ -8,20 +8,19 @@ public class PacManMove : BaseActor {
     Vector2 _dest = Vector2.zero;
     Vector2 _dir = Vector2.right;
     Vector2 _nextDir = Vector2.right;
+    Maze _maze = Maze.Instance();
 
     bool dying = false;
 
     void Start () {
         base.Start ();
-        _dest = transform.position;
+        _dest = TileCenter + _dir;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         if (dying)
             return;
-
-        ColorTile ();
 
         if (GameController.IsReady) {
             CheckForGhostCollision ();
@@ -55,7 +54,7 @@ public class PacManMove : BaseActor {
 
     void Animate()
     {
-        Vector2 dir = _dest - (Vector2)transform.position;
+        Vector2 dir = _dest - TileCenter;
         Animator.SetFloat("DirX", dir.x);
         Animator.SetFloat("DirY", dir.y);
     }
@@ -73,14 +72,12 @@ public class PacManMove : BaseActor {
 
     bool Valid(Vector2 direction)
     {
-        Vector2 pos = transform.position;
-        RaycastHit2D hit = Physics2D.Linecast(pos, pos + direction, LayerMask.GetMask("Maze"));
-        return hit.collider == null;
+        return _maze.ValidLocations ().Contains (Tile + direction);
     }
 
     void MovePacMan()
     {
-        Vector2 p = Vector2.MoveTowards(transform.position, _dest, speed);
+        Vector2 p = Vector2.MoveTowards(transform.position, _dest, 10f * Time.deltaTime);
         GetComponent<Rigidbody2D>().MovePosition(p);
     }
 
@@ -129,6 +126,6 @@ public class PacManMove : BaseActor {
 
     void SetDestination(Vector2 direction)
     {
-        _dest = (Vector2)transform.position + (direction * 0.3f);
+        _dest = TileCenter + direction;
     }
 }

@@ -17,7 +17,14 @@ public class BaseActor : MonoBehaviour
     public Vector2 Tile
     {
         get {
-            return new Vector2 (Mathf.Ceil (transform.position.x - 0.5f), Mathf.Ceil (transform.position.y - 0.5f));
+            return new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
+        }
+    }
+
+    public Vector2 TileCenter
+    {
+        get {
+            return new Vector2 (Mathf.Ceil (transform.position.x) - 0.5f, Mathf.Ceil (transform.position.y) - 0.5f);
         }
     }
 

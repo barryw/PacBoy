@@ -12,9 +12,129 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 3
-  lastUpdatedAtString: 2018-04-10T21:18:21.8652430-04:00
+  lastUpdatedAtString: 2018-04-10T22:44:33.6042930-04:00
   initializedAtString: 2018-04-10T20:00:57.6012560-04:00
   log:
+  - commitID: ef9a0c5d9b742a8458c3f2fb6cb48d6bd2f5ac96
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: Time to move away from colliders. FUCK COLLIDERS!
+    description: Time to move away from colliders. FUCK COLLIDERS!
+    timeString: 2018-04-10T21:18:52.0000000-04:00
+    commitTimeString: 2018-04-10T21:18:52.0000000-04:00
+    changes:
+    - path: Assembly-CSharp.csproj
+      fullPath: /Users/barry/PacBoy/Assembly-CSharp.csproj
+      projectPath: Assembly-CSharp.csproj
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scenes/Main.unity
+      fullPath: /Users/barry/PacBoy/Assets/Scenes/Main.unity
+      projectPath: Assets/Scenes/Main.unity
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scripts/Maze.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/Maze.cs
+      projectPath: Assets/Scripts/Maze.cs
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets/Scripts/Maze.cs.meta
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/Maze.cs.meta
+      projectPath: Assets/Scripts/Maze.cs.meta
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/InspectorExpandedItems.asset
+      fullPath: /Users/barry/PacBoy/Library/InspectorExpandedItems.asset
+      projectPath: Library/InspectorExpandedItems.asset
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/assetDatabase3
+      fullPath: /Users/barry/PacBoy/Library/assetDatabase3
+      projectPath: Library/assetDatabase3
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/branches.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/branches.yaml
+      projectPath: Library/gfu/cache/branches.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitlog.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitlog.yaml
+      projectPath: Library/gfu/cache/gitlog.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitstatusentries.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitstatusentries.yaml
+      projectPath: Library/gfu/cache/gitstatusentries.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gittrackingstatus.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gittrackingstatus.yaml
+      projectPath: Library/gfu/cache/gittrackingstatus.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/repoinfo.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/repoinfo.yaml
+      projectPath: Library/gfu/cache/repoinfo.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9
+      fullPath: /Users/barry/PacBoy/Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9
+      projectPath: Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9.info
+      projectPath: Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9.info
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-7b927619a915145c59dd42d364b76c76
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-7b927619a915145c59dd42d364b76c76
+      projectPath: Temp/UnityTempFile-7b927619a915145c59dd42d364b76c76
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-99a06c30cf6e643cbbfb08cf0c2b2fbe
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-99a06c30cf6e643cbbfb08cf0c2b2fbe
+      projectPath: Temp/UnityTempFile-99a06c30cf6e643cbbfb08cf0c2b2fbe
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/__Backupscenes/0.backup
+      fullPath: /Users/barry/PacBoy/Temp/__Backupscenes/0.backup
+      projectPath: Temp/__Backupscenes/0.backup
+      originalPath: 
+      status: 3
+      staged: 0
   - commitID: a7c8576c107466bd51cb0b15c5832347fbca445b
     mergeA: 
     mergeB: 

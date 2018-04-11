@@ -188,7 +188,7 @@ public class Maze
         Locations.Add (new Vector2 (25, 9));
 
         // Row 10
-        Locations.Add (new Vector2 (2,10));
+        Locations.Add (new Vector2 (2, 10));
         Locations.Add (new Vector2 (3, 10));
         Locations.Add (new Vector2 (4, 10));
         Locations.Add (new Vector2 (7, 10));
@@ -312,6 +312,160 @@ public class Maze
         Locations.Add (new Vector2 (26, 19));
         Locations.Add (new Vector2 (27, 19));
         Locations.Add (new Vector2 (28, 19));
+
+        // Row 20
+        Locations.Add (new Vector2 (7, 20));
+        Locations.Add (new Vector2 (10, 20));
+        Locations.Add (new Vector2 (19, 20));
+        Locations.Add (new Vector2 (22, 20));
+
+        // Row 21
+        Locations.Add (new Vector2 (7, 21));
+        Locations.Add (new Vector2 (10, 21));
+        Locations.Add (new Vector2 (19, 21));
+        Locations.Add (new Vector2 (22, 21));
+
+        // Row 22
+        Locations.Add (new Vector2 (7, 22));
+        Locations.Add (new Vector2 (10, 22));
+        Locations.Add (new Vector2 (11, 22));
+        Locations.Add (new Vector2 (12, 22));
+        Locations.Add (new Vector2 (13, 22));
+        Locations.Add (new Vector2 (14, 22));
+        Locations.Add (new Vector2 (15, 22));
+        Locations.Add (new Vector2 (16, 22));
+        Locations.Add (new Vector2 (17, 22));
+        Locations.Add (new Vector2 (18, 22));
+        Locations.Add (new Vector2 (19, 22));
+        Locations.Add (new Vector2 (22, 22));
+
+        // Row 23
+        Locations.Add (new Vector2 (7, 23));
+        Locations.Add (new Vector2 (13, 23));
+        Locations.Add (new Vector2 (16, 23));
+        Locations.Add (new Vector2 (22, 23));
+
+        // Row 24
+        Locations.Add (new Vector2 (7, 24));
+        Locations.Add (new Vector2 (13, 24));
+        Locations.Add (new Vector2 (16, 24));
+        Locations.Add (new Vector2 (22, 24));
+
+        // Row 25
+        Locations.Add (new Vector2 (2, 25));
+        Locations.Add (new Vector2 (3, 25));
+        Locations.Add (new Vector2 (4, 25));
+        Locations.Add (new Vector2 (5, 25));
+        Locations.Add (new Vector2 (6, 25));
+        Locations.Add (new Vector2 (7, 25));
+        Locations.Add (new Vector2 (10, 25));
+        Locations.Add (new Vector2 (11, 25));
+        Locations.Add (new Vector2 (12, 25));
+        Locations.Add (new Vector2 (13, 25));
+        Locations.Add (new Vector2 (16, 25));
+        Locations.Add (new Vector2 (17, 25));
+        Locations.Add (new Vector2 (18, 25));
+        Locations.Add (new Vector2 (19, 25));
+        Locations.Add (new Vector2 (22, 25));
+        Locations.Add (new Vector2 (23, 25));
+        Locations.Add (new Vector2 (24, 25));
+        Locations.Add (new Vector2 (25, 25));
+        Locations.Add (new Vector2 (26, 25));
+        Locations.Add (new Vector2 (27, 25));
+
+        // Row 26
+        Locations.Add (new Vector2 (2, 26));
+        Locations.Add (new Vector2 (7, 26));
+        Locations.Add (new Vector2 (10, 26));
+        Locations.Add (new Vector2 (19, 26));
+        Locations.Add (new Vector2 (22, 26));
+        Locations.Add (new Vector2 (27, 26));
+
+        // Row 27
+        Locations.Add (new Vector2 (2, 27));
+        Locations.Add (new Vector2 (7, 27));
+        Locations.Add (new Vector2 (10, 27));
+        Locations.Add (new Vector2 (19, 27));
+        Locations.Add (new Vector2 (22, 27));
+        Locations.Add (new Vector2 (27, 27));
+
+        // Row 28
+        Locations.Add (new Vector2 (2, 28));
+        Locations.Add (new Vector2 (3, 28));
+        Locations.Add (new Vector2 (4, 28));
+        Locations.Add (new Vector2 (5, 28));
+        Locations.Add (new Vector2 (6, 28));
+        Locations.Add (new Vector2 (7, 28));
+        Locations.Add (new Vector2 (8, 28));
+        Locations.Add (new Vector2 (9, 28));
+        Locations.Add (new Vector2 (10, 28));
+        Locations.Add (new Vector2 (11, 28));
+        Locations.Add (new Vector2 (12, 28));
+        Locations.Add (new Vector2 (13, 28));
+        Locations.Add (new Vector2 (14, 28));
+        Locations.Add (new Vector2 (15, 28));
+        Locations.Add (new Vector2 (16, 28));
+        Locations.Add (new Vector2 (17, 28));
+        Locations.Add (new Vector2 (18, 28));
+        Locations.Add (new Vector2 (19, 28));
+        Locations.Add (new Vector2 (20, 28));
+        Locations.Add (new Vector2 (21, 28));
+        Locations.Add (new Vector2 (22, 28));
+        Locations.Add (new Vector2 (23, 28));
+        Locations.Add (new Vector2 (24, 28));
+        Locations.Add (new Vector2 (25, 28));
+        Locations.Add (new Vector2 (26, 28));
+        Locations.Add (new Vector2 (27, 28));
+
+        // Row 29
+        Locations.Add (new Vector2 (2, 29));
+        Locations.Add (new Vector2 (7, 29));
+        Locations.Add (new Vector2 (13, 29));
+        Locations.Add (new Vector2 (16, 29));
+        Locations.Add (new Vector2 (22, 29));
+        Locations.Add (new Vector2 (27, 29));
+
+        // Row 30
+        Locations.Add (new Vector2 (2, 30));
+        Locations.Add (new Vector2 (7, 30));
+        Locations.Add (new Vector2 (13, 30));
+        Locations.Add (new Vector2 (16, 30));
+        Locations.Add (new Vector2 (22, 30));
+        Locations.Add (new Vector2 (27, 30));
+
+        // Row 31
+        Locations.Add (new Vector2 (2, 31));
+        Locations.Add (new Vector2 (7, 31));
+        Locations.Add (new Vector2 (13, 31));
+        Locations.Add (new Vector2 (16, 31));
+        Locations.Add (new Vector2 (22, 31));
+        Locations.Add (new Vector2 (27, 31));
+
+        // Row 32
+        Locations.Add (new Vector2 (2, 32));
+        Locations.Add (new Vector2 (3, 32));
+        Locations.Add (new Vector2 (4, 32));
+        Locations.Add (new Vector2 (5, 32));
+        Locations.Add (new Vector2 (6, 32));
+        Locations.Add (new Vector2 (7, 32));
+        Locations.Add (new Vector2 (8, 32));
+        Locations.Add (new Vector2 (9, 32));
+        Locations.Add (new Vector2 (10, 32));
+        Locations.Add (new Vector2 (11, 32));
+        Locations.Add (new Vector2 (12, 32));
+        Locations.Add (new Vector2 (13, 32));
+        Locations.Add (new Vector2 (16, 32));
+        Locations.Add (new Vector2 (17, 32));
+        Locations.Add (new Vector2 (18, 32));
+        Locations.Add (new Vector2 (19, 32));
+        Locations.Add (new Vector2 (20, 32));
+        Locations.Add (new Vector2 (21, 32));
+        Locations.Add (new Vector2 (22, 32));
+        Locations.Add (new Vector2 (23, 32));
+        Locations.Add (new Vector2 (24, 32));
+        Locations.Add (new Vector2 (25, 32));
+        Locations.Add (new Vector2 (26, 32));
+        Locations.Add (new Vector2 (27, 32));
 
         return Locations;
     }
