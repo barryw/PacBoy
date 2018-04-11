@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\EatPowerPellet.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GhostMove.cs" />
+     <Compile Include="Assets\Scripts\Maze.cs" />
      <Compile Include="Assets\Scripts\PacManMove.cs" />
      <Compile Include="Assets\Scripts\PlayDeathSound.cs" />
  <Reference Include="UnityEngine.UI">
