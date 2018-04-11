@@ -17,7 +17,7 @@ public class BaseActor : MonoBehaviour
     public Vector2 Tile
     {
         get {
-            return new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
+            return new Vector2 (Mathf.Ceil (transform.position.x - 0.5f), Mathf.Ceil (transform.position.y - 0.5f));
         }
     }
 
@@ -33,6 +33,14 @@ public class BaseActor : MonoBehaviour
         get {
             return _anim;
         }
+    }
+
+    public void ColorTile()
+    {
+        Debug.DrawLine (Tile + new Vector2 (-.5f, -.5f), Tile + new Vector2 (.5f, -.5f), Color.black, 0, false);
+        Debug.DrawLine (Tile + new Vector2 (-.5f, -.5f), Tile + new Vector2 (-.5f, .5f), Color.black, 0, false);
+        Debug.DrawLine (Tile + new Vector2 (.5f, .5f), Tile + new Vector2 (.5f, -.5f), Color.black, 0, false);
+        Debug.DrawLine (Tile + new Vector2 (-.5f, .5f), Tile + new Vector2 (.5f, .5f), Color.black, 0, false);
     }
 }
 

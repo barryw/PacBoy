@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +28,17 @@ public class GameController : MonoBehaviour
     public GameObject key;
     public GameObject keyPoints;
 
+    public GameObject zero;
+    public GameObject one;
+    public GameObject two;
+    public GameObject three;
+    public GameObject four;
+    public GameObject five;
+    public GameObject six;
+    public GameObject seven;
+    public GameObject eight;
+    public GameObject nine;
+
     public int numberOfPacs;
     public int startLevel;
     public int extraPacScore;
@@ -52,6 +64,8 @@ public class GameController : MonoBehaviour
     private int p2SmallDotsEaten = 0;
     private int p1LargeDotsEaten = 0;
     private int p2LargeDotsEaten = 0;
+
+    private Dictionary<string, List<GameObject>> scores = new Dictionary<string, List<GameObject>> ();
 
     private bool isReady = false;
     private GameObject fruit;
@@ -209,6 +223,66 @@ public class GameController : MonoBehaviour
 
     private void DisplayScore()
     {
+        DisplayPlayerScore (player1Score, 6.25f, "1up");
+        DisplayPlayerScore (player2Score, 25.25f, "2up");
+    }
+
+    void DisplayPlayerScore(int score, float startLoc, string key)
+    {
+        if (!scores.ContainsKey (key))
+            scores [key] = new List<GameObject> ();
+        
+        foreach (GameObject digit in scores[key])
+            Destroy (digit);
+        
+        string stringScore = score.ToString ();
+        if (score == 0)
+            stringScore = "00";
+        int pos = 0;
+        foreach (char c in Reverse(stringScore)) {
+            GameObject prefab = null;
+            switch (c) {
+            case '0':
+                prefab = zero;
+                break;
+            case '1':
+                prefab = one;
+                break;
+            case '2':
+                prefab = two;
+                break;
+            case '3':
+                prefab = three;
+                break;
+            case '4':
+                prefab = four;
+                break;
+            case '5':
+                prefab = five;
+                break;
+            case '6':
+                prefab = six;
+                break;
+            case '7':
+                prefab = seven;
+                break;
+            case '8':
+                prefab = eight;
+                break;
+            case '9':
+                prefab = nine;
+                break;
+            }
+            scores[key].Add(Instantiate (prefab, new Vector2 (startLoc - pos, 34.5f), Quaternion.identity));
+            pos++;
+        }
+    }
+
+    private string Reverse(string original)
+    {
+        char[] chars = original.ToCharArray ();
+        Array.Reverse (chars);
+        return new string (chars);
     }
 
     private IEnumerator FlashCurrentPlayer()
@@ -268,7 +342,7 @@ public class GameController : MonoBehaviour
     private void RenderExtraPacs()
     {
         for (int i = 0; i < numberOfPacs; i++) {
-            pacMen.Add(Instantiate (extraPac, new Vector3 (3.5f + (2.5f * i), -1.2f, 0), Quaternion.identity));
+            pacMen.Add(Instantiate (extraPac, new Vector3 (3.0f + (2.0f * i), 1.0f, 0), Quaternion.identity));
         }
     }
 
@@ -276,7 +350,7 @@ public class GameController : MonoBehaviour
     {
         if ((currentPlayer == 1 && (p1SmallDotsEaten == 70 || p1SmallDotsEaten == 170) || currentPlayer == 2 && (p2SmallDotsEaten == 70 || p2SmallDotsEaten == 170)) && fruit == null) {
             fruit = GetFruit ();
-            Destroy (fruit, Random.Range (9, 10));
+            Destroy (fruit, UnityEngine.Random.Range (9, 10));
         }
     }
 
@@ -374,16 +448,16 @@ public class GameController : MonoBehaviour
         }
 
         if (currentLevel >= 1)
-            levelFruits.Add(Instantiate(cherry, new Vector3(25.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add(Instantiate(cherry, new Vector3(25.0f, 1.0f, 0), Quaternion.identity));
         if (currentLevel >= 2)
-            levelFruits.Add (Instantiate (strawberry, new Vector3 (23.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (strawberry, new Vector3 (23.0f, 1.0f, 0), Quaternion.identity));
         if (currentLevel >= 3)
-            levelFruits.Add (Instantiate (orange, new Vector3 (21.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (orange, new Vector3 (21.0f, 1.0f, 0), Quaternion.identity));
         if (currentLevel >= 4)
-            levelFruits.Add (Instantiate (orange, new Vector3 (19.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (orange, new Vector3 (19.0f, 1.0f, 0), Quaternion.identity));
         if (currentLevel >= 5)
-            levelFruits.Add (Instantiate (apple, new Vector3 (17.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (apple, new Vector3 (17.0f, 1.0f, 0), Quaternion.identity));
         if (currentLevel >= 6)
-            levelFruits.Add (Instantiate (apple, new Vector3 (15.0f, -1.2f, 0), Quaternion.identity));
+            levelFruits.Add (Instantiate (apple, new Vector3 (15.0f, 1.0f, 0), Quaternion.identity));
     }
 }

@@ -21,7 +21,8 @@ public class PacManMove : BaseActor {
         if (dying)
             return;
 
-        print (Tile);
+        ColorTile ();
+
         if (GameController.IsReady) {
             CheckForGhostCollision ();
             MovePacMan ();

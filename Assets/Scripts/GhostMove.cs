@@ -88,20 +88,22 @@ public class GhostMove : BaseActor {
 	// Update is called once per frame
 	void FixedUpdate () {
         List<Vector2> exits = GetExits(Waypoint);
-
-        if (NormalIntersections.Contains (Tile)) {
-            // At an intersection. Make a choice
-            Vector2 direction = GetDirection (exits);
-
-        }
-        if (SpecialIntersections.Contains (Tile)) {
-            // Cannot move up in chase or scatter
-            if (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER) {
+           
+        if ((Vector2)transform.position != Waypoint) {
+            Vector2 p = Vector2.MoveTowards (transform.position, Waypoint, speed);
+            GetComponent<Rigidbody2D> ().MovePosition (p);
+        } else {
+            if (SpecialIntersections.Contains (Tile)) {
+                // Cannot move up in chase or scatter
+                if (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER) {
+                    Vector2 direction = GetDirection (exits);
+                    Waypoint = Tile + direction;
+                }
+            } else if (NormalIntersections.Contains (Tile)) {
+                Vector2 direction = GetDirection (exits);
+                Waypoint = Waypoint + direction;
             }
         }
-
-
-
 //        if (waypoints != null && waypoints.Length > 0) {
 //            if (transform.position != waypoints[cur].position) {
 //                Vector2 p = Vector2.MoveTowards(transform.position,
@@ -121,15 +123,21 @@ public class GhostMove : BaseActor {
 
     private List<Vector2> GetExits(Vector2 pos)
     {
+        bool canGoUp = true;
+        if (SpecialIntersections.Contains (pos) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
+            canGoUp = false;
+        
         List<Vector2> exits = new List<Vector2> ();
 
         foreach (Vector2 direction in Directions) {
+            if (direction == Vector2.up && !canGoUp)
+                continue;
             if (Tile != (pos + direction)) {
                 Vector2 dest = pos + direction;
                 RaycastHit2D hit = Physics2D.Linecast (pos, dest, LayerMask.GetMask ("Maze"));
                 if (hit.collider == null) {
                     exits.Add (direction);
-                    Debug.DrawLine (pos, pos + direction, Color.red);
+                    Debug.DrawLine (pos, pos + direction, Color.white);
                 }
             }
         }

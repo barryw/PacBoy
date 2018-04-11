@@ -3590,7 +3590,6 @@ GameObject:
   - component: {fileID: 450124890}
   - component: {fileID: 450124893}
   - component: {fileID: 450124892}
-  - component: {fileID: 450124894}
   m_Layer: 0
   m_Name: Blinky
   m_TagString: Ghost
@@ -3707,31 +3706,6 @@ MonoBehaviour:
   PacMan: {fileID: 172089216}
   ThisGhost: 0
   CurrentMode: 0
---- !u!61 &450124894
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 450124888}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.02, y: 0.02}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!4 &450647689 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4284640469637964, guid: 3a9d0c989ad8340238c19cb0072ae9c8,
@@ -10260,7 +10234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ready: {fileID: 1637744915430846, guid: ce4b7d3cc150840f4b7ff594d3f88b36, type: 2}
   gameOver: {fileID: 1548835853937496, guid: cbefdbd61342d430d83c44b6c48b60fd, type: 2}
-  extraPac: {fileID: 1812072199699320, guid: 67ab0393aa6254c90a57933c140e9a44, type: 2}
+  extraPac: {fileID: 1380666313054134, guid: 67ab0393aa6254c90a57933c140e9a44, type: 2}
   pacMan: {fileID: 172089216}
   blinky: {fileID: 450124888}
   cherry: {fileID: 1058824217239668, guid: 1ba8535fc030f419693439ad61c3791f, type: 2}
@@ -10286,6 +10260,16 @@ MonoBehaviour:
   bellPoints: {fileID: 1739948994574378, guid: 36fa55e7924cc4f8ab501d2c2c510991, type: 2}
   key: {fileID: 1439427425895662, guid: 03bfdd3067d8b41c48f7e19476e5862c, type: 2}
   keyPoints: {fileID: 1316693515817260, guid: 835221883ad414478b897434f12d4ea8, type: 2}
+  zero: {fileID: 1172972866488174, guid: b43e1f59b9736401b953afc2f46d888b, type: 2}
+  one: {fileID: 1436058201562240, guid: 0fac41138ef8d4fa380f083e1b47f9fb, type: 2}
+  two: {fileID: 1855735684190002, guid: b6b294a928f154bf199297ae96b2b599, type: 2}
+  three: {fileID: 1124742847049824, guid: 6f36026f6e70e455eb76c37a7c5a6ac8, type: 2}
+  four: {fileID: 1966449675976728, guid: b2f6e7af74e354b3b80889a6afa8200a, type: 2}
+  five: {fileID: 1804167861559508, guid: daf90829cb25744dea3b034346edea17, type: 2}
+  six: {fileID: 1151401952706980, guid: 34a2501a7294e46da99faef0c155ae7d, type: 2}
+  seven: {fileID: 1477605924009572, guid: 50a251b9be7064250bd2031485827aa2, type: 2}
+  eight: {fileID: 1582533125387596, guid: b64984072334c4208869e875cd658997, type: 2}
+  nine: {fileID: 1561028093336078, guid: 485ea2bfa5da84f8d94efe896e683be7, type: 2}
   numberOfPacs: 3
   startLevel: 3
   extraPacScore: 10000
@@ -11145,7 +11129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1581964720
 MonoBehaviour:
   m_ObjectHideFlags: 0
