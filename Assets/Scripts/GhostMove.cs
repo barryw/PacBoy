@@ -25,15 +25,22 @@ public class GhostMove : BaseActor {
     private Dictionary<Ghost, Vector2> ScatterTargets = new Dictionary<Ghost, Vector2>();
     private List<Vector2> Directions = new List<Vector2> ();
 
+    public void Frighten()
+    {
+        CurrentMode = Mode.FRIGHTENED;
+        Animator.SetBool ("Frightened", true);
+        Direction = -Direction;
+    }
+
     new void Start()
     {
         base.Start ();
 
         // These are the locations of the scatter targets for each ghost
-        ScatterTargets.Add (Ghost.BLINKY, new Vector2 (26, 35));
-        ScatterTargets.Add (Ghost.PINKY, new Vector2 (2, 35));
-        ScatterTargets.Add (Ghost.INKY, new Vector2 (26, 2));
-        ScatterTargets.Add (Ghost.CLYDE, new Vector2 (2, 2));
+        ScatterTargets.Add (Ghost.BLINKY, new Vector2 (28, 36));
+        ScatterTargets.Add (Ghost.PINKY, new Vector2 (3, 36));
+        ScatterTargets.Add (Ghost.INKY, new Vector2 (28, 1));
+        ScatterTargets.Add (Ghost.CLYDE, new Vector2 (1, 1));
 
         Directions.Add (Vector2.up);
         Directions.Add (Vector2.down);
@@ -48,30 +55,24 @@ public class GhostMove : BaseActor {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-        Move ();
-        Animate ();
-           
-        if (TileCenter == Destination) {
-            List<Vector2> exits = GetExits (Tile);
-            if (exits.Count == 1)
-                SetDestination (exits [0]);
-        }
+        if (GameController.IsReady) {
+            Move ();
+            Animate ();
 
-//        if (waypoints != null && waypoints.Length > 0) {
-//            if (transform.position != waypoints[cur].position) {
-//                Vector2 p = Vector2.MoveTowards(transform.position,
-//                    waypoints[cur].position,
-//                    speed);
-//                GetComponent<Rigidbody2D>().MovePosition(p);
-//            }
-//            // Waypoint reached, select next one
-//            else cur = (cur + 1) % waypoints.Length;
-//
-//            // Animation
-//            Vector2 dir = waypoints[cur].position - transform.position;
-//            GetComponent<Animator>().SetFloat("DirX", dir.x);
-//            GetComponent<Animator>().SetFloat("DirY", dir.y);
-        //}
+            // The ghost has reached his/her destination. Find the next destination
+            if (TileCenter == Destination) {
+                // Based on the ghost's location, figure out which directions he can go based
+                // on our mode.
+                List<Vector2> exits = GetExits (Tile);
+                if (exits.Count == 1) {
+                    // Only a single exit? Go for it.
+                    SetDestination (exits [0]);
+                } else {
+                    // Based on mode, pick the best exit for our target
+                    SetDestination (GetDirection (exits));
+                }
+            }
+        }
 	}
 
 
@@ -97,13 +98,18 @@ public class GhostMove : BaseActor {
         return exits;
     }
 
+    /// <summary>
+    /// Find the right direction to go based on mode
+    /// </summary>
+    /// <returns>The direction.</returns>
+    /// <param name="exits">Exits.</param>
     private Vector2 GetDirection(List<Vector2> exits)
     {
         float shortestDistance = float.PositiveInfinity;
         Vector2 shortestVector = Vector2.zero;
         foreach (Vector2 exit in exits) {
-            float distance = Vector2.Distance (exit, Target ());
-            if (distance < shortestDistance) {
+            float distance = Vector2.Distance (TileCenter + exit, Target ());
+            if (distance < shortestDistance || Random.Range(1,10) == 5) {
                 shortestDistance = distance;
                 shortestVector = exit;
             }

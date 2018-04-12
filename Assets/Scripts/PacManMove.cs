@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class PacManMove : BaseActor {
 
+    public GameObject Blinky;
+    public GameObject Pinky;
+    public GameObject Inky;
+    public GameObject Clyde;
+
+    private GhostMove BlinkyMover;
+    private GhostMove PinkyMover;
+    private GhostMove InkyMover;
+    private GhostMove ClydeMover;
+
     Vector2 _nextDir = Vector2.right;
 
     bool dying = false;
@@ -14,6 +24,11 @@ public class PacManMove : BaseActor {
         SetDestination (Direction);
         Animation = true;
         Speed = 7.0f;
+
+        BlinkyMover = Blinky.GetComponent<GhostMove> ();
+        PinkyMover = Pinky.GetComponent<GhostMove> ();
+        InkyMover = Inky.GetComponent<GhostMove> ();
+        ClydeMover = Clyde.GetComponent<GhostMove> ();
 	}
 	
 	// Update is called once per frame
@@ -32,8 +47,14 @@ public class PacManMove : BaseActor {
 
     void CheckForGhostCollision()
     {
-        if (Tile == GameController.BlinkyTile) {
-            StartCoroutine (ShowDeathAnimation ());
+        if (Tile == BlinkyMover.Tile || Tile == InkyMover.Tile || Tile == PinkyMover.Tile || Tile == ClydeMover.Tile) {
+            if (BlinkyMover.CurrentMode == GhostMove.Mode.CHASE || BlinkyMover.CurrentMode == GhostMove.Mode.SCATTER) {
+                // PacMan is dead :-(
+                StartCoroutine (ShowDeathAnimation ());
+            } else {
+                // EAT THE GHOST!
+                Debug.Log("EATED THE GHOST!");
+            }
         }
     }
 

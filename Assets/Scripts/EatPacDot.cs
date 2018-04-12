@@ -21,6 +21,8 @@ public class EatPacDot : MonoBehaviour {
             gameController.AddPoints (GameController.PointSource.SMALLDOT);
             gameController.Chomp ();
             Destroy (gameObject);
+        } else {
+            gameController.NoChomp ();
         }
     }
 }

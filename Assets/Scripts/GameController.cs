@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
     private AudioSource chomp;
     private AudioSource extraLife;
     private AudioSource eatFruit;
+    private AudioSource blueGhosts;
 
     private bool player1ExtraLifeAwarded;
     private bool player2ExtraLifeAwarded;
@@ -96,6 +97,7 @@ public class GameController : MonoBehaviour
         chomp = GetComponents<AudioSource> () [2];
         extraLife = GetComponents<AudioSource> () [3];
         eatFruit = GetComponents<AudioSource> () [4];
+        blueGhosts = GetComponents<AudioSource> () [5];
 
         pacMan.SetActive (false);
 
@@ -166,6 +168,12 @@ public class GameController : MonoBehaviour
     {
         if (!chomp.isPlaying)
             chomp.Play ();
+    }
+
+    public void NoChomp()
+    {
+        if(chomp.isPlaying)
+            chomp.Stop ();
     }
 
     public void EatFruit()
@@ -312,7 +320,7 @@ public class GameController : MonoBehaviour
 
     public IEnumerator StartInitialSiren()
     {
-        yield return new WaitForSeconds (startSound.clip.length);
+        yield return new WaitForSeconds (startSound.clip.length - 1);
         StartSiren ();
         pacMan.GetComponent<Animator> ().speed = 0.8f;
         isReady = true;
@@ -352,6 +360,16 @@ public class GameController : MonoBehaviour
             fruit = GetFruit ();
             Destroy (fruit, UnityEngine.Random.Range (9, 10));
         }
+    }
+
+    /// <summary>
+    /// Frighten the ghosts
+    /// </summary>
+    public void FrightenGhosts()
+    {
+        blinky.GetComponent<GhostMove> ().Frighten ();
+
+        blueGhosts.Play ();
     }
 
     public GameObject GetFruit()

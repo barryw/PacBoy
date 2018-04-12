@@ -19,14 +19,14 @@ public class BaseActor : MonoBehaviour
         _anim = GetComponent<Animator> ();
     }
 
-    protected Vector2 Tile
+    public Vector2 Tile
     {
         get {
             return new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
         }
     }
 
-    protected Vector2 TileCenter
+    public Vector2 TileCenter
     {
         get {
             return new Vector2 (Mathf.Ceil (transform.position.x) - 0.5f, Mathf.Ceil (transform.position.y) - 0.5f);
@@ -41,6 +41,7 @@ public class BaseActor : MonoBehaviour
     {
         if (Valid (direction)) {
             Destination = TileCenter + direction;
+            Direction = Destination - TileCenter;
             Animation = true;
         } else {
             Animation = false;
