@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GhostMove : BaseActor {
     public GameObject PacMan;
+    public PacManMove PacManMover;
+
     public enum Ghost
     {
         BLINKY,
@@ -24,6 +26,7 @@ public class GhostMove : BaseActor {
 
     private Dictionary<Ghost, Vector2> ScatterTargets = new Dictionary<Ghost, Vector2>();
     private List<Vector2> Directions = new List<Vector2> ();
+    private GhostMove BlinkyMover;
 
     public void Frighten()
     {
@@ -51,6 +54,13 @@ public class GhostMove : BaseActor {
         SetDestination (Vector2.left);
         Direction = Vector2.left;
         Speed = 6.0f;
+
+        PacManMover = PacMan.GetComponent<PacManMove> ();
+        if (ThisGhost == Ghost.INKY) {
+            Debug.Log ("Linking Blinky's mover to Inky's");
+            GameObject blinky = GameObject.FindGameObjectWithTag ("Blinky");
+            BlinkyMover = blinky.GetComponent<GhostMove> ();
+        }
     }
 
 	// Update is called once per frame
@@ -75,7 +85,11 @@ public class GhostMove : BaseActor {
         }
 	}
 
-
+    /// <summary>
+    /// Retrieve the available exits from the current location
+    /// </summary>
+    /// <returns>The exits.</returns>
+    /// <param name="pos">Position.</param>
     private List<Vector2> GetExits(Vector2 pos)
     {
         bool canGoUp = true;
@@ -148,23 +162,65 @@ public class GhostMove : BaseActor {
         return Vector2.zero;
     }
 
+    /// <summary>
+    /// Blinky targets PacMan
+    /// </summary>
+    /// <returns>The target.</returns>
     private Vector2 BlinkyTarget()
     {
-        return PacMan.transform.position;
+        return PacManMover.TileCenter;
     }
 
+    /// <summary>
+    /// Pinky's target is always 4 tiles ahead of PacMan's current direction
+    /// </summary>
+    /// <returns>The target.</returns>
     private Vector2 PinkyTarget()
     {
-        return Vector2.zero;
+        Vector2 target = Vector2.zero;
+        // Simulate overflow bug in original PacMan
+        if (PacManMover.Direction == Vector2.up) {
+            target = new Vector2 (PacManMover.TileCenter.x - 4, PacManMover.TileCenter.y + 4);
+        } else {
+            target = PacManMover.Direction * 4;
+        }
+        return target;
     }
 
+    /// <summary>
+    /// Inky has similar targetting to Pinky, but it also uses Blinky's position in its calculation
+    /// </summary>
+    /// <returns>The target.</returns>
     private Vector2 InkyTarget()
     {
-        return Vector2.zero;
+        Vector2 target = Vector2.zero;
+        if (PacManMover.Direction == Vector2.up) {
+            target = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 4);
+        } else {
+            target = PacManMover.Direction * 2;
+        }
+
+        // Compute vector from blinky's position to target and then double to get Inky's target
+        Vector2 blinkysPos = BlinkyMover.TileCenter;
+
+        // TODO
+
+        return target;
     }
 
+    /// <summary>
+    /// Clyde will target PacMan if he is within 8 tiles of him. Otherwise, he reverts to scatter mode.
+    /// </summary>
+    /// <returns>The target.</returns>
     private Vector2 ClydeTarget()
     {
-        return Vector2.zero;
+        float distance = Vector2.Distance (TileCenter, PacManMover.TileCenter);
+        if (distance > 8) {
+            CurrentMode = Mode.SCATTER;
+            return ScatterTargets [Ghost.CLYDE];
+        } else {
+            CurrentMode = Mode.CHASE;
+            return PacManMover.TileCenter;
+        }
     }
 }

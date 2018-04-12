@@ -121,10 +121,7 @@ public class GameController : MonoBehaviour
     void CheckClear()
     {
         if ((currentPlayer == 1 && p1SmallDotsEaten == 240 && p1LargeDotsEaten == 4) || (currentPlayer == 2 && p2SmallDotsEaten == 240 && p2LargeDotsEaten == 4)) {
-            StopSiren ();
-            StopGhosts ();
-            isReady = false;
-            pacMan.GetComponent<Animator> ().speed = 0.0f;
+            IsReady = false;
             pacMan.GetComponent<Animator> ().Play ("", 0, 0.0f);
         }
     }
@@ -186,6 +183,14 @@ public class GameController : MonoBehaviour
     {
         get {
             return isReady;
+        }
+        set {
+            if (value) {
+                StartSiren ();
+            } else {
+                StopSiren ();
+            }
+            isReady = value;
         }
     }
 
@@ -321,9 +326,8 @@ public class GameController : MonoBehaviour
     public IEnumerator StartInitialSiren()
     {
         yield return new WaitForSeconds (startSound.clip.length - 1);
-        StartSiren ();
         pacMan.GetComponent<Animator> ().speed = 0.8f;
-        isReady = true;
+        IsReady = true;
     }
 
     public void StartSiren()
@@ -336,15 +340,6 @@ public class GameController : MonoBehaviour
     {
         if(siren.isPlaying)
             siren.Stop ();
-    }
-
-    public void StopGhosts()
-    {
-        GameObject[] ghosts = GameObject.FindGameObjectsWithTag ("Ghost");
-        foreach (GameObject ghost in ghosts) {
-            GhostMove m = ghost.GetComponent<GhostMove> ();
-            m.Speed = 0.0f;
-        }
     }
 
     private void RenderExtraPacs()

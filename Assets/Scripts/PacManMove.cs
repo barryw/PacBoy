@@ -62,7 +62,7 @@ public class PacManMove : BaseActor {
     {
         dying = true;
         GameController.StopSiren ();
-        GameController.StopGhosts ();
+        GameController.IsReady = false;
         Animation = false;
         yield return new WaitForSeconds (0.75f);
         Animation = true;

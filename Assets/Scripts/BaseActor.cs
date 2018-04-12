@@ -19,6 +19,10 @@ public class BaseActor : MonoBehaviour
         _anim = GetComponent<Animator> ();
     }
 
+    /// <summary>
+    /// Return the integer tile of the actor's current location
+    /// </summary>
+    /// <value>The tile.</value>
     public Vector2 Tile
     {
         get {
@@ -26,6 +30,10 @@ public class BaseActor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Return the coordinates of the center of the tile of the actor's current location
+    /// </summary>
+    /// <value>The tile center.</value>
     public Vector2 TileCenter
     {
         get {
@@ -76,6 +84,10 @@ public class BaseActor : MonoBehaviour
         Animator.SetFloat("DirY", dir.y);
     }
 
+    /// <summary>
+    /// Gets the game controller.
+    /// </summary>
+    /// <value>The game controller.</value>
     public GameController GameController
     {
         get {
@@ -83,6 +95,10 @@ public class BaseActor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the animator.
+    /// </summary>
+    /// <value>The animator.</value>
     public Animator Animator
     {
         get {
@@ -108,7 +124,7 @@ public class BaseActor : MonoBehaviour
     /// Set the actor's destination tile
     /// </summary>
     /// <value>The destination.</value>
-    protected Vector2 Destination
+    public Vector2 Destination
     {
         get {
             return _destination;
@@ -122,7 +138,7 @@ public class BaseActor : MonoBehaviour
     /// Set the direction that the actor is moving in
     /// </summary>
     /// <value>The direction.</value>
-    protected Vector2 Direction
+    public Vector2 Direction
     {
         get {
             return _direction;
@@ -132,7 +148,11 @@ public class BaseActor : MonoBehaviour
         }
     }
 
-    protected float AnimationSpeed
+    /// <summary>
+    /// Gets or sets the animation speed.
+    /// </summary>
+    /// <value>The animation speed.</value>
+    public float AnimationSpeed
     {
         get {
             return _animationSpeed;
@@ -142,7 +162,11 @@ public class BaseActor : MonoBehaviour
         }
     }
 
-    protected bool Animation {
+    /// <summary>
+    /// Sets a value indicating whether this <see cref="BaseActor"/> is animation.
+    /// </summary>
+    /// <value><c>true</c> if animation; otherwise, <c>false</c>.</value>
+    public bool Animation {
         set {
             if (value) {
                 Animator.speed = AnimationSpeed;
@@ -152,13 +176,4 @@ public class BaseActor : MonoBehaviour
             }
         }
     }
-
-    public void ColorTile()
-    {
-        Debug.DrawLine (Tile + new Vector2 (-.5f, -.5f), Tile + new Vector2 (.5f, -.5f), Color.black, 0, false);
-        Debug.DrawLine (Tile + new Vector2 (-.5f, -.5f), Tile + new Vector2 (-.5f, .5f), Color.black, 0, false);
-        Debug.DrawLine (Tile + new Vector2 (.5f, .5f), Tile + new Vector2 (.5f, -.5f), Color.black, 0, false);
-        Debug.DrawLine (Tile + new Vector2 (-.5f, .5f), Tile + new Vector2 (.5f, .5f), Color.black, 0, false);
-    }
 }
-
