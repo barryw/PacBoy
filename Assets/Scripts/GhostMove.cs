@@ -307,19 +307,18 @@ public class GhostMove : BaseActor {
     /// <returns>The target.</returns>
     private Vector2 InkyTarget()
     {
-        Vector2 target = Vector2.zero;
+        Vector2 pacMan = Vector2.zero;
         if (PacManMover.Direction == Vector2.up) {
-            target = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 2);
+            pacMan = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 2);
         } else {
-            target = PacManMover.TileCenter + (PacManMover.Direction * 2);
+            pacMan = PacManMover.TileCenter + (PacManMover.Direction * 2);
         }
 
         // Compute vector from blinky's position to target and then double to get Inky's target
         Vector2 blinkysPos = BlinkyMover.TileCenter;
+        Vector2 diff = blinkysPos - pacMan;
 
-        // TODO
-
-        return target;
+        return diff;
     }
 
     /// <summary>
