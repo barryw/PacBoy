@@ -1146,6 +1146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a71c337589b442208dcfa58aac1a168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Blinky: {fileID: 450124888}
+  Pinky: {fileID: 443530462}
+  Inky: {fileID: 1946233059}
+  Clyde: {fileID: 2114760805}
 --- !u!82 &172089223
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3446,7 +3450,7 @@ GameObject:
   - component: {fileID: 443530467}
   m_Layer: 0
   m_Name: Pinky
-  m_TagString: Ghost
+  m_TagString: Pinky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3551,12 +3555,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 443530462}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b102105b839ce4557b367a90571050f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PacMan: {fileID: 443530462}
+  PacMan: {fileID: 172089216}
   ThisGhost: 1
   CurrentMode: 0
 --- !u!4 &449697899 stripped
@@ -3578,7 +3582,7 @@ GameObject:
   - component: {fileID: 450124892}
   m_Layer: 0
   m_Name: Blinky
-  m_TagString: Ghost
+  m_TagString: Blinky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10273,6 +10277,9 @@ MonoBehaviour:
   extraPac: {fileID: 1380666313054134, guid: 67ab0393aa6254c90a57933c140e9a44, type: 2}
   pacMan: {fileID: 172089216}
   blinky: {fileID: 450124888}
+  pinky: {fileID: 443530462}
+  inky: {fileID: 1946233059}
+  clyde: {fileID: 2114760805}
   cherry: {fileID: 1058824217239668, guid: 1ba8535fc030f419693439ad61c3791f, type: 2}
   cherryPoints: {fileID: 1974383690348012, guid: c83a0464a564d4019b0d9ac00723aaa3,
     type: 2}
@@ -10307,7 +10314,7 @@ MonoBehaviour:
   eight: {fileID: 1582533125387596, guid: b64984072334c4208869e875cd658997, type: 2}
   nine: {fileID: 1561028093336078, guid: 485ea2bfa5da84f8d94efe896e683be7, type: 2}
   numberOfPacs: 3
-  startLevel: 3
+  startLevel: 1
   extraPacScore: 10000
 --- !u!82 &1478579646
 AudioSource:
@@ -13361,7 +13368,7 @@ GameObject:
   - component: {fileID: 1946233064}
   m_Layer: 0
   m_Name: Inky
-  m_TagString: Ghost
+  m_TagString: Inky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13466,7 +13473,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1946233059}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b102105b839ce4557b367a90571050f6, type: 3}
   m_Name: 
@@ -14401,7 +14408,7 @@ GameObject:
   - component: {fileID: 2114760810}
   m_Layer: 0
   m_Name: Clyde
-  m_TagString: Ghost
+  m_TagString: Clyde
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14506,7 +14513,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2114760805}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b102105b839ce4557b367a90571050f6, type: 3}
   m_Name: 

@@ -10,6 +10,15 @@ public class GameController : MonoBehaviour
     public GameObject extraPac;
     public GameObject pacMan;
     public GameObject blinky;
+    public GameObject pinky;
+    public GameObject inky;
+    public GameObject clyde;
+
+    private PacManMove pacManMover;
+    private GhostMove blinkyMover;
+    private GhostMove pinkyMover;
+    private GhostMove inkyMover;
+    private GhostMove clydeMover;
 
     public GameObject cherry;
     public GameObject cherryPoints;
@@ -99,6 +108,13 @@ public class GameController : MonoBehaviour
         eatFruit = GetComponents<AudioSource> () [4];
         blueGhosts = GetComponents<AudioSource> () [5];
 
+        // Get the movers
+        pacManMover = pacMan.GetComponent<PacManMove> ();
+        blinkyMover = blinky.GetComponent<GhostMove> ();
+        pinkyMover = pinky.GetComponent<GhostMove> ();
+        inkyMover = inky.GetComponent<GhostMove> ();
+        clydeMover = clyde.GetComponent<GhostMove> ();
+
         pacMan.SetActive (false);
 
         startSound.Play ();
@@ -122,24 +138,52 @@ public class GameController : MonoBehaviour
     {
         if ((currentPlayer == 1 && p1SmallDotsEaten == 240 && p1LargeDotsEaten == 4) || (currentPlayer == 2 && p2SmallDotsEaten == 240 && p2LargeDotsEaten == 4)) {
             IsReady = false;
-            pacMan.GetComponent<Animator> ().Play ("", 0, 0.0f);
         }
     }
 
-    public Vector2 PacManTile
+    /// <summary>
+    /// Make sure the ghosts know how many dots have been eaten.
+    /// </summary>
+    public void UpdateGhostDotCounts()
+    {
+        BlinkyMover.IncreaseDotCount ();
+        PinkyMover.IncreaseDotCount ();
+        InkyMover.IncreaseDotCount ();
+        ClydeMover.IncreaseDotCount ();
+    }
+
+    public PacManMove PacManMover
     {
         get {
-            if (pacMan != null)
-                return new Vector2 (Mathf.Ceil (pacMan.transform.position.x), Mathf.Ceil (pacMan.transform.position.y));
-            else
-                return Vector2.zero;
+            return pacManMover;
         }
     }
 
-    public Vector2 BlinkyTile
+    public GhostMove BlinkyMover
     {
         get {
-            return new Vector2 (Mathf.Ceil (blinky.transform.position.x), Mathf.Ceil (blinky.transform.position.y));
+            return blinkyMover;
+        }
+    }
+
+    public GhostMove PinkyMover
+    {
+        get {
+            return pinkyMover;
+        }
+    }
+
+    public GhostMove InkyMover
+    {
+        get {
+            return inkyMover;
+        }
+    }
+
+    public GhostMove ClydeMover
+    {
+        get {
+            return clydeMover;
         }
     }
 
@@ -179,6 +223,13 @@ public class GameController : MonoBehaviour
             eatFruit.Play ();
     }
 
+    public int CurrentLevel
+    {
+        get {
+            return currentLevel;
+        }
+    }
+
     public bool IsReady
     {
         get {
@@ -189,6 +240,7 @@ public class GameController : MonoBehaviour
                 StartSiren ();
             } else {
                 StopSiren ();
+                pacMan.GetComponent<PacManMove> ().ResetAnimation ();
             }
             isReady = value;
         }
@@ -362,7 +414,10 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void FrightenGhosts()
     {
-        blinky.GetComponent<GhostMove> ().Frighten ();
+        BlinkyMover.Frighten ();
+        PinkyMover.Frighten ();
+        InkyMover.Frighten ();
+        ClydeMover.Frighten ();
 
         blueGhosts.Play ();
     }

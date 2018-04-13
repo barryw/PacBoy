@@ -5,13 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ready
-  - Ghost
   - Score1
   - Score2
   - HighScore
   - 1UP
   - 2UP
   - Fruit
+  - Blinky
+  - Pinky
+  - Inky
+  - Clyde
   layers:
   - Default
   - TransparentFX

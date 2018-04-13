@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GhostMove : BaseActor {
     public GameObject PacMan;
-    public PacManMove PacManMover;
 
     public enum Ghost
     {
@@ -27,6 +26,12 @@ public class GhostMove : BaseActor {
     private Dictionary<Ghost, Vector2> ScatterTargets = new Dictionary<Ghost, Vector2>();
     private List<Vector2> Directions = new List<Vector2> ();
     private GhostMove BlinkyMover;
+    private PacManMove PacManMover;
+    private bool InGhostHouse = false;
+    private bool LeavingGhostHouse = false;
+    private int DotCounter;
+    private int DotsToLeave;
+    private bool IsPreferred = false;
 
     public void Frighten()
     {
@@ -55,6 +60,27 @@ public class GhostMove : BaseActor {
         Direction = Vector2.left;
         Speed = 6.0f;
 
+        // Everybody but Blinky is in the ghost house
+        if (ThisGhost != Ghost.BLINKY) {
+            InGhostHouse = true;
+        }
+            
+        if (GameController.CurrentLevel == 1) {
+            if (ThisGhost == Ghost.PINKY)
+                DotsToLeave = 0;
+            if (ThisGhost == Ghost.INKY)
+                DotsToLeave = 30;
+            if (ThisGhost == Ghost.CLYDE)
+                DotsToLeave = 60;
+        }
+
+        if (GameController.CurrentLevel == 2) {
+            if (ThisGhost == Ghost.PINKY || ThisGhost == Ghost.INKY)
+                DotsToLeave = 0;
+            if (ThisGhost == Ghost.CLYDE)
+                DotsToLeave = 50;
+        }
+
         PacManMover = PacMan.GetComponent<PacManMove> ();
         if (ThisGhost == Ghost.INKY) {
             Debug.Log ("Linking Blinky's mover to Inky's");
@@ -66,24 +92,112 @@ public class GhostMove : BaseActor {
 	// Update is called once per frame
 	void FixedUpdate () {
         if (GameController.IsReady) {
-            Move ();
             Animate ();
+            SetPreferredGhost ();
+            Move ();
 
-            // The ghost has reached his/her destination. Find the next destination
-            if (TileCenter == Destination) {
-                // Based on the ghost's location, figure out which directions he can go based
-                // on our mode.
-                List<Vector2> exits = GetExits (Tile);
-                if (exits.Count == 1) {
-                    // Only a single exit? Go for it.
-                    SetDestination (exits [0]);
-                } else {
-                    // Based on mode, pick the best exit for our target
-                    SetDestination (GetDirection (exits));
+            if (DotCounter >= DotsToLeave && InGhostHouse)
+                LeaveGhostHouse ();
+            
+            // This is for ghosts that have left the ghost house
+            if (!InGhostHouse) {
+                ShowTarget ();
+                // The ghost has reached his/her destination. Find the next destination
+                if (TileCenter == Destination) {
+                    // Based on the ghost's location, figure out which directions he can go based
+                    // on our mode.
+                    List<Vector2> exits = GetExits (Tile);
+                    if (exits.Count == 1) {
+                        // Only a single exit? Go for it.
+                        SetDestination (exits [0]);
+                    } else {
+                        // Based on mode, pick the best exit for our target
+                        SetDestination (GetDirection (exits));
+                    }
                 }
+            } else {
+                BounceInGhostHouse ();
             }
         }
 	}
+
+    /// <summary>
+    /// Bounce the ghost around in the ghost house
+    /// </summary>
+    private void BounceInGhostHouse()
+    {
+        if (!InGhostHouse || LeavingGhostHouse)
+            return;
+
+        if (transform.position.y < 19 && Direction == Vector2.up) {
+            Destination = new Vector2 (transform.position.x, 19);
+            Direction = Vector2.up;
+        } else {
+            Direction = Vector2.down;
+        }
+        if (transform.position.y > 18 && Direction == Vector2.down) {
+            Destination = new Vector2 (transform.position.x, 18);
+            Direction = Vector2.down;
+        } else {
+            Direction = Vector2.up;
+        }
+    }
+
+    /// <summary>
+    /// Increase the dot count for the preferred ghost
+    /// </summary>
+    public void IncreaseDotCount()
+    {
+        if (IsPreferred)
+            DotCounter++;
+    }
+
+    /// <summary>
+    /// Figure out which ghost is tracking dot count
+    /// </summary>
+    private void SetPreferredGhost()
+    {
+        IsPreferred = (ThisGhost == Ghost.PINKY && InGhostHouse) || (ThisGhost == Ghost.INKY && InGhostHouse) || (ThisGhost == Ghost.CLYDE && InGhostHouse);
+    }
+
+    /// <summary>
+    /// Get the ghost out of the house
+    /// </summary>
+    public void LeaveGhostHouse()
+    {
+        if (!InGhostHouse)
+            return;
+
+        if(!LeavingGhostHouse)
+            Debug.Log (ThisGhost + " is leaving the ghost house");
+        
+        LeavingGhostHouse = true;
+
+        // Wait until the ghost hits the top of the ghost house
+        if (transform.position.y < 19) {
+            Destination = new Vector2 (transform.position.x, 19);
+            Direction = Vector2.up;
+        }
+
+        if (transform.position.x != 14 && transform.position.y == 19) {
+            Destination = new Vector2 (14, 19);
+            if (ThisGhost == Ghost.INKY)
+                Direction = Vector2.right;
+            if (ThisGhost == Ghost.CLYDE)
+                Direction = Vector2.left;
+        }
+
+        if ((Vector2)transform.position == new Vector2 (14, 19)) {
+            Destination = new Vector2 (14, 21.5f);
+            Direction = Vector2.up;
+        }
+
+        if ((Vector2)transform.position == new Vector2 (14, 21.5f)) {
+            InGhostHouse = false;
+            SetDestination (Vector2.left);
+            Direction = Vector2.left;
+        }
+    }
 
     /// <summary>
     /// Retrieve the available exits from the current location
@@ -182,7 +296,7 @@ public class GhostMove : BaseActor {
         if (PacManMover.Direction == Vector2.up) {
             target = new Vector2 (PacManMover.TileCenter.x - 4, PacManMover.TileCenter.y + 4);
         } else {
-            target = PacManMover.Direction * 4;
+            target = PacManMover.TileCenter + (PacManMover.Direction * 4);
         }
         return target;
     }
@@ -195,9 +309,9 @@ public class GhostMove : BaseActor {
     {
         Vector2 target = Vector2.zero;
         if (PacManMover.Direction == Vector2.up) {
-            target = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 4);
+            target = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 2);
         } else {
-            target = PacManMover.Direction * 2;
+            target = PacManMover.TileCenter + (PacManMover.Direction * 2);
         }
 
         // Compute vector from blinky's position to target and then double to get Inky's target
@@ -216,11 +330,37 @@ public class GhostMove : BaseActor {
     {
         float distance = Vector2.Distance (TileCenter, PacManMover.TileCenter);
         if (distance > 8) {
-            CurrentMode = Mode.SCATTER;
             return ScatterTargets [Ghost.CLYDE];
         } else {
-            CurrentMode = Mode.CHASE;
             return PacManMover.TileCenter;
         }
+    }
+
+    private void ShowTarget()
+    {
+        Vector2 target = Target ();
+        Color color = Color.white;
+        switch (ThisGhost) {
+        case Ghost.BLINKY:
+            color = new Color (.81f, .24f, .098f);
+            break;
+        case Ghost.CLYDE:
+            color = new Color (.858f, .521f, .109f);
+            break;
+        case Ghost.PINKY:
+            color = new Color (.917f, .509f, .898f);
+            break;
+        case Ghost.INKY:
+            color = new Color (.274f, .749f, .933f);
+            break;
+        default:
+            color = Color.white;
+            break;
+        }
+
+        Debug.DrawLine (new Vector3 (target.x - .5f, target.y - .5f), new Vector3 (target.x + .5f, target.y - .5f), color, 0, false);
+        Debug.DrawLine (new Vector3 (target.x - .5f, target.y - .5f), new Vector3 (target.x - .5f, target.y + .5f), color, 0, false);
+        Debug.DrawLine (new Vector3 (target.x - .5f, target.y + .5f), new Vector3 (target.x + .5f, target.y + .5f), color, 0, false);
+        Debug.DrawLine (new Vector3 (target.x + .5f, target.y - .5f), new Vector3 (target.x + .5f, target.y + .5f), color, 0, false);
     }
 }

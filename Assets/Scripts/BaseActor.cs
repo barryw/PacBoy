@@ -79,9 +79,17 @@ public class BaseActor : MonoBehaviour
     /// </summary>
     protected void Animate()
     {
-        Vector2 dir = Destination - TileCenter;
-        Animator.SetFloat("DirX", dir.x);
-        Animator.SetFloat("DirY", dir.y);
+        //Vector2 dir = Destination - TileCenter;
+        Animator.SetFloat("DirX", Direction.x);
+        Animator.SetFloat("DirY", Direction.y);
+    }
+
+    /// <summary>
+    /// Reset the actor's animation
+    /// </summary>
+    public void ResetAnimation()
+    {
+        Animator.Play ("", 0, 0.0f);
     }
 
     /// <summary>

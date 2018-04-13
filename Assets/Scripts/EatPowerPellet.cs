@@ -22,7 +22,7 @@ public class EatPowerPellet : MonoBehaviour {
 	
     void FixedUpdate()
     {
-        if (gameObject != null && gameController.PacManTile == Tile) {
+        if (gameObject != null && gameController.PacManMover.Tile == Tile) {
             gameController.AddPoints (GameController.PointSource.POWER_PELLET);
             gameController.Chomp ();
             gameController.FrightenGhosts ();

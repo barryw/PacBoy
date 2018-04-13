@@ -18,7 +18,7 @@ public class EatFruit : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (gameController.PacManTile == Tile && !eatFruit) {
+        if (gameController.PacManMover.Tile == Tile && !eatFruit) {
             eatFruit = true;
             GameController.PointSource points = gameController.GetBonusPoints ();
             gameController.EatFruit ();
