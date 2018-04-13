@@ -59,6 +59,7 @@ public class GhostMove : BaseActor {
         SetDestination (Vector2.left);
         Direction = Vector2.left;
         Speed = 6.0f;
+        Animation = true;
 
         // Everybody but Blinky is in the ghost house
         if (ThisGhost != Ghost.BLINKY) {
@@ -223,7 +224,8 @@ public class GhostMove : BaseActor {
         Vector2 shortestVector = Vector2.zero;
         foreach (Vector2 exit in exits) {
             float distance = Vector2.Distance (TileCenter + exit, Target ());
-            if (distance < shortestDistance || Random.Range(1,10) == 5) {
+            //if (distance < shortestDistance || Random.Range(1,10) == 5) {
+            if (distance < shortestDistance) {
                 shortestDistance = distance;
                 shortestVector = exit;
             }
