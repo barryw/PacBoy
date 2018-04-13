@@ -64,22 +64,8 @@ public class GhostMove : BaseActor {
         if (ThisGhost != Ghost.BLINKY) {
             InGhostHouse = true;
         }
-            
-        if (GameController.CurrentLevel == 1) {
-            if (ThisGhost == Ghost.PINKY)
-                DotsToLeave = 0;
-            if (ThisGhost == Ghost.INKY)
-                DotsToLeave = 30;
-            if (ThisGhost == Ghost.CLYDE)
-                DotsToLeave = 60;
-        }
 
-        if (GameController.CurrentLevel == 2) {
-            if (ThisGhost == Ghost.PINKY || ThisGhost == Ghost.INKY)
-                DotsToLeave = 0;
-            if (ThisGhost == Ghost.CLYDE)
-                DotsToLeave = 50;
-        }
+        SetDotsToLeave ();
 
         PacManMover = PacMan.GetComponent<PacManMove> ();
         if (ThisGhost == Ghost.INKY) {
@@ -307,18 +293,18 @@ public class GhostMove : BaseActor {
     /// <returns>The target.</returns>
     private Vector2 InkyTarget()
     {
-        Vector2 pacMan = Vector2.zero;
+        Vector2 target = Vector2.zero;
         if (PacManMover.Direction == Vector2.up) {
-            pacMan = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 2);
+            target = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 2);
         } else {
-            pacMan = PacManMover.TileCenter + (PacManMover.Direction * 2);
+            target = PacManMover.TileCenter + (PacManMover.Direction * 2);
         }
 
         // Compute vector from blinky's position to target and then double to get Inky's target
         Vector2 blinkysPos = BlinkyMover.TileCenter;
-        Vector2 diff = blinkysPos - pacMan;
+        Vector2 diff =  target - blinkysPos;
 
-        return diff;
+        return target + diff;
     }
 
     /// <summary>
@@ -332,6 +318,28 @@ public class GhostMove : BaseActor {
             return ScatterTargets [Ghost.CLYDE];
         } else {
             return PacManMover.TileCenter;
+        }
+    }
+
+    /// <summary>
+    /// Set the number of dots PacMan needs to have eaten for ghosts to leave the ghost house
+    /// </summary>
+    void SetDotsToLeave()
+    {
+        if (GameController.CurrentLevel == 1) {
+            if (ThisGhost == Ghost.PINKY)
+                DotsToLeave = 0;
+            if (ThisGhost == Ghost.INKY)
+                DotsToLeave = 30;
+            if (ThisGhost == Ghost.CLYDE)
+                DotsToLeave = 60;
+        }
+
+        if (GameController.CurrentLevel == 2) {
+            if (ThisGhost == Ghost.PINKY || ThisGhost == Ghost.INKY)
+                DotsToLeave = 0;
+            if (ThisGhost == Ghost.CLYDE)
+                DotsToLeave = 50;
         }
     }
 
