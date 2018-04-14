@@ -56,7 +56,6 @@ public class GameController : MonoBehaviour
     private AudioSource siren;
     private AudioSource chomp;
     private AudioSource extraLife;
-    private AudioSource eatFruit;
     private AudioSource blueGhosts;
 
     private bool player1ExtraLifeAwarded;
@@ -105,8 +104,7 @@ public class GameController : MonoBehaviour
         siren = GetComponents<AudioSource> () [1];
         chomp = GetComponents<AudioSource> () [2];
         extraLife = GetComponents<AudioSource> () [3];
-        eatFruit = GetComponents<AudioSource> () [4];
-        blueGhosts = GetComponents<AudioSource> () [5];
+        blueGhosts = GetComponents<AudioSource> () [4];
 
         // Get the movers
         pacManMover = pacMan.GetComponent<PacManMove> ();
@@ -138,6 +136,46 @@ public class GameController : MonoBehaviour
     {
         if ((currentPlayer == 1 && p1SmallDotsEaten == 240 && p1LargeDotsEaten == 4) || (currentPlayer == 2 && p2SmallDotsEaten == 240 && p2LargeDotsEaten == 4)) {
             IsReady = false;
+        }
+    }
+
+    public int SmallDotsEaten
+    {
+        get {
+            if (currentPlayer == 1)
+                return p1SmallDotsEaten;
+            else
+                return p2SmallDotsEaten;
+        }
+    }
+
+    public int SmallDotsLeft
+    {
+        get {
+            if (currentPlayer == 1)
+                return 240 - p1SmallDotsEaten;
+            else
+                return 240 - p2SmallDotsEaten;
+        }
+    }
+
+    public int LargeDotsEaten
+    {
+        get {
+            if (currentPlayer == 1)
+                return p1LargeDotsEaten;
+            else
+                return p2LargeDotsEaten;
+        }
+    }
+
+    public int LargeDotsLeft
+    {
+        get {
+            if (currentPlayer == 1)
+                return 4 - p1LargeDotsEaten;
+            else
+                return 4 - p2LargeDotsEaten;
         }
     }
 
@@ -207,20 +245,16 @@ public class GameController : MonoBehaviour
 
     public void Chomp()
     {
-        if (!chomp.isPlaying)
-            chomp.Play ();
+        //if (!chomp.isPlaying)
+        //    chomp.Play ();
     }
 
     public void NoChomp()
     {
-        if(chomp.isPlaying)
-            chomp.Stop ();
-    }
-
-    public void EatFruit()
-    {
-        if (!eatFruit.isPlaying)
-            eatFruit.Play ();
+        //if (chomp.isPlaying) {
+        //    yield return new WaitForSeconds(chomp.clip.length + 1.0f);
+        //    chomp.Stop ();
+        //}
     }
 
     public int CurrentLevel

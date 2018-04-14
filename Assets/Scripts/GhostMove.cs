@@ -26,12 +26,14 @@ public class GhostMove : BaseActor {
     private Dictionary<Ghost, Vector2> ScatterTargets = new Dictionary<Ghost, Vector2>();
     private List<Vector2> Directions = new List<Vector2> ();
     private GhostMove BlinkyMover;
+    private bool InCruiseElroy = false;
     private PacManMove PacManMover;
     private bool InGhostHouse = false;
     private bool LeavingGhostHouse = false;
     private int DotCounter;
     private int DotsToLeave;
     private bool IsPreferred = false;
+    private TableOfValues _tov = TableOfValues.Instance();
 
     public void Frighten()
     {
@@ -58,7 +60,6 @@ public class GhostMove : BaseActor {
         // Start off moving left
         SetDestination (Vector2.left);
         Direction = Vector2.left;
-        Speed = 6.0f;
         Animation = true;
 
         // Everybody but Blinky is in the ghost house
@@ -78,14 +79,20 @@ public class GhostMove : BaseActor {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        if(!InCruiseElroy)
+            Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
+
         if (GameController.IsReady) {
             Animate ();
             SetPreferredGhost ();
             Move ();
+            CruiseElroy ();
+
+            Debug.Log (ThisGhost + " - SPEED " + Speed);
 
             if (DotCounter >= DotsToLeave && InGhostHouse)
                 LeaveGhostHouse ();
-            
+
             // This is for ghosts that have left the ghost house
             if (!InGhostHouse) {
                 ShowTarget ();
@@ -107,6 +114,24 @@ public class GhostMove : BaseActor {
             }
         }
 	}
+
+    /// <summary>
+    /// Check to see if Blinky can enter Cruise Elroy mode
+    /// </summary>
+    void CruiseElroy()
+    {
+        // Check for Cruise Elroy 1
+        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy1DotsLeft(GameController.CurrentLevel) && !InCruiseElroy) {
+            Speed = _tov.CruiseElroy1Speed (GameController.CurrentLevel) * _tov.Speed ();
+            InCruiseElroy = true;
+        }
+
+        // Check for Cruise Elroy 2
+        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy2DotsLeft (GameController.CurrentLevel)) {
+            Speed = _tov.CruiseElroy2Speed (GameController.CurrentLevel) * _tov.Speed ();
+            InCruiseElroy = true;
+        }
+    }
 
     /// <summary>
     /// Bounce the ghost around in the ghost house
@@ -238,7 +263,7 @@ public class GhostMove : BaseActor {
     {
         switch (CurrentMode) {
         case Mode.SCATTER:
-            return ScatterTargets [ThisGhost];
+            return ProcessScatter ();
         case Mode.CHASE:
             switch (ThisGhost) {
             case Ghost.BLINKY:
@@ -257,6 +282,19 @@ public class GhostMove : BaseActor {
         default:
             return Vector2.zero;
         }
+    }
+
+    /// <summary>
+    /// If in scatter mode, return the scatter target for Inky, Pinky and Clyde.
+    /// If Blinky is in "Cruise Elroy" mode, his target is still Pac Man
+    /// </summary>
+    /// <returns>The scatter target for this ghost</returns>
+    private Vector2 ProcessScatter()
+    {
+        if (ThisGhost == Ghost.BLINKY && InCruiseElroy) {
+            return BlinkyTarget ();
+        }
+        return ScatterTargets [ThisGhost];
     }
 
     private Vector2 ProcessFrightened()

@@ -12,9 +12,111 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 3
-  lastUpdatedAtString: 2018-04-13T06:53:31.1283830-04:00
+  lastUpdatedAtString: 2018-04-13T06:53:57.7072990-04:00
   initializedAtString: 2018-04-12T22:07:04.2894950-04:00
   log:
+  - commitID: ea28ffe5fe6d713ebbe55ac69e657ff2346ccfe1
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: ghost house animation works correctly!
+    description: ghost house animation works correctly!
+    timeString: 2018-04-13T06:53:44.0000000-04:00
+    commitTimeString: 2018-04-13T06:53:44.0000000-04:00
+    changes:
+    - path: Assets/Scripts/GhostMove.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/GhostMove.cs
+      projectPath: Assets/Scripts/GhostMove.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/assetDatabase3
+      fullPath: /Users/barry/PacBoy/Library/assetDatabase3
+      projectPath: Library/assetDatabase3
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/branches.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/branches.yaml
+      projectPath: Library/gfu/cache/branches.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitlog.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitlog.yaml
+      projectPath: Library/gfu/cache/gitlog.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitstatusentries.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitstatusentries.yaml
+      projectPath: Library/gfu/cache/gitstatusentries.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/repoinfo.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/repoinfo.yaml
+      projectPath: Library/gfu/cache/repoinfo.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      fullPath: /Users/barry/PacBoy/Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      projectPath: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Temp/UnityTempFile-34ab6086c73f74c99a529961535582f9
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-34ab6086c73f74c99a529961535582f9
+      projectPath: Temp/UnityTempFile-34ab6086c73f74c99a529961535582f9
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-456f7c8b385184bc2b4c1923afbdca29
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-456f7c8b385184bc2b4c1923afbdca29
+      projectPath: Temp/UnityTempFile-456f7c8b385184bc2b4c1923afbdca29
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/bin/Debug/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/Temp/bin/Debug/Assembly-CSharp.dll
+      projectPath: Temp/bin/Debug/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Temp/bin/Debug/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+      projectPath: Temp/bin/Debug/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: obj/Debug/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/obj/Debug/Assembly-CSharp.dll
+      projectPath: obj/Debug/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: obj/Debug/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/obj/Debug/Assembly-CSharp.dll.mdb
+      projectPath: obj/Debug/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
   - commitID: 5afea7aa26f1399a4191a2fa4d88609830dcac28
     mergeA: 
     mergeB: 

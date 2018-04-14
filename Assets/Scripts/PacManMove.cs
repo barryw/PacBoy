@@ -14,6 +14,8 @@ public class PacManMove : BaseActor {
     private GhostMove InkyMover;
     private GhostMove ClydeMover;
 
+    private TableOfValues _tov = TableOfValues.Instance ();
+
     Vector2 _nextDir = Vector2.right;
 
     bool dying = false;
@@ -23,7 +25,6 @@ public class PacManMove : BaseActor {
         Direction = Vector2.right;
         SetDestination (Direction);
         Animation = true;
-        Speed = 7.0f;
 
         BlinkyMover = Blinky.GetComponent<GhostMove> ();
         PinkyMover = Pinky.GetComponent<GhostMove> ();
@@ -35,6 +36,8 @@ public class PacManMove : BaseActor {
 	void FixedUpdate () {
         if (dying)
             return;
+
+        Speed = _tov.PacManSpeed (GameController.CurrentLevel) * _tov.Speed ();
 
         if (GameController.IsReady) {
             CheckForGhostCollision ();
