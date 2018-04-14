@@ -1018,7 +1018,6 @@ GameObject:
   - component: {fileID: 172089217}
   - component: {fileID: 172089222}
   - component: {fileID: 172089223}
-  - component: {fileID: 172089219}
   m_Layer: 0
   m_Name: PacMan
   m_TagString: Player
@@ -1087,21 +1086,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!58 &172089219
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 172089216}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.99
 --- !u!50 &172089220
 Rigidbody2D:
   serializedVersion: 4
@@ -3562,7 +3546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PacMan: {fileID: 172089216}
   ThisGhost: 1
-  CurrentMode: 0
+  CurrentMode: 1
 --- !u!4 &449697899 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4785104238539466, guid: a40e34a87c5b64a6197930dacdb4de18,
@@ -3694,7 +3678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PacMan: {fileID: 172089216}
   ThisGhost: 0
-  CurrentMode: 0
+  CurrentMode: 1
 --- !u!4 &450647689 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4284640469637964, guid: 3a9d0c989ad8340238c19cb0072ae9c8,
@@ -10252,7 +10236,6 @@ GameObject:
   - component: {fileID: 1478579648}
   - component: {fileID: 1478579649}
   - component: {fileID: 1478579650}
-  - component: {fileID: 1478579651}
   - component: {fileID: 1478579652}
   m_Layer: 0
   m_Name: Game Controller
@@ -10649,86 +10632,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &1478579651
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1478579644}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b27c8f9d203924843895af281b2b1cb4, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!82 &1478579652
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10738,7 +10641,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7fcec5128992142e2a5bb67f2ab6ceac, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5bc06e01cd9bb445fa7d0b0767333a46, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -13480,7 +13383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PacMan: {fileID: 172089216}
   ThisGhost: 2
-  CurrentMode: 0
+  CurrentMode: 1
 --- !u!1001 &1950327249
 Prefab:
   m_ObjectHideFlags: 0
@@ -14520,7 +14423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PacMan: {fileID: 172089216}
   ThisGhost: 3
-  CurrentMode: 0
+  CurrentMode: 1
 --- !u!1001 &2117026301
 Prefab:
   m_ObjectHideFlags: 0
