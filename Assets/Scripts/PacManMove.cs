@@ -19,6 +19,9 @@ public class PacManMove : BaseActor {
     Vector2 _nextDir = Vector2.right;
 
     bool dying = false;
+    bool eatingSmallDots = false;
+    bool eatingBigDots = false;
+    bool frightened = false;
 
     new void Start () {
         base.Start ();
@@ -37,9 +40,8 @@ public class PacManMove : BaseActor {
         if (dying)
             return;
 
-        Speed = _tov.PacManSpeed (GameController.CurrentLevel) * _tov.Speed ();
-
         if (GameController.IsReady) {
+            SetPacManSpeed ();
             CheckForGhostCollision ();
             Move ();
             ReadInput ();
@@ -47,6 +49,61 @@ public class PacManMove : BaseActor {
             Animate();
         }
 	}
+
+    /// <summary>
+    /// PacMan doesn't really get frightened, but this lets us know that the ghosts are
+    /// </summary>
+    public bool Frightened
+    {
+        get {
+            return frightened;
+        }
+        set {
+            frightened = false;
+        }
+    }
+
+    public bool EatingSmallDots
+    {
+        get {
+            return eatingSmallDots;
+        }
+        set {
+            eatingSmallDots = value;
+        }
+    }
+
+    public bool EatingBigDots
+    {
+        get {
+            return eatingBigDots;
+        }
+        set {
+            eatingBigDots = value;
+        }
+    }
+
+    private void SetPacManSpeed()
+    {
+        if (EatingSmallDots) {
+            if (Frightened)
+                Speed = _tov.PacManFrightenedDotSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            else
+                Speed = _tov.PacManDotSpeed (GameController.CurrentLevel) * _tov.Speed ();
+        }
+        if (EatingBigDots) {
+            Speed = _tov.PacManPowerPelletSpeed (GameController.CurrentLevel) * _tov.Speed ();
+        }
+
+        if (!EatingBigDots && !EatingSmallDots) {
+            if (Frightened)
+                Speed = _tov.PacManFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            else
+                Speed = _tov.PacManSpeed (GameController.CurrentLevel) * _tov.Speed ();
+        }
+
+        Debug.Log ("PAC MAN SPEED " + Speed);
+    }
 
     void CheckForGhostCollision()
     {

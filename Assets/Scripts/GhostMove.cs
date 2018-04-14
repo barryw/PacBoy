@@ -34,13 +34,7 @@ public class GhostMove : BaseActor {
     private int DotsToLeave;
     private bool IsPreferred = false;
     private TableOfValues _tov = TableOfValues.Instance();
-
-    public void Frighten()
-    {
-        CurrentMode = Mode.FRIGHTENED;
-        Animator.SetBool ("Frightened", true);
-        Direction = -Direction;
-    }
+    private float playStartTime = 0.0f;
 
     new void Start()
     {
@@ -76,19 +70,18 @@ public class GhostMove : BaseActor {
             BlinkyMover = blinky.GetComponent<GhostMove> ();
         }
     }
-
-	// Update is called once per frame
+        
 	void FixedUpdate () {
-        if(!InCruiseElroy)
-            Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
-
         if (GameController.IsReady) {
+            if (playStartTime == 0.0f)
+                playStartTime = Time.fixedTime;
+            
+            SetMode ();
+            Animation = true;
+            SetGhostSpeed ();
             Animate ();
             SetPreferredGhost ();
             Move ();
-            CruiseElroy ();
-
-            Debug.Log (ThisGhost + " - SPEED " + Speed);
 
             if (DotCounter >= DotsToLeave && InGhostHouse)
                 LeaveGhostHouse ();
@@ -100,7 +93,7 @@ public class GhostMove : BaseActor {
                 if (TileCenter == Destination) {
                     // Based on the ghost's location, figure out which directions he can go based
                     // on our mode.
-                    List<Vector2> exits = GetExits (Tile);
+                    List<Vector2> exits = GetExits ();
                     if (exits.Count == 1) {
                         // Only a single exit? Go for it.
                         SetDestination (exits [0]);
@@ -112,8 +105,62 @@ public class GhostMove : BaseActor {
             } else {
                 BounceInGhostHouse ();
             }
+        } else {
+            Animation = false;
         }
 	}
+
+    /// <summary>
+    /// Frighten the ghost
+    /// </summary>
+    public void Frighten()
+    {
+        CurrentMode = Mode.FRIGHTENED;
+        Animator.SetBool ("Frightened", true);
+        Direction = -Direction;
+    }
+
+    /// <summary>
+    /// Set the ghost's current mode
+    /// </summary>
+    private void SetMode()
+    {
+        if (CurrentMode != Mode.FRIGHTENED) {
+            Mode mode = GetMode ();
+            if (mode != CurrentMode) {
+                Direction = -Direction;
+                Debug.Log (LevelTime() + " : Setting " + ThisGhost + " mode from " + CurrentMode + " to " + mode);
+                CurrentMode = mode;
+            }
+        }
+    }
+
+    private float LevelTime()
+    {
+        return Time.fixedTime - playStartTime;
+    }
+
+    /// <summary>
+    /// Set the ghost's speed based on a few factors
+    /// </summary>
+    private void SetGhostSpeed()
+    {
+        if (!InCruiseElroy) {
+            switch (CurrentMode) {
+            case Mode.CHASE:
+            case Mode.SCATTER:
+                Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                break;
+            case Mode.FRIGHTENED:
+                Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                break;
+            }
+        }           
+        
+        CruiseElroy ();
+
+        Debug.Log (ThisGhost + " - SPEED " + Speed);
+    }
 
     /// <summary>
     /// Check to see if Blinky can enter Cruise Elroy mode
@@ -215,11 +262,10 @@ public class GhostMove : BaseActor {
     /// Retrieve the available exits from the current location
     /// </summary>
     /// <returns>The exits.</returns>
-    /// <param name="pos">Position.</param>
-    private List<Vector2> GetExits(Vector2 pos)
+    private List<Vector2> GetExits()
     {
         bool canGoUp = true;
-        if (_maze.SpecialLocations().Contains (pos) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
+        if (_maze.SpecialLocations().Contains (Tile) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
             canGoUp = false;
         
         List<Vector2> exits = new List<Vector2> ();
@@ -228,7 +274,7 @@ public class GhostMove : BaseActor {
             if (dir == Vector2.up && !canGoUp)
                 continue;
             if (dir != -Direction) {
-                Vector2 dest = pos + dir;
+                Vector2 dest = Tile + dir;
                 if (_maze.ValidLocations ().Contains (dest)) {
                     exits.Add (dir);
                 }
@@ -297,9 +343,19 @@ public class GhostMove : BaseActor {
         return ScatterTargets [ThisGhost];
     }
 
+    /// <summary>
+    /// Pick a random exit
+    /// </summary>
+    /// <returns>The frightened.</returns>
     private Vector2 ProcessFrightened()
     {
-        return Vector2.zero;
+        List<Vector2> exits = GetExits ();
+        if (exits.Count == 0)
+            return TileCenter - Direction;
+        if (exits.Count == 1)
+            return TileCenter + exits [0];
+        else
+            return TileCenter + exits [Random.Range (0, exits.Count - 1)];
     }
 
     /// <summary>
@@ -381,6 +437,33 @@ public class GhostMove : BaseActor {
             if (ThisGhost == Ghost.CLYDE)
                 DotsToLeave = 50;
         }
+    }
+
+    /// <summary>
+    /// Get the ghost mode based on the number of seconds since the start of the level
+    /// </summary>
+    /// <returns>The mode.</returns>
+    public Mode GetMode()
+    {
+        int level = GameController.CurrentLevel;
+        float levelSeconds = LevelTime ();
+
+        if ((level >= 1 && level <= 4 && levelSeconds <= 7) || (level >=5 && levelSeconds <= 5))
+            return Mode.SCATTER;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 7 && levelSeconds < 27) || (level >= 5 && levelSeconds >= 5 && levelSeconds < 25))
+            return Mode.CHASE;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 27 && levelSeconds < 34) || (level >= 5 && levelSeconds >= 25 && levelSeconds < 30))
+            return Mode.SCATTER;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 34 && levelSeconds < 54) || (level >=5 && levelSeconds >= 30 && levelSeconds < 50))
+            return Mode.CHASE;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 54 && levelSeconds < 59) || (level >= 5 && levelSeconds >= 50 && levelSeconds < 55))
+            return Mode.SCATTER;
+        if ((level == 1 && levelSeconds >= 59 && levelSeconds < 79) || (level >= 2 && level <= 4 && levelSeconds >= 59 && levelSeconds < 1092) || (level >= 5 && levelSeconds >= 55 && levelSeconds < 1092))
+            return Mode.CHASE;
+        if ((level == 1 && levelSeconds >= 79 && levelSeconds < 84) || (level >= 2 && level <= 4 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f) || (level >=5 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f))
+            return Mode.SCATTER;
+
+        return Mode.CHASE;
     }
 
     private void ShowTarget()

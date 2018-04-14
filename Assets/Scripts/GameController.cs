@@ -453,6 +453,7 @@ public class GameController : MonoBehaviour
         InkyMover.Frighten ();
         ClydeMover.Frighten ();
 
+        StopSiren ();
         blueGhosts.Play ();
     }
 

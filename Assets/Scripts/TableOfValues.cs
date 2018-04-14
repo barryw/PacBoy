@@ -21,7 +21,7 @@ public class TableOfValues
     /// </summary>
     public float Speed()
     {
-        return 10.0f;
+        return 8.0f;
     }
 
     /// <summary>
@@ -57,6 +57,37 @@ public class TableOfValues
             return .87f;
         case 21:
             return .79f;
+        default:
+            return 0f;
+        }
+    }
+
+    public float PacManPowerPelletSpeed(int level)
+    {
+        switch (level) {
+        case 1:
+            return .79f;
+        case 2:
+        case 3:
+        case 4:
+            return .83f;
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+            return .87f;
         default:
             return 0f;
         }

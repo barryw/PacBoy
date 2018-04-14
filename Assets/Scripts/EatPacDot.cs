@@ -18,11 +18,13 @@ public class EatPacDot : MonoBehaviour {
     void FixedUpdate()
     {
         if (gameController.PacManMover.Tile == Tile) {
+            gameController.PacManMover.EatingSmallDots = true;
             gameController.AddPoints (GameController.PointSource.SMALLDOT);
             gameController.Chomp ();
             gameController.UpdateGhostDotCounts ();
             Destroy (gameObject);
         } else {
+            gameController.PacManMover.EatingSmallDots = false;
             gameController.NoChomp ();
         }
     }
