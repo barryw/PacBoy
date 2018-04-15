@@ -121,7 +121,7 @@ public class PacManMove : BaseActor {
     IEnumerator ShowDeathAnimation()
     {
         dying = true;
-        GameController.StopSiren ();
+        _audio.SirenPlaying = false;
         GameController.IsReady = false;
         Animation = false;
         yield return new WaitForSeconds (0.75f);

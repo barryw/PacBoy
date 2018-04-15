@@ -52,11 +52,11 @@ public class GameController : MonoBehaviour
     public int startLevel;
     public int extraPacScore;
 
-    private AudioSource startSound;
-    private AudioSource siren;
-    private AudioSource chomp;
-    private AudioSource extraLife;
-    private AudioSource blueGhosts;
+//    private AudioSource startSound;
+//    private AudioSource siren;
+//    private AudioSource chomp;
+//    private AudioSource extraLife;
+//    private AudioSource blueGhosts;
 
     private bool player1ExtraLifeAwarded;
     private bool player2ExtraLifeAwarded;
@@ -76,6 +76,8 @@ public class GameController : MonoBehaviour
     private int ghostsEaten = 0;
 
     private Dictionary<string, List<GameObject>> scores = new Dictionary<string, List<GameObject>> ();
+
+    private AudioController _audio;
 
     private bool isReady = false;
     private GameObject fruit;
@@ -100,12 +102,9 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        _audio = AudioController.Instance;
+
         currentLevel = startLevel;
-        startSound = GetComponents<AudioSource> ()[0];
-        siren = GetComponents<AudioSource> () [1];
-        chomp = GetComponents<AudioSource> () [2];
-        extraLife = GetComponents<AudioSource> () [3];
-        blueGhosts = GetComponents<AudioSource> () [4];
 
         // Get the movers
         pacManMover = pacMan.GetComponent<PacManMove> ();
@@ -116,9 +115,11 @@ public class GameController : MonoBehaviour
 
         pacMan.SetActive (false);
 
-        startSound.Play ();
+        _audio.PlayStartMusic();
+
+        //startSound.Play ();
         GameObject readyInst = Instantiate (ready);
-        Destroy (readyInst, startSound.clip.length);
+        Destroy (readyInst, _audio.StartMusicLength);
         RenderExtraPacs ();
         RenderLevel ();
         StartCoroutine (RemovePac ());
@@ -281,13 +282,10 @@ public class GameController : MonoBehaviour
             return isReady;
         }
         set {
-            if (value) {
-                StartSiren ();
-            } else {
-                StopSiren ();
-                pacMan.GetComponent<PacManMove> ().ResetAnimation ();
-            }
+            _audio.SirenPlaying = value;
             isReady = value;
+            if (!value)
+                pacMan.GetComponent<PacManMove> ().ResetAnimation ();
         }
     }
 
@@ -318,13 +316,13 @@ public class GameController : MonoBehaviour
     private void CheckForExtraLife()
     {
         if (currentPlayer == 1 && player1Score >= extraPacScore && !player1ExtraLifeAwarded) {
-            extraLife.Play ();
+            _audio.PlayExtraLife ();
             player1ExtraLifeAwarded = true;
             numberOfPacs++;
             RenderExtraPacs ();
         }
         if (currentPlayer == 2 && player2Score >= extraPacScore && !player2ExtraLifeAwarded) {
-            extraLife.Play ();
+            _audio.PlayExtraLife ();
             player2ExtraLifeAwarded = true;
             numberOfPacs++;
             RenderExtraPacs ();
@@ -422,21 +420,9 @@ public class GameController : MonoBehaviour
 
     public IEnumerator StartInitialSiren()
     {
-        yield return new WaitForSeconds (startSound.clip.length - 1);
+        yield return new WaitForSeconds (_audio.StartMusicLength - 1);
         pacMan.GetComponent<Animator> ().speed = 0.8f;
         IsReady = true;
-    }
-
-    public void StartSiren()
-    {
-        if(!siren.isPlaying)
-            siren.Play ();
-    }
-
-    public void StopSiren()
-    {
-        if(siren.isPlaying)
-            siren.Stop ();
     }
 
     private void RenderExtraPacs()
@@ -466,21 +452,9 @@ public class GameController : MonoBehaviour
             ClydeMover.Frightened = true;
             PacManMover.Frightened = true;
 
-            StopSiren ();
-            PlayBlueGhost ();
+            _audio.SirenPlaying = false;
+            _audio.BlueGhostsPlaying = true;
         }
-    }
-
-    public void PlayBlueGhost()
-    {
-        if (!blueGhosts.isPlaying)
-            blueGhosts.Play ();
-    }
-
-    public void StopBlueGhost()
-    {
-        if (blueGhosts.isPlaying)
-            blueGhosts.Stop ();
     }
 
     public GameObject GetFruit()

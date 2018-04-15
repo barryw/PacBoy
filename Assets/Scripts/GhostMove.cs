@@ -39,7 +39,9 @@ public class GhostMove : BaseActor {
     private int DotsToLeave;
     private bool IsPreferred = false;
     private bool IsEaten = false;
+
     private TableOfValues _tov = TableOfValues.Instance();
+
     private float playStartTime = 0.0f;
     private Vector2 Home = new Vector2 (14, 22);
 
@@ -129,8 +131,8 @@ public class GhostMove : BaseActor {
         }
 
         if (IsEaten && Tile == new Vector2 (14, 19)) {
-            GetComponents<AudioSource> () [1].Stop ();
-            GameController.PlayBlueGhost ();
+            _audio.GhostEyesPlaying = false;
+            _audio.BlueGhostsPlaying = true;
             Animator.SetBool ("Eaten", false);
             Direction = Vector2.up;
             DotsToLeave = 0;
@@ -151,6 +153,10 @@ public class GhostMove : BaseActor {
 
     IEnumerator EatGhost()
     {
+        Vector2 position = transform.position;
+
+        PacManMover.Hidden = true;
+        Hidden = true;
         IsEaten = true;
         Animator.SetBool ("Eaten", true);
         Animator.SetBool ("Frightened", false);
@@ -159,29 +165,37 @@ public class GhostMove : BaseActor {
         GameObject points = null;
         switch (GameController.GhostsEaten) {
         case 0:
-            points = Instantiate (Ghost200, transform);
+            points = Instantiate (Ghost200);
             break;
         case 1:
-            points = Instantiate (Ghost400, transform);
+            points = Instantiate (Ghost400);
             break;
         case 2:
-            points = Instantiate (Ghost800, transform);
+            points = Instantiate (Ghost800);
             break;
         case 3:
-            points = Instantiate (Ghost1600, transform);
+            points = Instantiate (Ghost1600);
             break;
         }
-            
+
+        GameController.GhostsEaten++;
+        if (GameController.GhostsEaten == 4)
+            GameController.GhostsEaten = 0;
+        
+        points.transform.position = position;
+
         GameController.IsReady = false;
-        AudioSource eatGhost = GetComponents<AudioSource> ()[0];
-        eatGhost.Play ();
-        Destroy (points, eatGhost.clip.length);
-        yield return new WaitForSeconds (eatGhost.clip.length);
-        GameController.StopBlueGhost ();
-        GetComponents<AudioSource> () [1].Play ();
+        _audio.PlayEatGhost ();
+
+        Destroy (points, _audio.EatGhostLength);
+        yield return new WaitForSeconds (_audio.EatGhostLength);
+        _audio.BlueGhostsPlaying = false;
+        _audio.GhostEyesPlaying = true;
+        _audio.SirenPlaying = false;
 
         GameController.IsReady = true;
-        GameController.StopSiren ();
+        Hidden = false;
+        PacManMover.Hidden = false;
     }
 
     public bool Frightened

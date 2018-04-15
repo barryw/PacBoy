@@ -5,6 +5,8 @@ using UnityEngine;
 public class EatFruit : MonoBehaviour {
 
     GameController gameController;
+    AudioController _audio;
+
     Vector2 Tile;
     bool fruitEaten = false;
 
@@ -20,7 +22,7 @@ public class EatFruit : MonoBehaviour {
     {
         if (Eaten) {
             fruitEaten = true;
-            PlaySound ();
+            _audio.PlayEatFruit ();
             AddPoints ();
             ShowPoints ();
         }
@@ -55,13 +57,5 @@ public class EatFruit : MonoBehaviour {
         get {
             return gameController.PacManMover.Tile == Tile && !fruitEaten;
         }
-    }
-
-    /// <summary>
-    /// Play the fruit eaten sound
-    /// </summary>
-    void PlaySound()
-    {
-        gameObject.GetComponent<AudioSource> ().Play ();
     }
 }

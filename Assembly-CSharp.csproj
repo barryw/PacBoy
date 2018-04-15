@@ -51,9 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DrawGrid.cs" />
+     <Compile Include="Assets\Scripts\AudioController.cs" />
      <Compile Include="Assets\Scripts\BaseActor.cs" />
      <Compile Include="Assets\Scripts\BlinkPowerPellet.cs" />
+     <Compile Include="Assets\Scripts\DrawGrid.cs" />
      <Compile Include="Assets\Scripts\EatFruit.cs" />
      <Compile Include="Assets\Scripts\EatPacDot.cs" />
      <Compile Include="Assets\Scripts\EatPowerPellet.cs" />

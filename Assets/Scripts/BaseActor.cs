@@ -9,7 +9,10 @@ public class BaseActor : MonoBehaviour
     protected float _speed = 5.0f;
     protected Vector2 _destination = Vector2.zero;
     protected Vector2 _direction = Vector2.zero;
+    protected Vector2 _savePosition = Vector2.zero;
     protected Maze _maze = Maze.Instance();
+    protected AudioController _audio;
+    protected bool _isHidden;
 
     protected void Start()
     {
@@ -17,6 +20,7 @@ public class BaseActor : MonoBehaviour
         if (gc != null)
             _gameController = gc.GetComponent<GameController> ();
         _anim = GetComponent<Animator> ();
+        _audio = AudioController.Instance;
     }
 
     /// <summary>
@@ -181,6 +185,27 @@ public class BaseActor : MonoBehaviour
             } else {
                 Animator.speed = 0.0f;
                 Animator.Play ("", 0, 0.0f);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Hide and unhide the actor
+    /// </summary>
+    /// <value><c>true</c> if hidden; otherwise, <c>false</c>.</value>
+    public bool Hidden
+    {
+        get {
+            return _isHidden;
+        }
+        set {
+            _isHidden = value;
+            if (value) {
+                _savePosition = transform.position;
+                transform.position = new Vector2 (-10, -10);
+            } else {
+                transform.position = _savePosition;
+                _savePosition = Vector2.zero;
             }
         }
     }
