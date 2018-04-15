@@ -1018,6 +1018,7 @@ GameObject:
   - component: {fileID: 172089217}
   - component: {fileID: 172089222}
   - component: {fileID: 172089223}
+  - component: {fileID: 172089219}
   m_Layer: 0
   m_Name: PacMan
   m_TagString: Player
@@ -1086,6 +1087,86 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!82 &172089219
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172089216}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ca67a1e3b800841b094c034dfbd320dc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!50 &172089220
 Rigidbody2D:
   serializedVersion: 4
@@ -1134,6 +1215,10 @@ MonoBehaviour:
   Pinky: {fileID: 443530462}
   Inky: {fileID: 1946233059}
   Clyde: {fileID: 2114760805}
+  Ghost200: {fileID: 1899704514116138, guid: b0c9c38df64e54828b8044c7c2936fb4, type: 2}
+  Ghost400: {fileID: 1832042142420718, guid: d3e381cd48f5a4694a3dbb959ffd8b18, type: 2}
+  Ghost800: {fileID: 1197817734142760, guid: 55fe112238aba4cbeb7b95f284598697, type: 2}
+  Ghost1600: {fileID: 1009741602556998, guid: f65907910d80f42b0837ccf1969deec0, type: 2}
 --- !u!82 &172089223
 AudioSource:
   m_ObjectHideFlags: 0

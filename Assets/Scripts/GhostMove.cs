@@ -5,6 +5,11 @@ using UnityEngine;
 public class GhostMove : BaseActor {
     public GameObject PacMan;
 
+    public GameObject Ghost200;
+    public GameObject Ghost400;
+    public GameObject Ghost800;
+    public GameObject Ghost1600;
+
     public enum Ghost
     {
         BLINKY,
@@ -33,8 +38,10 @@ public class GhostMove : BaseActor {
     private int DotCounter;
     private int DotsToLeave;
     private bool IsPreferred = false;
+    private bool IsEaten = false;
     private TableOfValues _tov = TableOfValues.Instance();
     private float playStartTime = 0.0f;
+    private Vector2 Home = new Vector2 (14, 22);
 
     new void Start()
     {
@@ -82,6 +89,8 @@ public class GhostMove : BaseActor {
             Animate ();
             SetPreferredGhost ();
             Move ();
+            CheckCollision ();
+            PutGhostBackInHouse ();
 
             if (DotCounter >= DotsToLeave && InGhostHouse)
                 LeaveGhostHouse ();
@@ -111,13 +120,84 @@ public class GhostMove : BaseActor {
 	}
 
     /// <summary>
-    /// Frighten the ghost
+    /// Once our eyes hit the home location, put them back in the ghost house and reincarnate the ghost
     /// </summary>
-    public void Frighten()
+    void PutGhostBackInHouse()
     {
-        CurrentMode = Mode.FRIGHTENED;
-        Animator.SetBool ("Frightened", true);
-        Direction = -Direction;
+        if (IsEaten && Tile == Home){
+            Destination = new Vector2 (14, 19);
+        }
+
+        if (IsEaten && Tile == new Vector2 (14, 19)) {
+            GetComponents<AudioSource> () [1].Stop ();
+            GameController.PlayBlueGhost ();
+            Animator.SetBool ("Eaten", false);
+            Direction = Vector2.up;
+            DotsToLeave = 0;
+            DotCounter = 0;
+            InGhostHouse = true;
+            IsEaten = false;
+            CurrentMode = GetMode ();
+        }
+    }
+
+    void CheckCollision()
+    {
+        if (PacManMover.Tile == Tile && CurrentMode == Mode.FRIGHTENED && !IsEaten) {
+            Debug.Log (ThisGhost + " has been eaten");
+            StartCoroutine (EatGhost ());
+        }
+    }
+
+    IEnumerator EatGhost()
+    {
+        IsEaten = true;
+        Animator.SetBool ("Eaten", true);
+        Animator.SetBool ("Frightened", false);
+        Animator.SetBool ("SemiFrightened", false);
+
+        GameObject points = null;
+        switch (GameController.GhostsEaten) {
+        case 0:
+            points = Instantiate (Ghost200, transform);
+            break;
+        case 1:
+            points = Instantiate (Ghost400, transform);
+            break;
+        case 2:
+            points = Instantiate (Ghost800, transform);
+            break;
+        case 3:
+            points = Instantiate (Ghost1600, transform);
+            break;
+        }
+            
+        GameController.IsReady = false;
+        AudioSource eatGhost = GetComponents<AudioSource> ()[0];
+        eatGhost.Play ();
+        Destroy (points, eatGhost.clip.length);
+        yield return new WaitForSeconds (eatGhost.clip.length);
+        GameController.StopBlueGhost ();
+        GetComponents<AudioSource> () [1].Play ();
+
+        GameController.IsReady = true;
+        GameController.StopSiren ();
+    }
+
+    public bool Frightened
+    {
+        get {
+            return CurrentMode == Mode.FRIGHTENED;
+        }
+        set {
+            if (value) {
+                CurrentMode = Mode.FRIGHTENED;
+                Animator.SetBool ("Frightened", true);
+            } else {
+                CurrentMode = GetMode ();
+                Animator.SetBool ("Frightened", false);
+            }
+        }
     }
 
     /// <summary>
@@ -146,14 +226,18 @@ public class GhostMove : BaseActor {
     private void SetGhostSpeed()
     {
         if (!InCruiseElroy) {
-            switch (CurrentMode) {
-            case Mode.CHASE:
-            case Mode.SCATTER:
-                Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
-                break;
-            case Mode.FRIGHTENED:
-                Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
-                break;
+            if (IsEaten) {
+                Speed = _tov.Speed ();
+            } else {
+                switch (CurrentMode) {
+                case Mode.CHASE:
+                case Mode.SCATTER:
+                    Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                    break;
+                case Mode.FRIGHTENED:
+                    Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                    break;
+                }
             }
         }           
         
@@ -307,6 +391,11 @@ public class GhostMove : BaseActor {
     // Get this ghost's target based on mode
     private Vector2 Target()
     {
+        // Quick out if the ghost has been eaten
+        if (IsEaten) {
+            return Home;
+        }
+
         switch (CurrentMode) {
         case Mode.SCATTER:
             return ProcessScatter ();

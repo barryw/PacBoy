@@ -105,15 +105,15 @@ public class PacManMove : BaseActor {
         Debug.Log ("PAC MAN SPEED " + Speed);
     }
 
+    /// <summary>
+    /// Check to see if the ghosts and Pac Man occupy the same tile
+    /// </summary>
     void CheckForGhostCollision()
     {
         if (Tile == BlinkyMover.Tile || Tile == InkyMover.Tile || Tile == PinkyMover.Tile || Tile == ClydeMover.Tile) {
             if (BlinkyMover.CurrentMode == GhostMove.Mode.CHASE || BlinkyMover.CurrentMode == GhostMove.Mode.SCATTER) {
                 // PacMan is dead :-(
                 //StartCoroutine (ShowDeathAnimation ());
-            } else {
-                // EAT THE GHOST!
-                Debug.Log("EATED THE GHOST!");
             }
         }
     }

@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour
     private int p2SmallDotsEaten = 0;
     private int p1LargeDotsEaten = 0;
     private int p2LargeDotsEaten = 0;
+    private int ghostsEaten = 0;
 
     private Dictionary<string, List<GameObject>> scores = new Dictionary<string, List<GameObject>> ();
 
@@ -176,6 +177,16 @@ public class GameController : MonoBehaviour
                 return 4 - p1LargeDotsEaten;
             else
                 return 4 - p2LargeDotsEaten;
+        }
+    }
+
+    public int GhostsEaten
+    {
+        get {
+            return ghostsEaten;
+        }
+        set{
+            ghostsEaten = value;
         }
     }
 
@@ -448,13 +459,28 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void FrightenGhosts()
     {
-        BlinkyMover.Frighten ();
-        PinkyMover.Frighten ();
-        InkyMover.Frighten ();
-        ClydeMover.Frighten ();
+        if (!PacManMover.Frightened) {
+            BlinkyMover.Frightened = true;
+            PinkyMover.Frightened = true;
+            InkyMover.Frightened = true;
+            ClydeMover.Frightened = true;
+            PacManMover.Frightened = true;
 
-        StopSiren ();
-        blueGhosts.Play ();
+            StopSiren ();
+            PlayBlueGhost ();
+        }
+    }
+
+    public void PlayBlueGhost()
+    {
+        if (!blueGhosts.isPlaying)
+            blueGhosts.Play ();
+    }
+
+    public void StopBlueGhost()
+    {
+        if (blueGhosts.isPlaying)
+            blueGhosts.Stop ();
     }
 
     public GameObject GetFruit()
