@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f11a6daf66c4da6985174b810d3ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashTime: 0.3
+  flashTime: 0.12
 --- !u!114 &114651976964609570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,6 +81,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05bad11a14dc49beb168b136014d2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Blinky: {fileID: 0}
+  Pinky: {fileID: 0}
+  Inky: {fileID: 0}
+  Clyde: {fileID: 0}
+  PacMan: {fileID: 0}
 --- !u!212 &212419929998473312
 SpriteRenderer:
   m_ObjectHideFlags: 1

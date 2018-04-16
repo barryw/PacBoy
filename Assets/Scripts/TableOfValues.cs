@@ -21,7 +21,7 @@ public class TableOfValues
     /// </summary>
     public float Speed()
     {
-        return 8.0f;
+        return 9.0f;
     }
 
     /// <summary>

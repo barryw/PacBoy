@@ -21,51 +21,15 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Assets/Animations/Ghosts/Blinky.controller
-    fullPath: /Users/barry/PacBoy/Assets/Animations/Ghosts/Blinky.controller
-    projectPath: Assets/Animations/Ghosts/Blinky.controller
+  - path: Assets/Animations/PacMan/PacMan.controller
+    fullPath: /Users/barry/PacBoy/Assets/Animations/PacMan/PacMan.controller
+    projectPath: Assets/Animations/PacMan/PacMan.controller
     originalPath: 
     status: 3
     staged: 0
-  - path: Assets/Animations/Ghosts/Clyde.controller
-    fullPath: /Users/barry/PacBoy/Assets/Animations/Ghosts/Clyde.controller
-    projectPath: Assets/Animations/Ghosts/Clyde.controller
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Assets/Animations/Ghosts/Inky.controller
-    fullPath: /Users/barry/PacBoy/Assets/Animations/Ghosts/Inky.controller
-    projectPath: Assets/Animations/Ghosts/Inky.controller
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Assets/Animations/Ghosts/Pinky.controller
-    fullPath: /Users/barry/PacBoy/Assets/Animations/Ghosts/Pinky.controller
-    projectPath: Assets/Animations/Ghosts/Pinky.controller
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Assets/DrawGrid.cs
-    fullPath: /Users/barry/PacBoy/Assets/DrawGrid.cs
-    projectPath: Assets/DrawGrid.cs
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/DrawGrid.cs.meta
-    fullPath: /Users/barry/PacBoy/Assets/DrawGrid.cs.meta
-    projectPath: Assets/DrawGrid.cs.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Scenes/FirstIntermission.unity
-    fullPath: /Users/barry/PacBoy/Assets/Scenes/FirstIntermission.unity
-    projectPath: Assets/Scenes/FirstIntermission.unity
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Assets/Scenes/Main.unity
-    fullPath: /Users/barry/PacBoy/Assets/Scenes/Main.unity
-    projectPath: Assets/Scenes/Main.unity
+  - path: Assets/Prefabs/PowerPellet.prefab
+    fullPath: /Users/barry/PacBoy/Assets/Prefabs/PowerPellet.prefab
+    projectPath: Assets/Prefabs/PowerPellet.prefab
     originalPath: 
     status: 3
     staged: 0
@@ -75,9 +39,21 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Assets/Scripts/EatFruit.cs
-    fullPath: /Users/barry/PacBoy/Assets/Scripts/EatFruit.cs
-    projectPath: Assets/Scripts/EatFruit.cs
+  - path: Assets/Scripts/BlinkPowerPellet.cs
+    fullPath: /Users/barry/PacBoy/Assets/Scripts/BlinkPowerPellet.cs
+    projectPath: Assets/Scripts/BlinkPowerPellet.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets/Scripts/EatPacDot.cs
+    fullPath: /Users/barry/PacBoy/Assets/Scripts/EatPacDot.cs
+    projectPath: Assets/Scripts/EatPacDot.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets/Scripts/EatPowerPellet.cs
+    fullPath: /Users/barry/PacBoy/Assets/Scripts/EatPowerPellet.cs
+    projectPath: Assets/Scripts/EatPowerPellet.cs
     originalPath: 
     status: 3
     staged: 0
@@ -99,167 +75,29 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Assets/Sounds/03.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/03.wav
-    projectPath: Assets/Sounds/03.wav
+  - path: Assets/Scripts/PlayDeathSound.cs
+    fullPath: /Users/barry/PacBoy/Assets/Scripts/PlayDeathSound.cs
+    projectPath: Assets/Scripts/PlayDeathSound.cs
     originalPath: 
     status: 5
     staged: 0
-  - path: Assets/Sounds/03.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/03.wav.meta
-    projectPath: Assets/Sounds/03.wav.meta
+  - path: Assets/Scripts/PlayDeathSound.cs.meta
+    fullPath: /Users/barry/PacBoy/Assets/Scripts/PlayDeathSound.cs.meta
+    projectPath: Assets/Scripts/PlayDeathSound.cs.meta
     originalPath: 
     status: 5
     staged: 0
-  - path: Assets/Sounds/dot.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/dot.wav
-    projectPath: Assets/Sounds/dot.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/dot.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/dot.wav.meta
-    projectPath: Assets/Sounds/dot.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_beginning.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_beginning.wav
-    projectPath: Assets/Sounds/pacman_beginning.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_beginning.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_beginning.wav.meta
-    projectPath: Assets/Sounds/pacman_beginning.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_blue_ghosts.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_blue_ghosts.wav
-    projectPath: Assets/Sounds/pacman_blue_ghosts.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_blue_ghosts.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_blue_ghosts.wav.meta
-    projectPath: Assets/Sounds/pacman_blue_ghosts.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_chomp 2.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_chomp 2.wav
-    projectPath: Assets/Sounds/pacman_chomp 2.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_chomp 2.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_chomp 2.wav.meta
-    projectPath: Assets/Sounds/pacman_chomp 2.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_coin_inserted.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_coin_inserted.wav
-    projectPath: Assets/Sounds/pacman_coin_inserted.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_coin_inserted.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_coin_inserted.wav.meta
-    projectPath: Assets/Sounds/pacman_coin_inserted.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_death.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_death.wav
-    projectPath: Assets/Sounds/pacman_death.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_death.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_death.wav.meta
-    projectPath: Assets/Sounds/pacman_death.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_eatfruit.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_eatfruit.wav
-    projectPath: Assets/Sounds/pacman_eatfruit.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_eatfruit.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_eatfruit.wav.meta
-    projectPath: Assets/Sounds/pacman_eatfruit.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_eatghost.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_eatghost.wav
-    projectPath: Assets/Sounds/pacman_eatghost.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_eatghost.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_eatghost.wav.meta
-    projectPath: Assets/Sounds/pacman_eatghost.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_extrapac.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_extrapac.wav
-    projectPath: Assets/Sounds/pacman_extrapac.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_extrapac.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_extrapac.wav.meta
-    projectPath: Assets/Sounds/pacman_extrapac.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_ghost_eyes.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_ghost_eyes.wav
-    projectPath: Assets/Sounds/pacman_ghost_eyes.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_ghost_eyes.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_ghost_eyes.wav.meta
-    projectPath: Assets/Sounds/pacman_ghost_eyes.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_siren.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_siren.wav
-    projectPath: Assets/Sounds/pacman_siren.wav
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Assets/Sounds/pacman_siren.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/pacman_siren.wav.meta
-    projectPath: Assets/Sounds/pacman_siren.wav.meta
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Library/CurrentLayout.dwlt
-    fullPath: /Users/barry/PacBoy/Library/CurrentLayout.dwlt
-    projectPath: Library/CurrentLayout.dwlt
+  - path: Assets/Scripts/TableOfValues.cs
+    fullPath: /Users/barry/PacBoy/Assets/Scripts/TableOfValues.cs
+    projectPath: Assets/Scripts/TableOfValues.cs
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/EditorInstance.json
-    fullPath: /Users/barry/PacBoy/Library/EditorInstance.json
-    projectPath: Library/EditorInstance.json
+  - path: Library/CrashedAssetImports.txt
+    fullPath: /Users/barry/PacBoy/Library/CrashedAssetImports.txt
+    projectPath: Library/CrashedAssetImports.txt
     originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/InspectorExpandedItems.asset
-    fullPath: /Users/barry/PacBoy/Library/InspectorExpandedItems.asset
-    projectPath: Library/InspectorExpandedItems.asset
-    originalPath: 
-    status: 3
+    status: 5
     staged: 0
   - path: Library/ScriptAssemblies/Assembly-CSharp.dll
     fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll
@@ -276,12 +114,6 @@ MonoBehaviour:
   - path: Library/assetDatabase3
     fullPath: /Users/barry/PacBoy/Library/assetDatabase3
     projectPath: Library/assetDatabase3
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/expandedItems
-    fullPath: /Users/barry/PacBoy/Library/expandedItems
-    projectPath: Library/expandedItems
     originalPath: 
     status: 3
     staged: 0
@@ -303,12 +135,6 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/gfu/cache/gittrackingstatus.yaml
-    fullPath: /Users/barry/PacBoy/Library/gfu/cache/gittrackingstatus.yaml
-    projectPath: Library/gfu/cache/gittrackingstatus.yaml
-    originalPath: 
-    status: 3
-    staged: 0
   - path: Library/gfu/cache/repoinfo.yaml
     fullPath: /Users/barry/PacBoy/Library/gfu/cache/repoinfo.yaml
     projectPath: Library/gfu/cache/repoinfo.yaml
@@ -318,30 +144,6 @@ MonoBehaviour:
   - path: Library/metadata/17/17b34f878f3b046838c2832aa394849c
     fullPath: /Users/barry/PacBoy/Library/metadata/17/17b34f878f3b046838c2832aa394849c
     projectPath: Library/metadata/17/17b34f878f3b046838c2832aa394849c
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/1a/1a82ed561734f45c594781fea0032d6a
-    fullPath: /Users/barry/PacBoy/Library/metadata/1a/1a82ed561734f45c594781fea0032d6a
-    projectPath: Library/metadata/1a/1a82ed561734f45c594781fea0032d6a
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.info
-    projectPath: Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.info
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.resource
-    projectPath: Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.resource
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/1c/1cc23476a0e374ecba617c14ef3cd13a
-    fullPath: /Users/barry/PacBoy/Library/metadata/1c/1cc23476a0e374ecba617c14ef3cd13a
-    projectPath: Library/metadata/1c/1cc23476a0e374ecba617c14ef3cd13a
     originalPath: 
     status: 3
     staged: 0
@@ -357,111 +159,33 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb
-    fullPath: /Users/barry/PacBoy/Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb
-    projectPath: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb
+  - path: Library/metadata/73/73ea3aa1496a84402ac351e0798c8892
+    fullPath: /Users/barry/PacBoy/Library/metadata/73/73ea3aa1496a84402ac351e0798c8892
+    projectPath: Library/metadata/73/73ea3aa1496a84402ac351e0798c8892
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.info
-    projectPath: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.info
+  - path: Library/metadata/8a/8a86550648a1645a68edf0a67f8c0cc1
+    fullPath: /Users/barry/PacBoy/Library/metadata/8a/8a86550648a1645a68edf0a67f8c0cc1
+    projectPath: Library/metadata/8a/8a86550648a1645a68edf0a67f8c0cc1
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Library/metadata/8a/8a86550648a1645a68edf0a67f8c0cc1.info
+    fullPath: /Users/barry/PacBoy/Library/metadata/8a/8a86550648a1645a68edf0a67f8c0cc1.info
+    projectPath: Library/metadata/8a/8a86550648a1645a68edf0a67f8c0cc1.info
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Library/metadata/90/9071198c63f464c7fb3edb12af42f61c
+    fullPath: /Users/barry/PacBoy/Library/metadata/90/9071198c63f464c7fb3edb12af42f61c
+    projectPath: Library/metadata/90/9071198c63f464c7fb3edb12af42f61c
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.resource
-    projectPath: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.resource
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/4f/4f4f52678a923468d95a80b2186698db
-    fullPath: /Users/barry/PacBoy/Library/metadata/4f/4f4f52678a923468d95a80b2186698db
-    projectPath: Library/metadata/4f/4f4f52678a923468d95a80b2186698db
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46
-    fullPath: /Users/barry/PacBoy/Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46
-    projectPath: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.info
-    projectPath: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.info
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.resource
-    projectPath: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.resource
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/62/62306bdc1f9594270a57782c10276f4f
-    fullPath: /Users/barry/PacBoy/Library/metadata/62/62306bdc1f9594270a57782c10276f4f
-    projectPath: Library/metadata/62/62306bdc1f9594270a57782c10276f4f
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f
-    fullPath: /Users/barry/PacBoy/Library/metadata/64/6483cc88510c14645bf15dbf348aa76f
-    projectPath: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b
-    fullPath: /Users/barry/PacBoy/Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b
-    projectPath: Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.info
-    projectPath: Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.info
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.resource
-    projectPath: Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.resource
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078
-    fullPath: /Users/barry/PacBoy/Library/metadata/78/78f8abd6689894865bcf016cfc8fb078
-    projectPath: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.info
-    projectPath: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.info
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.resource
-    projectPath: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.resource
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4
-    fullPath: /Users/barry/PacBoy/Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4
-    projectPath: Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.info
-    projectPath: Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.info
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.resource
-    projectPath: Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.resource
+  - path: Library/metadata/a4/a40e34a87c5b64a6197930dacdb4de18
+    fullPath: /Users/barry/PacBoy/Library/metadata/a4/a40e34a87c5b64a6197930dacdb4de18
+    projectPath: Library/metadata/a4/a40e34a87c5b64a6197930dacdb4de18
     originalPath: 
     status: 3
     staged: 0
@@ -471,63 +195,21 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4
-    fullPath: /Users/barry/PacBoy/Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4
-    projectPath: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4
+  - path: Library/metadata/b9/b9f11a6daf66c4da6985174b810d3ed1
+    fullPath: /Users/barry/PacBoy/Library/metadata/b9/b9f11a6daf66c4da6985174b810d3ed1
+    projectPath: Library/metadata/b9/b9f11a6daf66c4da6985174b810d3ed1
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.info
-    projectPath: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.info
+  - path: Library/metadata/e0/e05bad11a14dc49beb168b136014d2e9
+    fullPath: /Users/barry/PacBoy/Library/metadata/e0/e05bad11a14dc49beb168b136014d2e9
+    projectPath: Library/metadata/e0/e05bad11a14dc49beb168b136014d2e9
     originalPath: 
     status: 3
     staged: 0
-  - path: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.resource
-    projectPath: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.resource
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0
-    fullPath: /Users/barry/PacBoy/Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0
-    projectPath: Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0.info
-    projectPath: Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0.info
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc
-    fullPath: /Users/barry/PacBoy/Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc
-    projectPath: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.info
-    projectPath: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.info
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.resource
-    projectPath: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.resource
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/d6/d6e8e97a7f02048c1a6ad53f5863c376
-    fullPath: /Users/barry/PacBoy/Library/metadata/d6/d6e8e97a7f02048c1a6ad53f5863c376
-    projectPath: Library/metadata/d6/d6e8e97a7f02048c1a6ad53f5863c376
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/metadata/f8/f82ab89008656481ea742239434be331
-    fullPath: /Users/barry/PacBoy/Library/metadata/f8/f82ab89008656481ea742239434be331
-    projectPath: Library/metadata/f8/f82ab89008656481ea742239434be331
+  - path: Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1
+    fullPath: /Users/barry/PacBoy/Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1
+    projectPath: Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1
     originalPath: 
     status: 3
     staged: 0
@@ -536,198 +218,6 @@ MonoBehaviour:
     projectPath: PacBoy.userprefs
     originalPath: 
     status: 3
-    staged: 0
-  - path: Temp/UnityTempFile-14ed494f05797410282e437c06d64026
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-14ed494f05797410282e437c06d64026
-    projectPath: Temp/UnityTempFile-14ed494f05797410282e437c06d64026
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-163402bd69707468b8f8853942262786
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-163402bd69707468b8f8853942262786
-    projectPath: Temp/UnityTempFile-163402bd69707468b8f8853942262786
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-3063b3250069149eaa02c5bd9c51a57a
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-3063b3250069149eaa02c5bd9c51a57a
-    projectPath: Temp/UnityTempFile-3063b3250069149eaa02c5bd9c51a57a
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-38c6611dab94c4578803b9a964297162
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-38c6611dab94c4578803b9a964297162
-    projectPath: Temp/UnityTempFile-38c6611dab94c4578803b9a964297162
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-506686bdbac0d406b918311e1c801c86
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-506686bdbac0d406b918311e1c801c86
-    projectPath: Temp/UnityTempFile-506686bdbac0d406b918311e1c801c86
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-50eb650be1fdd49f58e22e2a8b9e2bb3
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-50eb650be1fdd49f58e22e2a8b9e2bb3
-    projectPath: Temp/UnityTempFile-50eb650be1fdd49f58e22e2a8b9e2bb3
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-5fd9044ea470b465cbd9b00bd30997c5
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-5fd9044ea470b465cbd9b00bd30997c5
-    projectPath: Temp/UnityTempFile-5fd9044ea470b465cbd9b00bd30997c5
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-612d0633d9e8344a8b1744245a737335
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-612d0633d9e8344a8b1744245a737335
-    projectPath: Temp/UnityTempFile-612d0633d9e8344a8b1744245a737335
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-63e787824013d48fc8b8788f2a359dad
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-63e787824013d48fc8b8788f2a359dad
-    projectPath: Temp/UnityTempFile-63e787824013d48fc8b8788f2a359dad
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-649eba27afb3d4e5dbf7fa932e1590ca
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-649eba27afb3d4e5dbf7fa932e1590ca
-    projectPath: Temp/UnityTempFile-649eba27afb3d4e5dbf7fa932e1590ca
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-76a16438b0d324e58a51e420ccefa527
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-76a16438b0d324e58a51e420ccefa527
-    projectPath: Temp/UnityTempFile-76a16438b0d324e58a51e420ccefa527
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-7fb96141705e64139974bc0842f2cded
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-7fb96141705e64139974bc0842f2cded
-    projectPath: Temp/UnityTempFile-7fb96141705e64139974bc0842f2cded
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-808bc632eb3654e2f8553dde42d72b88
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-808bc632eb3654e2f8553dde42d72b88
-    projectPath: Temp/UnityTempFile-808bc632eb3654e2f8553dde42d72b88
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-87cfc8492e4424ee8bd99451f74019ce
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-87cfc8492e4424ee8bd99451f74019ce
-    projectPath: Temp/UnityTempFile-87cfc8492e4424ee8bd99451f74019ce
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-9257e1c84571547be840ef705acc49c6
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-9257e1c84571547be840ef705acc49c6
-    projectPath: Temp/UnityTempFile-9257e1c84571547be840ef705acc49c6
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-9415f277bc7fe4a2f898ac82c930a45d
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-9415f277bc7fe4a2f898ac82c930a45d
-    projectPath: Temp/UnityTempFile-9415f277bc7fe4a2f898ac82c930a45d
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-a2fbc5bfe3c724042bef8f7b1f5fa44a
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-a2fbc5bfe3c724042bef8f7b1f5fa44a
-    projectPath: Temp/UnityTempFile-a2fbc5bfe3c724042bef8f7b1f5fa44a
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-a59236d6e9ff54ae98dfd3158ebca098
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-a59236d6e9ff54ae98dfd3158ebca098
-    projectPath: Temp/UnityTempFile-a59236d6e9ff54ae98dfd3158ebca098
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-ab2988cca63e0426d96d320bf069cbe2
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ab2988cca63e0426d96d320bf069cbe2
-    projectPath: Temp/UnityTempFile-ab2988cca63e0426d96d320bf069cbe2
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-ab8c5a72c69244a3c865a182eb3e281a
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ab8c5a72c69244a3c865a182eb3e281a
-    projectPath: Temp/UnityTempFile-ab8c5a72c69244a3c865a182eb3e281a
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-b63b5d1467a364e05ade865358bb69e9
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-b63b5d1467a364e05ade865358bb69e9
-    projectPath: Temp/UnityTempFile-b63b5d1467a364e05ade865358bb69e9
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-c8492d6d47d9a4c538d1218ddb7c0788
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-c8492d6d47d9a4c538d1218ddb7c0788
-    projectPath: Temp/UnityTempFile-c8492d6d47d9a4c538d1218ddb7c0788
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-ca4bf76d09e50490faf15a71b434c551
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ca4bf76d09e50490faf15a71b434c551
-    projectPath: Temp/UnityTempFile-ca4bf76d09e50490faf15a71b434c551
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-ce0302419df5f4fa79a0e2ff70f1f713
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ce0302419df5f4fa79a0e2ff70f1f713
-    projectPath: Temp/UnityTempFile-ce0302419df5f4fa79a0e2ff70f1f713
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-cecf4b6f1b1d848579e7166f85a9a43d
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-cecf4b6f1b1d848579e7166f85a9a43d
-    projectPath: Temp/UnityTempFile-cecf4b6f1b1d848579e7166f85a9a43d
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-cf9678cf99e4e48c0938d9e0489cb908
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-cf9678cf99e4e48c0938d9e0489cb908
-    projectPath: Temp/UnityTempFile-cf9678cf99e4e48c0938d9e0489cb908
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-ddcc8c21f38d046ebb30cf3857c72b9d
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ddcc8c21f38d046ebb30cf3857c72b9d
-    projectPath: Temp/UnityTempFile-ddcc8c21f38d046ebb30cf3857c72b9d
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-e5cf5e787ed9c4221a6898cf4127ec59
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-e5cf5e787ed9c4221a6898cf4127ec59
-    projectPath: Temp/UnityTempFile-e5cf5e787ed9c4221a6898cf4127ec59
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-eb432a92fd2554812a41a4409325ec8f
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-eb432a92fd2554812a41a4409325ec8f
-    projectPath: Temp/UnityTempFile-eb432a92fd2554812a41a4409325ec8f
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-f2cfb747ec6a7424fb154477838359a2
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-f2cfb747ec6a7424fb154477838359a2
-    projectPath: Temp/UnityTempFile-f2cfb747ec6a7424fb154477838359a2
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-fd21a7ee2db554ec4866756755004778
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-fd21a7ee2db554ec4866756755004778
-    projectPath: Temp/UnityTempFile-fd21a7ee2db554ec4866756755004778
-    originalPath: 
-    status: 5
-    staged: 0
-  - path: Temp/UnityTempFile-fec60828627524007bb8bd826de46231
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-fec60828627524007bb8bd826de46231
-    projectPath: Temp/UnityTempFile-fec60828627524007bb8bd826de46231
-    originalPath: 
-    status: 5
     staged: 0
   - path: Temp/__Backupscenes/0.backup
     fullPath: /Users/barry/PacBoy/Temp/__Backupscenes/0.backup
@@ -759,465 +249,387 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Assets/Scripts/AudioController.cs
-    fullPath: /Users/barry/PacBoy/Assets/Scripts/AudioController.cs
-    projectPath: Assets/Scripts/AudioController.cs
+  - path: Temp/UnityTempFile-02b8f7178d74048a2aa6ffa7f2ea7c0f
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-02b8f7178d74048a2aa6ffa7f2ea7c0f
+    projectPath: Temp/UnityTempFile-02b8f7178d74048a2aa6ffa7f2ea7c0f
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Scripts/AudioController.cs.meta
-    fullPath: /Users/barry/PacBoy/Assets/Scripts/AudioController.cs.meta
-    projectPath: Assets/Scripts/AudioController.cs.meta
+  - path: Temp/UnityTempFile-04858e7a23d204e3b987e8063c4105e5
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-04858e7a23d204e3b987e8063c4105e5
+    projectPath: Temp/UnityTempFile-04858e7a23d204e3b987e8063c4105e5
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Scripts/DrawGrid.cs
-    fullPath: /Users/barry/PacBoy/Assets/Scripts/DrawGrid.cs
-    projectPath: Assets/Scripts/DrawGrid.cs
+  - path: Temp/UnityTempFile-09be050469a2046c3bcbee67cec8a778
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-09be050469a2046c3bcbee67cec8a778
+    projectPath: Temp/UnityTempFile-09be050469a2046c3bcbee67cec8a778
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Scripts/DrawGrid.cs.meta
-    fullPath: /Users/barry/PacBoy/Assets/Scripts/DrawGrid.cs.meta
-    projectPath: Assets/Scripts/DrawGrid.cs.meta
+  - path: Temp/UnityTempFile-0be4f5adaf9cc427893d328933e46d5a
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-0be4f5adaf9cc427893d328933e46d5a
+    projectPath: Temp/UnityTempFile-0be4f5adaf9cc427893d328933e46d5a
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources.meta
-    projectPath: Assets/Sounds/Resources.meta
+  - path: Temp/UnityTempFile-123700bdd65b3431aaae41bdab7731c8
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-123700bdd65b3431aaae41bdab7731c8
+    projectPath: Temp/UnityTempFile-123700bdd65b3431aaae41bdab7731c8
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/03.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/03.wav
-    projectPath: Assets/Sounds/Resources/03.wav
+  - path: Temp/UnityTempFile-185ea33ad979e4b268246c1007fc4c20
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-185ea33ad979e4b268246c1007fc4c20
+    projectPath: Temp/UnityTempFile-185ea33ad979e4b268246c1007fc4c20
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/03.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/03.wav.meta
-    projectPath: Assets/Sounds/Resources/03.wav.meta
+  - path: Temp/UnityTempFile-1dfffb46ff0fe40d3bbed7dae57c2b30
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-1dfffb46ff0fe40d3bbed7dae57c2b30
+    projectPath: Temp/UnityTempFile-1dfffb46ff0fe40d3bbed7dae57c2b30
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/blue_ghosts.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/blue_ghosts.wav
-    projectPath: Assets/Sounds/Resources/blue_ghosts.wav
+  - path: Temp/UnityTempFile-26fc7a5055b714b3d88abb04170dd809
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-26fc7a5055b714b3d88abb04170dd809
+    projectPath: Temp/UnityTempFile-26fc7a5055b714b3d88abb04170dd809
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/blue_ghosts.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/blue_ghosts.wav.meta
-    projectPath: Assets/Sounds/Resources/blue_ghosts.wav.meta
+  - path: Temp/UnityTempFile-2851182631c5840a7aeb238d3ba93a7f
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-2851182631c5840a7aeb238d3ba93a7f
+    projectPath: Temp/UnityTempFile-2851182631c5840a7aeb238d3ba93a7f
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/death.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/death.wav
-    projectPath: Assets/Sounds/Resources/death.wav
+  - path: Temp/UnityTempFile-3d544f149b1454c4fa3b30711355f055
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-3d544f149b1454c4fa3b30711355f055
+    projectPath: Temp/UnityTempFile-3d544f149b1454c4fa3b30711355f055
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/death.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/death.wav.meta
-    projectPath: Assets/Sounds/Resources/death.wav.meta
+  - path: Temp/UnityTempFile-3dfb78d7d678a4174a0e99d4895f8300
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-3dfb78d7d678a4174a0e99d4895f8300
+    projectPath: Temp/UnityTempFile-3dfb78d7d678a4174a0e99d4895f8300
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/dot.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/dot.wav
-    projectPath: Assets/Sounds/Resources/dot.wav
+  - path: Temp/UnityTempFile-4871e030afda34147a1e07e2be177690
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-4871e030afda34147a1e07e2be177690
+    projectPath: Temp/UnityTempFile-4871e030afda34147a1e07e2be177690
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/dot.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/dot.wav.meta
-    projectPath: Assets/Sounds/Resources/dot.wav.meta
+  - path: Temp/UnityTempFile-48d020a5a84ae42feb91667959290219
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-48d020a5a84ae42feb91667959290219
+    projectPath: Temp/UnityTempFile-48d020a5a84ae42feb91667959290219
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/eat_fruit.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/eat_fruit.wav
-    projectPath: Assets/Sounds/Resources/eat_fruit.wav
+  - path: Temp/UnityTempFile-490b1c95822544157b607d033cab7f0a
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-490b1c95822544157b607d033cab7f0a
+    projectPath: Temp/UnityTempFile-490b1c95822544157b607d033cab7f0a
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/eat_fruit.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/eat_fruit.wav.meta
-    projectPath: Assets/Sounds/Resources/eat_fruit.wav.meta
+  - path: Temp/UnityTempFile-4d8619bde1dfe4d15a1e498dae4c5bd8
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-4d8619bde1dfe4d15a1e498dae4c5bd8
+    projectPath: Temp/UnityTempFile-4d8619bde1dfe4d15a1e498dae4c5bd8
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/eat_ghost.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/eat_ghost.wav
-    projectPath: Assets/Sounds/Resources/eat_ghost.wav
+  - path: Temp/UnityTempFile-54f43a47f4fd64400bd1bf99aef9e109
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-54f43a47f4fd64400bd1bf99aef9e109
+    projectPath: Temp/UnityTempFile-54f43a47f4fd64400bd1bf99aef9e109
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/eat_ghost.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/eat_ghost.wav.meta
-    projectPath: Assets/Sounds/Resources/eat_ghost.wav.meta
+  - path: Temp/UnityTempFile-5525d4ed640c44f12a72e730d61e60d8
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-5525d4ed640c44f12a72e730d61e60d8
+    projectPath: Temp/UnityTempFile-5525d4ed640c44f12a72e730d61e60d8
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/extra_life.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/extra_life.wav
-    projectPath: Assets/Sounds/Resources/extra_life.wav
+  - path: Temp/UnityTempFile-578d5db1a59464d77b58e29069ddbb21
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-578d5db1a59464d77b58e29069ddbb21
+    projectPath: Temp/UnityTempFile-578d5db1a59464d77b58e29069ddbb21
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/extra_life.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/extra_life.wav.meta
-    projectPath: Assets/Sounds/Resources/extra_life.wav.meta
+  - path: Temp/UnityTempFile-5a1ebb098a4234c6783f069261ef41ea
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-5a1ebb098a4234c6783f069261ef41ea
+    projectPath: Temp/UnityTempFile-5a1ebb098a4234c6783f069261ef41ea
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/ghost_eyes.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/ghost_eyes.wav
-    projectPath: Assets/Sounds/Resources/ghost_eyes.wav
+  - path: Temp/UnityTempFile-5b4a616fffa754128a14dc351da473c4
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-5b4a616fffa754128a14dc351da473c4
+    projectPath: Temp/UnityTempFile-5b4a616fffa754128a14dc351da473c4
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/ghost_eyes.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/ghost_eyes.wav.meta
-    projectPath: Assets/Sounds/Resources/ghost_eyes.wav.meta
+  - path: Temp/UnityTempFile-6448801f433384cd8b2c303dd44bb425
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-6448801f433384cd8b2c303dd44bb425
+    projectPath: Temp/UnityTempFile-6448801f433384cd8b2c303dd44bb425
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/pacman_chomp 2.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/pacman_chomp 2.wav
-    projectPath: Assets/Sounds/Resources/pacman_chomp 2.wav
+  - path: Temp/UnityTempFile-65c0a1d7aaf114043a82b38d39c092a3
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-65c0a1d7aaf114043a82b38d39c092a3
+    projectPath: Temp/UnityTempFile-65c0a1d7aaf114043a82b38d39c092a3
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/pacman_chomp 2.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/pacman_chomp 2.wav.meta
-    projectPath: Assets/Sounds/Resources/pacman_chomp 2.wav.meta
+  - path: Temp/UnityTempFile-68ef70f3902be404dac0fb5de25aef71
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-68ef70f3902be404dac0fb5de25aef71
+    projectPath: Temp/UnityTempFile-68ef70f3902be404dac0fb5de25aef71
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/pacman_coin_inserted.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/pacman_coin_inserted.wav
-    projectPath: Assets/Sounds/Resources/pacman_coin_inserted.wav
+  - path: Temp/UnityTempFile-699dc4d06f00b45c4819d790b798e9a5
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-699dc4d06f00b45c4819d790b798e9a5
+    projectPath: Temp/UnityTempFile-699dc4d06f00b45c4819d790b798e9a5
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/pacman_coin_inserted.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/pacman_coin_inserted.wav.meta
-    projectPath: Assets/Sounds/Resources/pacman_coin_inserted.wav.meta
+  - path: Temp/UnityTempFile-774cc7d2e9e6e4027af66352111ea7e0
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-774cc7d2e9e6e4027af66352111ea7e0
+    projectPath: Temp/UnityTempFile-774cc7d2e9e6e4027af66352111ea7e0
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/pacman_intermission.ogg
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/pacman_intermission.ogg
-    projectPath: Assets/Sounds/Resources/pacman_intermission.ogg
+  - path: Temp/UnityTempFile-791bf77feca954c109d550ed9c663420
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-791bf77feca954c109d550ed9c663420
+    projectPath: Temp/UnityTempFile-791bf77feca954c109d550ed9c663420
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/pacman_intermission.ogg.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/pacman_intermission.ogg.meta
-    projectPath: Assets/Sounds/Resources/pacman_intermission.ogg.meta
+  - path: Temp/UnityTempFile-87895ff7a2e3d4476904f52a54a4e3a8
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-87895ff7a2e3d4476904f52a54a4e3a8
+    projectPath: Temp/UnityTempFile-87895ff7a2e3d4476904f52a54a4e3a8
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/siren.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/siren.wav
-    projectPath: Assets/Sounds/Resources/siren.wav
+  - path: Temp/UnityTempFile-884abf32b12c94e3b97bea9e91a34880
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-884abf32b12c94e3b97bea9e91a34880
+    projectPath: Temp/UnityTempFile-884abf32b12c94e3b97bea9e91a34880
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/siren.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/siren.wav.meta
-    projectPath: Assets/Sounds/Resources/siren.wav.meta
+  - path: Temp/UnityTempFile-88775ca6433df4026b509e2908d9b942
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-88775ca6433df4026b509e2908d9b942
+    projectPath: Temp/UnityTempFile-88775ca6433df4026b509e2908d9b942
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/start_music.wav
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/start_music.wav
-    projectPath: Assets/Sounds/Resources/start_music.wav
+  - path: Temp/UnityTempFile-8a7df4565e8fc4dcb8860ffa0b981a24
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-8a7df4565e8fc4dcb8860ffa0b981a24
+    projectPath: Temp/UnityTempFile-8a7df4565e8fc4dcb8860ffa0b981a24
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Sounds/Resources/start_music.wav.meta
-    fullPath: /Users/barry/PacBoy/Assets/Sounds/Resources/start_music.wav.meta
-    projectPath: Assets/Sounds/Resources/start_music.wav.meta
+  - path: Temp/UnityTempFile-8c7612999379d463693df207492b9ab2
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-8c7612999379d463693df207492b9ab2
+    projectPath: Temp/UnityTempFile-8c7612999379d463693df207492b9ab2
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Timelines.meta
-    fullPath: /Users/barry/PacBoy/Assets/Timelines.meta
-    projectPath: Assets/Timelines.meta
+  - path: Temp/UnityTempFile-95a48bd412c3346c791388c78befc94f
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-95a48bd412c3346c791388c78befc94f
+    projectPath: Temp/UnityTempFile-95a48bd412c3346c791388c78befc94f
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Timelines/First Intermission.playable
-    fullPath: /Users/barry/PacBoy/Assets/Timelines/First Intermission.playable
-    projectPath: Assets/Timelines/First Intermission.playable
+  - path: Temp/UnityTempFile-a2bbce14dde9d417db16e9828c5efdac
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-a2bbce14dde9d417db16e9828c5efdac
+    projectPath: Temp/UnityTempFile-a2bbce14dde9d417db16e9828c5efdac
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets/Timelines/First Intermission.playable.meta
-    fullPath: /Users/barry/PacBoy/Assets/Timelines/First Intermission.playable.meta
-    projectPath: Assets/Timelines/First Intermission.playable.meta
+  - path: Temp/UnityTempFile-a478fad71d91c47d6ae2e4912880b31a
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-a478fad71d91c47d6ae2e4912880b31a
+    projectPath: Temp/UnityTempFile-a478fad71d91c47d6ae2e4912880b31a
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/CrashedAssetImports.txt
-    fullPath: /Users/barry/PacBoy/Library/CrashedAssetImports.txt
-    projectPath: Library/CrashedAssetImports.txt
+  - path: Temp/UnityTempFile-a84c0633369e748a9bb256d19cfeac09
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-a84c0633369e748a9bb256d19cfeac09
+    projectPath: Temp/UnityTempFile-a84c0633369e748a9bb256d19cfeac09
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/0/01103ced44f15e951cda12269c9231a3.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/01103ced44f15e951cda12269c9231a3.bin
-    projectPath: Library/ShaderCache/0/01103ced44f15e951cda12269c9231a3.bin
+  - path: Temp/UnityTempFile-b14839bc74e6041a28eeaaa1c565b5a2
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-b14839bc74e6041a28eeaaa1c565b5a2
+    projectPath: Temp/UnityTempFile-b14839bc74e6041a28eeaaa1c565b5a2
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/0/04c1f663fe4b2be44e9cc0de4fed2163.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/04c1f663fe4b2be44e9cc0de4fed2163.bin
-    projectPath: Library/ShaderCache/0/04c1f663fe4b2be44e9cc0de4fed2163.bin
+  - path: Temp/UnityTempFile-b3acf502fd9824b0b920d610bac378be
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-b3acf502fd9824b0b920d610bac378be
+    projectPath: Temp/UnityTempFile-b3acf502fd9824b0b920d610bac378be
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/2/2720636966f1e89eed076be33bf93b5f.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2720636966f1e89eed076be33bf93b5f.bin
-    projectPath: Library/ShaderCache/2/2720636966f1e89eed076be33bf93b5f.bin
+  - path: Temp/UnityTempFile-b453ec339d7894c90a708d8f865e899f
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-b453ec339d7894c90a708d8f865e899f
+    projectPath: Temp/UnityTempFile-b453ec339d7894c90a708d8f865e899f
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/2/2bd25d342f25c84b57a73c82b5a93b7b.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2bd25d342f25c84b57a73c82b5a93b7b.bin
-    projectPath: Library/ShaderCache/2/2bd25d342f25c84b57a73c82b5a93b7b.bin
+  - path: Temp/UnityTempFile-b7725321dab9b48a38c6d43d25d8799c
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-b7725321dab9b48a38c6d43d25d8799c
+    projectPath: Temp/UnityTempFile-b7725321dab9b48a38c6d43d25d8799c
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/4/425a991447a37d864808e2b2c4766f7a.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/425a991447a37d864808e2b2c4766f7a.bin
-    projectPath: Library/ShaderCache/4/425a991447a37d864808e2b2c4766f7a.bin
+  - path: Temp/UnityTempFile-bb5048c1dfde54ac0a279cea48fe3a89
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-bb5048c1dfde54ac0a279cea48fe3a89
+    projectPath: Temp/UnityTempFile-bb5048c1dfde54ac0a279cea48fe3a89
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/5/5335f862a56148351720ecac55d54f12.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5335f862a56148351720ecac55d54f12.bin
-    projectPath: Library/ShaderCache/5/5335f862a56148351720ecac55d54f12.bin
+  - path: Temp/UnityTempFile-bb74b37edf8f741ec85f5473408019f7
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-bb74b37edf8f741ec85f5473408019f7
+    projectPath: Temp/UnityTempFile-bb74b37edf8f741ec85f5473408019f7
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/6/6180d819260df14aa78816f29e11d202.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6180d819260df14aa78816f29e11d202.bin
-    projectPath: Library/ShaderCache/6/6180d819260df14aa78816f29e11d202.bin
+  - path: Temp/UnityTempFile-beeb74dadcebe43a99d8799654f18868
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-beeb74dadcebe43a99d8799654f18868
+    projectPath: Temp/UnityTempFile-beeb74dadcebe43a99d8799654f18868
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/9/943a97c57762e201f3c5e76b4ece03c6.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/943a97c57762e201f3c5e76b4ece03c6.bin
-    projectPath: Library/ShaderCache/9/943a97c57762e201f3c5e76b4ece03c6.bin
+  - path: Temp/UnityTempFile-bf02b7abd90c6469eba559bccdc76a6b
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-bf02b7abd90c6469eba559bccdc76a6b
+    projectPath: Temp/UnityTempFile-bf02b7abd90c6469eba559bccdc76a6b
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/b/b20ee8ab77c632dd8fe04746603c2ce1.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/b20ee8ab77c632dd8fe04746603c2ce1.bin
-    projectPath: Library/ShaderCache/b/b20ee8ab77c632dd8fe04746603c2ce1.bin
+  - path: Temp/UnityTempFile-bf53313ee9d254756a888dee1e5e9105
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-bf53313ee9d254756a888dee1e5e9105
+    projectPath: Temp/UnityTempFile-bf53313ee9d254756a888dee1e5e9105
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/c/c9516e1e0a0f41e5803397dacf132500.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/c9516e1e0a0f41e5803397dacf132500.bin
-    projectPath: Library/ShaderCache/c/c9516e1e0a0f41e5803397dacf132500.bin
+  - path: Temp/UnityTempFile-c033a736939b54feaa2a4dfb0383a945
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-c033a736939b54feaa2a4dfb0383a945
+    projectPath: Temp/UnityTempFile-c033a736939b54feaa2a4dfb0383a945
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/c/c9fb59d30bfa3ef72154ba7ee2025b78.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/c9fb59d30bfa3ef72154ba7ee2025b78.bin
-    projectPath: Library/ShaderCache/c/c9fb59d30bfa3ef72154ba7ee2025b78.bin
+  - path: Temp/UnityTempFile-c12945fd53ea6447f92decfd0bc65be3
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-c12945fd53ea6447f92decfd0bc65be3
+    projectPath: Temp/UnityTempFile-c12945fd53ea6447f92decfd0bc65be3
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/d/dd257b19c49ba7b36f157cdf441fa4b2.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/dd257b19c49ba7b36f157cdf441fa4b2.bin
-    projectPath: Library/ShaderCache/d/dd257b19c49ba7b36f157cdf441fa4b2.bin
+  - path: Temp/UnityTempFile-c21138cb5426b4b708078cb83c6ceca9
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-c21138cb5426b4b708078cb83c6ceca9
+    projectPath: Temp/UnityTempFile-c21138cb5426b4b708078cb83c6ceca9
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/d/ddc308125795cd1732c75411fc7cf557.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/ddc308125795cd1732c75411fc7cf557.bin
-    projectPath: Library/ShaderCache/d/ddc308125795cd1732c75411fc7cf557.bin
+  - path: Temp/UnityTempFile-c3fb992e37ecb47be97a27d970749d8c
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-c3fb992e37ecb47be97a27d970749d8c
+    projectPath: Temp/UnityTempFile-c3fb992e37ecb47be97a27d970749d8c
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/e/eb193cd52d03734fbb9192f937a73b36.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/eb193cd52d03734fbb9192f937a73b36.bin
-    projectPath: Library/ShaderCache/e/eb193cd52d03734fbb9192f937a73b36.bin
+  - path: Temp/UnityTempFile-c4a6c0a689de04926bde6b9128c154ae
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-c4a6c0a689de04926bde6b9128c154ae
+    projectPath: Temp/UnityTempFile-c4a6c0a689de04926bde6b9128c154ae
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/f/f980a442aa29cc260ca981afcdea6aca.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f980a442aa29cc260ca981afcdea6aca.bin
-    projectPath: Library/ShaderCache/f/f980a442aa29cc260ca981afcdea6aca.bin
+  - path: Temp/UnityTempFile-cba3a7f49950740f2bd2c5f899c196ed
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-cba3a7f49950740f2bd2c5f899c196ed
+    projectPath: Temp/UnityTempFile-cba3a7f49950740f2bd2c5f899c196ed
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/ShaderCache/f/fdbcb4fe0255de94d7e4629d5b521e4c.bin
-    fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fdbcb4fe0255de94d7e4629d5b521e4c.bin
-    projectPath: Library/ShaderCache/f/fdbcb4fe0255de94d7e4629d5b521e4c.bin
+  - path: Temp/UnityTempFile-cd3bcd5a707fe473e80fc84c64deb674
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-cd3bcd5a707fe473e80fc84c64deb674
+    projectPath: Temp/UnityTempFile-cd3bcd5a707fe473e80fc84c64deb674
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/Timeline/d8af10a6ee98240d1a1c6555354e7fc6.pref
-    fullPath: /Users/barry/PacBoy/Library/Timeline/d8af10a6ee98240d1a1c6555354e7fc6.pref
-    projectPath: Library/Timeline/d8af10a6ee98240d1a1c6555354e7fc6.pref
+  - path: Temp/UnityTempFile-d612e5f71939a489ba3ad1d786711138
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-d612e5f71939a489ba3ad1d786711138
+    projectPath: Temp/UnityTempFile-d612e5f71939a489ba3ad1d786711138
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/a5/a55eb56277a9c4775a5792d2427bec42
-    fullPath: /Users/barry/PacBoy/Library/metadata/a5/a55eb56277a9c4775a5792d2427bec42
-    projectPath: Library/metadata/a5/a55eb56277a9c4775a5792d2427bec42
+  - path: Temp/UnityTempFile-d94f8c0df608548be995cf28b45d33d1
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-d94f8c0df608548be995cf28b45d33d1
+    projectPath: Temp/UnityTempFile-d94f8c0df608548be995cf28b45d33d1
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/a5/a55eb56277a9c4775a5792d2427bec42.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/a5/a55eb56277a9c4775a5792d2427bec42.info
-    projectPath: Library/metadata/a5/a55eb56277a9c4775a5792d2427bec42.info
+  - path: Temp/UnityTempFile-da25033db6d7a4cd28766e8735505692
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-da25033db6d7a4cd28766e8735505692
+    projectPath: Temp/UnityTempFile-da25033db6d7a4cd28766e8735505692
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836
-    fullPath: /Users/barry/PacBoy/Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836
-    projectPath: Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836
+  - path: Temp/UnityTempFile-dac30e8ba3fa34beca7ef1ffc3bb09a3
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-dac30e8ba3fa34beca7ef1ffc3bb09a3
+    projectPath: Temp/UnityTempFile-dac30e8ba3fa34beca7ef1ffc3bb09a3
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836.info
-    projectPath: Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836.info
+  - path: Temp/UnityTempFile-e3c54e46d513b4fb6b5355a5c2f927f6
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-e3c54e46d513b4fb6b5355a5c2f927f6
+    projectPath: Temp/UnityTempFile-e3c54e46d513b4fb6b5355a5c2f927f6
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/d8/d8af10a6ee98240d1a1c6555354e7fc6
-    fullPath: /Users/barry/PacBoy/Library/metadata/d8/d8af10a6ee98240d1a1c6555354e7fc6
-    projectPath: Library/metadata/d8/d8af10a6ee98240d1a1c6555354e7fc6
+  - path: Temp/UnityTempFile-e9f9a082f31e04acb9bb52c563f70cec
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-e9f9a082f31e04acb9bb52c563f70cec
+    projectPath: Temp/UnityTempFile-e9f9a082f31e04acb9bb52c563f70cec
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/d8/d8af10a6ee98240d1a1c6555354e7fc6.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/d8/d8af10a6ee98240d1a1c6555354e7fc6.info
-    projectPath: Library/metadata/d8/d8af10a6ee98240d1a1c6555354e7fc6.info
+  - path: Temp/UnityTempFile-ea5d27a2f5d4648b398a1fe363895c70
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ea5d27a2f5d4648b398a1fe363895c70
+    projectPath: Temp/UnityTempFile-ea5d27a2f5d4648b398a1fe363895c70
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/e4/e42b3af77ffdc472fa8fd4f211d51cba
-    fullPath: /Users/barry/PacBoy/Library/metadata/e4/e42b3af77ffdc472fa8fd4f211d51cba
-    projectPath: Library/metadata/e4/e42b3af77ffdc472fa8fd4f211d51cba
+  - path: Temp/UnityTempFile-f00846a2d7c9347bcb92e9880b808873
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-f00846a2d7c9347bcb92e9880b808873
+    projectPath: Temp/UnityTempFile-f00846a2d7c9347bcb92e9880b808873
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/e4/e42b3af77ffdc472fa8fd4f211d51cba.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/e4/e42b3af77ffdc472fa8fd4f211d51cba.info
-    projectPath: Library/metadata/e4/e42b3af77ffdc472fa8fd4f211d51cba.info
+  - path: Temp/UnityTempFile-f22e258a412a64ebb89eb4e28add2e02
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-f22e258a412a64ebb89eb4e28add2e02
+    projectPath: Temp/UnityTempFile-f22e258a412a64ebb89eb4e28add2e02
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91
-    fullPath: /Users/barry/PacBoy/Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91
-    projectPath: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91
+  - path: Temp/UnityTempFile-f41b8fca4de8744b8bb17f05dbe76287
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-f41b8fca4de8744b8bb17f05dbe76287
+    projectPath: Temp/UnityTempFile-f41b8fca4de8744b8bb17f05dbe76287
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.info
-    fullPath: /Users/barry/PacBoy/Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.info
-    projectPath: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.info
+  - path: Temp/UnityTempFile-f70edff82df614ac8b88b619774c653c
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-f70edff82df614ac8b88b619774c653c
+    projectPath: Temp/UnityTempFile-f70edff82df614ac8b88b619774c653c
     originalPath: 
     status: 1
     staged: 0
-  - path: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.resource
-    fullPath: /Users/barry/PacBoy/Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.resource
-    projectPath: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.resource
+  - path: Temp/UnityTempFile-f7b756b22ce0142aeb117837f2709926
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-f7b756b22ce0142aeb117837f2709926
+    projectPath: Temp/UnityTempFile-f7b756b22ce0142aeb117837f2709926
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp/UnityTempFile-2aaa1a2bf69b44e9e917684a18aabfc6
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-2aaa1a2bf69b44e9e917684a18aabfc6
-    projectPath: Temp/UnityTempFile-2aaa1a2bf69b44e9e917684a18aabfc6
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-3805fbafbdca14bfb900d4f83c1d492b
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-3805fbafbdca14bfb900d4f83c1d492b
-    projectPath: Temp/UnityTempFile-3805fbafbdca14bfb900d4f83c1d492b
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-3e7748170720c40e98b19849561b408e
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-3e7748170720c40e98b19849561b408e
-    projectPath: Temp/UnityTempFile-3e7748170720c40e98b19849561b408e
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-47cee71f883f4475c95447d030d04b0d
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-47cee71f883f4475c95447d030d04b0d
-    projectPath: Temp/UnityTempFile-47cee71f883f4475c95447d030d04b0d
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-5e90331fb8b5d42a990efa28df67dabf
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-5e90331fb8b5d42a990efa28df67dabf
-    projectPath: Temp/UnityTempFile-5e90331fb8b5d42a990efa28df67dabf
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-73ed749ff18b74ccbb0b4a8b96665b6a
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-73ed749ff18b74ccbb0b4a8b96665b6a
-    projectPath: Temp/UnityTempFile-73ed749ff18b74ccbb0b4a8b96665b6a
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-8ae2ff2278d674dfe99d8b5e1d7046ec
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-8ae2ff2278d674dfe99d8b5e1d7046ec
-    projectPath: Temp/UnityTempFile-8ae2ff2278d674dfe99d8b5e1d7046ec
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-8fad9ddbd6d4a4ebfa84fd331ef684a8
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-8fad9ddbd6d4a4ebfa84fd331ef684a8
-    projectPath: Temp/UnityTempFile-8fad9ddbd6d4a4ebfa84fd331ef684a8
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-997c69af4fbd64d3f97bed4765b2d460
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-997c69af4fbd64d3f97bed4765b2d460
-    projectPath: Temp/UnityTempFile-997c69af4fbd64d3f97bed4765b2d460
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-a066f6a482af7409c995eb65bcd0a931
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-a066f6a482af7409c995eb65bcd0a931
-    projectPath: Temp/UnityTempFile-a066f6a482af7409c995eb65bcd0a931
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-a83798ec75af44f80b3d7da0a7769919
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-a83798ec75af44f80b3d7da0a7769919
-    projectPath: Temp/UnityTempFile-a83798ec75af44f80b3d7da0a7769919
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-b9b7f85cdabbf42248ca5bdd24e34d25
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-b9b7f85cdabbf42248ca5bdd24e34d25
-    projectPath: Temp/UnityTempFile-b9b7f85cdabbf42248ca5bdd24e34d25
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-d98dc56ab5ed5414c863d9c3913079a4
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-d98dc56ab5ed5414c863d9c3913079a4
-    projectPath: Temp/UnityTempFile-d98dc56ab5ed5414c863d9c3913079a4
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp/UnityTempFile-e982b89f45bee404da403fdae1d7c2d3
-    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-e982b89f45bee404da403fdae1d7c2d3
-    projectPath: Temp/UnityTempFile-e982b89f45bee404da403fdae1d7c2d3
+  - path: Temp/UnityTempFile-fb8fd310891184226ab2c781f44e1848
+    fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-fb8fd310891184226ab2c781f44e1848
+    projectPath: Temp/UnityTempFile-fb8fd310891184226ab2c781f44e1848
     originalPath: 
     status: 1
     staged: 0

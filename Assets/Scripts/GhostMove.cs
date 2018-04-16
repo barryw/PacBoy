@@ -25,35 +25,68 @@ public class GhostMove : BaseActor {
         FRIGHTENED
     }
 
+    public enum Animations
+    {
+        FRIGHTENED,
+        SEMI_FRIGHTENED,
+        EYES,
+        NORMAL
+    }
+
+    private Color BLINKY_COLOR = new Color (.81f, .24f, .098f);
+    private Color PINKY_COLOR = new Color (.917f, .509f, .898f);
+    private Color INKY_COLOR = new Color (.274f, .749f, .933f);
+    private Color CLYDE_COLOR = new Color (.858f, .521f, .109f);
+
     public Ghost ThisGhost;
     public Mode CurrentMode = Mode.CHASE;
 
-    private Dictionary<Ghost, Vector2> ScatterTargets = new Dictionary<Ghost, Vector2>();
+    private Vector2 ScatterTarget = Vector2.zero;
     private List<Vector2> Directions = new List<Vector2> ();
+    private TableOfValues _tov = TableOfValues.Instance();
     private GhostMove BlinkyMover;
-    private bool InCruiseElroy = false;
     private PacManMove PacManMover;
+
+    private bool InCruiseElroy = false;
+
     private bool InGhostHouse = false;
     private bool LeavingGhostHouse = false;
     private int DotCounter;
     private int DotsToLeave;
     private bool IsPreferred = false;
-    private bool IsEaten = false;
 
-    private TableOfValues _tov = TableOfValues.Instance();
+    public bool IsEaten = false;
+    public bool IsBlinking = false;
+    public int CurrentBlink = 0;
 
     private float playStartTime = 0.0f;
     private Vector2 Home = new Vector2 (14, 22);
+    private Vector2 GhostHome = Vector2.zero;
+
+    #region Start
 
     new void Start()
     {
         base.Start ();
 
-        // These are the locations of the scatter targets for each ghost
-        ScatterTargets.Add (Ghost.BLINKY, new Vector2 (28, 36));
-        ScatterTargets.Add (Ghost.PINKY, new Vector2 (3, 36));
-        ScatterTargets.Add (Ghost.INKY, new Vector2 (28, 1));
-        ScatterTargets.Add (Ghost.CLYDE, new Vector2 (1, 1));
+        switch (ThisGhost) {
+        case Ghost.BLINKY:
+            ScatterTarget = new Vector2 (28, 36);
+            GhostHome = new Vector2 (14, 19);
+            break;
+        case Ghost.INKY:
+            ScatterTarget = new Vector2 (28, 1);
+            GhostHome = new Vector2 (12, 19);
+            break;
+        case Ghost.PINKY:
+            ScatterTarget = new Vector2 (3, 36);
+            GhostHome = new Vector2 (14, 19);
+            break;
+        case Ghost.CLYDE:
+            ScatterTarget = new Vector2 (1, 1);
+            GhostHome = new Vector2 (16, 19);
+            break;
+        }
 
         Directions.Add (Vector2.up);
         Directions.Add (Vector2.down);
@@ -79,7 +112,11 @@ public class GhostMove : BaseActor {
             BlinkyMover = blinky.GetComponent<GhostMove> ();
         }
     }
+
+    #endregion
         
+    #region FixedUpdate
+
 	void FixedUpdate () {
         if (GameController.IsReady) {
             if (playStartTime == 0.0f)
@@ -93,55 +130,14 @@ public class GhostMove : BaseActor {
             Move ();
             CheckCollision ();
             PutGhostBackInHouse ();
-
-            if (DotCounter >= DotsToLeave && InGhostHouse)
-                LeaveGhostHouse ();
-
-            // This is for ghosts that have left the ghost house
-            if (!InGhostHouse) {
-                ShowTarget ();
-                // The ghost has reached his/her destination. Find the next destination
-                if (TileCenter == Destination) {
-                    // Based on the ghost's location, figure out which directions he can go based
-                    // on our mode.
-                    List<Vector2> exits = GetExits ();
-                    if (exits.Count == 1) {
-                        // Only a single exit? Go for it.
-                        SetDestination (exits [0]);
-                    } else {
-                        // Based on mode, pick the best exit for our target
-                        SetDestination (GetDirection (exits));
-                    }
-                }
-            } else {
-                BounceInGhostHouse ();
-            }
+            LeaveGhostHouse ();
+            NavigateGhost ();
         } else {
             Animation = false;
         }
 	}
 
-    /// <summary>
-    /// Once our eyes hit the home location, put them back in the ghost house and reincarnate the ghost
-    /// </summary>
-    void PutGhostBackInHouse()
-    {
-        if (IsEaten && Tile == Home){
-            Destination = new Vector2 (14, 19);
-        }
-
-        if (IsEaten && Tile == new Vector2 (14, 19)) {
-            _audio.GhostEyesPlaying = false;
-            _audio.BlueGhostsPlaying = true;
-            Animator.SetBool ("Eaten", false);
-            Direction = Vector2.up;
-            DotsToLeave = 0;
-            DotCounter = 0;
-            InGhostHouse = true;
-            IsEaten = false;
-            CurrentMode = GetMode ();
-        }
-    }
+    #endregion
 
     void CheckCollision()
     {
@@ -158,23 +154,25 @@ public class GhostMove : BaseActor {
         PacManMover.Hidden = true;
         Hidden = true;
         IsEaten = true;
-        Animator.SetBool ("Eaten", true);
-        Animator.SetBool ("Frightened", false);
-        Animator.SetBool ("SemiFrightened", false);
+        SetAnimation (Animations.EYES);
 
         GameObject points = null;
         switch (GameController.GhostsEaten) {
         case 0:
             points = Instantiate (Ghost200);
+            GameController.AddPoints (GameController.PointSource.FIRST_GHOST);
             break;
         case 1:
             points = Instantiate (Ghost400);
+            GameController.AddPoints (GameController.PointSource.SECOND_GHOST);
             break;
         case 2:
             points = Instantiate (Ghost800);
+            GameController.AddPoints (GameController.PointSource.THIRD_GHOST);
             break;
         case 3:
             points = Instantiate (Ghost1600);
+            GameController.AddPoints (GameController.PointSource.FOURTH_GHOST);
             break;
         }
 
@@ -188,44 +186,42 @@ public class GhostMove : BaseActor {
         _audio.PlayEatGhost ();
 
         Destroy (points, _audio.EatGhostLength);
-        yield return new WaitForSeconds (_audio.EatGhostLength);
+        yield return new WaitForSecondsRealtime (_audio.EatGhostLength);
+
+        GameController.IsReady = true;
+
         _audio.BlueGhostsPlaying = false;
         _audio.GhostEyesPlaying = true;
         _audio.SirenPlaying = false;
 
-        GameController.IsReady = true;
         Hidden = false;
         PacManMover.Hidden = false;
     }
-
-    public bool Frightened
+       
+    public void SetAnimation(Animations anim)
     {
-        get {
-            return CurrentMode == Mode.FRIGHTENED;
-        }
-        set {
-            if (value) {
-                CurrentMode = Mode.FRIGHTENED;
-                Animator.SetBool ("Frightened", true);
-            } else {
-                CurrentMode = GetMode ();
-                Animator.SetBool ("Frightened", false);
-            }
-        }
-    }
-
-    /// <summary>
-    /// Set the ghost's current mode
-    /// </summary>
-    private void SetMode()
-    {
-        if (CurrentMode != Mode.FRIGHTENED) {
-            Mode mode = GetMode ();
-            if (mode != CurrentMode) {
-                Direction = -Direction;
-                Debug.Log (LevelTime() + " : Setting " + ThisGhost + " mode from " + CurrentMode + " to " + mode);
-                CurrentMode = mode;
-            }
+        switch (anim) {
+        case Animations.FRIGHTENED:
+            Animator.SetBool ("Frightened", true);
+            Animator.SetBool ("SemiFrightened", false);
+            Animator.SetBool ("Eaten", false);
+            break;
+        case Animations.SEMI_FRIGHTENED:
+            Animator.SetBool ("SemiFrightened", true);
+            Animator.SetBool ("Frightened", false);
+            Animator.SetBool ("Eaten", false);
+            break;
+        case  Animations.EYES:
+            Animator.SetBool ("SemiFrightened", false);
+            Animator.SetBool ("Frightened", false);
+            Animator.SetBool ("Eaten", true);
+            break;
+        case Animations.NORMAL:
+        default:
+            Animator.SetBool ("SemiFrightened", false);
+            Animator.SetBool ("Frightened", false);
+            Animator.SetBool ("Eaten", false);
+            break;
         }
     }
 
@@ -233,49 +229,105 @@ public class GhostMove : BaseActor {
     {
         return Time.fixedTime - playStartTime;
     }
+       
+    #region Ghost House Rules
 
     /// <summary>
-    /// Set the ghost's speed based on a few factors
+    /// Set the number of dots PacMan needs to have eaten for ghosts to leave the ghost house
     /// </summary>
-    private void SetGhostSpeed()
+    void SetDotsToLeave()
     {
-        if (!InCruiseElroy) {
-            if (IsEaten) {
-                Speed = _tov.Speed ();
-            } else {
-                switch (CurrentMode) {
-                case Mode.CHASE:
-                case Mode.SCATTER:
-                    Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
-                    break;
-                case Mode.FRIGHTENED:
-                    Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
-                    break;
-                }
-            }
-        }           
-        
-        CruiseElroy ();
+        if (GameController.CurrentLevel == 1) {
+            if (ThisGhost == Ghost.PINKY)
+                DotsToLeave = 0;
+            if (ThisGhost == Ghost.INKY)
+                DotsToLeave = 30;
+            if (ThisGhost == Ghost.CLYDE)
+                DotsToLeave = 60;
+        }
 
-        Debug.Log (ThisGhost + " - SPEED " + Speed);
+        if (GameController.CurrentLevel == 2) {
+            if (ThisGhost == Ghost.PINKY || ThisGhost == Ghost.INKY)
+                DotsToLeave = 0;
+            if (ThisGhost == Ghost.CLYDE)
+                DotsToLeave = 50;
+        }
     }
 
     /// <summary>
-    /// Check to see if Blinky can enter Cruise Elroy mode
+    /// Once our eyes hit the home location, put them back in the ghost house and reincarnate the ghost
     /// </summary>
-    void CruiseElroy()
+    void PutGhostBackInHouse()
     {
-        // Check for Cruise Elroy 1
-        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy1DotsLeft(GameController.CurrentLevel) && !InCruiseElroy) {
-            Speed = _tov.CruiseElroy1Speed (GameController.CurrentLevel) * _tov.Speed ();
-            InCruiseElroy = true;
+        if (IsEaten && Tile == Home){
+            Destination = GhostHome;
         }
 
-        // Check for Cruise Elroy 2
-        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy2DotsLeft (GameController.CurrentLevel)) {
-            Speed = _tov.CruiseElroy2Speed (GameController.CurrentLevel) * _tov.Speed ();
-            InCruiseElroy = true;
+        if (IsEaten && Tile == GhostHome) {
+            _audio.GhostEyesPlaying = false;
+            _audio.BlueGhostsPlaying = true;
+            SetAnimation (Animations.NORMAL);
+            DotsToLeave = 0;
+            DotCounter = 0;
+            InGhostHouse = true;
+            IsEaten = false;
+            CurrentMode = GetMode ();
         }
+    }
+
+    /// <summary>
+    /// Get the ghost out of the house
+    /// </summary>
+    public void LeaveGhostHouse()
+    {
+        if (DotCounter >= DotsToLeave && InGhostHouse) {
+            if(!LeavingGhostHouse)
+                Debug.Log (ThisGhost + " is leaving the ghost house");
+
+            LeavingGhostHouse = true;
+
+            // Wait until the ghost hits the top of the ghost house
+            if (transform.position.y < 19) {
+                Destination = new Vector2 (transform.position.x, 19);
+                Direction = Vector2.up;
+            }
+
+            if (transform.position.x != 14 && transform.position.y == 19) {
+                Destination = new Vector2 (14, 19);
+                if (ThisGhost == Ghost.INKY)
+                    Direction = Vector2.right;
+                if (ThisGhost == Ghost.CLYDE)
+                    Direction = Vector2.left;
+            }
+
+            if ((Vector2)transform.position == new Vector2 (14, 19)) {
+                Destination = new Vector2 (14, 21.5f);
+                Direction = Vector2.up;
+            }
+
+            if ((Vector2)transform.position == new Vector2 (14, 21.5f)) {
+                InGhostHouse = false;
+                SetDestination (Vector2.left);
+                Direction = Vector2.left;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Figure out which ghost is tracking dot count
+    /// </summary>
+    private void SetPreferredGhost()
+    {
+        IsPreferred = (ThisGhost == Ghost.PINKY && InGhostHouse) || (ThisGhost == Ghost.INKY && InGhostHouse) || (ThisGhost == Ghost.CLYDE && InGhostHouse);
+    }
+
+    /// <summary>
+    /// Increase the dot count for the preferred ghost
+    /// </summary>
+    public void IncreaseDotCount()
+    {
+        if (IsPreferred)
+            DotCounter++;
     }
 
     /// <summary>
@@ -300,86 +352,130 @@ public class GhostMove : BaseActor {
         }
     }
 
-    /// <summary>
-    /// Increase the dot count for the preferred ghost
-    /// </summary>
-    public void IncreaseDotCount()
-    {
-        if (IsPreferred)
-            DotCounter++;
-    }
+    #endregion
+
+    #region Ghost Mode
 
     /// <summary>
-    /// Figure out which ghost is tracking dot count
+    /// Set the ghost's current mode
     /// </summary>
-    private void SetPreferredGhost()
+    private void SetMode()
     {
-        IsPreferred = (ThisGhost == Ghost.PINKY && InGhostHouse) || (ThisGhost == Ghost.INKY && InGhostHouse) || (ThisGhost == Ghost.CLYDE && InGhostHouse);
-    }
-
-    /// <summary>
-    /// Get the ghost out of the house
-    /// </summary>
-    public void LeaveGhostHouse()
-    {
-        if (!InGhostHouse)
-            return;
-
-        if(!LeavingGhostHouse)
-            Debug.Log (ThisGhost + " is leaving the ghost house");
-        
-        LeavingGhostHouse = true;
-
-        // Wait until the ghost hits the top of the ghost house
-        if (transform.position.y < 19) {
-            Destination = new Vector2 (transform.position.x, 19);
-            Direction = Vector2.up;
-        }
-
-        if (transform.position.x != 14 && transform.position.y == 19) {
-            Destination = new Vector2 (14, 19);
-            if (ThisGhost == Ghost.INKY)
-                Direction = Vector2.right;
-            if (ThisGhost == Ghost.CLYDE)
-                Direction = Vector2.left;
-        }
-
-        if ((Vector2)transform.position == new Vector2 (14, 19)) {
-            Destination = new Vector2 (14, 21.5f);
-            Direction = Vector2.up;
-        }
-
-        if ((Vector2)transform.position == new Vector2 (14, 21.5f)) {
-            InGhostHouse = false;
-            SetDestination (Vector2.left);
-            Direction = Vector2.left;
-        }
-    }
-
-    /// <summary>
-    /// Retrieve the available exits from the current location
-    /// </summary>
-    /// <returns>The exits.</returns>
-    private List<Vector2> GetExits()
-    {
-        bool canGoUp = true;
-        if (_maze.SpecialLocations().Contains (Tile) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
-            canGoUp = false;
-        
-        List<Vector2> exits = new List<Vector2> ();
-
-        foreach (Vector2 dir in Directions) {
-            if (dir == Vector2.up && !canGoUp)
-                continue;
-            if (dir != -Direction) {
-                Vector2 dest = Tile + dir;
-                if (_maze.ValidLocations ().Contains (dest)) {
-                    exits.Add (dir);
-                }
+        if (CurrentMode != Mode.FRIGHTENED) {
+            Mode mode = GetMode ();
+            if (mode != CurrentMode && !InGhostHouse) {
+                Direction = -Direction;
+                Debug.Log (LevelTime() + " : Setting " + ThisGhost + " mode from " + CurrentMode + " to " + mode);
+                CurrentMode = mode;
             }
         }
+    }
 
-        return exits;
+    /// <summary>
+    /// Get the ghost mode based on the number of seconds since the start of the level
+    /// </summary>
+    /// <returns>The mode.</returns>
+    public Mode GetMode()
+    {
+        int level = GameController.CurrentLevel;
+        float levelSeconds = LevelTime ();
+
+        if ((level >= 1 && level <= 4 && levelSeconds <= 7) || (level >=5 && levelSeconds <= 5))
+            return Mode.SCATTER;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 7 && levelSeconds < 27) || (level >= 5 && levelSeconds >= 5 && levelSeconds < 25))
+            return Mode.CHASE;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 27 && levelSeconds < 34) || (level >= 5 && levelSeconds >= 25 && levelSeconds < 30))
+            return Mode.SCATTER;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 34 && levelSeconds < 54) || (level >=5 && levelSeconds >= 30 && levelSeconds < 50))
+            return Mode.CHASE;
+        if ((level >= 1 && level <= 4 && levelSeconds >= 54 && levelSeconds < 59) || (level >= 5 && levelSeconds >= 50 && levelSeconds < 55))
+            return Mode.SCATTER;
+        if ((level == 1 && levelSeconds >= 59 && levelSeconds < 79) || (level >= 2 && level <= 4 && levelSeconds >= 59 && levelSeconds < 1092) || (level >= 5 && levelSeconds >= 55 && levelSeconds < 1092))
+            return Mode.CHASE;
+        if ((level == 1 && levelSeconds >= 79 && levelSeconds < 84) || (level >= 2 && level <= 4 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f) || (level >=5 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f))
+            return Mode.SCATTER;
+
+        return Mode.CHASE;
+    }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="GhostMove"/> is frightened.
+    /// </summary>
+    /// <value><c>true</c> if frightened; otherwise, <c>false</c>.</value>
+    public bool Frightened
+    {
+        get {
+            return CurrentMode == Mode.FRIGHTENED;
+        }
+        set {
+            if (value) {
+                CurrentMode = Mode.FRIGHTENED;
+                SetAnimation (Animations.FRIGHTENED);
+            } else {
+                CurrentMode = GetMode ();
+                IsBlinking = false;
+                CurrentBlink = 0;
+                SetAnimation (Animations.NORMAL);
+            }
+        }
+    }
+
+    public void DoBlinkGhost()
+    {
+        IsBlinking = true;
+        CurrentBlink = 0;
+
+        StartCoroutine (BlinkGhost());
+    }
+
+    /// <summary>
+    /// If the ghost is frightened, it will start to blink after a certain number of seconds.
+    /// </summary>
+    public IEnumerator BlinkGhost()
+    {
+        int totalBlinks = _tov.GhostFrightenedFlashes (GameController.CurrentLevel);
+        while (CurrentBlink <= totalBlinks) {
+            SetAnimation (Animations.SEMI_FRIGHTENED);
+            yield return new WaitForSeconds (.25f);
+            SetAnimation (Animations.FRIGHTENED);
+            yield return new WaitForSeconds (.25f);
+            CurrentBlink++;
+        }
+        Frightened = false;
+    }
+
+    #endregion
+
+    #region Ghost Movement
+
+    /// <summary>
+    /// Set the ghost's speed based on a few factors
+    /// </summary>
+    private void SetGhostSpeed()
+    {
+        if (!InCruiseElroy) {
+            if (IsEaten) {
+                Speed = _tov.Speed () * 2.0f;
+                return;
+            }
+            if (InGhostHouse) {
+                Speed = _tov.Speed () * 0.5f;
+            } else {
+                switch (CurrentMode) {
+                case Mode.CHASE:
+                case Mode.SCATTER:
+                    Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                    break;
+                case Mode.FRIGHTENED:
+                    Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                    break;
+                }
+            }
+        }           
+
+        CruiseElroy ();
+
+        //Debug.Log (ThisGhost + " - SPEED " + Speed);
     }
 
     /// <summary>
@@ -402,7 +498,83 @@ public class GhostMove : BaseActor {
         return shortestVector;
     }
 
-    // Get this ghost's target based on mode
+    /// <summary>
+    /// Retrieve the available exits from the current location
+    /// </summary>
+    /// <returns>The exits.</returns>
+    private List<Vector2> GetExits()
+    {
+        bool canGoUp = true;
+        if (_maze.SpecialLocations().Contains (Tile) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
+            canGoUp = false;
+
+        List<Vector2> exits = new List<Vector2> ();
+
+        foreach (Vector2 dir in Directions) {
+            if (dir == Vector2.up && !canGoUp)
+                continue;
+            if (dir != -Direction) {
+                Vector2 dest = Tile + dir;
+                if (_maze.ValidLocations ().Contains (dest)) {
+                    exits.Add (dir);
+                }
+            }
+        }
+
+        return exits;
+    }
+
+    /// <summary>
+    /// Figure out where the ghost should be going
+    /// </summary>
+    void NavigateGhost()
+    {
+        // This is for ghosts that have left the ghost house
+        if (!InGhostHouse) {
+            ShowTarget ();
+            // The ghost has reached his/her destination. Find the next destination
+            if (TileCenter == Destination) {
+                // Based on the ghost's location, figure out which directions he can go based
+                // on our mode.
+                List<Vector2> exits = GetExits ();
+                if (exits.Count == 1) {
+                    // Only a single exit? Go for it.
+                    SetDestination (exits [0]);
+                } else {
+                    // Based on mode, pick the best exit for our target
+                    SetDestination (GetDirection (exits));
+                }
+            }
+        } else {
+            BounceInGhostHouse ();
+        }
+    }
+
+    /// <summary>
+    /// Check to see if Blinky can enter Cruise Elroy mode
+    /// </summary>
+    void CruiseElroy()
+    {
+        // Check for Cruise Elroy 1
+        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy1DotsLeft(GameController.CurrentLevel) && !InCruiseElroy) {
+            Speed = _tov.CruiseElroy1Speed (GameController.CurrentLevel) * _tov.Speed ();
+            InCruiseElroy = true;
+        }
+
+        // Check for Cruise Elroy 2
+        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy2DotsLeft (GameController.CurrentLevel)) {
+            Speed = _tov.CruiseElroy2Speed (GameController.CurrentLevel) * _tov.Speed ();
+            InCruiseElroy = true;
+        }
+    }
+
+    #endregion
+
+    #region Ghost Targeting
+
+    /// <summary>
+    /// Get the ghost's target
+    /// </summary>
     private Vector2 Target()
     {
         // Quick out if the ghost has been eaten
@@ -443,13 +615,13 @@ public class GhostMove : BaseActor {
         if (ThisGhost == Ghost.BLINKY && InCruiseElroy) {
             return BlinkyTarget ();
         }
-        return ScatterTargets [ThisGhost];
+        return ScatterTarget;
     }
 
     /// <summary>
     /// Pick a random exit
     /// </summary>
-    /// <returns>The frightened.</returns>
+    /// <returns>The next location</returns>
     private Vector2 ProcessFrightened()
     {
         List<Vector2> exits = GetExits ();
@@ -514,77 +686,31 @@ public class GhostMove : BaseActor {
     {
         float distance = Vector2.Distance (TileCenter, PacManMover.TileCenter);
         if (distance > 8) {
-            return ScatterTargets [Ghost.CLYDE];
+            return ScatterTarget;
         } else {
             return PacManMover.TileCenter;
         }
     }
 
     /// <summary>
-    /// Set the number of dots PacMan needs to have eaten for ghosts to leave the ghost house
+    /// Draw colored boxes - one for each ghost - showing what that ghost is targeting
     /// </summary>
-    void SetDotsToLeave()
-    {
-        if (GameController.CurrentLevel == 1) {
-            if (ThisGhost == Ghost.PINKY)
-                DotsToLeave = 0;
-            if (ThisGhost == Ghost.INKY)
-                DotsToLeave = 30;
-            if (ThisGhost == Ghost.CLYDE)
-                DotsToLeave = 60;
-        }
-
-        if (GameController.CurrentLevel == 2) {
-            if (ThisGhost == Ghost.PINKY || ThisGhost == Ghost.INKY)
-                DotsToLeave = 0;
-            if (ThisGhost == Ghost.CLYDE)
-                DotsToLeave = 50;
-        }
-    }
-
-    /// <summary>
-    /// Get the ghost mode based on the number of seconds since the start of the level
-    /// </summary>
-    /// <returns>The mode.</returns>
-    public Mode GetMode()
-    {
-        int level = GameController.CurrentLevel;
-        float levelSeconds = LevelTime ();
-
-        if ((level >= 1 && level <= 4 && levelSeconds <= 7) || (level >=5 && levelSeconds <= 5))
-            return Mode.SCATTER;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 7 && levelSeconds < 27) || (level >= 5 && levelSeconds >= 5 && levelSeconds < 25))
-            return Mode.CHASE;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 27 && levelSeconds < 34) || (level >= 5 && levelSeconds >= 25 && levelSeconds < 30))
-            return Mode.SCATTER;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 34 && levelSeconds < 54) || (level >=5 && levelSeconds >= 30 && levelSeconds < 50))
-            return Mode.CHASE;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 54 && levelSeconds < 59) || (level >= 5 && levelSeconds >= 50 && levelSeconds < 55))
-            return Mode.SCATTER;
-        if ((level == 1 && levelSeconds >= 59 && levelSeconds < 79) || (level >= 2 && level <= 4 && levelSeconds >= 59 && levelSeconds < 1092) || (level >= 5 && levelSeconds >= 55 && levelSeconds < 1092))
-            return Mode.CHASE;
-        if ((level == 1 && levelSeconds >= 79 && levelSeconds < 84) || (level >= 2 && level <= 4 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f) || (level >=5 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f))
-            return Mode.SCATTER;
-
-        return Mode.CHASE;
-    }
-
     private void ShowTarget()
     {
         Vector2 target = Target ();
         Color color = Color.white;
         switch (ThisGhost) {
         case Ghost.BLINKY:
-            color = new Color (.81f, .24f, .098f);
+            color = BLINKY_COLOR;
             break;
         case Ghost.CLYDE:
-            color = new Color (.858f, .521f, .109f);
+            color = CLYDE_COLOR;
             break;
         case Ghost.PINKY:
-            color = new Color (.917f, .509f, .898f);
+            color = PINKY_COLOR;
             break;
         case Ghost.INKY:
-            color = new Color (.274f, .749f, .933f);
+            color = INKY_COLOR;
             break;
         default:
             color = Color.white;
@@ -596,4 +722,6 @@ public class GhostMove : BaseActor {
         Debug.DrawLine (new Vector3 (target.x - .5f, target.y + .5f), new Vector3 (target.x + .5f, target.y + .5f), color, 0, false);
         Debug.DrawLine (new Vector3 (target.x + .5f, target.y - .5f), new Vector3 (target.x + .5f, target.y + .5f), color, 0, false);
     }
+
+    #endregion
 }

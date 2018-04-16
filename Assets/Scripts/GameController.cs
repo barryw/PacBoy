@@ -52,18 +52,13 @@ public class GameController : MonoBehaviour
     public int startLevel;
     public int extraPacScore;
 
-//    private AudioSource startSound;
-//    private AudioSource siren;
-//    private AudioSource chomp;
-//    private AudioSource extraLife;
-//    private AudioSource blueGhosts;
-
     private bool player1ExtraLifeAwarded;
     private bool player2ExtraLifeAwarded;
 
     private int currentLevel;
     private List<GameObject> pacMen = new List<GameObject>();
     private List<GameObject> levelFruits = new List<GameObject>();
+    private TableOfValues _tov = TableOfValues.Instance ();
 
     private int player1Score = 0;
     private int player2Score = 0;
@@ -74,6 +69,7 @@ public class GameController : MonoBehaviour
     private int p1LargeDotsEaten = 0;
     private int p2LargeDotsEaten = 0;
     private int ghostsEaten = 0;
+    private float frightenStartTime = 0.0f;
 
     private Dictionary<string, List<GameObject>> scores = new Dictionary<string, List<GameObject>> ();
 
@@ -117,7 +113,6 @@ public class GameController : MonoBehaviour
 
         _audio.PlayStartMusic();
 
-        //startSound.Play ();
         GameObject readyInst = Instantiate (ready);
         Destroy (readyInst, _audio.StartMusicLength);
         RenderExtraPacs ();
@@ -131,6 +126,7 @@ public class GameController : MonoBehaviour
     {
         DisplayScore ();
         DisplayFruit ();
+        DeFrightenGhosts ();
         CheckClear ();
     }
 
@@ -253,20 +249,6 @@ public class GameController : MonoBehaviour
     void GameOver()
     {
         GameObject gameOverInst = Instantiate (gameOver);
-    }
-
-    public void Chomp()
-    {
-        //if (!chomp.isPlaying)
-        //    chomp.Play ();
-    }
-
-    public void NoChomp()
-    {
-        //if (chomp.isPlaying) {
-        //    yield return new WaitForSeconds(chomp.clip.length + 1.0f);
-        //    chomp.Stop ();
-        //}
     }
 
     public int CurrentLevel
@@ -400,7 +382,7 @@ public class GameController : MonoBehaviour
         bool display = true;
 
         while (true) {
-            yield return new WaitForSeconds (0.5f);
+            yield return new WaitForSecondsRealtime (0.5f);
             display = !display;
             if (currentPlayer == 1) {
                 oneUp.SetActive (!oneUp.activeSelf);
@@ -412,7 +394,7 @@ public class GameController : MonoBehaviour
 
     public IEnumerator RemovePac()
     {
-        yield return new WaitForSeconds (2);
+        yield return new WaitForSecondsRealtime (2);
         Destroy (pacMen [pacMen.Count - 1]);
         pacMan.SetActive (true);
         pacMan.GetComponent<Animator> ().speed = 0;
@@ -420,8 +402,8 @@ public class GameController : MonoBehaviour
 
     public IEnumerator StartInitialSiren()
     {
-        yield return new WaitForSeconds (_audio.StartMusicLength - 1);
-        pacMan.GetComponent<Animator> ().speed = 0.8f;
+        yield return new WaitForSecondsRealtime (_audio.StartMusicLength + .25f);
+        PacManMover.AnimationSpeed = 0.8f;
         IsReady = true;
     }
 
@@ -441,6 +423,40 @@ public class GameController : MonoBehaviour
     }
 
     /// <summary>
+    /// Check to see if we can de-frighten the ghosts
+    /// </summary>
+    void DeFrightenGhosts()
+    {
+        // First, see if we've eaten all of the ghosts and they're all back in the maze
+        List<GhostMove> frightenedGhosts = GetFrightenedGhosts ();
+        if (frightenedGhosts.Count == 0 && _audio.BlueGhostsPlaying) {
+            _audio.BlueGhostsPlaying = false;
+            _audio.GhostEyesPlaying = false;
+            _audio.SirenPlaying = true;
+        }
+            
+        // If we still have ghosts, see if time's up
+        if (frightenedGhosts.Count > 0 && (Time.fixedTime - frightenStartTime > _tov.GhostFrightenedTime (CurrentLevel))) {
+            foreach (GhostMove ghost in frightenedGhosts) {
+                if (!ghost.IsEaten && !ghost.IsBlinking) {
+                    ghost.DoBlinkGhost ();
+                }
+            }
+            //_audio.BlueGhostsPlaying = false;
+            //_audio.GhostEyesPlaying = false;
+            //_audio.SirenPlaying = true;
+        }
+    }
+
+    /// <summary>
+    /// If the ghosts are frightened and the frightened time has elapsed, start to blink them
+    /// </summary>
+    void BlinkGhosts()
+    {
+        
+    }
+
+    /// <summary>
     /// Frighten the ghosts
     /// </summary>
     public void FrightenGhosts()
@@ -452,9 +468,53 @@ public class GameController : MonoBehaviour
             ClydeMover.Frightened = true;
             PacManMover.Frightened = true;
 
+            frightenStartTime = Time.fixedTime;
+
             _audio.SirenPlaying = false;
             _audio.BlueGhostsPlaying = true;
         }
+    }
+
+    /// <summary>
+    /// Figure out which, if any ghosts are still in frightened mode
+    /// </summary>
+    /// <returns>The frightened ghosts.</returns>
+    private List<GhostMove> GetFrightenedGhosts()
+    {
+        List<GhostMove> frightened = new List<GhostMove> ();
+        if (BlinkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+            frightened.Add (BlinkyMover);
+        if (PinkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+            frightened.Add (PinkyMover);
+        if (InkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+            frightened.Add (InkyMover);
+        if (ClydeMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+            frightened.Add (ClydeMover);
+
+        return frightened;
+    }
+
+    /// <summary>
+    /// Get the ghost that currently shares PacMan's tile
+    /// </summary>
+    /// <returns>The at pac man tile.</returns>
+    public GhostMove GhostAtPacManTile()
+    {
+        GhostMove ghost = null;
+
+        if (BlinkyMover.Tile == PacManMover.Tile)
+            ghost = BlinkyMover;
+        
+        if(PinkyMover.Tile == PacManMover.Tile)
+            ghost = PinkyMover;
+
+        if (InkyMover.Tile == PacManMover.Tile)
+            ghost = InkyMover;
+
+        if (ClydeMover.Tile == PacManMover.Tile)
+            ghost = ClydeMover;
+        
+        return ghost;
     }
 
     public GameObject GetFruit()

@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EatPowerPellet : MonoBehaviour {
-    public GameObject Blinky;
-    public GameObject Pinky;
-    public GameObject Inky;
-    public GameObject Clyde;
-    public GameObject PacMan;
-
+public class EatPowerPellet : MonoBehaviour 
+{
     GameController gameController;
     Vector2 Tile;
 
@@ -24,7 +19,6 @@ public class EatPowerPellet : MonoBehaviour {
     {
         if (gameObject != null && gameController.PacManMover.Tile == Tile) {
             gameController.AddPoints (GameController.PointSource.POWER_PELLET);
-            gameController.Chomp ();
             gameController.FrightenGhosts ();
             Destroy (gameObject);
         }

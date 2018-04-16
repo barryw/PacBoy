@@ -6,7 +6,7 @@ public class BaseActor : MonoBehaviour
     protected GameController _gameController;
     protected Animator _anim;
     protected float _animationSpeed = 0.8f;
-    protected float _speed = 5.0f;
+    protected float _speed;
     protected Vector2 _destination = Vector2.zero;
     protected Vector2 _direction = Vector2.zero;
     protected Vector2 _savePosition = Vector2.zero;
@@ -175,7 +175,7 @@ public class BaseActor : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets a value indicating whether this <see cref="BaseActor"/> is animation.
+    /// Sets a value indicating whether this <see cref="BaseActor"/> is animating.
     /// </summary>
     /// <value><c>true</c> if animation; otherwise, <c>false</c>.</value>
     public bool Animation {

@@ -25,9 +25,10 @@ public class PacManMove : BaseActor {
 
     new void Start () {
         base.Start ();
-        Direction = Vector2.right;
-        SetDestination (Direction);
+        Direction = Vector2.left;
+        //SetDestination ();
         Animation = true;
+        AnimationSpeed = 1.5f;
 
         BlinkyMover = Blinky.GetComponent<GhostMove> ();
         PinkyMover = Pinky.GetComponent<GhostMove> ();
@@ -110,25 +111,35 @@ public class PacManMove : BaseActor {
     /// </summary>
     void CheckForGhostCollision()
     {
-        if (Tile == BlinkyMover.Tile || Tile == InkyMover.Tile || Tile == PinkyMover.Tile || Tile == ClydeMover.Tile) {
-            if (BlinkyMover.CurrentMode == GhostMove.Mode.CHASE || BlinkyMover.CurrentMode == GhostMove.Mode.SCATTER) {
-                // PacMan is dead :-(
-                //StartCoroutine (ShowDeathAnimation ());
-            }
+        GhostMove ghost = GameController.GhostAtPacManTile ();
+        if (ghost != null && (ghost.CurrentMode == GhostMove.Mode.CHASE || ghost.CurrentMode == GhostMove.Mode.SCATTER)) {
+            StartCoroutine (ShowDeathAnimation ());
         }
     }
 
     IEnumerator ShowDeathAnimation()
     {
+        AnimationSpeed = 0.0f;
         dying = true;
+
         _audio.SirenPlaying = false;
+        _audio.BlueGhostsPlaying = false;
+        _audio.GhostEyesPlaying = false;
+
         GameController.IsReady = false;
         Animation = false;
-        yield return new WaitForSeconds (0.75f);
+        yield return new WaitForSecondsRealtime (0.75f);
+        BlinkyMover.Hidden = true;
+        InkyMover.Hidden = true;
+        PinkyMover.Hidden = true;
+        ClydeMover.Hidden = true;
+        yield return new WaitForSecondsRealtime (0.25f);
+        AnimationSpeed = 0.8f;
+        _audio.PlayDeath ();
         Animation = true;
         Animator.SetBool ("Died", true);
-        yield return new WaitForSeconds (2.0f);
-        Destroy (gameObject);
+        yield return new WaitForSecondsRealtime (2.0f);
+        Hidden = true;
         GameController.Reset ();
     }
 
