@@ -37,17 +37,6 @@ public class GameController : MonoBehaviour
     public GameObject key;
     public GameObject keyPoints;
 
-    public GameObject zero;
-    public GameObject one;
-    public GameObject two;
-    public GameObject three;
-    public GameObject four;
-    public GameObject five;
-    public GameObject six;
-    public GameObject seven;
-    public GameObject eight;
-    public GameObject nine;
-
     public int numberOfPacs;
     public int startLevel;
     public int extraPacScore;
@@ -60,9 +49,6 @@ public class GameController : MonoBehaviour
     private List<GameObject> levelFruits = new List<GameObject>();
     private TableOfValues _tov = TableOfValues.Instance ();
 
-    private int player1Score = 0;
-    private int player2Score = 0;
-    private int highScore = 0;
     private int currentPlayer = 1;
     private int p1SmallDotsEaten = 0;
     private int p2SmallDotsEaten = 0;
@@ -71,9 +57,8 @@ public class GameController : MonoBehaviour
     private int ghostsEaten = 0;
     private float frightenStartTime = 0.0f;
 
-    private Dictionary<string, List<GameObject>> scores = new Dictionary<string, List<GameObject>> ();
-
     private AudioController _audio;
+    private ScoreBoard _score;
 
     private bool isReady = false;
     private GameObject fruit;
@@ -91,6 +76,7 @@ public class GameController : MonoBehaviour
 	void Start () 
     {
         _audio = AudioController.Instance;
+        _score = ScoreBoard.Instance;
 
         currentLevel = startLevel;
 
@@ -111,12 +97,10 @@ public class GameController : MonoBehaviour
         RenderLevel ();
         StartCoroutine (RemovePac ());
         StartCoroutine (StartInitialSiren ());
-        StartCoroutine (FlashCurrentPlayer ());
 	}
 
     void Update()
     {
-        DisplayScore ();
         DisplayFruit ();
         DeFrightenGhosts ();
         CheckClear ();
@@ -238,11 +222,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Display "Game Over" banner
+    /// </summary>
     void GameOver()
     {
         GameObject gameOverInst = Instantiate (gameOver);
     }
 
+    /// <summary>
+    /// Which level is being played?
+    /// </summary>
+    /// <value>The current level.</value>
     public int CurrentLevel
     {
         get {
@@ -250,6 +241,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Get/Set whether the game controller is ready for play
+    /// </summary>
+    /// <value><c>true</c> if this instance is ready; otherwise, <c>false</c>.</value>
     public bool IsReady
     {
         get {
@@ -263,15 +258,19 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Add integer points to the player's score
+    /// </summary>
+    /// <param name="points">Points.</param>
     public void AddPoints(int points)
     {
-        if (currentPlayer == 1) {
-            player1Score += points;
-        } else {
-            player2Score += points;
-        }
+        _score.AddPoints (points);
     }
 
+    /// <summary>
+    /// Add points from a PointSource to the player's score
+    /// </summary>
+    /// <param name="source">Source.</param>
     public void AddPoints(PointSource source)
     {
         if (currentPlayer == 1) {
@@ -287,109 +286,22 @@ public class GameController : MonoBehaviour
             if (source == PointSource.POWER_PELLET)
                 p2LargeDotsEaten++;
         }
-        if (player1Score > highScore) {
-            highScore = player1Score;
-        }
-        if (player2Score > highScore) {
-            highScore = player2Score;
-        }
         CheckForExtraLife ();
     }
 
     private void CheckForExtraLife()
     {
-        if (currentPlayer == 1 && player1Score >= extraPacScore && !player1ExtraLifeAwarded) {
+        if (currentPlayer == 1 && _score.Player1Score >= extraPacScore && !player1ExtraLifeAwarded) {
             _audio.PlayExtraLife ();
             player1ExtraLifeAwarded = true;
             numberOfPacs++;
             RenderExtraPacs ();
         }
-        if (currentPlayer == 2 && player2Score >= extraPacScore && !player2ExtraLifeAwarded) {
+        if (currentPlayer == 2 && _score.Player2Score >= extraPacScore && !player2ExtraLifeAwarded) {
             _audio.PlayExtraLife ();
             player2ExtraLifeAwarded = true;
             numberOfPacs++;
             RenderExtraPacs ();
-        }
-    }
-
-    private void DisplayScore()
-    {
-        DisplayPlayerScore (player1Score, 6.25f, "1up");
-        DisplayPlayerScore (player2Score, 25.25f, "2up");
-    }
-
-    void DisplayPlayerScore(int score, float startLoc, string key)
-    {
-        if (!scores.ContainsKey (key))
-            scores [key] = new List<GameObject> ();
-        
-        foreach (GameObject digit in scores[key])
-            Destroy (digit);
-        
-        string stringScore = score.ToString ();
-        if (score == 0)
-            stringScore = "00";
-        int pos = 0;
-        foreach (char c in Reverse(stringScore)) {
-            GameObject prefab = null;
-            switch (c) {
-            case '0':
-                prefab = zero;
-                break;
-            case '1':
-                prefab = one;
-                break;
-            case '2':
-                prefab = two;
-                break;
-            case '3':
-                prefab = three;
-                break;
-            case '4':
-                prefab = four;
-                break;
-            case '5':
-                prefab = five;
-                break;
-            case '6':
-                prefab = six;
-                break;
-            case '7':
-                prefab = seven;
-                break;
-            case '8':
-                prefab = eight;
-                break;
-            case '9':
-                prefab = nine;
-                break;
-            }
-            scores[key].Add(Instantiate (prefab, new Vector2 (startLoc - pos, 34.5f), Quaternion.identity));
-            pos++;
-        }
-    }
-
-    private string Reverse(string original)
-    {
-        char[] chars = original.ToCharArray ();
-        Array.Reverse (chars);
-        return new string (chars);
-    }
-
-    private IEnumerator FlashCurrentPlayer()
-    {
-        GameObject oneUp = GameObject.FindGameObjectWithTag ("1UP");
-        GameObject twoUp = GameObject.FindGameObjectWithTag ("2UP");
-        bool display = true;
-
-        while (true) {
-            yield return new WaitForSecondsRealtime (0.5f);
-            display = !display;
-            if (currentPlayer == 1) {
-                oneUp.SetActive (!oneUp.activeSelf);
-            } else {
-                twoUp.SetActive (!twoUp.activeSelf);
-            }
         }
     }
 

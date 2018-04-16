@@ -102,7 +102,7 @@ public class PacManMove : BaseActor {
                 Speed = _tov.PacManSpeed (GameController.CurrentLevel) * _tov.Speed ();
         }
 
-        Debug.Log ("PAC MAN SPEED " + Speed);
+        //Debug.Log ("PAC MAN SPEED " + Speed);
     }
 
     /// <summary>

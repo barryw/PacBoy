@@ -154,7 +154,7 @@ public class GhostMove : BaseActor {
         PacManMover.Hidden = true;
         Hidden = true;
         IsEaten = true;
-        SetAnimation (Animations.EYES);
+        IsBlinking = false;
 
         GameObject points = null;
         switch (GameController.GhostsEaten) {
@@ -189,6 +189,7 @@ public class GhostMove : BaseActor {
         yield return new WaitForSecondsRealtime (_audio.EatGhostLength);
 
         GameController.IsReady = true;
+        SetAnimation (Animations.EYES);
 
         _audio.BlueGhostsPlaying = false;
         _audio.GhostEyesPlaying = true;
@@ -409,12 +410,16 @@ public class GhostMove : BaseActor {
         }
         set {
             if (value) {
-                CurrentMode = Mode.FRIGHTENED;
-                SetAnimation (Animations.FRIGHTENED);
+                if (!IsEaten) {
+                    CurrentMode = Mode.FRIGHTENED;
+                    SetAnimation (Animations.FRIGHTENED);
+                    Direction = -Direction;
+                }
             } else {
                 CurrentMode = GetMode ();
                 IsBlinking = false;
                 CurrentBlink = 0;
+                GameController.GhostsEaten = 0;
                 SetAnimation (Animations.NORMAL);
             }
         }
@@ -425,6 +430,9 @@ public class GhostMove : BaseActor {
     /// </summary>
     public void DoBlinkGhost()
     {
+        if (IsEaten)
+            return;
+        
         IsBlinking = true;
         CurrentBlink = 0;
 
@@ -435,16 +443,18 @@ public class GhostMove : BaseActor {
     /// If the ghost is frightened, it will start to blink after a certain number of seconds.
     /// </summary>
     public IEnumerator BlinkGhost()
-    {
+    {        
         int totalBlinks = _tov.GhostFrightenedFlashes (GameController.CurrentLevel);
-        while (CurrentBlink <= totalBlinks) {
+        while (CurrentBlink <= totalBlinks && !IsEaten) {
             SetAnimation (Animations.SEMI_FRIGHTENED);
             yield return new WaitForSeconds (.25f);
             SetAnimation (Animations.FRIGHTENED);
             yield return new WaitForSeconds (.25f);
             CurrentBlink++;
         }
-        Frightened = false;
+
+        if(!IsEaten)
+            Frightened = false;
     }
 
     #endregion

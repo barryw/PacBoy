@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\GhostMove.cs" />
      <Compile Include="Assets\Scripts\Maze.cs" />
      <Compile Include="Assets\Scripts\PacManMove.cs" />
+     <Compile Include="Assets\Scripts\ScoreBoard.cs" />
      <Compile Include="Assets\Scripts\TableOfValues.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
