@@ -81,14 +81,6 @@ public class GameController : MonoBehaviour
     public enum PointSource {
         SMALLDOT = 10,
         POWER_PELLET = 50,
-        CHERRY = 100,
-        STRAWBERRY = 300,
-        ORANGE = 500,
-        APPLE = 700,
-        GRAPES = 1000,
-        GALAXIAN_BOSS = 2000,
-        BELL = 3000,
-        KEY = 5000,
         FIRST_GHOST = 200,
         SECOND_GHOST = 400,
         THIRD_GHOST = 800,
@@ -271,16 +263,25 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddPoints(int points)
+    {
+        if (currentPlayer == 1) {
+            player1Score += points;
+        } else {
+            player2Score += points;
+        }
+    }
+
     public void AddPoints(PointSource source)
     {
         if (currentPlayer == 1) {
-            player1Score += (int)source;
+            AddPoints((int)source);
             if (source == PointSource.SMALLDOT)
                 p1SmallDotsEaten++;
             if (source == PointSource.POWER_PELLET)
                 p1LargeDotsEaten++;
         } else {
-            player2Score += (int)source;
+            AddPoints((int)source);
             if (source == PointSource.SMALLDOT)
                 p2SmallDotsEaten++;
             if (source == PointSource.POWER_PELLET)
@@ -442,18 +443,7 @@ public class GameController : MonoBehaviour
                     ghost.DoBlinkGhost ();
                 }
             }
-            //_audio.BlueGhostsPlaying = false;
-            //_audio.GhostEyesPlaying = false;
-            //_audio.SirenPlaying = true;
         }
-    }
-
-    /// <summary>
-    /// If the ghosts are frightened and the frightened time has elapsed, start to blink them
-    /// </summary>
-    void BlinkGhosts()
-    {
-        
     }
 
     /// <summary>
@@ -575,33 +565,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public PointSource GetBonusPoints()
+    public int GetBonusPoints()
     {
-        switch (currentLevel) {
-        case 1:
-            return PointSource.CHERRY;
-        case 2:
-            return PointSource.STRAWBERRY;
-        case 3:
-        case 4:
-            return PointSource.ORANGE;
-        case 5:
-        case 6:
-            return PointSource.APPLE;
-        case 7:
-        case 8:
-            return PointSource.GRAPES;
-        case 9:
-        case 10:
-            return PointSource.GALAXIAN_BOSS;
-        case 11:
-        case 12:
-            return PointSource.BELL;
-        case 13-255:
-            return PointSource.KEY;
-        default:
-            return 0;
-        }
+        return _tov.BonusPoints (CurrentLevel);
     }
 
     private void RenderLevel()

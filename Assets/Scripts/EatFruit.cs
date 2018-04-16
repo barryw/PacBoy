@@ -7,7 +7,7 @@ public class EatFruit : MonoBehaviour {
     GameController gameController;
     AudioController _audio;
 
-    Vector2 Tile;
+    Vector2 TileCenter;
     bool fruitEaten = false;
 
     void Start()
@@ -15,11 +15,16 @@ public class EatFruit : MonoBehaviour {
         GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
             gameController = gc.GetComponent<GameController> ();
-        Tile = new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
+        _audio = AudioController.Instance;
+        TileCenter = new Vector2 (Mathf.Ceil (transform.position.x) - 0.5f, Mathf.Ceil (transform.position.y) - 0.5f);
     }
 
     void FixedUpdate()
     {
+        // Don't handle collision detection for the fruit at the bottom of the screen since PacMan will never eat it
+        if (TileCenter != new Vector2 (13.5f, 15.5f))
+            return;
+        
         if (Eaten) {
             fruitEaten = true;
             _audio.PlayEatFruit ();
@@ -44,7 +49,7 @@ public class EatFruit : MonoBehaviour {
     /// </summary>
     void AddPoints()
     {
-        GameController.PointSource points = gameController.GetBonusPoints ();
+        int points = gameController.GetBonusPoints ();
         gameController.AddPoints (points);
     }
 
@@ -55,7 +60,7 @@ public class EatFruit : MonoBehaviour {
     bool Eaten
     {
         get {
-            return gameController.PacManMover.Tile == Tile && !fruitEaten;
+            return gameController.PacManMover.TileCenter == TileCenter && !fruitEaten;
         }
     }
 }

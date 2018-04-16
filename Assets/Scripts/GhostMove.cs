@@ -420,6 +420,9 @@ public class GhostMove : BaseActor {
         }
     }
 
+    /// <summary>
+    /// Kick off the coroutine to blink the ghosts when they're frightened
+    /// </summary>
     public void DoBlinkGhost()
     {
         IsBlinking = true;

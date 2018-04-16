@@ -26,7 +26,6 @@ public class PacManMove : BaseActor {
     new void Start () {
         base.Start ();
         Direction = Vector2.left;
-        //SetDestination ();
         Animation = true;
         AnimationSpeed = 1.5f;
 
@@ -113,7 +112,7 @@ public class PacManMove : BaseActor {
     {
         GhostMove ghost = GameController.GhostAtPacManTile ();
         if (ghost != null && (ghost.CurrentMode == GhostMove.Mode.CHASE || ghost.CurrentMode == GhostMove.Mode.SCATTER)) {
-            StartCoroutine (ShowDeathAnimation ());
+            //StartCoroutine (ShowDeathAnimation ());
         }
     }
 

@@ -83,7 +83,6 @@ public class BaseActor : MonoBehaviour
     /// </summary>
     protected void Animate()
     {
-        //Vector2 dir = Destination - TileCenter;
         Animator.SetFloat("DirX", Direction.x);
         Animator.SetFloat("DirY", Direction.y);
     }
