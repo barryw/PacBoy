@@ -281,10 +281,7 @@ public class GhostMove : BaseActor {
     /// </summary>
     public void LeaveGhostHouse()
     {
-        if (DotCounter >= DotsToLeave && InGhostHouse) {
-            if(!LeavingGhostHouse)
-                Debug.Log (ThisGhost + " is leaving the ghost house");
-
+        if ((DotCounter >= DotsToLeave && InGhostHouse) || (InGhostHouse && IsPreferred && GameController.TimeSinceLastDot >= 4.0f)) {
             LeavingGhostHouse = true;
 
             // Wait until the ghost hits the top of the ghost house
@@ -448,6 +445,8 @@ public class GhostMove : BaseActor {
         while (CurrentBlink <= totalBlinks && !IsEaten) {
             SetAnimation (Animations.SEMI_FRIGHTENED);
             yield return new WaitForSeconds (.25f);
+            if (IsEaten)
+                continue;
             SetAnimation (Animations.FRIGHTENED);
             yield return new WaitForSeconds (.25f);
             CurrentBlink++;
@@ -466,29 +465,27 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void SetGhostSpeed()
     {
+        if (IsEaten) {
+            Speed = _tov.Speed () * 2.0f;
+            return;
+        }
+
+        if (CurrentMode == Mode.FRIGHTENED) {
+            Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            return;
+        }
+
+        if (InGhostHouse) {
+            Speed = _tov.Speed () * 0.5f;
+            return;
+        }
+
         if (!InCruiseElroy) {
-            if (IsEaten) {
-                Speed = _tov.Speed () * 2.0f;
-                return;
-            }
-            if (InGhostHouse) {
-                Speed = _tov.Speed () * 0.5f;
-            } else {
-                switch (CurrentMode) {
-                case Mode.CHASE:
-                case Mode.SCATTER:
-                    Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();
-                    break;
-                case Mode.FRIGHTENED:
-                    Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
-                    break;
-                }
-            }
-        }           
+            Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();   
+            return;
+        }         
 
         CruiseElroy ();
-
-        //Debug.Log (ThisGhost + " - SPEED " + Speed);
     }
 
     /// <summary>

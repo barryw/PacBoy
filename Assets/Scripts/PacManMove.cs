@@ -101,8 +101,6 @@ public class PacManMove : BaseActor {
             else
                 Speed = _tov.PacManSpeed (GameController.CurrentLevel) * _tov.Speed ();
         }
-
-        //Debug.Log ("PAC MAN SPEED " + Speed);
     }
 
     /// <summary>
@@ -110,10 +108,33 @@ public class PacManMove : BaseActor {
     /// </summary>
     void CheckForGhostCollision()
     {
-        GhostMove ghost = GameController.GhostAtPacManTile ();
+        GhostMove ghost = GhostAtPacManTile ();
         if (ghost != null && (ghost.CurrentMode == GhostMove.Mode.CHASE || ghost.CurrentMode == GhostMove.Mode.SCATTER)) {
             //StartCoroutine (ShowDeathAnimation ());
         }
+    }
+
+    /// <summary>
+    /// Get the ghost that currently shares PacMan's tile
+    /// </summary>
+    /// <returns>The at pac man tile.</returns>
+    public GhostMove GhostAtPacManTile()
+    {
+        GhostMove ghost = null;
+
+        if (BlinkyMover.Tile == Tile)
+            ghost = BlinkyMover;
+
+        if(PinkyMover.Tile == Tile)
+            ghost = PinkyMover;
+
+        if (InkyMover.Tile == Tile)
+            ghost = InkyMover;
+
+        if (ClydeMover.Tile == Tile)
+            ghost = ClydeMover;
+
+        return ghost;
     }
 
     IEnumerator ShowDeathAnimation()

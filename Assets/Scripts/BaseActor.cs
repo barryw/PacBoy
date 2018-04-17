@@ -76,6 +76,21 @@ public class BaseActor : MonoBehaviour
     {
         Vector2 p = Vector2.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
         GetComponent<Rigidbody2D>().MovePosition(p);
+        HandleTunnel ();
+    }
+
+    /// <summary>
+    /// If the actor enters the tunnel, transport them to the other side
+    /// </summary>
+    private void HandleTunnel()
+    {
+        if (Tile == _maze.LeftTunnel) {
+            transform.position = new Vector2 (_maze.RightTunnel.x - 0.5f, _maze.RightTunnel.y - 0.5f) + Vector2.left;
+        }
+            
+        if (Tile == _maze.RightTunnel) {
+            transform.position = new Vector2 (_maze.LeftTunnel.x - 0.5f, _maze.RightTunnel.y - 0.5f) + Vector2.right;
+        }
     }
 
     /// <summary>

@@ -18,6 +18,9 @@ public class Maze
         return _instance;
     }
 
+    public Vector2 LeftTunnel = new Vector2 (-1, 19);
+    public Vector2 RightTunnel = new Vector2 (30, 19);
+
     /// <summary>
     ///  A list of all locations of the energizer pellets
     /// </summary>
@@ -312,6 +315,12 @@ public class Maze
         Locations.Add (new Vector2 (26, 19));
         Locations.Add (new Vector2 (27, 19));
         Locations.Add (new Vector2 (28, 19));
+
+        // Special locations for tunnel
+        Locations.Add (new Vector2 (0, 19));
+        Locations.Add (LeftTunnel);
+        Locations.Add (new Vector2 (29, 19));
+        Locations.Add (RightTunnel);
 
         // Row 20
         Locations.Add (new Vector2 (7, 20));

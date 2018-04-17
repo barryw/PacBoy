@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
     private int p2LargeDotsEaten = 0;
     private int ghostsEaten = 0;
     private float frightenStartTime = 0.0f;
+    private float lastDotEatenTime = 0.0f;
 
     private AudioController _audio;
     private ScoreBoard _score;
@@ -89,10 +90,10 @@ public class GameController : MonoBehaviour
 
         pacMan.SetActive (false);
 
-        _audio.PlayStartMusic();
-
+        _audio.PlayStartMusic ();
         GameObject readyInst = Instantiate (ready);
-        Destroy (readyInst, _audio.StartMusicLength);
+        Destroy (readyInst, _audio.StartMusicLength - 1.25f);
+
         RenderExtraPacs ();
         RenderLevel ();
         StartCoroutine (RemovePac ());
@@ -160,6 +161,31 @@ public class GameController : MonoBehaviour
         }
         set{
             ghostsEaten = value;
+        }
+    }
+
+    /// <summary>
+    /// Keep track of the time the last dot was eaten
+    /// </summary>
+    /// <value>The last dot eaten time.</value>
+    public float LastDotEatenTime
+    {
+        get {
+            return lastDotEatenTime;
+        }
+        set {
+            lastDotEatenTime = value;
+        }
+    }
+
+    /// <summary>
+    /// Keep track of how long it's been since the last dot was eaten
+    /// </summary>
+    /// <value>The time since last dot.</value>
+    public float TimeSinceLastDot
+    {
+        get {
+            return Time.fixedTime - LastDotEatenTime;
         }
     }
 
@@ -310,13 +336,15 @@ public class GameController : MonoBehaviour
         yield return new WaitForSecondsRealtime (2);
         Destroy (pacMen [pacMen.Count - 1]);
         pacMan.SetActive (true);
-        pacMan.GetComponent<Animator> ().speed = 0;
+        PacManMover.AnimationSpeed = 0.0f;
+        PacManMover.Animation = false;
     }
 
     public IEnumerator StartInitialSiren()
     {
         yield return new WaitForSecondsRealtime (_audio.StartMusicLength + .25f);
         PacManMover.AnimationSpeed = 0.8f;
+        PacManMover.Animation = true;
         IsReady = true;
     }
 
@@ -396,29 +424,6 @@ public class GameController : MonoBehaviour
         return frightened;
     }
 
-    /// <summary>
-    /// Get the ghost that currently shares PacMan's tile
-    /// </summary>
-    /// <returns>The at pac man tile.</returns>
-    public GhostMove GhostAtPacManTile()
-    {
-        GhostMove ghost = null;
-
-        if (BlinkyMover.Tile == PacManMover.Tile)
-            ghost = BlinkyMover;
-        
-        if(PinkyMover.Tile == PacManMover.Tile)
-            ghost = PinkyMover;
-
-        if (InkyMover.Tile == PacManMover.Tile)
-            ghost = InkyMover;
-
-        if (ClydeMover.Tile == PacManMover.Tile)
-            ghost = ClydeMover;
-        
-        return ghost;
-    }
-
     public GameObject GetFruit()
     {
         switch (currentLevel) {
@@ -448,6 +453,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Return an instantiated prefab for a graphical representation of the points
+    /// for the fruit on this level
+    /// </summary>
+    /// <returns>The fruit points.</returns>
     public GameObject GetFruitPoints()
     {
         switch (currentLevel) {
