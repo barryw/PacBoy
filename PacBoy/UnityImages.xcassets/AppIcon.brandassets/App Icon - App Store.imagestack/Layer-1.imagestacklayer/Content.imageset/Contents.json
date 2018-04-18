@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Icon-TVOS-1280x768.png",
+      "idiom" : "tv"
+    }
+  ],
+  "info" : {
+    "author" : "com.Company",
+    "version" : 1
+  }
+}

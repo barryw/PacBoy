@@ -12,9 +12,1821 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 3
-  lastUpdatedAtString: 2018-04-17T06:25:22.9063100-04:00
-  initializedAtString: 2018-04-16T06:59:54.3215800-04:00
+  lastUpdatedAtString: 2018-04-18T19:36:03.5443020-04:00
+  initializedAtString: 2018-04-18T07:12:41.0603590-04:00
   log:
+  - commitID: 79f9b0b12b0711f76c38448afd8c03b56e4d9830
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: Tunnels work
+    description: Tunnels work
+    timeString: 2018-04-17T06:25:42.0000000-04:00
+    commitTimeString: 2018-04-17T06:25:42.0000000-04:00
+    changes:
+    - path: Assets/Materials/Tunnel Box Material.mat
+      fullPath: /Users/barry/PacBoy/Assets/Materials/Tunnel Box Material.mat
+      projectPath: Assets/Materials/Tunnel Box Material.mat
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets/Materials/Tunnel Box Material.mat.meta
+      fullPath: /Users/barry/PacBoy/Assets/Materials/Tunnel Box Material.mat.meta
+      projectPath: Assets/Materials/Tunnel Box Material.mat.meta
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets/Scripts/BaseActor.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/BaseActor.cs
+      projectPath: Assets/Scripts/BaseActor.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scripts/EatPacDot.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/EatPacDot.cs
+      projectPath: Assets/Scripts/EatPacDot.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scripts/GameController.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/GameController.cs
+      projectPath: Assets/Scripts/GameController.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scripts/GhostMove.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/GhostMove.cs
+      projectPath: Assets/Scripts/GhostMove.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scripts/Maze.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/Maze.cs
+      projectPath: Assets/Scripts/Maze.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scripts/PacManMove.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/PacManMove.cs
+      projectPath: Assets/Scripts/PacManMove.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ShaderCache/0/00ba1e8b7ba286b9c634096a994e2f86.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/00ba1e8b7ba286b9c634096a994e2f86.bin
+      projectPath: Library/ShaderCache/0/00ba1e8b7ba286b9c634096a994e2f86.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/00fe6bee90860d607f9e40ae7b0eac5e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/00fe6bee90860d607f9e40ae7b0eac5e.bin
+      projectPath: Library/ShaderCache/0/00fe6bee90860d607f9e40ae7b0eac5e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/02a623ee306c9126b441d14cfd43d228.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/02a623ee306c9126b441d14cfd43d228.bin
+      projectPath: Library/ShaderCache/0/02a623ee306c9126b441d14cfd43d228.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/03cefd82d78a017a41b75eb60c28e61e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/03cefd82d78a017a41b75eb60c28e61e.bin
+      projectPath: Library/ShaderCache/0/03cefd82d78a017a41b75eb60c28e61e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/05795de1f172058b903b82d676628d48.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/05795de1f172058b903b82d676628d48.bin
+      projectPath: Library/ShaderCache/0/05795de1f172058b903b82d676628d48.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/05b51341a734cdb3850eb874f0f0d548.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/05b51341a734cdb3850eb874f0f0d548.bin
+      projectPath: Library/ShaderCache/0/05b51341a734cdb3850eb874f0f0d548.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/05c0048b313bc81de1c69386490f6aed.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/05c0048b313bc81de1c69386490f6aed.bin
+      projectPath: Library/ShaderCache/0/05c0048b313bc81de1c69386490f6aed.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/05dd8bdc83a07f49a8a69a0505196c88.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/05dd8bdc83a07f49a8a69a0505196c88.bin
+      projectPath: Library/ShaderCache/0/05dd8bdc83a07f49a8a69a0505196c88.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/05f36a769bb41f59df6e7f1270479af3.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/05f36a769bb41f59df6e7f1270479af3.bin
+      projectPath: Library/ShaderCache/0/05f36a769bb41f59df6e7f1270479af3.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/06d09f08ad771b5671dbc2fe2c4d4afb.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/06d09f08ad771b5671dbc2fe2c4d4afb.bin
+      projectPath: Library/ShaderCache/0/06d09f08ad771b5671dbc2fe2c4d4afb.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/0840b1f68b045290d6f5f5075a9d59f6.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/0840b1f68b045290d6f5f5075a9d59f6.bin
+      projectPath: Library/ShaderCache/0/0840b1f68b045290d6f5f5075a9d59f6.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/0a8feeedbd57aa580e342b14b679a327.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/0a8feeedbd57aa580e342b14b679a327.bin
+      projectPath: Library/ShaderCache/0/0a8feeedbd57aa580e342b14b679a327.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/0ada5aaba39ee480cac3d3137b295169.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/0ada5aaba39ee480cac3d3137b295169.bin
+      projectPath: Library/ShaderCache/0/0ada5aaba39ee480cac3d3137b295169.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/0b28dc1fd2599f76964782793a727a39.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/0b28dc1fd2599f76964782793a727a39.bin
+      projectPath: Library/ShaderCache/0/0b28dc1fd2599f76964782793a727a39.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/0b4592180815905f9c3fe76085c0e875.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/0b4592180815905f9c3fe76085c0e875.bin
+      projectPath: Library/ShaderCache/0/0b4592180815905f9c3fe76085c0e875.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/0/0bfabf94f3574eddee47c9e38257160b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/0/0bfabf94f3574eddee47c9e38257160b.bin
+      projectPath: Library/ShaderCache/0/0bfabf94f3574eddee47c9e38257160b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/10e4ed02492ee29933113c36e6fa545d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/10e4ed02492ee29933113c36e6fa545d.bin
+      projectPath: Library/ShaderCache/1/10e4ed02492ee29933113c36e6fa545d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/10e51c723c8abfe8bacdd2d2c6e5c3ec.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/10e51c723c8abfe8bacdd2d2c6e5c3ec.bin
+      projectPath: Library/ShaderCache/1/10e51c723c8abfe8bacdd2d2c6e5c3ec.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/11e9b4ccec9046f31a09af9460b54eb2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/11e9b4ccec9046f31a09af9460b54eb2.bin
+      projectPath: Library/ShaderCache/1/11e9b4ccec9046f31a09af9460b54eb2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/122917bbf844d6592ec7cba27b6a3886.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/122917bbf844d6592ec7cba27b6a3886.bin
+      projectPath: Library/ShaderCache/1/122917bbf844d6592ec7cba27b6a3886.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/127cd0e39b6b7d327ebf42a23d5f24ee.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/127cd0e39b6b7d327ebf42a23d5f24ee.bin
+      projectPath: Library/ShaderCache/1/127cd0e39b6b7d327ebf42a23d5f24ee.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/130023d51f1d43587482f41eeec8aa1a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/130023d51f1d43587482f41eeec8aa1a.bin
+      projectPath: Library/ShaderCache/1/130023d51f1d43587482f41eeec8aa1a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/144290d571fd411a5ea8e53e96a45a83.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/144290d571fd411a5ea8e53e96a45a83.bin
+      projectPath: Library/ShaderCache/1/144290d571fd411a5ea8e53e96a45a83.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/1488109a5943c0c79ffa62d0f40c2d28.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/1488109a5943c0c79ffa62d0f40c2d28.bin
+      projectPath: Library/ShaderCache/1/1488109a5943c0c79ffa62d0f40c2d28.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/1706a4e9c7b347501085266a1f4996c7.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/1706a4e9c7b347501085266a1f4996c7.bin
+      projectPath: Library/ShaderCache/1/1706a4e9c7b347501085266a1f4996c7.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/17ff676a632d47890b236477b6d77ed2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/17ff676a632d47890b236477b6d77ed2.bin
+      projectPath: Library/ShaderCache/1/17ff676a632d47890b236477b6d77ed2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/1/1c303d2414de8ec4fad91ddcb2ad676d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/1/1c303d2414de8ec4fad91ddcb2ad676d.bin
+      projectPath: Library/ShaderCache/1/1c303d2414de8ec4fad91ddcb2ad676d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/20b76f8f92ca1b2615098c2dc920885b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/20b76f8f92ca1b2615098c2dc920885b.bin
+      projectPath: Library/ShaderCache/2/20b76f8f92ca1b2615098c2dc920885b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/20eba17774e09683d5c9dd8d68a963a9.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/20eba17774e09683d5c9dd8d68a963a9.bin
+      projectPath: Library/ShaderCache/2/20eba17774e09683d5c9dd8d68a963a9.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/21f9ff1dde2c06fb20a5d91a5e03517b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/21f9ff1dde2c06fb20a5d91a5e03517b.bin
+      projectPath: Library/ShaderCache/2/21f9ff1dde2c06fb20a5d91a5e03517b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/22cc79bab4627bc95c8e14eb0c8fcbae.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/22cc79bab4627bc95c8e14eb0c8fcbae.bin
+      projectPath: Library/ShaderCache/2/22cc79bab4627bc95c8e14eb0c8fcbae.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2431dcef2fa5d56e2a1a6e0d25c29827.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2431dcef2fa5d56e2a1a6e0d25c29827.bin
+      projectPath: Library/ShaderCache/2/2431dcef2fa5d56e2a1a6e0d25c29827.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2528b692b1c9dd78ee564030f4c74d58.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2528b692b1c9dd78ee564030f4c74d58.bin
+      projectPath: Library/ShaderCache/2/2528b692b1c9dd78ee564030f4c74d58.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/25f4e25bcabddd672e1fff4f98f5d2c2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/25f4e25bcabddd672e1fff4f98f5d2c2.bin
+      projectPath: Library/ShaderCache/2/25f4e25bcabddd672e1fff4f98f5d2c2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/284854526feabb51a8b469383d9adcf8.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/284854526feabb51a8b469383d9adcf8.bin
+      projectPath: Library/ShaderCache/2/284854526feabb51a8b469383d9adcf8.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2930eb50b3e33aa923380754de880918.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2930eb50b3e33aa923380754de880918.bin
+      projectPath: Library/ShaderCache/2/2930eb50b3e33aa923380754de880918.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2a75bdb2748eb5c146b14ddea86a82ff.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2a75bdb2748eb5c146b14ddea86a82ff.bin
+      projectPath: Library/ShaderCache/2/2a75bdb2748eb5c146b14ddea86a82ff.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2afd8ca78157ec09f8597af75ae714f9.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2afd8ca78157ec09f8597af75ae714f9.bin
+      projectPath: Library/ShaderCache/2/2afd8ca78157ec09f8597af75ae714f9.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2ba9fd1e30d89cb81b80726b82810a80.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2ba9fd1e30d89cb81b80726b82810a80.bin
+      projectPath: Library/ShaderCache/2/2ba9fd1e30d89cb81b80726b82810a80.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2c51bc46bbeeb9038e71b79448c80f62.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2c51bc46bbeeb9038e71b79448c80f62.bin
+      projectPath: Library/ShaderCache/2/2c51bc46bbeeb9038e71b79448c80f62.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/2/2edcbfa4cd9859d927494840561011e8.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/2/2edcbfa4cd9859d927494840561011e8.bin
+      projectPath: Library/ShaderCache/2/2edcbfa4cd9859d927494840561011e8.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/30ed0f9b55f0d4c536a2ae2a82f9f804.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/30ed0f9b55f0d4c536a2ae2a82f9f804.bin
+      projectPath: Library/ShaderCache/3/30ed0f9b55f0d4c536a2ae2a82f9f804.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/31bd3a388104ed81337d59e4b4692b8d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/31bd3a388104ed81337d59e4b4692b8d.bin
+      projectPath: Library/ShaderCache/3/31bd3a388104ed81337d59e4b4692b8d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/32cacb01d6522edcbd4cf70b2e7d551f.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/32cacb01d6522edcbd4cf70b2e7d551f.bin
+      projectPath: Library/ShaderCache/3/32cacb01d6522edcbd4cf70b2e7d551f.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/32eae4e1dc624711286bd51d83326fc0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/32eae4e1dc624711286bd51d83326fc0.bin
+      projectPath: Library/ShaderCache/3/32eae4e1dc624711286bd51d83326fc0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/34d787e8b52a1422df0e0fddef6f2164.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/34d787e8b52a1422df0e0fddef6f2164.bin
+      projectPath: Library/ShaderCache/3/34d787e8b52a1422df0e0fddef6f2164.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3507981497bb3fddf6d419d74b3d0896.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3507981497bb3fddf6d419d74b3d0896.bin
+      projectPath: Library/ShaderCache/3/3507981497bb3fddf6d419d74b3d0896.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/35565f902890128350e2a14de9d133dd.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/35565f902890128350e2a14de9d133dd.bin
+      projectPath: Library/ShaderCache/3/35565f902890128350e2a14de9d133dd.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/374e53811d1b66f74a9ebd59413c29ff.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/374e53811d1b66f74a9ebd59413c29ff.bin
+      projectPath: Library/ShaderCache/3/374e53811d1b66f74a9ebd59413c29ff.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3875540e26dfdd6df3c3915041b44969.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3875540e26dfdd6df3c3915041b44969.bin
+      projectPath: Library/ShaderCache/3/3875540e26dfdd6df3c3915041b44969.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/391a92089f7fc4c07eda9c90491d236e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/391a92089f7fc4c07eda9c90491d236e.bin
+      projectPath: Library/ShaderCache/3/391a92089f7fc4c07eda9c90491d236e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/395ec955514b31284980cafbbe6e4bbf.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/395ec955514b31284980cafbbe6e4bbf.bin
+      projectPath: Library/ShaderCache/3/395ec955514b31284980cafbbe6e4bbf.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3a8a7aaf3c50ea9798d20b2172ea7074.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3a8a7aaf3c50ea9798d20b2172ea7074.bin
+      projectPath: Library/ShaderCache/3/3a8a7aaf3c50ea9798d20b2172ea7074.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3b720215f50e9541658ed87581e309d5.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3b720215f50e9541658ed87581e309d5.bin
+      projectPath: Library/ShaderCache/3/3b720215f50e9541658ed87581e309d5.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3d4232f3a9dd2e446229639e8a1144d7.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3d4232f3a9dd2e446229639e8a1144d7.bin
+      projectPath: Library/ShaderCache/3/3d4232f3a9dd2e446229639e8a1144d7.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3d83470963f37e81f0cb782793564072.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3d83470963f37e81f0cb782793564072.bin
+      projectPath: Library/ShaderCache/3/3d83470963f37e81f0cb782793564072.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3db0cf0f93f199de1751c0408a561293.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3db0cf0f93f199de1751c0408a561293.bin
+      projectPath: Library/ShaderCache/3/3db0cf0f93f199de1751c0408a561293.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3de748422733153f3c6908f661e93627.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3de748422733153f3c6908f661e93627.bin
+      projectPath: Library/ShaderCache/3/3de748422733153f3c6908f661e93627.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3e2adbb3bb76873d95d2cd2249e14c7f.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3e2adbb3bb76873d95d2cd2249e14c7f.bin
+      projectPath: Library/ShaderCache/3/3e2adbb3bb76873d95d2cd2249e14c7f.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/3/3e4504664f1f5dff8b0cae59b829447a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/3/3e4504664f1f5dff8b0cae59b829447a.bin
+      projectPath: Library/ShaderCache/3/3e4504664f1f5dff8b0cae59b829447a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/40d35200175bbd7fc6a41ea55c807cd4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/40d35200175bbd7fc6a41ea55c807cd4.bin
+      projectPath: Library/ShaderCache/4/40d35200175bbd7fc6a41ea55c807cd4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/41f4c237f1654af405d7c4ba5994d169.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/41f4c237f1654af405d7c4ba5994d169.bin
+      projectPath: Library/ShaderCache/4/41f4c237f1654af405d7c4ba5994d169.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/455dff35dd2e656d4e15da96ecebda3f.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/455dff35dd2e656d4e15da96ecebda3f.bin
+      projectPath: Library/ShaderCache/4/455dff35dd2e656d4e15da96ecebda3f.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4617eca972a2370a08b823d80bd60da8.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4617eca972a2370a08b823d80bd60da8.bin
+      projectPath: Library/ShaderCache/4/4617eca972a2370a08b823d80bd60da8.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4a6013aa343b4e112745b75bd921e913.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4a6013aa343b4e112745b75bd921e913.bin
+      projectPath: Library/ShaderCache/4/4a6013aa343b4e112745b75bd921e913.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4bb10aae59efca6d688c44d698cb4a71.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4bb10aae59efca6d688c44d698cb4a71.bin
+      projectPath: Library/ShaderCache/4/4bb10aae59efca6d688c44d698cb4a71.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4cb4b9d6bac95adb927ee168e7433422.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4cb4b9d6bac95adb927ee168e7433422.bin
+      projectPath: Library/ShaderCache/4/4cb4b9d6bac95adb927ee168e7433422.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4d24f0f9146218b87521f98b8400c1db.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4d24f0f9146218b87521f98b8400c1db.bin
+      projectPath: Library/ShaderCache/4/4d24f0f9146218b87521f98b8400c1db.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4d322fe0168a9affd863614d1b66c6ab.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4d322fe0168a9affd863614d1b66c6ab.bin
+      projectPath: Library/ShaderCache/4/4d322fe0168a9affd863614d1b66c6ab.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4d7d1792eac90fe59d7f40f5bb3221f2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4d7d1792eac90fe59d7f40f5bb3221f2.bin
+      projectPath: Library/ShaderCache/4/4d7d1792eac90fe59d7f40f5bb3221f2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4e1cf7ad8fb47f92cf1ed3b18f4414d4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4e1cf7ad8fb47f92cf1ed3b18f4414d4.bin
+      projectPath: Library/ShaderCache/4/4e1cf7ad8fb47f92cf1ed3b18f4414d4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/4/4f7c454b43b22816a3b3be075f49e613.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/4/4f7c454b43b22816a3b3be075f49e613.bin
+      projectPath: Library/ShaderCache/4/4f7c454b43b22816a3b3be075f49e613.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/50f2194a27d1d9416ffcfde3f2e4344d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/50f2194a27d1d9416ffcfde3f2e4344d.bin
+      projectPath: Library/ShaderCache/5/50f2194a27d1d9416ffcfde3f2e4344d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5258d3c40f1d62d0d8ec5ca0803b086a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5258d3c40f1d62d0d8ec5ca0803b086a.bin
+      projectPath: Library/ShaderCache/5/5258d3c40f1d62d0d8ec5ca0803b086a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/549ef4cad0b1ef2e8af3a472cab4086a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/549ef4cad0b1ef2e8af3a472cab4086a.bin
+      projectPath: Library/ShaderCache/5/549ef4cad0b1ef2e8af3a472cab4086a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/56e876092432c2b4bcf50e0070b08384.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/56e876092432c2b4bcf50e0070b08384.bin
+      projectPath: Library/ShaderCache/5/56e876092432c2b4bcf50e0070b08384.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5734e907ad8a8cbd1c3824b4d144a5cb.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5734e907ad8a8cbd1c3824b4d144a5cb.bin
+      projectPath: Library/ShaderCache/5/5734e907ad8a8cbd1c3824b4d144a5cb.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5860a4fca103dc179f589fb9c4dab482.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5860a4fca103dc179f589fb9c4dab482.bin
+      projectPath: Library/ShaderCache/5/5860a4fca103dc179f589fb9c4dab482.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5a1067ae8b5068f489fc748d7ecdd74f.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5a1067ae8b5068f489fc748d7ecdd74f.bin
+      projectPath: Library/ShaderCache/5/5a1067ae8b5068f489fc748d7ecdd74f.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5a81d5eafb31de5bf724ecafc86c7d0b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5a81d5eafb31de5bf724ecafc86c7d0b.bin
+      projectPath: Library/ShaderCache/5/5a81d5eafb31de5bf724ecafc86c7d0b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5b28d566f9c5239a2588467ff3b0fabc.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5b28d566f9c5239a2588467ff3b0fabc.bin
+      projectPath: Library/ShaderCache/5/5b28d566f9c5239a2588467ff3b0fabc.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5ba599a7d3b39b383978ac4c3e5f6c86.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5ba599a7d3b39b383978ac4c3e5f6c86.bin
+      projectPath: Library/ShaderCache/5/5ba599a7d3b39b383978ac4c3e5f6c86.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5c95c9942369d999454843c9f6ac9e21.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5c95c9942369d999454843c9f6ac9e21.bin
+      projectPath: Library/ShaderCache/5/5c95c9942369d999454843c9f6ac9e21.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5dd04805f77539740d14e6c11ca33e86.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5dd04805f77539740d14e6c11ca33e86.bin
+      projectPath: Library/ShaderCache/5/5dd04805f77539740d14e6c11ca33e86.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5e2a65e1b924462417ec4e71ad590e26.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5e2a65e1b924462417ec4e71ad590e26.bin
+      projectPath: Library/ShaderCache/5/5e2a65e1b924462417ec4e71ad590e26.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/5/5f6d1828f5435824b5a1eedeff0042b7.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/5/5f6d1828f5435824b5a1eedeff0042b7.bin
+      projectPath: Library/ShaderCache/5/5f6d1828f5435824b5a1eedeff0042b7.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/618c2ab702836a8895ab0b17e5c7c447.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/618c2ab702836a8895ab0b17e5c7c447.bin
+      projectPath: Library/ShaderCache/6/618c2ab702836a8895ab0b17e5c7c447.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/61c63e97066f7e82ce561ec84770f40f.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/61c63e97066f7e82ce561ec84770f40f.bin
+      projectPath: Library/ShaderCache/6/61c63e97066f7e82ce561ec84770f40f.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6446b81a0fc918d6bb3919a1ab40dc11.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6446b81a0fc918d6bb3919a1ab40dc11.bin
+      projectPath: Library/ShaderCache/6/6446b81a0fc918d6bb3919a1ab40dc11.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/664b956c09fa23a7d95fc90e85c14960.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/664b956c09fa23a7d95fc90e85c14960.bin
+      projectPath: Library/ShaderCache/6/664b956c09fa23a7d95fc90e85c14960.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6650f1e7eeaa9c43fea73fd02ec9633e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6650f1e7eeaa9c43fea73fd02ec9633e.bin
+      projectPath: Library/ShaderCache/6/6650f1e7eeaa9c43fea73fd02ec9633e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/684d5faafd1bba56b9b8811f4ee005bf.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/684d5faafd1bba56b9b8811f4ee005bf.bin
+      projectPath: Library/ShaderCache/6/684d5faafd1bba56b9b8811f4ee005bf.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/69be02407ef0a4ecd5a50ede721d546e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/69be02407ef0a4ecd5a50ede721d546e.bin
+      projectPath: Library/ShaderCache/6/69be02407ef0a4ecd5a50ede721d546e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6ac43840be43d91cffc02d093f8229dc.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6ac43840be43d91cffc02d093f8229dc.bin
+      projectPath: Library/ShaderCache/6/6ac43840be43d91cffc02d093f8229dc.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6b4958d62be13a8885c8606d0e029e5b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6b4958d62be13a8885c8606d0e029e5b.bin
+      projectPath: Library/ShaderCache/6/6b4958d62be13a8885c8606d0e029e5b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6cc8e04a26a3bd404bcefc9aa97c73f7.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6cc8e04a26a3bd404bcefc9aa97c73f7.bin
+      projectPath: Library/ShaderCache/6/6cc8e04a26a3bd404bcefc9aa97c73f7.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6cd3e3e9e614809896c97a20f9a1bf8b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6cd3e3e9e614809896c97a20f9a1bf8b.bin
+      projectPath: Library/ShaderCache/6/6cd3e3e9e614809896c97a20f9a1bf8b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6db9485a4958fc76df30f311460d73a2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6db9485a4958fc76df30f311460d73a2.bin
+      projectPath: Library/ShaderCache/6/6db9485a4958fc76df30f311460d73a2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/6/6e33e01f761fd803fcfaa4e826fac1d6.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/6/6e33e01f761fd803fcfaa4e826fac1d6.bin
+      projectPath: Library/ShaderCache/6/6e33e01f761fd803fcfaa4e826fac1d6.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/7389903edd4f0cbeed7bdf5f731a6440.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/7389903edd4f0cbeed7bdf5f731a6440.bin
+      projectPath: Library/ShaderCache/7/7389903edd4f0cbeed7bdf5f731a6440.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/75ea3ab72c308975532f246b5b68e387.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/75ea3ab72c308975532f246b5b68e387.bin
+      projectPath: Library/ShaderCache/7/75ea3ab72c308975532f246b5b68e387.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/76e0fce4a8120bb2c838fe4b961795c9.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/76e0fce4a8120bb2c838fe4b961795c9.bin
+      projectPath: Library/ShaderCache/7/76e0fce4a8120bb2c838fe4b961795c9.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/773cc988b1db10e0cfa06fdff2b4baa8.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/773cc988b1db10e0cfa06fdff2b4baa8.bin
+      projectPath: Library/ShaderCache/7/773cc988b1db10e0cfa06fdff2b4baa8.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/78581c9d9db71fcbc3741c3da6721e29.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/78581c9d9db71fcbc3741c3da6721e29.bin
+      projectPath: Library/ShaderCache/7/78581c9d9db71fcbc3741c3da6721e29.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/78c14b84c04e804b61d9cb17eff322ad.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/78c14b84c04e804b61d9cb17eff322ad.bin
+      projectPath: Library/ShaderCache/7/78c14b84c04e804b61d9cb17eff322ad.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/79026407e91f506af7f030801bcee363.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/79026407e91f506af7f030801bcee363.bin
+      projectPath: Library/ShaderCache/7/79026407e91f506af7f030801bcee363.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/7b65b957f8dbf5f8cc73f268f03628e4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/7b65b957f8dbf5f8cc73f268f03628e4.bin
+      projectPath: Library/ShaderCache/7/7b65b957f8dbf5f8cc73f268f03628e4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/7/7ce3946affe96b5349d66a786977f7ec.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/7/7ce3946affe96b5349d66a786977f7ec.bin
+      projectPath: Library/ShaderCache/7/7ce3946affe96b5349d66a786977f7ec.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/80f13b6832787f217a26b740a6d22047.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/80f13b6832787f217a26b740a6d22047.bin
+      projectPath: Library/ShaderCache/8/80f13b6832787f217a26b740a6d22047.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8144178862922035629060a434337428.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8144178862922035629060a434337428.bin
+      projectPath: Library/ShaderCache/8/8144178862922035629060a434337428.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/814c14b37f53ceee4299e1da6c5013ee.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/814c14b37f53ceee4299e1da6c5013ee.bin
+      projectPath: Library/ShaderCache/8/814c14b37f53ceee4299e1da6c5013ee.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/819d74837d2c417a26d2233d3f33b46c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/819d74837d2c417a26d2233d3f33b46c.bin
+      projectPath: Library/ShaderCache/8/819d74837d2c417a26d2233d3f33b46c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/819ddf50b823aac4b149c073781b674e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/819ddf50b823aac4b149c073781b674e.bin
+      projectPath: Library/ShaderCache/8/819ddf50b823aac4b149c073781b674e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/81d39e2878af09e6c55bf219aec20cdc.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/81d39e2878af09e6c55bf219aec20cdc.bin
+      projectPath: Library/ShaderCache/8/81d39e2878af09e6c55bf219aec20cdc.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/827016301bcc4e9d1065f915e59e8083.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/827016301bcc4e9d1065f915e59e8083.bin
+      projectPath: Library/ShaderCache/8/827016301bcc4e9d1065f915e59e8083.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/828d6fcb7218c7c133a6a32c5b921ff3.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/828d6fcb7218c7c133a6a32c5b921ff3.bin
+      projectPath: Library/ShaderCache/8/828d6fcb7218c7c133a6a32c5b921ff3.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/82c23030517546cfd61701cbfb3bce6d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/82c23030517546cfd61701cbfb3bce6d.bin
+      projectPath: Library/ShaderCache/8/82c23030517546cfd61701cbfb3bce6d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/83127f188d714ee35df85088b66d4062.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/83127f188d714ee35df85088b66d4062.bin
+      projectPath: Library/ShaderCache/8/83127f188d714ee35df85088b66d4062.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/833dbee333e34f2c3af2389b1e311a66.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/833dbee333e34f2c3af2389b1e311a66.bin
+      projectPath: Library/ShaderCache/8/833dbee333e34f2c3af2389b1e311a66.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/844d763062f5799bf4585f4c6e245a9a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/844d763062f5799bf4585f4c6e245a9a.bin
+      projectPath: Library/ShaderCache/8/844d763062f5799bf4585f4c6e245a9a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/845cea250b82a77562dd0222ef9648b8.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/845cea250b82a77562dd0222ef9648b8.bin
+      projectPath: Library/ShaderCache/8/845cea250b82a77562dd0222ef9648b8.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/85e784ae9e023539a5787daa08735dc2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/85e784ae9e023539a5787daa08735dc2.bin
+      projectPath: Library/ShaderCache/8/85e784ae9e023539a5787daa08735dc2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/86ed0658bf64c80e3ece8e502011ccbb.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/86ed0658bf64c80e3ece8e502011ccbb.bin
+      projectPath: Library/ShaderCache/8/86ed0658bf64c80e3ece8e502011ccbb.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/87b0416baa2f0524b9219b0d057da77a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/87b0416baa2f0524b9219b0d057da77a.bin
+      projectPath: Library/ShaderCache/8/87b0416baa2f0524b9219b0d057da77a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8945487aebc88c1fc190e18c1f216f6f.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8945487aebc88c1fc190e18c1f216f6f.bin
+      projectPath: Library/ShaderCache/8/8945487aebc88c1fc190e18c1f216f6f.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8946f736b08e113db373c0159781693a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8946f736b08e113db373c0159781693a.bin
+      projectPath: Library/ShaderCache/8/8946f736b08e113db373c0159781693a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/89f2cdc6018b27c77e313bc091169da1.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/89f2cdc6018b27c77e313bc091169da1.bin
+      projectPath: Library/ShaderCache/8/89f2cdc6018b27c77e313bc091169da1.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8ac85ca57d7f705b38331c85c97eba05.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8ac85ca57d7f705b38331c85c97eba05.bin
+      projectPath: Library/ShaderCache/8/8ac85ca57d7f705b38331c85c97eba05.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8c8a8950f2bc5fda8adcc083281523e0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8c8a8950f2bc5fda8adcc083281523e0.bin
+      projectPath: Library/ShaderCache/8/8c8a8950f2bc5fda8adcc083281523e0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8cb0794e98bc49f253fc2f473c7ffde4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8cb0794e98bc49f253fc2f473c7ffde4.bin
+      projectPath: Library/ShaderCache/8/8cb0794e98bc49f253fc2f473c7ffde4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8d0292f539e3c072b7a0fb509da37e0d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8d0292f539e3c072b7a0fb509da37e0d.bin
+      projectPath: Library/ShaderCache/8/8d0292f539e3c072b7a0fb509da37e0d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/8/8f75d1b0ecdebc4705c6bf76c22dda8c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/8/8f75d1b0ecdebc4705c6bf76c22dda8c.bin
+      projectPath: Library/ShaderCache/8/8f75d1b0ecdebc4705c6bf76c22dda8c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/911307a00fc0014cadcc4229c8d29667.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/911307a00fc0014cadcc4229c8d29667.bin
+      projectPath: Library/ShaderCache/9/911307a00fc0014cadcc4229c8d29667.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/916d810fb01d476d2ce79c2f25860ac6.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/916d810fb01d476d2ce79c2f25860ac6.bin
+      projectPath: Library/ShaderCache/9/916d810fb01d476d2ce79c2f25860ac6.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/91943d7f57ffb7110784b9938ea02398.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/91943d7f57ffb7110784b9938ea02398.bin
+      projectPath: Library/ShaderCache/9/91943d7f57ffb7110784b9938ea02398.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/93f8ab41dbe71aca62a376ef8ebd8222.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/93f8ab41dbe71aca62a376ef8ebd8222.bin
+      projectPath: Library/ShaderCache/9/93f8ab41dbe71aca62a376ef8ebd8222.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9967265cb6b40156c880e1695263edc9.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9967265cb6b40156c880e1695263edc9.bin
+      projectPath: Library/ShaderCache/9/9967265cb6b40156c880e1695263edc9.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/99d4b19969fb67925216479309a434b2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/99d4b19969fb67925216479309a434b2.bin
+      projectPath: Library/ShaderCache/9/99d4b19969fb67925216479309a434b2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/99f8a709046ba92614f2b4b382371ef2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/99f8a709046ba92614f2b4b382371ef2.bin
+      projectPath: Library/ShaderCache/9/99f8a709046ba92614f2b4b382371ef2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9a1e422af75ecb17eccf85574c350c74.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9a1e422af75ecb17eccf85574c350c74.bin
+      projectPath: Library/ShaderCache/9/9a1e422af75ecb17eccf85574c350c74.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9a4170d7bc4419134f8f303c4cec4f09.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9a4170d7bc4419134f8f303c4cec4f09.bin
+      projectPath: Library/ShaderCache/9/9a4170d7bc4419134f8f303c4cec4f09.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9a4f32ea9f2b8f9dfdd21ab8111e18b1.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9a4f32ea9f2b8f9dfdd21ab8111e18b1.bin
+      projectPath: Library/ShaderCache/9/9a4f32ea9f2b8f9dfdd21ab8111e18b1.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9befa381f17ff90805ac60eac87c8ef2.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9befa381f17ff90805ac60eac87c8ef2.bin
+      projectPath: Library/ShaderCache/9/9befa381f17ff90805ac60eac87c8ef2.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9c8fa078cf6366b2ad429956bad1bb24.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9c8fa078cf6366b2ad429956bad1bb24.bin
+      projectPath: Library/ShaderCache/9/9c8fa078cf6366b2ad429956bad1bb24.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9d8424292f97ee4e404e0c845a140748.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9d8424292f97ee4e404e0c845a140748.bin
+      projectPath: Library/ShaderCache/9/9d8424292f97ee4e404e0c845a140748.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9e95f8a21f34e0c807e593f13a534a06.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9e95f8a21f34e0c807e593f13a534a06.bin
+      projectPath: Library/ShaderCache/9/9e95f8a21f34e0c807e593f13a534a06.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/9/9fd57c6e30a72cc0ff073c4852ad4c57.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/9/9fd57c6e30a72cc0ff073c4852ad4c57.bin
+      projectPath: Library/ShaderCache/9/9fd57c6e30a72cc0ff073c4852ad4c57.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a0285d295a70260394774166b842c32c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a0285d295a70260394774166b842c32c.bin
+      projectPath: Library/ShaderCache/a/a0285d295a70260394774166b842c32c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a0ed78a6856fcdaf36c8586d689031b0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a0ed78a6856fcdaf36c8586d689031b0.bin
+      projectPath: Library/ShaderCache/a/a0ed78a6856fcdaf36c8586d689031b0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a1417e8c7c675a88d6976263c12d71e7.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a1417e8c7c675a88d6976263c12d71e7.bin
+      projectPath: Library/ShaderCache/a/a1417e8c7c675a88d6976263c12d71e7.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a1837b9fefecf14ce130e02009e4beb4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a1837b9fefecf14ce130e02009e4beb4.bin
+      projectPath: Library/ShaderCache/a/a1837b9fefecf14ce130e02009e4beb4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a2040147c2fb5a1a88f8af45400a94d5.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a2040147c2fb5a1a88f8af45400a94d5.bin
+      projectPath: Library/ShaderCache/a/a2040147c2fb5a1a88f8af45400a94d5.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a2e72246e68b0245eb5c4322c305fb05.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a2e72246e68b0245eb5c4322c305fb05.bin
+      projectPath: Library/ShaderCache/a/a2e72246e68b0245eb5c4322c305fb05.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a369502d00e25650cddaf4680db5d262.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a369502d00e25650cddaf4680db5d262.bin
+      projectPath: Library/ShaderCache/a/a369502d00e25650cddaf4680db5d262.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a41b7be93a70ada9f8025958c175d2a1.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a41b7be93a70ada9f8025958c175d2a1.bin
+      projectPath: Library/ShaderCache/a/a41b7be93a70ada9f8025958c175d2a1.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a4299e6ac574c4277890522719558201.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a4299e6ac574c4277890522719558201.bin
+      projectPath: Library/ShaderCache/a/a4299e6ac574c4277890522719558201.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a44ae6a7a7fb392e1c8bba4b9e2ba1c6.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a44ae6a7a7fb392e1c8bba4b9e2ba1c6.bin
+      projectPath: Library/ShaderCache/a/a44ae6a7a7fb392e1c8bba4b9e2ba1c6.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a480b9213c38b199a80e08f296ba05de.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a480b9213c38b199a80e08f296ba05de.bin
+      projectPath: Library/ShaderCache/a/a480b9213c38b199a80e08f296ba05de.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a58e69fd5aad81c8e41cdc5a500cdf82.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a58e69fd5aad81c8e41cdc5a500cdf82.bin
+      projectPath: Library/ShaderCache/a/a58e69fd5aad81c8e41cdc5a500cdf82.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a58f567b07c388141a7759d55e02d00f.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a58f567b07c388141a7759d55e02d00f.bin
+      projectPath: Library/ShaderCache/a/a58f567b07c388141a7759d55e02d00f.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a5a6e101f7ad8d7c77afbb2ade68825a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a5a6e101f7ad8d7c77afbb2ade68825a.bin
+      projectPath: Library/ShaderCache/a/a5a6e101f7ad8d7c77afbb2ade68825a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/a90188a60fb189e5c88b9e47586a2b6c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/a90188a60fb189e5c88b9e47586a2b6c.bin
+      projectPath: Library/ShaderCache/a/a90188a60fb189e5c88b9e47586a2b6c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/aa614ad9caf6bbc6a2bd5764466f73f4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/aa614ad9caf6bbc6a2bd5764466f73f4.bin
+      projectPath: Library/ShaderCache/a/aa614ad9caf6bbc6a2bd5764466f73f4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/aa6876416ba47006af3c067dddd79376.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/aa6876416ba47006af3c067dddd79376.bin
+      projectPath: Library/ShaderCache/a/aa6876416ba47006af3c067dddd79376.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/aabff02799809cb360fb6dfbf004bff7.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/aabff02799809cb360fb6dfbf004bff7.bin
+      projectPath: Library/ShaderCache/a/aabff02799809cb360fb6dfbf004bff7.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/aadec8c3b671909b539300985149fd0c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/aadec8c3b671909b539300985149fd0c.bin
+      projectPath: Library/ShaderCache/a/aadec8c3b671909b539300985149fd0c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/ab1d208de2e8ea64b54adec3fb9032e7.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/ab1d208de2e8ea64b54adec3fb9032e7.bin
+      projectPath: Library/ShaderCache/a/ab1d208de2e8ea64b54adec3fb9032e7.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/abbc00ed4f7d54f8c1c0fa25b8974fab.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/abbc00ed4f7d54f8c1c0fa25b8974fab.bin
+      projectPath: Library/ShaderCache/a/abbc00ed4f7d54f8c1c0fa25b8974fab.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/adab5deead8dd5135ceba7d08c5308e6.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/adab5deead8dd5135ceba7d08c5308e6.bin
+      projectPath: Library/ShaderCache/a/adab5deead8dd5135ceba7d08c5308e6.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/a/af33e3235241a74f68dacdadd3bb227b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/a/af33e3235241a74f68dacdadd3bb227b.bin
+      projectPath: Library/ShaderCache/a/af33e3235241a74f68dacdadd3bb227b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/b2edfb04158c3c30f8d156894daa1a34.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/b2edfb04158c3c30f8d156894daa1a34.bin
+      projectPath: Library/ShaderCache/b/b2edfb04158c3c30f8d156894daa1a34.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/b47308ebd33877133a6ee15f993f6aa0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/b47308ebd33877133a6ee15f993f6aa0.bin
+      projectPath: Library/ShaderCache/b/b47308ebd33877133a6ee15f993f6aa0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/b63eb6b3b35ae4696c263b148a4124d0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/b63eb6b3b35ae4696c263b148a4124d0.bin
+      projectPath: Library/ShaderCache/b/b63eb6b3b35ae4696c263b148a4124d0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/b69f771912408e3f565cd63208fba70e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/b69f771912408e3f565cd63208fba70e.bin
+      projectPath: Library/ShaderCache/b/b69f771912408e3f565cd63208fba70e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/b74bad5ebcfabfcc93ee1e66ee463031.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/b74bad5ebcfabfcc93ee1e66ee463031.bin
+      projectPath: Library/ShaderCache/b/b74bad5ebcfabfcc93ee1e66ee463031.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/b9324efa1817d6d3a4947d8a1ece8d54.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/b9324efa1817d6d3a4947d8a1ece8d54.bin
+      projectPath: Library/ShaderCache/b/b9324efa1817d6d3a4947d8a1ece8d54.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/baf24f01b595b9bdbda2ed0edc4bc8f3.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/baf24f01b595b9bdbda2ed0edc4bc8f3.bin
+      projectPath: Library/ShaderCache/b/baf24f01b595b9bdbda2ed0edc4bc8f3.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/bb34ad737e65a97e697e9b3c9409583a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/bb34ad737e65a97e697e9b3c9409583a.bin
+      projectPath: Library/ShaderCache/b/bb34ad737e65a97e697e9b3c9409583a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/bb9c1b32efdf1549455e3a9c88eeeb9c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/bb9c1b32efdf1549455e3a9c88eeeb9c.bin
+      projectPath: Library/ShaderCache/b/bb9c1b32efdf1549455e3a9c88eeeb9c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/bcdd70bd32881e91c68da19da18a5fbc.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/bcdd70bd32881e91c68da19da18a5fbc.bin
+      projectPath: Library/ShaderCache/b/bcdd70bd32881e91c68da19da18a5fbc.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/bda623aaef918f64f936865d699b3478.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/bda623aaef918f64f936865d699b3478.bin
+      projectPath: Library/ShaderCache/b/bda623aaef918f64f936865d699b3478.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/b/bf28c58f26fe7d811c650842b8a134f4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/b/bf28c58f26fe7d811c650842b8a134f4.bin
+      projectPath: Library/ShaderCache/b/bf28c58f26fe7d811c650842b8a134f4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/c6fccc253aa95603f3900303740c5e3d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/c6fccc253aa95603f3900303740c5e3d.bin
+      projectPath: Library/ShaderCache/c/c6fccc253aa95603f3900303740c5e3d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/c75ce831f6a9bbaba081de8d14bae6e4.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/c75ce831f6a9bbaba081de8d14bae6e4.bin
+      projectPath: Library/ShaderCache/c/c75ce831f6a9bbaba081de8d14bae6e4.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/c7f27b9ca302f910fafd1ae882b9fe37.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/c7f27b9ca302f910fafd1ae882b9fe37.bin
+      projectPath: Library/ShaderCache/c/c7f27b9ca302f910fafd1ae882b9fe37.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/c8118ba5e3f4a3432d00ac1de321df66.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/c8118ba5e3f4a3432d00ac1de321df66.bin
+      projectPath: Library/ShaderCache/c/c8118ba5e3f4a3432d00ac1de321df66.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/c9abbbef7a862a3f80ebe88419267856.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/c9abbbef7a862a3f80ebe88419267856.bin
+      projectPath: Library/ShaderCache/c/c9abbbef7a862a3f80ebe88419267856.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/ca0b06f7a8e1a166599551904dfa01be.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/ca0b06f7a8e1a166599551904dfa01be.bin
+      projectPath: Library/ShaderCache/c/ca0b06f7a8e1a166599551904dfa01be.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/ca1158e253e2b125b3586c94ebf718c0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/ca1158e253e2b125b3586c94ebf718c0.bin
+      projectPath: Library/ShaderCache/c/ca1158e253e2b125b3586c94ebf718c0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/cac6c6472282c73df012fb8fe06af347.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/cac6c6472282c73df012fb8fe06af347.bin
+      projectPath: Library/ShaderCache/c/cac6c6472282c73df012fb8fe06af347.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/cb1007d7c00ff51a0b4f0339d6dddeba.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/cb1007d7c00ff51a0b4f0339d6dddeba.bin
+      projectPath: Library/ShaderCache/c/cb1007d7c00ff51a0b4f0339d6dddeba.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/cbf7e8188aeb133200079943104d4784.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/cbf7e8188aeb133200079943104d4784.bin
+      projectPath: Library/ShaderCache/c/cbf7e8188aeb133200079943104d4784.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/cc5400858f36cf699e1c1e55948b1b03.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/cc5400858f36cf699e1c1e55948b1b03.bin
+      projectPath: Library/ShaderCache/c/cc5400858f36cf699e1c1e55948b1b03.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/cc962d447d78aeec994edce3f8cfe9fe.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/cc962d447d78aeec994edce3f8cfe9fe.bin
+      projectPath: Library/ShaderCache/c/cc962d447d78aeec994edce3f8cfe9fe.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/ce3dec5e330ea047dc91fb9be311df6a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/ce3dec5e330ea047dc91fb9be311df6a.bin
+      projectPath: Library/ShaderCache/c/ce3dec5e330ea047dc91fb9be311df6a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/cf4c80a5109b96ff5d371b67c3b506a5.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/cf4c80a5109b96ff5d371b67c3b506a5.bin
+      projectPath: Library/ShaderCache/c/cf4c80a5109b96ff5d371b67c3b506a5.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/c/cfdc6e2172182c3b1dc54a3046116a75.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/c/cfdc6e2172182c3b1dc54a3046116a75.bin
+      projectPath: Library/ShaderCache/c/cfdc6e2172182c3b1dc54a3046116a75.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d01630908dba04e8ba8e5d05555845db.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d01630908dba04e8ba8e5d05555845db.bin
+      projectPath: Library/ShaderCache/d/d01630908dba04e8ba8e5d05555845db.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d0fd455aada29ad45974a1d1e29d1471.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d0fd455aada29ad45974a1d1e29d1471.bin
+      projectPath: Library/ShaderCache/d/d0fd455aada29ad45974a1d1e29d1471.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d23a7e63e8a727f2ba8eca9923fda7a3.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d23a7e63e8a727f2ba8eca9923fda7a3.bin
+      projectPath: Library/ShaderCache/d/d23a7e63e8a727f2ba8eca9923fda7a3.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d2f091ede7bf0777d492ac6348a5f0ed.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d2f091ede7bf0777d492ac6348a5f0ed.bin
+      projectPath: Library/ShaderCache/d/d2f091ede7bf0777d492ac6348a5f0ed.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d35d864b1080dcd4aced00f4ed5c77ec.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d35d864b1080dcd4aced00f4ed5c77ec.bin
+      projectPath: Library/ShaderCache/d/d35d864b1080dcd4aced00f4ed5c77ec.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d3af7c42d600372174754b68124ca1d8.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d3af7c42d600372174754b68124ca1d8.bin
+      projectPath: Library/ShaderCache/d/d3af7c42d600372174754b68124ca1d8.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d4a42bbad7571146bbf3b31a94e076ce.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d4a42bbad7571146bbf3b31a94e076ce.bin
+      projectPath: Library/ShaderCache/d/d4a42bbad7571146bbf3b31a94e076ce.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d4ae4d02a7df42d442ed1573b1084ebe.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d4ae4d02a7df42d442ed1573b1084ebe.bin
+      projectPath: Library/ShaderCache/d/d4ae4d02a7df42d442ed1573b1084ebe.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d7f91d25ebcc748eb225e9470045db1c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d7f91d25ebcc748eb225e9470045db1c.bin
+      projectPath: Library/ShaderCache/d/d7f91d25ebcc748eb225e9470045db1c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d802a27cfc6e0cbd629c4a7b572097c0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d802a27cfc6e0cbd629c4a7b572097c0.bin
+      projectPath: Library/ShaderCache/d/d802a27cfc6e0cbd629c4a7b572097c0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d88df1a310f212b93f408deb4fa48e1a.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d88df1a310f212b93f408deb4fa48e1a.bin
+      projectPath: Library/ShaderCache/d/d88df1a310f212b93f408deb4fa48e1a.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/d9dbc1a98c69366dd4fb76898bb94948.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/d9dbc1a98c69366dd4fb76898bb94948.bin
+      projectPath: Library/ShaderCache/d/d9dbc1a98c69366dd4fb76898bb94948.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/da3d3016eb4e3c4f2995fc47f73e9b85.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/da3d3016eb4e3c4f2995fc47f73e9b85.bin
+      projectPath: Library/ShaderCache/d/da3d3016eb4e3c4f2995fc47f73e9b85.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/da9fd9bb7937ad990b4c2a8afa243507.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/da9fd9bb7937ad990b4c2a8afa243507.bin
+      projectPath: Library/ShaderCache/d/da9fd9bb7937ad990b4c2a8afa243507.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/dd75f948bc9e7fa88a46a910a2009379.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/dd75f948bc9e7fa88a46a910a2009379.bin
+      projectPath: Library/ShaderCache/d/dd75f948bc9e7fa88a46a910a2009379.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/dda57ebb3f987d51ed18e1e5460bbfee.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/dda57ebb3f987d51ed18e1e5460bbfee.bin
+      projectPath: Library/ShaderCache/d/dda57ebb3f987d51ed18e1e5460bbfee.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/deccd2ae21443b47e400758423013478.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/deccd2ae21443b47e400758423013478.bin
+      projectPath: Library/ShaderCache/d/deccd2ae21443b47e400758423013478.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/ded6cdb897f46fff94da4bf9b52cd3d5.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/ded6cdb897f46fff94da4bf9b52cd3d5.bin
+      projectPath: Library/ShaderCache/d/ded6cdb897f46fff94da4bf9b52cd3d5.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/df273d170777978aab4345ca3c03de7b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/df273d170777978aab4345ca3c03de7b.bin
+      projectPath: Library/ShaderCache/d/df273d170777978aab4345ca3c03de7b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/df72176d521b22b946d78bd7fdb4f75e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/df72176d521b22b946d78bd7fdb4f75e.bin
+      projectPath: Library/ShaderCache/d/df72176d521b22b946d78bd7fdb4f75e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/d/dffcf4c7bc24398ec0f78e70aee38836.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/d/dffcf4c7bc24398ec0f78e70aee38836.bin
+      projectPath: Library/ShaderCache/d/dffcf4c7bc24398ec0f78e70aee38836.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/e461bc9f61b81a5ace958defc8f6a1ea.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/e461bc9f61b81a5ace958defc8f6a1ea.bin
+      projectPath: Library/ShaderCache/e/e461bc9f61b81a5ace958defc8f6a1ea.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/e724d2a70e2f3736474fd9994e68d8e0.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/e724d2a70e2f3736474fd9994e68d8e0.bin
+      projectPath: Library/ShaderCache/e/e724d2a70e2f3736474fd9994e68d8e0.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/e8402394374046ffae4f7868485c42de.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/e8402394374046ffae4f7868485c42de.bin
+      projectPath: Library/ShaderCache/e/e8402394374046ffae4f7868485c42de.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/e853ac68cb85b98cad9dec11bcd2c6ef.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/e853ac68cb85b98cad9dec11bcd2c6ef.bin
+      projectPath: Library/ShaderCache/e/e853ac68cb85b98cad9dec11bcd2c6ef.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/e99ae72f86c0df78fa283f9a896c0b38.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/e99ae72f86c0df78fa283f9a896c0b38.bin
+      projectPath: Library/ShaderCache/e/e99ae72f86c0df78fa283f9a896c0b38.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/e9ac8796248a24e0139ac015bd06a2d8.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/e9ac8796248a24e0139ac015bd06a2d8.bin
+      projectPath: Library/ShaderCache/e/e9ac8796248a24e0139ac015bd06a2d8.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/eb5274fdc8f1a92fd83f5a345df25aeb.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/eb5274fdc8f1a92fd83f5a345df25aeb.bin
+      projectPath: Library/ShaderCache/e/eb5274fdc8f1a92fd83f5a345df25aeb.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/ecf75b99549c55ee901a36631c583493.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/ecf75b99549c55ee901a36631c583493.bin
+      projectPath: Library/ShaderCache/e/ecf75b99549c55ee901a36631c583493.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/e/ee21a9bab039cb43a5f6e4b41cdfee54.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/e/ee21a9bab039cb43a5f6e4b41cdfee54.bin
+      projectPath: Library/ShaderCache/e/ee21a9bab039cb43a5f6e4b41cdfee54.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/f0b5e5f3d1606b141fb7bb7c0a960f06.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f0b5e5f3d1606b141fb7bb7c0a960f06.bin
+      projectPath: Library/ShaderCache/f/f0b5e5f3d1606b141fb7bb7c0a960f06.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/f4aa67abb19768bd46a938b8a5c28337.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f4aa67abb19768bd46a938b8a5c28337.bin
+      projectPath: Library/ShaderCache/f/f4aa67abb19768bd46a938b8a5c28337.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/f5e6dd34f86fd7460a2314cf6089f743.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f5e6dd34f86fd7460a2314cf6089f743.bin
+      projectPath: Library/ShaderCache/f/f5e6dd34f86fd7460a2314cf6089f743.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/f60c82cbb776f5d510762ac7189a40dd.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f60c82cbb776f5d510762ac7189a40dd.bin
+      projectPath: Library/ShaderCache/f/f60c82cbb776f5d510762ac7189a40dd.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/f62eba000d2a8ab131abc9024bd94395.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f62eba000d2a8ab131abc9024bd94395.bin
+      projectPath: Library/ShaderCache/f/f62eba000d2a8ab131abc9024bd94395.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/f7dfcbf4e66966c5a05e0dca64b6e811.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f7dfcbf4e66966c5a05e0dca64b6e811.bin
+      projectPath: Library/ShaderCache/f/f7dfcbf4e66966c5a05e0dca64b6e811.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/f89059ef5c68e6324a605f5f6e83887b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/f89059ef5c68e6324a605f5f6e83887b.bin
+      projectPath: Library/ShaderCache/f/f89059ef5c68e6324a605f5f6e83887b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fa32f8092d3bd3d62fd7c997c9f78a3d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fa32f8092d3bd3d62fd7c997c9f78a3d.bin
+      projectPath: Library/ShaderCache/f/fa32f8092d3bd3d62fd7c997c9f78a3d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fc0c6e46eaeafc02d8feb8d1895dfeda.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fc0c6e46eaeafc02d8feb8d1895dfeda.bin
+      projectPath: Library/ShaderCache/f/fc0c6e46eaeafc02d8feb8d1895dfeda.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fc575f9e1facc723960515c0337cd421.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fc575f9e1facc723960515c0337cd421.bin
+      projectPath: Library/ShaderCache/f/fc575f9e1facc723960515c0337cd421.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fc805bba0d82c4120a8f739116832b9b.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fc805bba0d82c4120a8f739116832b9b.bin
+      projectPath: Library/ShaderCache/f/fc805bba0d82c4120a8f739116832b9b.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fd6e10ed6100406a474400c11f9c8d5c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fd6e10ed6100406a474400c11f9c8d5c.bin
+      projectPath: Library/ShaderCache/f/fd6e10ed6100406a474400c11f9c8d5c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fe62af41d28ad56aa773e4407755409c.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fe62af41d28ad56aa773e4407755409c.bin
+      projectPath: Library/ShaderCache/f/fe62af41d28ad56aa773e4407755409c.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fea0e6c803a4da054265e57744010e9d.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fea0e6c803a4da054265e57744010e9d.bin
+      projectPath: Library/ShaderCache/f/fea0e6c803a4da054265e57744010e9d.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/fee57005a6c04c3e568ea122a01ae0c5.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/fee57005a6c04c3e568ea122a01ae0c5.bin
+      projectPath: Library/ShaderCache/f/fee57005a6c04c3e568ea122a01ae0c5.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/ff18fc2ef83b333e9a61535839490bef.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/ff18fc2ef83b333e9a61535839490bef.bin
+      projectPath: Library/ShaderCache/f/ff18fc2ef83b333e9a61535839490bef.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/ShaderCache/f/ffdd3fe279c53adbbca238024f1f6f0e.bin
+      fullPath: /Users/barry/PacBoy/Library/ShaderCache/f/ffdd3fe279c53adbbca238024f1f6f0e.bin
+      projectPath: Library/ShaderCache/f/ffdd3fe279c53adbbca238024f1f6f0e.bin
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/assetDatabase3
+      fullPath: /Users/barry/PacBoy/Library/assetDatabase3
+      projectPath: Library/assetDatabase3
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/branches.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/branches.yaml
+      projectPath: Library/gfu/cache/branches.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitlog.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitlog.yaml
+      projectPath: Library/gfu/cache/gitlog.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitstatusentries.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitstatusentries.yaml
+      projectPath: Library/gfu/cache/gitstatusentries.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/repoinfo.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/repoinfo.yaml
+      projectPath: Library/gfu/cache/repoinfo.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/17/17b34f878f3b046838c2832aa394849c
+      fullPath: /Users/barry/PacBoy/Library/metadata/17/17b34f878f3b046838c2832aa394849c
+      projectPath: Library/metadata/17/17b34f878f3b046838c2832aa394849c
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/2a/2aed3bc6301184bab9e578b829914fcb
+      fullPath: /Users/barry/PacBoy/Library/metadata/2a/2aed3bc6301184bab9e578b829914fcb
+      projectPath: Library/metadata/2a/2aed3bc6301184bab9e578b829914fcb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/3a/3a71c337589b442208dcfa58aac1a168
+      fullPath: /Users/barry/PacBoy/Library/metadata/3a/3a71c337589b442208dcfa58aac1a168
+      projectPath: Library/metadata/3a/3a71c337589b442208dcfa58aac1a168
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/97/972307e2c9ae643df9fce45dd6b69d2c
+      fullPath: /Users/barry/PacBoy/Library/metadata/97/972307e2c9ae643df9fce45dd6b69d2c
+      projectPath: Library/metadata/97/972307e2c9ae643df9fce45dd6b69d2c
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/metadata/97/972307e2c9ae643df9fce45dd6b69d2c.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/97/972307e2c9ae643df9fce45dd6b69d2c.info
+      projectPath: Library/metadata/97/972307e2c9ae643df9fce45dd6b69d2c.info
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9
+      fullPath: /Users/barry/PacBoy/Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9
+      projectPath: Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      fullPath: /Users/barry/PacBoy/Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      projectPath: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1
+      fullPath: /Users/barry/PacBoy/Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1
+      projectPath: Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler0.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler0.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler0.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler1.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler1.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler1.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler2.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler2.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler2.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler3.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler3.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler3.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler4.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler4.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler4.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler5.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler5.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler5.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler6.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler6.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler6.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler7.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler7.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler7.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Temp/Compiled-Standard.shader
+      fullPath: /Users/barry/PacBoy/Temp/Compiled-Standard.shader
+      projectPath: Temp/Compiled-Standard.shader
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.clust
+      fullPath: /Users/barry/PacBoy/Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.clust
+      projectPath: Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.clust
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.lt
+      fullPath: /Users/barry/PacBoy/Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.lt
+      projectPath: Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.lt
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.vis
+      fullPath: /Users/barry/PacBoy/Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.vis
+      projectPath: Temp/ProcessJobs/702dd8fc71c224e3f2a3b60d1b32fa34.vis
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-02a9416df536140af99f11789a30486d
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-02a9416df536140af99f11789a30486d
+      projectPath: Temp/UnityTempFile-02a9416df536140af99f11789a30486d
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-1be730b51ed00445b9d2f174c25d917f
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-1be730b51ed00445b9d2f174c25d917f
+      projectPath: Temp/UnityTempFile-1be730b51ed00445b9d2f174c25d917f
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-373fef8a626474ff59fca5ac4361310f
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-373fef8a626474ff59fca5ac4361310f
+      projectPath: Temp/UnityTempFile-373fef8a626474ff59fca5ac4361310f
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-3c4cdfde4c3b645a5bb47e78738f86c9
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-3c4cdfde4c3b645a5bb47e78738f86c9
+      projectPath: Temp/UnityTempFile-3c4cdfde4c3b645a5bb47e78738f86c9
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-7063e271aafcb4442b8ed8478a1012c4
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-7063e271aafcb4442b8ed8478a1012c4
+      projectPath: Temp/UnityTempFile-7063e271aafcb4442b8ed8478a1012c4
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-72cf5598199e444149c81862746217fe
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-72cf5598199e444149c81862746217fe
+      projectPath: Temp/UnityTempFile-72cf5598199e444149c81862746217fe
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-7bc287220da524a2d9854f0ae5e645e5
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-7bc287220da524a2d9854f0ae5e645e5
+      projectPath: Temp/UnityTempFile-7bc287220da524a2d9854f0ae5e645e5
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-82b55b089fc5f42e09779cdc61786f9f
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-82b55b089fc5f42e09779cdc61786f9f
+      projectPath: Temp/UnityTempFile-82b55b089fc5f42e09779cdc61786f9f
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-8969e9b256d934caf9e1fead86332f19
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-8969e9b256d934caf9e1fead86332f19
+      projectPath: Temp/UnityTempFile-8969e9b256d934caf9e1fead86332f19
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-ab3cacc6b83d34119b039d1f97b19dd8
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ab3cacc6b83d34119b039d1f97b19dd8
+      projectPath: Temp/UnityTempFile-ab3cacc6b83d34119b039d1f97b19dd8
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-ab6280943eef74c0bbaa8606f25bc1ed
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-ab6280943eef74c0bbaa8606f25bc1ed
+      projectPath: Temp/UnityTempFile-ab6280943eef74c0bbaa8606f25bc1ed
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-bc1d697a270984d51bf68d3ea9f3658b
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-bc1d697a270984d51bf68d3ea9f3658b
+      projectPath: Temp/UnityTempFile-bc1d697a270984d51bf68d3ea9f3658b
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-c661a5e0ce7dd4cc39f5a5c99d5c4148
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-c661a5e0ce7dd4cc39f5a5c99d5c4148
+      projectPath: Temp/UnityTempFile-c661a5e0ce7dd4cc39f5a5c99d5c4148
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-e11cc2323efcc4941b7bef79d60e3f33
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-e11cc2323efcc4941b7bef79d60e3f33
+      projectPath: Temp/UnityTempFile-e11cc2323efcc4941b7bef79d60e3f33
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-e4b331c90d3bb485b9a77628e6db7e29
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-e4b331c90d3bb485b9a77628e6db7e29
+      projectPath: Temp/UnityTempFile-e4b331c90d3bb485b9a77628e6db7e29
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/UnityTempFile-e93948e5720a149108f59de1b70d0997
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-e93948e5720a149108f59de1b70d0997
+      projectPath: Temp/UnityTempFile-e93948e5720a149108f59de1b70d0997
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Temp/__Backupscenes/0.backup
+      fullPath: /Users/barry/PacBoy/Temp/__Backupscenes/0.backup
+      projectPath: Temp/__Backupscenes/0.backup
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Temp/bin/Debug/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/Temp/bin/Debug/Assembly-CSharp.dll
+      projectPath: Temp/bin/Debug/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Temp/bin/Debug/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+      projectPath: Temp/bin/Debug/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: obj/Debug/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/obj/Debug/Assembly-CSharp.dll
+      projectPath: obj/Debug/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: obj/Debug/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/obj/Debug/Assembly-CSharp.dll.mdb
+      projectPath: obj/Debug/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
   - commitID: 698082514f169bdab5708e95b5119e9faa6934cd
     mergeA: 
     mergeB: 

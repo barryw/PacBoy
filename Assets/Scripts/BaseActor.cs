@@ -86,10 +86,12 @@ public class BaseActor : MonoBehaviour
     {
         if (Tile == _maze.LeftTunnel) {
             transform.position = new Vector2 (_maze.RightTunnel.x - 0.5f, _maze.RightTunnel.y - 0.5f) + Vector2.left;
+            Destination = (Vector2)transform.position + Vector2.left;
         }
             
         if (Tile == _maze.RightTunnel) {
-            transform.position = new Vector2 (_maze.LeftTunnel.x - 0.5f, _maze.RightTunnel.y - 0.5f) + Vector2.right;
+            transform.position = new Vector2 (_maze.LeftTunnel.x - 0.5f, _maze.LeftTunnel.y - 0.5f) + Vector2.right;
+            Destination = (Vector2)transform.position + Vector2.right;
         }
     }
 

@@ -281,7 +281,8 @@ public class GhostMove : BaseActor {
     /// </summary>
     public void LeaveGhostHouse()
     {
-        if ((DotCounter >= DotsToLeave && InGhostHouse) || (InGhostHouse && IsPreferred && GameController.TimeSinceLastDot >= 4.0f)) {
+        //if ((DotCounter >= DotsToLeave && InGhostHouse) || (InGhostHouse && IsPreferred && GameController.TimeSinceLastDot >= 4.0f)) {
+        if(DotCounter >= DotsToLeave && InGhostHouse) {
             LeavingGhostHouse = true;
 
             // Wait until the ghost hits the top of the ghost house
@@ -465,26 +466,39 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void SetGhostSpeed()
     {
+        // Ghost is eaten and is currently a set of eyes on their way back to the ghost house
         if (IsEaten) {
             Speed = _tov.Speed () * 2.0f;
             return;
         }
 
+        // Ghost is frightened
         if (CurrentMode == Mode.FRIGHTENED) {
             Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
             return;
         }
 
+        // Ghost is in the ghost house. Cut the speed in half
         if (InGhostHouse) {
             Speed = _tov.Speed () * 0.5f;
             return;
         }
 
+        // Ghost is in the tunnel
+        if(Tile.y == 19 && ((Tile.x >= -1 && Tile.x <= 5) || (Tile.x >= 24 && Tile.x <= 32)))
+        {
+            Speed = _tov.GhostTunnelSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            Debug.Log (ThisGhost + " is in the tunnel. Setting speed to " + Speed);
+            return;
+        }
+
+        // Set normal speed for this level
         if (!InCruiseElroy) {
             Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();   
             return;
         }         
 
+        // Check whether Blinky is in Cruise Elroy mode
         CruiseElroy ();
     }
 
