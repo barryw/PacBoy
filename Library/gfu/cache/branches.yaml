@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 2
-  lastUpdatedAtString: 2018-04-19T06:07:15.2530190-04:00
+  lastUpdatedAtString: 2018-04-19T06:37:11.9167940-04:00
   initializedAtString: 2018-04-18T21:57:59.8864930-04:00
   localBranches:
   - name: develop
-    tracking: '[None]'
+    tracking: origin/develop
     isActive: 1
   - name: master
     tracking: origin/master
     isActive: 0
   remoteBranches:
+  - name: origin/develop
+    tracking: '[None]'
+    isActive: 0
   - name: origin/master
     tracking: '[None]'
     isActive: 0
@@ -40,8 +43,8 @@ MonoBehaviour:
     values:
     - name: develop
       remote:
-        name: 
-        url: 
+        name: origin
+        url: https://github.com/barryw/PacBoy.git
     - name: master
       remote:
         name: origin
@@ -51,9 +54,14 @@ MonoBehaviour:
     - origin
     subKeys:
     - Values:
+      - develop
       - master
     subKeyValues:
     - Values:
+      - name: develop
+        remote:
+          name: origin
+          url: https://github.com/barryw/PacBoy.git
       - name: master
         remote:
           name: origin
