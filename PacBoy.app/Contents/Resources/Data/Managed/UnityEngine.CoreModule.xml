@@ -1619,7 +1619,7 @@ Note: Using raw JNI functions requires advanced knowledge of the Android Java Na
     </member>
     <member name="P:UnityEngine.Application.isLoadingLevel">
       <summary>
-        <para>Is some level being loaded? (Read Only)</para>
+        <para>Is some level being loaded? (Read Only) (Obsolete).</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Application.isMobilePlatform">
@@ -1671,7 +1671,7 @@ Note: Using raw JNI functions requires advanced knowledge of the Android Java Na
     </member>
     <member name="?:UnityEngine.Application.lowMemory(UnityEngine.Application/LowMemoryCallback)">
       <summary>
-        <para>This event occurs when an iOS, Android, or Tizen device notifies of low memory while the app is running in the foreground. You can release non-critical assets from memory (such as, textures or audio clips) in response to this in order to avoid the app being terminated. You can also load smaller versions of such assets.  Furthermore, you should serialize any transient data to permanent storage to avoid data loss if the app is terminated.
+        <para>This event occurs when an iOS or Android device notifies of low memory while the app is running in the foreground. You can release non-critical assets from memory (such as, textures or audio clips) in response to this in order to avoid the app being terminated. You can also load smaller versions of such assets.  Furthermore, you should serialize any transient data to permanent storage to avoid data loss if the app is terminated.
 
 This event corresponds to the following callbacks on the different platforms:
 
@@ -1679,7 +1679,6 @@ This event corresponds to the following callbacks on the different platforms:
 
 - Android: onLowMemory() and onTrimMemory(level == TRIM_MEMORY_RUNNING_CRITICAL)
 
-- Tizen: ui_app_add_event_handler with type APP_EVENT_LOW_MEMORY
 
 Here is an example of handling the callback:</para>
       </summary>
@@ -4494,7 +4493,7 @@ The default value is Camera.MonoOrStereoscopicEye.Left, so Camera.MonoOrStereosc
     </member>
     <member name="F:UnityEngine.Color.a">
       <summary>
-        <para>Alpha component of the color.</para>
+        <para>Alpha component of the color (0 is transparent, 1 is opaque).</para>
       </summary>
     </member>
     <member name="F:UnityEngine.Color.b">
@@ -6791,9 +6790,7 @@ The default value is Camera.MonoOrStereoscopicEye.Left, so Camera.MonoOrStereosc
     </member>
     <member name="T:UnityEngine.DeviceType">
       <summary>
-        <para>Enumeration for SystemInfo.deviceType, denotes a coarse grouping of kinds of devices.
-
-Windows Store Apps: tablets are treated as desktop machines, thus DeviceType.Handheld will only be returned for Windows Phones.</para>
+        <para>Enumeration for SystemInfo.deviceType, denotes a coarse grouping of kinds of devices.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.DeviceType.Console">
@@ -15893,9 +15890,12 @@ Only usable on Android, Windows Phone or Windows Tablets.</para>
     </member>
     <member name="M:UnityEngine.Mathf.Cos(System.Single)">
       <summary>
-        <para>Returns the cosine of angle f in radians.</para>
+        <para>Returns the cosine of angle f.</para>
       </summary>
-      <param name="f"></param>
+      <param name="f">The input angle, in radians.</param>
+      <returns>
+        <para>The return value between -1 and 1.</para>
+      </returns>
     </member>
     <member name="F:UnityEngine.Mathf.Deg2Rad">
       <summary>
@@ -16164,9 +16164,9 @@ Only usable on Android, Windows Phone or Windows Tablets.</para>
     </member>
     <member name="M:UnityEngine.Mathf.Sin(System.Single)">
       <summary>
-        <para>Returns the sine of angle f in radians.</para>
+        <para>Returns the sine of angle f.</para>
       </summary>
-      <param name="f">The argument as a radian.</param>
+      <param name="f">The input angle, in radians.</param>
       <returns>
         <para>The return value between -1 and +1.</para>
       </returns>
@@ -19321,22 +19321,37 @@ The Player ID is always 1, because only one Editor can be connected.</param>
     </member>
     <member name="T:UnityEngine.Pose">
       <summary>
-        <para>Representation of a Position, and a Rotation in 3D Space</para>
+        <para>Representation of a Position, and a Rotation in 3D Space.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Pose.forward">
+      <summary>
+        <para>Returns the forward vector of the pose.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Pose.identity">
       <summary>
-        <para>shorthand for pose which represents zero position, and an identity rotation</para>
+        <para>Shorthand for pose which represents zero position, and an identity rotation.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.Pose.position">
       <summary>
-        <para>the position component of the pose</para>
+        <para>The position component of the pose.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Pose.right">
+      <summary>
+        <para>Returns the right vector of the pose.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.Pose.rotation">
       <summary>
-        <para>the rotation component of the pose</para>
+        <para>The rotation component of the pose.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Pose.up">
+      <summary>
+        <para>Returns the up vector of the pose.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Pose.#ctor">
@@ -19346,13 +19361,13 @@ The Player ID is always 1, because only one Editor can be connected.</param>
     </member>
     <member name="M:UnityEngine.Pose.GetTransformedBy(UnityEngine.Pose)">
       <summary>
-        <para>Transforms the current pose into the local space of the provided pose</para>
+        <para>Transforms the current pose into the local space of the provided pose.</para>
       </summary>
       <param name="lhs"></param>
     </member>
     <member name="M:UnityEngine.Pose.GetTransformedBy(UnityEngine.Transform)">
       <summary>
-        <para>Transforms the current pose into the local space of the provided pose</para>
+        <para>Transforms the current pose into the local space of the provided pose.</para>
       </summary>
       <param name="lhs"></param>
     </member>
@@ -19948,7 +19963,7 @@ The block is specified by its x,y offset in the texture and by its width and hei
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.enableBinaryLog">
       <summary>
-        <para>Sets profiler output file in built players.</para>
+        <para>Enables the logging of profiling data to a file.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.enabled">
@@ -19958,7 +19973,7 @@ The block is specified by its x,y offset in the texture and by its width and hei
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.logFile">
       <summary>
-        <para>Sets profiler output file in built players.</para>
+        <para>Specifies the file to use when writing profiling data.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.maxNumberOfSamplesPerFrame">
@@ -20552,7 +20567,7 @@ frame. Minimum value is 1 and maximum is 33.</para>
     </member>
     <member name="M:UnityEngine.Quaternion.Euler(System.Single,System.Single,System.Single)">
       <summary>
-        <para>Returns a rotation that rotates z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis (in that order).</para>
+        <para>Returns a rotation that rotates z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis.</para>
       </summary>
       <param name="x"></param>
       <param name="y"></param>
@@ -20560,7 +20575,7 @@ frame. Minimum value is 1 and maximum is 33.</para>
     </member>
     <member name="M:UnityEngine.Quaternion.Euler(UnityEngine.Vector3)">
       <summary>
-        <para>Returns a rotation that rotates z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis (in that order).</para>
+        <para>Returns a rotation that rotates z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis.</para>
       </summary>
       <param name="euler"></param>
     </member>
@@ -25916,11 +25931,6 @@ See RenderTexture.useMipMap.</para>
         <para>In the player on Nintendo Switch.</para>
       </summary>
     </member>
-    <member name="F:UnityEngine.RuntimePlatform.TizenPlayer">
-      <summary>
-        <para>In the player on Tizen.</para>
-      </summary>
-    </member>
     <member name="F:UnityEngine.RuntimePlatform.WebGLPlayer">
       <summary>
         <para>In the player on WebGL</para>
@@ -26082,9 +26092,9 @@ A scene may be invalid if, for example, you tried to open a scene that does not 
     </member>
     <member name="?:UnityEngine.SceneManagement.SceneManager.activeSceneChanged(UnityEngine.Events.UnityAction`2&lt;UnityEngine.SceneManagement.Scene,UnityEngine.SceneManagement.Scene&gt;)">
       <summary>
-        <para>Add a delegate to this to get notifications when the active Scene has changed</para>
+        <para>Subscribe to this event to get notified when the active Scene has changed.</para>
       </summary>
-      <param name="value"></param>
+      <param name="value">Previous active scene and the new active scene.</param>
     </member>
     <member name="P:UnityEngine.SceneManagement.SceneManager.sceneCount">
       <summary>
@@ -30900,6 +30910,9 @@ Useful for restarting a trail from a new position.</para>
       </summary>
       <param name="from">The vector from which the angular difference is measured.</param>
       <param name="to">The vector to which the angular difference is measured.</param>
+      <returns>
+        <para>The angle in degrees between the two vectors.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Vector3.ClampMagnitude(UnityEngine.Vector3,System.Single)">
       <summary>
