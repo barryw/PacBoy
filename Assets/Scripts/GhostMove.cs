@@ -446,12 +446,10 @@ public class GhostMove : BaseActor {
         while (CurrentBlink <= totalBlinks && !IsEaten) {
             SetAnimation (Animations.SEMI_FRIGHTENED);
             yield return new WaitForSeconds (.25f);
-            while(!GameController.IsReady)
             if (IsEaten)
                 continue;
             SetAnimation (Animations.FRIGHTENED);
             yield return new WaitForSeconds (.25f);
-            while(!GameController.IsReady)
             CurrentBlink++;
         }
 
