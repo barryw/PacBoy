@@ -95,6 +95,13 @@ public class BaseActor : MonoBehaviour
         }
     }
 
+    public bool InTunnel
+    {
+        get {
+            return (Tile.y == 19 && ((Tile.x >= -1 && Tile.x <= 5) || (Tile.x >= 24 && Tile.x <= 32)));
+        }
+    }
+
     /// <summary>
     /// Animate the actor
     /// </summary>

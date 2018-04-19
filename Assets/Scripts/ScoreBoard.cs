@@ -48,7 +48,6 @@ public class ScoreBoard : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        DisplayScore ();
 	}
 
     public int CurrentPlayer
@@ -86,6 +85,8 @@ public class ScoreBoard : MonoBehaviour {
             highScore = player1Score;
         if (player2Score > highScore)
             highScore = player2Score;
+
+        DisplayScore ();
     }
 
     private void DisplayScore()

@@ -446,10 +446,12 @@ public class GhostMove : BaseActor {
         while (CurrentBlink <= totalBlinks && !IsEaten) {
             SetAnimation (Animations.SEMI_FRIGHTENED);
             yield return new WaitForSeconds (.25f);
+            while(!GameController.IsReady)
             if (IsEaten)
                 continue;
             SetAnimation (Animations.FRIGHTENED);
             yield return new WaitForSeconds (.25f);
+            while(!GameController.IsReady)
             CurrentBlink++;
         }
 
@@ -472,6 +474,13 @@ public class GhostMove : BaseActor {
             return;
         }
 
+        // Ghost is in the tunnel
+        if(InTunnel)
+        {
+            Speed = _tov.GhostTunnelSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            return;
+        }
+
         // Ghost is frightened
         if (CurrentMode == Mode.FRIGHTENED) {
             Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
@@ -481,14 +490,6 @@ public class GhostMove : BaseActor {
         // Ghost is in the ghost house. Cut the speed in half
         if (InGhostHouse) {
             Speed = _tov.Speed () * 0.5f;
-            return;
-        }
-
-        // Ghost is in the tunnel
-        if(Tile.y == 19 && ((Tile.x >= -1 && Tile.x <= 5) || (Tile.x >= 24 && Tile.x <= 32)))
-        {
-            Speed = _tov.GhostTunnelSpeed (GameController.CurrentLevel) * _tov.Speed ();
-            Debug.Log (ThisGhost + " is in the tunnel. Setting speed to " + Speed);
             return;
         }
 
