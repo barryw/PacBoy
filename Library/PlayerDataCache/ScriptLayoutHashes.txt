@@ -1,6 +1,6 @@
-OSXStandalone
+tvOS
 PlayerPath?
-/Users/barry/PacBoy/PacBoy.app
+/Users/barry/PacBoy/PacBoy
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
