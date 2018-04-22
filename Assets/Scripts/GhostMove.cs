@@ -69,8 +69,6 @@ public class GhostMove : BaseActor {
     {
         base.Start ();
 
-        GhostInit ();
-
         Directions.Add (Vector2.up);
         Directions.Add (Vector2.down);
         Directions.Add (Vector2.left);
@@ -575,11 +573,24 @@ public class GhostMove : BaseActor {
     public void GhostInit()
     {
         CurrentMode = Mode.SCATTER;
+        IsEaten = false;
+        IsBlinking = false;
+        Destination = Vector2.zero;
+        playStartTime = 0.0f;
+        InCruiseElroy = false;
+        LeavingGhostHouse = false;
+        CurrentMode = Mode.SCATTER;
+
+        if (Animator == null)
+            _anim = GetComponent<Animator> ();
+
+        SetAnimation (Animations.NORMAL);
 
         switch (ThisGhost) {
         case Ghost.BLINKY:
             Location = new Vector2 (14.0f, 21.5f);
             Direction = Vector2.left;
+            Destination = TileCenter + Vector2.left;
             InGhostHouse = false;
             ScatterTarget = new Vector2 (28, 36);
             GhostHome = new Vector2 (14, 19);

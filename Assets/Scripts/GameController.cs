@@ -142,6 +142,14 @@ public class GameController : BaseController
     /// </summary>
     void Ready()
     {
+        lastDotEatenTime = 0.0f;
+        if (currentPlayer == 1) {
+            p1SmallDotsEaten = 0;
+            p1LargeDotsEaten = 0;
+        } else {
+            p2SmallDotsEaten = 0;
+            p2LargeDotsEaten = 0;
+        }
         InitGhosts ();
         InitPacMan ();
         GameObject readyInst = Instantiate (ready);
