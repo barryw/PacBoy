@@ -15,6 +15,7 @@ TagManager:
   - Pinky
   - Inky
   - Clyde
+  - Maze
   layers:
   - Default
   - TransparentFX

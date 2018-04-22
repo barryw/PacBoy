@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AudioController.cs" />
      <Compile Include="Assets\Scripts\BaseActor.cs" />
+     <Compile Include="Assets\Scripts\BaseController.cs" />
      <Compile Include="Assets\Scripts\BlinkPowerPellet.cs" />
      <Compile Include="Assets\Scripts\DrawGrid.cs" />
      <Compile Include="Assets\Scripts\EatFruit.cs" />

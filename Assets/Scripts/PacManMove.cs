@@ -192,4 +192,11 @@ public class PacManMove : BaseActor {
             }
         }
     }
+
+    public void PacManInit()
+    {
+        Frightened = false;
+        Location = new Vector2 (14.2f, 9.5f);
+        Animation = false;
+    }
 }

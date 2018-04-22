@@ -69,24 +69,7 @@ public class GhostMove : BaseActor {
     {
         base.Start ();
 
-        switch (ThisGhost) {
-        case Ghost.BLINKY:
-            ScatterTarget = new Vector2 (28, 36);
-            GhostHome = new Vector2 (14, 19);
-            break;
-        case Ghost.INKY:
-            ScatterTarget = new Vector2 (28, 1);
-            GhostHome = new Vector2 (12, 19);
-            break;
-        case Ghost.PINKY:
-            ScatterTarget = new Vector2 (3, 36);
-            GhostHome = new Vector2 (14, 19);
-            break;
-        case Ghost.CLYDE:
-            ScatterTarget = new Vector2 (1, 1);
-            GhostHome = new Vector2 (16, 19);
-            break;
-        }
+        GhostInit ();
 
         Directions.Add (Vector2.up);
         Directions.Add (Vector2.down);
@@ -97,13 +80,6 @@ public class GhostMove : BaseActor {
         SetDestination (Vector2.left);
         Direction = Vector2.left;
         Animation = true;
-
-        // Everybody but Blinky is in the ghost house
-        if (ThisGhost != Ghost.BLINKY) {
-            InGhostHouse = true;
-        }
-
-        SetDotsToLeave ();
 
         PacManMover = PacMan.GetComponent<PacManMove> ();
         if (ThisGhost == Ghost.INKY) {
@@ -238,6 +214,8 @@ public class GhostMove : BaseActor {
     /// </summary>
     void SetDotsToLeave()
     {
+        DotsToLeave = 0;
+
         if (GameController.CurrentLevel == 1) {
             if (ThisGhost == Ghost.PINKY)
                 DotsToLeave = 0;
@@ -588,6 +566,45 @@ public class GhostMove : BaseActor {
         if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy2DotsLeft (GameController.CurrentLevel)) {
             Speed = _tov.CruiseElroy2Speed (GameController.CurrentLevel) * _tov.Speed ();
             InCruiseElroy = true;
+        }
+    }
+
+    /// <summary>
+    /// Initialize the ghost
+    /// </summary>
+    public void GhostInit()
+    {
+        CurrentMode = Mode.SCATTER;
+
+        switch (ThisGhost) {
+        case Ghost.BLINKY:
+            Location = new Vector2 (14.0f, 21.5f);
+            Direction = Vector2.left;
+            InGhostHouse = false;
+            ScatterTarget = new Vector2 (28, 36);
+            GhostHome = new Vector2 (14, 19);
+            break;
+        case Ghost.PINKY:
+            Location = new Vector2 (14.0f, 18.5f);
+            Direction = Vector2.down;
+            InGhostHouse = true;
+            ScatterTarget = new Vector2 (3, 36);
+            GhostHome = new Vector2 (14, 19);
+            break;
+        case Ghost.INKY:
+            Location = new Vector2 (12.0f, 18.5f);
+            Direction = Vector2.up;
+            InGhostHouse = true;
+            ScatterTarget = new Vector2 (28, 1);
+            GhostHome = new Vector2 (12, 19);
+            break;
+        case Ghost.CLYDE:
+            Location = new Vector2 (16.0f, 18.5f);
+            Direction = Vector2.up;
+            InGhostHouse = true;
+            ScatterTarget = new Vector2 (1, 1);
+            GhostHome = new Vector2 (16, 19);
+            break;
         }
     }
 

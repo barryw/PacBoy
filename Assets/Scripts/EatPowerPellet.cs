@@ -18,8 +18,7 @@ public class EatPowerPellet : MonoBehaviour
     void FixedUpdate()
     {
         if (gameObject != null && gameController.PacManMover.Tile == Tile) {
-            gameController.AddPoints (GameController.PointSource.POWER_PELLET);
-            gameController.FrightenGhosts ();
+            gameController.EatLargeDot (Tile);
             Destroy (gameObject);
         }
     }

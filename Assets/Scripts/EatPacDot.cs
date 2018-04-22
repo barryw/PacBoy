@@ -18,10 +18,7 @@ public class EatPacDot : MonoBehaviour {
     void FixedUpdate()
     {
         if (gameController.PacManMover.Tile == Tile) {
-            gameController.LastDotEatenTime = Time.fixedTime;
-            gameController.PacManMover.EatingSmallDots = true;
-            gameController.AddPoints (GameController.PointSource.SMALLDOT);
-            gameController.UpdateGhostDotCounts ();
+            gameController.EatSmallDot (Tile);
             Destroy (gameObject);
         } else {
             gameController.PacManMover.EatingSmallDots = false;

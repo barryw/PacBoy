@@ -46,6 +46,8 @@ public class Maze
         // Remove the places where dots don't exist
         Locations.Remove (new Vector2 (14, 10));
         Locations.Remove (new Vector2 (15, 10));
+        Locations.Remove (new Vector2 (2, 10));
+        Locations.Remove (new Vector2 (27, 10));
         Locations.Remove (new Vector2 (10, 14));
         Locations.Remove (new Vector2 (19, 14));
         Locations.Remove (new Vector2 (10, 15));
@@ -100,6 +102,13 @@ public class Maze
         Locations.Remove (new Vector2 (16, 23));
         Locations.Remove (new Vector2 (13, 24));
         Locations.Remove (new Vector2 (16, 24));
+        Locations.Remove (new Vector2 (2, 30));
+        Locations.Remove (new Vector2 (27, 30));
+
+        Locations.Remove (new Vector2 (0, 19));
+        Locations.Remove (LeftTunnel);
+        Locations.Remove (new Vector2 (29, 19));
+        Locations.Remove (RightTunnel);
 
         return Locations;
     }

@@ -12,9 +12,645 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 3
-  lastUpdatedAtString: 2018-04-19T06:45:29.2870920-04:00
+  lastUpdatedAtString: 2018-04-19T06:45:53.7423680-04:00
   initializedAtString: 2018-04-19T06:43:37.4296310-04:00
   log:
+  - commitID: fc39231f0c2062523ded6eae1baa197b53f01202
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: Fix bug that crashes unity
+    description: Fix bug that crashes unity
+    timeString: 2018-04-19T06:45:50.0000000-04:00
+    commitTimeString: 2018-04-19T06:45:50.0000000-04:00
+    changes:
+    - path: Assets/Scripts/GhostMove.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/GhostMove.cs
+      projectPath: Assets/Scripts/GhostMove.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/CurrentLayout.dwlt
+      fullPath: /Users/barry/PacBoy/Library/CurrentLayout.dwlt
+      projectPath: Library/CurrentLayout.dwlt
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/CurrentMaximizeLayout.dwlt
+      fullPath: /Users/barry/PacBoy/Library/CurrentMaximizeLayout.dwlt
+      projectPath: Library/CurrentMaximizeLayout.dwlt
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/EditorInstance.json
+      fullPath: /Users/barry/PacBoy/Library/EditorInstance.json
+      projectPath: Library/EditorInstance.json
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ProjectSettings.asset
+      fullPath: /Users/barry/PacBoy/Library/ProjectSettings.asset
+      projectPath: Library/ProjectSettings.asset
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/assetDatabase3
+      fullPath: /Users/barry/PacBoy/Library/assetDatabase3
+      projectPath: Library/assetDatabase3
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/branches.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/branches.yaml
+      projectPath: Library/gfu/cache/branches.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitlog.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitlog.yaml
+      projectPath: Library/gfu/cache/gitlog.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitstatusentries.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitstatusentries.yaml
+      projectPath: Library/gfu/cache/gitstatusentries.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gittrackingstatus.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gittrackingstatus.yaml
+      projectPath: Library/gfu/cache/gittrackingstatus.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/repoinfo.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/repoinfo.yaml
+      projectPath: Library/gfu/cache/repoinfo.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/00/00000000000000004000000000000000
+      fullPath: /Users/barry/PacBoy/Library/metadata/00/00000000000000004000000000000000
+      projectPath: Library/metadata/00/00000000000000004000000000000000
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      fullPath: /Users/barry/PacBoy/Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      projectPath: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler1.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler1.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler1.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler2.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler2.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler2.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler3.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler3.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler3.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler4.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler4.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler4.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler5.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler5.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler5.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler6.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler6.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler6.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler7.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler7.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler7.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Temp/UnityTempFile-d31f25d94f77342f0927bc6121232d2e
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-d31f25d94f77342f0927bc6121232d2e
+      projectPath: Temp/UnityTempFile-d31f25d94f77342f0927bc6121232d2e
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/UnityTempFile-edc9ebe532f594d4abe605f927e1b8e8
+      fullPath: /Users/barry/PacBoy/Temp/UnityTempFile-edc9ebe532f594d4abe605f927e1b8e8
+      projectPath: Temp/UnityTempFile-edc9ebe532f594d4abe605f927e1b8e8
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/__Backupscenes/0.backup
+      fullPath: /Users/barry/PacBoy/Temp/__Backupscenes/0.backup
+      projectPath: Temp/__Backupscenes/0.backup
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_Assembly-CSharp_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_Assembly-CSharp_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_Assembly-CSharp_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_Generics_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_Generics_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_Generics_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_Generics_1.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_Generics_1.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_Generics_1.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_Mono.Security_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_Mono.Security_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_Mono.Security_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_Mono.Security_1.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_Mono.Security_1.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_Mono.Security_1.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_System.Core_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_System.Core_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_System.Core_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_System_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_System_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_System_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_System_1.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_System_1.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_System_1.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.AnimationModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.AnimationModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.AnimationModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.AudioModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.AudioModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.AudioModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.CoreModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.CoreModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.CoreModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.GameCenterModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.GameCenterModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.GameCenterModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.Physics2DModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.Physics2DModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.Physics2DModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.PhysicsModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.PhysicsModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.PhysicsModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.SharedInternalsModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.SharedInternalsModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.SharedInternalsModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.UnityConnectModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.UnityConnectModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.UnityConnectModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.UnityWebRequestModule_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.UnityWebRequestModule_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine.UnityWebRequestModule_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_UnityEngine_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_1.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_1.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_1.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_10.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_10.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_10.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_2.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_2.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_2.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_3.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_3.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_3.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_4.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_4.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_4.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_5.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_5.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_5.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_6.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_6.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_6.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_7.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_7.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_7.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_8.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_8.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_8.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_9.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_9.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Bulk_mscorlib_9.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/Metadata/global-metadata.dat
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/Metadata/global-metadata.dat
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/Metadata/global-metadata.dat
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/Resources/mscorlib.dll-resources.dat
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/Resources/mscorlib.dll-resources.dat
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/Resources/mscorlib.dll-resources.dat
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/1.0/machine.config
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/1.0/machine.config
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/1.0/machine.config
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/Browsers/Compat.browser
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/Browsers/Compat.browser
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/Browsers/Compat.browser
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/machine.config
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/machine.config
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/machine.config
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/settings.map
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/settings.map
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/settings.map
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/web.config
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/web.config
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/2.0/web.config
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/browscap.ini
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/browscap.ini
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/browscap.ini
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/config
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/config
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/config
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/mconfig/config.xml
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Data/etc/mono/mconfig/config.xml
+      projectPath: Temp/il2cppOutput/il2cppOutput/Data/etc/mono/mconfig/config.xml
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/GenericMethods0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/GenericMethods0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/GenericMethods0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/GenericMethods1.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/GenericMethods1.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/GenericMethods1.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppAttributes.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppAttributes.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppAttributes.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCodeRegistration.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCodeRegistration.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCodeRegistration.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValuesTable.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValuesTable.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValuesTable.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_0Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_0Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_0Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_10Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_10Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_10Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_11Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_11Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_11Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_12Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_12Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_12Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_13Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_13Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_13Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_14Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_14Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_14Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_15Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_15Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_15Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_1Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_1Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_1Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_2Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_2Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_2Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_3Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_3Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_3Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_4Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_4Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_4Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_5Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_5Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_5Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_6Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_6Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_6Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_7Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_7Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_7Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_8Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_8Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_8Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_9Table.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_9Table.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppCompilerCalculateTypeValues_9Table.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppGenericClassTable.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppGenericClassTable.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppGenericClassTable.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppGenericComDefinitions0.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppGenericComDefinitions0.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppGenericComDefinitions0.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppGenericInstDefinitions.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppGenericInstDefinitions.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppGenericInstDefinitions.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodDefinitions.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodDefinitions.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodDefinitions.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodPointerTable.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodPointerTable.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodPointerTable.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodTable.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodTable.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppGenericMethodTable.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppInteropDataTable.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppInteropDataTable.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppInteropDataTable.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppInvokerTable.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppInvokerTable.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppInvokerTable.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppMetadataRegistration.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppMetadataRegistration.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppMetadataRegistration.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppMetadataUsage.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppMetadataUsage.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppMetadataUsage.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppMethodPointerTable.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppMethodPointerTable.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppMethodPointerTable.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/Il2CppTypeDefinitions.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/Il2CppTypeDefinitions.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/Il2CppTypeDefinitions.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/UnityClassRegistration.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/UnityClassRegistration.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/UnityClassRegistration.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/UnityICallRegistration.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/UnityICallRegistration.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/UnityICallRegistration.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/il2cppOutput/il2cppOutput/UnresolvedVirtualCallStubs.cpp
+      fullPath: /Users/barry/PacBoy/Temp/il2cppOutput/il2cppOutput/UnresolvedVirtualCallStubs.cpp
+      projectPath: Temp/il2cppOutput/il2cppOutput/UnresolvedVirtualCallStubs.cpp
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/tempFile.res
+      fullPath: /Users/barry/PacBoy/Temp/tempFile.res
+      projectPath: Temp/tempFile.res
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Temp/tempFile.resG
+      fullPath: /Users/barry/PacBoy/Temp/tempFile.resG
+      projectPath: Temp/tempFile.resG
+      originalPath: 
+      status: 5
+      staged: 0
   - commitID: 46650048ed43fd91ae5f9a7d289e2f58127e372a
     mergeA: 
     mergeB: 

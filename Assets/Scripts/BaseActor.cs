@@ -24,6 +24,20 @@ public class BaseActor : MonoBehaviour
     }
 
     /// <summary>
+    /// Get or set the location of the actor's rigid body
+    /// </summary>
+    /// <value>The location.</value>
+    public Vector2 Location
+    {
+        get {
+            return transform.position;
+        }
+        set {
+            GetComponent<Rigidbody2D> ().transform.position = value;
+        }
+    }
+
+    /// <summary>
     /// Return the integer tile of the actor's current location
     /// </summary>
     /// <value>The tile.</value>
