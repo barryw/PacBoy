@@ -1,0 +1,1458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BuildServerSettings">
+    <option name="LOGIN" value="" />
+    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="REMEMBER_ME" value="true" />
+    <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
+    <option name="INSPECTIONS_BUILD_TYPE_IDS" />
+    <option name="DUPLICATES_BUILD_TYPE_IDS" />
+    <option name="COVERAGE_SETTINGS" />
+    <option name="TEST_STATUS_ENABLED" value="true" />
+    <option name="TEST_STATUS_SHOW_SUCCESSFUL" value="false" />
+    <option name="POSTPONE_SUITABLE_CONFIGURATIONS_SEARCH" value="false" />
+    <option name="ARTIFACTS_BUILD_TYPE_IDS" />
+    <option name="PERFORM_COMMIT_IF_SUCCESSFUL" value="true" />
+    <option name="PERFORM_COMMIT_IF_NO_NEW_FAILED_TESTS" value="false" />
+    <option name="REQUEST_CONFIRMATON" value="false" />
+    <option name="PRE_TESTED_COMMIT" value="true" />
+    <option name="FILTER_BY_STATUS" value="false" />
+    <option name="FILTER_MARKED_AS_FIXED" value="false" />
+    <option name="SHOW_CLOSE_PROMPT" value="true" />
+    <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
+    <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="78d1e6df-79a8-43d7-8ff7-820be6a4b2f9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.PacBoy/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.PacBoy/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.PacBoy/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.PacBoy/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.PacBoy/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseActor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseActor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BlinkPowerPellet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BlinkPowerPellet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DrawGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DrawGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EatFruit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EatFruit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EatPacDot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EatPacDot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EatPowerPellet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EatPowerPellet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GhostMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GhostMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PacManMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PacManMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScoreBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScoreBoard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TableOfValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TableOfValues.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/death.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/death.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/dot.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/dot.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/ghost_eyes.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/ghost_eyes.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/pacman_chomp 2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/pacman_chomp 2.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/siren.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Resources/siren.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/EditorInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorInstance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/LastBuild.buildreport" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastBuild.buildreport" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/BuiltinAssemblies.stamp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptMapper" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptMapper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/Library/expandedItems" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/gfu/cache/branches.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Library/gfu/cache/branches.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/gfu/cache/gitlog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Library/gfu/cache/gitlog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/gfu/cache/gitstatusentries.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Library/gfu/cache/gitstatusentries.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/gfu/cache/gittrackingstatus.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Library/gfu/cache/gittrackingstatus.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/gfu/cache/repoinfo.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Library/gfu/cache/repoinfo.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/00/00000000000000004000000000000000" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/00/00000000000000004000000000000000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/00/0000000000000000a000000000000000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/00/0000000000000000a000000000000000.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/00/0000000000000000a100000000000000" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/00/0000000000000000a100000000000000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/02/023defa2a22be4931aee115cb587c54c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/02/023defa2a22be4931aee115cb587c54c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/12/12fd8a0055b84bb59e84c9835a37e333" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/12/12fd8a0055b84bb59e84c9835a37e333" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/17/17b34f878f3b046838c2832aa394849c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/17/17b34f878f3b046838c2832aa394849c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/1a/1a82ed561734f45c594781fea0032d6a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/1a/1a82ed561734f45c594781fea0032d6a.resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/1c/1c6d1fbb51834b64847b1b73a75bfc77" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/1c/1c6d1fbb51834b64847b1b73a75bfc77" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/1c/1cc23476a0e374ecba617c14ef3cd13a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/1c/1cc23476a0e374ecba617c14ef3cd13a.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/1c/1cc23476a0e374ecba617c14ef3cd13a.resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/21/21eff446d50eaf44a85985cd4c0b6fa1" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/21/21eff446d50eaf44a85985cd4c0b6fa1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/2a/2aed3bc6301184bab9e578b829914fcb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/2a/2aed3bc6301184bab9e578b829914fcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/32/32188fd89022c154c81befa2f0e00be0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/32/32188fd89022c154c81befa2f0e00be0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/38/38c8faf1788024c02930a0c68a6e0edc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/38/38c8faf1788024c02930a0c68a6e0edc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/3a/3a71c337589b442208dcfa58aac1a168" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3a/3a71c337589b442208dcfa58aac1a168" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/3a/3a84de5cd0624681b6b6dcd8921d912a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3a/3a84de5cd0624681b6b6dcd8921d912a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/3a/3a84de5cd0624681b6b6dcd8921d912a.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3a/3a84de5cd0624681b6b6dcd8921d912a.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/40/405b9b51bb344a128608d968297df79c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/40/405b9b51bb344a128608d968297df79c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/41/4113173d5e95493ab8765d7b08371de4" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/41/4113173d5e95493ab8765d7b08371de4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/41/4113173d5e95493ab8765d7b08371de4.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/41/4113173d5e95493ab8765d7b08371de4.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4a/4a3ecb1425d14502837abea459cf2b70" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/4a/4a3ecb1425d14502837abea459cf2b70" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4b/4b3fa4bde7f1451a8218c03ee6a8ded8" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/4b/4b3fa4bde7f1451a8218c03ee6a8ded8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4b/4ba2329b63d54f0187bcaa12486b1b0f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/4b/4ba2329b63d54f0187bcaa12486b1b0f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4d/4db8abaf53f2942daaa548b489bd1f1e" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/4d/4db8abaf53f2942daaa548b489bd1f1e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4d/4dd8ebfa31f174fbd90ba8cf5becaf30" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4d/4dd8ebfa31f174fbd90ba8cf5becaf30.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4e/4e7c9ab97e5884e4eaa5967e9024f39c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4e/4e7c9ab97e5884e4eaa5967e9024f39c.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4f/4f4f52678a923468d95a80b2186698db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4f/4f4f52678a923468d95a80b2186698db.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4f/4f4f52678a923468d95a80b2186698db.resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/51/517af1b5b81b93b43b9745d58f017562" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/51/517af1b5b81b93b43b9745d58f017562" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/53/53ebcfaa2e1e4e2dbc85882cd5a73fa1" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/53/53ebcfaa2e1e4e2dbc85882cd5a73fa1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/57/5782f9e9e6e0bb94bac99aeea24814fc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/57/5782f9e9e6e0bb94bac99aeea24814fc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/58/5882ff306fe774147bec07387cd079bb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/58/5882ff306fe774147bec07387cd079bb.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/5f/5f32cd94baa94578a686d4b9d6b660f7" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/5f/5f32cd94baa94578a686d4b9d6b660f7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/62/62306bdc1f9594270a57782c10276f4f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/62/62306bdc1f9594270a57782c10276f4f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/63/63c7c80d9969a4621bac96dfb12d09d7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/63/63c7c80d9969a4621bac96dfb12d09d7.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/68/68905a2a6dce349c78e7124463ccdd9b.resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/6a/6a10b2909283487f913b00d94cd3faf5" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/6a/6a10b2909283487f913b00d94cd3faf5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/73/73ea3aa1496a84402ac351e0798c8892" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/73/73ea3aa1496a84402ac351e0798c8892" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/76/7668179ede524d6396c8b7d84461ea29" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/76/7668179ede524d6396c8b7d84461ea29" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/76/7668179ede524d6396c8b7d84461ea29.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/76/7668179ede524d6396c8b7d84461ea29.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/7a/7ae2ace56f5eb4ccd9dd1590965558d4.resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/80/80a3616ca19596e4da0f10f14d241e9f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/80/80a3616ca19596e4da0f10f14d241e9f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/84/844f815391db42d49455cbf1a7bfc434" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/84/844f815391db42d49455cbf1a7bfc434" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/87/870353891bb340e2b2a9c8707e7419ba" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/87/870353891bb340e2b2a9c8707e7419ba" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/8a/8af626c0a51924052a351588bfb4ea39" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/8a/8af626c0a51924052a351588bfb4ea39.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/92/92c87a4f298be44b6a4772c15d1e7774" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/92/92c87a4f298be44b6a4772c15d1e7774.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/97/9717e6462bcf340ef9d1b5c935b60eed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/97/9717e6462bcf340ef9d1b5c935b60eed.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a2/a2ea97ee264ea4046b9d3e31f421c7b9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ad/adab7787bd7d44c4a9d48b3aff189c47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ad/adab7787bd7d44c4a9d48b3aff189c47.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ad/adebbd281f1a4ef3a30be7f21937e02f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ad/adebbd281f1a4ef3a30be7f21937e02f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b1/b102105b839ce4557b367a90571050f6" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b1/b102105b839ce4557b367a90571050f6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b1/b161314aa760d4b78a4e84f805b03bfd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b1/b161314aa760d4b78a4e84f805b03bfd.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b2/b2bead50dbf86924f8e51f03ddbebf70" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b2/b2bead50dbf86924f8e51f03ddbebf70" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b4/b4a8c2064084741f0bbc192e67b484a0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b5/b5da970776034f77a070d99423d68791" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b5/b5da970776034f77a070d99423d68791" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b8/b8a0574e92bd43a59e19d6c3c6ae54c7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b8/b8a0574e92bd43a59e19d6c3c6ae54c7.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b9/b9f11a6daf66c4da6985174b810d3ed1" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b9/b9f11a6daf66c4da6985174b810d3ed1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c4/c452c88a87f3d48ae945e7bcf1b4a6ba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c4/c452c88a87f3d48ae945e7bcf1b4a6ba.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c7/c768acbc9cf24d398488bb4c93b91288" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c7/c768acbc9cf24d398488bb4c93b91288.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d3/d32e8aceaee184565aef491d8f7a7836" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d7/d75eaf9daec5341bf82edc26933ad97b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d7/d75eaf9daec5341bf82edc26933ad97b.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/dc/dc443db3e92b4983b9738c1131f555cb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/dc/dc443db3e92b4983b9738c1131f555cb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/e0/e05bad11a14dc49beb168b136014d2e9" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/e0/e05bad11a14dc49beb168b136014d2e9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/e1/e1007cd261c84053beb0c3537782908d" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/e1/e1007cd261c84053beb0c3537782908d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/e4/e4f4cf1b9b434137a499903a7a1d651a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/e4/e4f4cf1b9b434137a499903a7a1d651a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ea/ead147da21254ff9a0a936bdd75e1680" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ea/ead147da21254ff9a0a936bdd75e1680" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ed/ed7343f30e3843b3afda8f8b02669cea" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ed/ed7343f30e3843b3afda8f8b02669cea" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ed/ed7343f30e3843b3afda8f8b02669cea.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ed/ed7343f30e3843b3afda8f8b02669cea.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f5/f5f67c52d1564df4a8936ccd202a3bd8" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/f5/f5f67c52d1564df4a8936ccd202a3bd8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f7/f70555f144d8491a825f0804e09c671c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/f7/f70555f144d8491a825f0804e09c671c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f7/f7b54ff4a43d4fcf81b4538b678e0bcc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/f7/f7b54ff4a43d4fcf81b4538b678e0bcc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f8/f82ab89008656481ea742239434be331" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f8/f82ab89008656481ea742239434be331.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f8/f82ab89008656481ea742239434be331.resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ff/ff99f989a84424ce6b99848ea36cd4b1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler7.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler7.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.app/Contents/Resources/KeyConfig.nib/classes.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.app/Contents/Resources/KeyConfig.nib/info.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.app/Contents/Resources/MainMenu.nib/classes.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.app/Contents/Resources/MainMenu.nib/info.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.app/Contents/Resources/ScreenSelector.nib/classes.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.app/Contents/Resources/ScreenSelector.nib/designable.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.app/Contents/Resources/ScreenSelector.nib/info.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.sln" beforeDir="false" afterPath="$PROJECT_DIR$/PacBoy.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/ProcessJobs/e9a6970f79cd12d8b075e7d72f1b07cb.bakert" beforeDir="false" afterPath="$PROJECT_DIR$/Temp/ProcessJobs/e9a6970f79cd12d8b075e7d72f1b07cb.bakert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnityPackageManager/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.dll" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1298460667">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="6808" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="6808" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C#" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PacManMove.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+              <folding>
+                <marker date="1536011546749" expanded="false" signature="6:78" ph="..." />
+                <marker date="1536011546749" expanded="true" signature="116:5656" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="571:915" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="986:1227" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="1233:1353" ph="/// PacMan doesn't really get frightened, but this lets us know that the ghosts are ... " />
+                <marker date="1536011546749" expanded="true" signature="1380:1505" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="1399:1442" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="1455:1499" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="1632:2438" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="1668:1952" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="1980:2104" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="2154:2432" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="2444:2544" ph="/// Check to see if the ghosts and Pac Man occupy the same tile ... " />
+                <marker date="1536011546749" expanded="true" signature="2586:2825" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="2756:2819" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="2831:2969" ph="/// Get the ghost that currently shares PacMan's tile ... " />
+                <marker date="1536011546749" expanded="true" signature="3011:3365" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="3371:3462" ph="/// PacMan has been eaten! ... " />
+                <marker date="1536011546749" expanded="true" signature="3507:4435" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="4441:4544" ph="/// Get player input and figure out which direction to move PacMan ... " />
+                <marker date="1536011546749" expanded="true" signature="4573:4977" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="5014:5382" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="5112:5163" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="5205:5301" ph="{...}" />
+                <marker date="1536011546749" expanded="true" signature="5388:5470" ph="/// Move PacMan back to his starting position ... " />
+                <marker date="1536011546749" expanded="true" signature="5499:5654" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+              <folding>
+                <marker date="1536010303995" expanded="false" signature="6:78" ph="..." />
+                <marker date="1536010303995" expanded="true" signature="125:17821" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="2170:2332" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="2392:2951" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="2978:3095" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="3101:3172" ph="/// Reset and start the next level ... " />
+                <marker date="1536010303995" expanded="true" signature="3206:3510" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="3318:3399" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="3516:3582" ph="/// On your marks. Get set... ... " />
+                <marker date="1536010303995" expanded="true" signature="3606:4117" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="3643:4054" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="3992:4039" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="4067:4111" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="4123:4197" ph="/// Check to see if the maze is clear ... " />
+                <marker date="1536010303995" expanded="true" signature="4227:4666" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="4672:8325" ph="Dots and Power Pellets" />
+                <marker date="1536010303995" expanded="true" signature="4708:4762" ph="/// Draw the dots ... " />
+                <marker date="1536010303995" expanded="true" signature="4790:5752" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="4926:5187" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="4964:5177" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="5231:5444" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="5490:5527" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="5570:5607" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="5758:5867" ph="/// Eat some small dots ... " />
+                <marker date="1536010303995" expanded="true" signature="5913:6255" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="6261:6373" ph="/// Eat some power pellets ... " />
+                <marker date="1536010303995" expanded="true" signature="6419:6662" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="7062:7196" ph="/// Keep track of the time the last dot was eaten ... " />
+                <marker date="1536010303995" expanded="true" signature="7250:7400" ph="/// Keep track of how long it's been since the last dot was eaten ... " />
+                <marker date="1536010303995" expanded="true" signature="7478:7735" ph="/// Convert the dot/powerpellet locations to game objects using their prefabs ... " />
+                <marker date="1536010303995" expanded="true" signature="7825:8309" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="7923:8278" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="7956:8090" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="8124:8268" ph="{...}" />
+                <marker date="1536010303995" expanded="false" signature="8331:9147" ph="Ghosts" />
+                <marker date="1536010303995" expanded="true" signature="8581:8643" ph="/// Initialize the ghosts ... " />
+                <marker date="1536010303995" expanded="true" signature="8673:8817" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="8823:8920" ph="/// Make sure the ghosts know how many dots have been eaten. ... " />
+                <marker date="1536010303995" expanded="true" signature="8959:9131" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="9178:9225" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="9288:9355" ph="/// Display &quot;Game Over&quot; banner ... " />
+                <marker date="1536010303995" expanded="true" signature="9383:9446" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="9452:9563" ph="/// Which level is being played? ... " />
+                <marker date="1536010303995" expanded="true" signature="9619:9800" ph="/// Get/Set whether the game controller is ready for play ... " />
+                <marker date="1536010303995" expanded="true" signature="9824:10078" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="9843:9883" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="9896:10072" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="10084:10210" ph="/// Add integer points to the player's score ... " />
+                <marker date="1536010303995" expanded="true" signature="10248:10295" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="10301:10438" ph="/// Add points from a PointSource to the player's score ... " />
+                <marker date="1536010303995" expanded="true" signature="10484:11005" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="10523:10743" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="11043:11565" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="11151:11304" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="11406:11559" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="11602:11833" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="11878:12093" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="12099:12174" ph="/// Show the number of lives remaining ... " />
+                <marker date="1536010303995" expanded="true" signature="12209:12465" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="12336:12459" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="12498:12808" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="12693:12802" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="12814:12900" ph="/// Check to see if we can de-frighten the ghosts ... " />
+                <marker date="1536010303995" expanded="true" signature="12936:13701" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="13155:13297" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="13496:13695" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="13550:13685" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="13609:13671" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="13707:13767" ph="/// Frighten the ghosts ... " />
+                <marker date="1536010303995" expanded="true" signature="13800:14172" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="14178:14329" ph="/// Figure out which, if any ghosts are still in frightened mode ... " />
+                <marker date="1536010303995" expanded="true" signature="14379:14892" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="14898:15004" ph="/// Get the fruit associated with a level ... " />
+                <marker date="1536010303995" expanded="true" signature="15051:15755" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="15148:15749" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="15761:15969" ph="/// Return an instantiated prefab for a graphical representation of the points ... " />
+                <marker date="1536010303995" expanded="true" signature="16008:16700" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="16045:16694" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="16706:16843" ph="/// Get the number of points the fruit is worth on this level ... " />
+                <marker date="1536010303995" expanded="true" signature="16875:16944" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="16950:17110" ph="/// Render the fruit display in the lower right corner of the screen to indicate ... " />
+                <marker date="1536010303995" expanded="true" signature="17153:17819" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="17209:17254" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="17344:17425" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="17438:17534" ph="{...}" />
+                <marker date="1536010303995" expanded="true" signature="17628:17813" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/ScoreBoard.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+              <folding>
+                <marker date="1536011089930" expanded="false" signature="6:125" ph="..." />
+                <marker date="1536011089930" expanded="true" signature="167:4653" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="929:993" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="1080:1284" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="1137:1207" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="1344:1396" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="1594:1921" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="1633:1680" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="1954:2081" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="2087:2148" ph="/// Flash the 1UP or 2UP ... " />
+                <marker date="1536011089930" expanded="true" signature="2193:2662" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="2374:2656" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="2504:2572" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="2672:2895" ph="/// Display the player's score ... " />
+                <marker date="1536011089930" expanded="true" signature="2970:4298" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="3315:4292" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="3378:4153" ph="{...}" />
+                <marker date="1536011089930" expanded="true" signature="4304:4477" ph="/// Reverse a string. Really? The String class doesn't have a fucking .Reverse method?! ... " />
+                <marker date="1536011089930" expanded="true" signature="4528:4651" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/TableOfValues.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="541" column="5" selection-start-line="541" selection-start-column="5" selection-end-line="541" selection-end-column="5" />
+              <folding>
+                <marker date="1535724496906" expanded="true" signature="0:285" ph="/// This class contains a bunch of values as they relate to PacMan, the ghosts, fruits, etc. ... " />
+                <marker date="1535724496906" expanded="true" signature="312:11750" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="388:400" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="444:519" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="525:595" ph="/// Constant speed for all actors ... " />
+                <marker date="1535724496906" expanded="true" signature="627:660" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="666:861" ph="/// The speed of PacMan while he's eating dots for every level ... " />
+                <marker date="1535724496906" expanded="true" signature="911:1446" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="941:1440" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="1452:1605" ph="/// PacMan's speed while he's high on power pellets ... " />
+                <marker date="1535724496906" expanded="true" signature="1663:2156" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="1693:2150" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="2162:2334" ph="/// The speed of PacMan for every level ... " />
+                <marker date="1535724496906" expanded="true" signature="2381:2915" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="2410:2909" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="2921:3080" ph="/// PacMan's speed when the ghosts are in frightened mode ... " />
+                <marker date="1535724496906" expanded="true" signature="3137:3579" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="3167:3573" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="3585:3766" ph="/// PacMan's speed while the ghosts are in frightened mode and he's eating dots ... " />
+                <marker date="1535724496906" expanded="true" signature="3826:4268" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="3856:4262" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="4274:4430" ph="/// The amount of time ghosts will remained frightened ... " />
+                <marker date="1535724496906" expanded="true" signature="4483:4964" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="4513:4958" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="4970:5108" ph="/// The number of times ghosts flash ... " />
+                <marker date="1535724496906" expanded="true" signature="5164:5574" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="5194:5568" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="5580:5749" ph="/// The ghosts' speed for each level ... " />
+                <marker date="1535724496906" expanded="true" signature="5795:6288" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="5825:6282" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="6294:6444" ph="/// Speed of the ghosts while they're frightened ... " />
+                <marker date="1535724496906" expanded="true" signature="6500:6993" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="6530:6987" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="6999:7163" ph="/// The speed of the ghosts while traveling through the tunnel ... " />
+                <marker date="1535724496906" expanded="true" signature="7215:7725" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="7245:7719" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="7731:7905" ph="/// The number of dots remaining before Blinky turns into Cruise Elroy (1st time) ... " />
+                <marker date="1535724496906" expanded="true" signature="7959:8579" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="7989:8573" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="8585:8759" ph="/// The number of dots remaining before Blinky turns into Cruise Elroy (2nd time) ... " />
+                <marker date="1535724496906" expanded="true" signature="8813:9431" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="8843:9425" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="9437:9602" ph="/// Blinky's speed the 1st time he goes into Cruise Elroy mode. ... " />
+                <marker date="1535724496906" expanded="true" signature="9655:10165" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="9685:10159" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="10171:10336" ph="/// Blinky's speed the 2nd time he goes into Cruise Elroy mode. ... " />
+                <marker date="1535724496906" expanded="true" signature="10389:10899" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="10419:10893" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="10905:11073" ph="/// Bonus points for each level ... " />
+                <marker date="1535724496906" expanded="true" signature="11118:11748" ph="{...}" />
+                <marker date="1535724496906" expanded="true" signature="11148:11742" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/BaseController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <marker date="1535805928978" expanded="false" signature="6:58" ph="..." />
+                <marker date="1535805928978" expanded="true" signature="103:667" ph="{...}" />
+                <marker date="1535805928978" expanded="true" signature="110:412" ph="/// Give us a nice, easy way of waiting around for a specified ... " />
+                <marker date="1535805928978" expanded="true" signature="464:521" ph="{...}" />
+                <marker date="1535805928978" expanded="true" signature="589:665" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/BaseActor.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4812">
+              <caret line="217" column="5" selection-start-line="217" selection-start-column="5" selection-end-line="217" selection-end-column="5" />
+              <folding>
+                <marker date="1536003340207" expanded="true" signature="6:32" ph="..." />
+                <marker date="1536003340207" expanded="true" signature="34:169" ph="/// Base Actor class that all characters share. It handles things ... " />
+                <marker date="1536003340207" expanded="true" signature="208:6205" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="624:880" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="886:1013" ph="/// Get or set the location of the actor's rigid body ... " />
+                <marker date="1536003340207" expanded="true" signature="1041:1146" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="1060:1140" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="1152:1281" ph="/// Return the integer tile of the actor's current location ... " />
+                <marker date="1536003340207" expanded="true" signature="1398:1559" ph="/// Return the coordinates of the center of the tile of the actor's current location ... " />
+                <marker date="1536003340207" expanded="true" signature="1696:1838" ph="/// Set the destination tile ... " />
+                <marker date="1536003340207" expanded="true" signature="1891:2124" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="1929:2070" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="2130:2321" ph="/// Determine whether the direction from the current tile is a valid location ... " />
+                <marker date="1536003340207" expanded="true" signature="2365:2444" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="2450:2548" ph="/// Move the actor toward a position represented as a Vector2 ... " />
+                <marker date="1536003340207" expanded="true" signature="2574:2758" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="2764:2869" ph="/// If the actor enters the tunnel, transport them to the other side ... " />
+                <marker date="1536003340207" expanded="true" signature="2901:3373" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="2945:3142" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="3496:3554" ph="/// Animate the actor ... " />
+                <marker date="1536003340207" expanded="true" signature="3583:3691" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="3697:3765" ph="/// Reset the actor's animation ... " />
+                <marker date="1536003340207" expanded="true" signature="3798:3847" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="3853:3963" ph="/// Gets the game controller. ... " />
+                <marker date="1536003340207" expanded="true" signature="4033:4129" ph="/// Gets the animator. ... " />
+                <marker date="1536003340207" expanded="true" signature="4176:4272" ph="/// Set the actor's speed ... " />
+                <marker date="1536003340207" expanded="true" signature="4295:4418" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4322:4360" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4373:4412" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4424:4537" ph="/// Set the actor's destination tile ... " />
+                <marker date="1536003340207" expanded="true" signature="4568:4705" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4597:4641" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4654:4699" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4711:4835" ph="/// Set the direction that the actor is moving in ... " />
+                <marker date="1536003340207" expanded="true" signature="4864:4987" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4883:4925" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4938:4981" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="4993:5111" ph="/// Gets or sets the animation speed. ... " />
+                <marker date="1536003340207" expanded="true" signature="5143:5284" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5170:5217" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5230:5278" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5290:5479" ph="/// Sets a value indicating whether this &lt;see cref=&quot;BaseActor&quot;/&gt; is animating. ... " />
+                <marker date="1536003340207" expanded="true" signature="5506:5730" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5520:5724" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5545:5609" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5736:5873" ph="/// Hide and unhide the actor ... " />
+                <marker date="1536003340207" expanded="true" signature="5896:6203" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5915:6197" ph="{...}" />
+                <marker date="1536003340207" expanded="true" signature="5940:6068" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/AudioController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="805">
+              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+              <folding>
+                <marker date="1535999524984" expanded="true" signature="65:4663" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="1338:1532" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="1395:1460" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="1592:3052" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3082:3234" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3101:3228" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3240:3307" ph="/// Alternate the chomp sounds ... " />
+                <marker date="1535999524984" expanded="true" signature="3332:3517" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3363:3412" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3425:3474" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3552:3786" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3571:3630" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3643:3780" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3820:3980" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="3839:3974" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="4014:4061" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="4093:4138" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="4170:4215" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="4248:4294" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="4323:4365" ph="{...}" />
+                <marker date="1535999524984" expanded="true" signature="4371:4525" ph="/// Pull a sound clip from assets ... " />
+                <marker date="1535999524984" expanded="true" signature="4581:4661" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GhostMove.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="792">
+              <caret line="756" column="70" selection-start-line="756" selection-start-column="70" selection-end-line="756" selection-end-column="70" />
+              <folding>
+                <marker date="1536007463909" expanded="true" signature="6:113" ph="..." />
+                <marker date="1536007463909" expanded="true" signature="150:25631" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="334:405" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="427:490" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="518:604" ph="{...}" />
+                <marker date="1536007463909" expanded="false" signature="1649:2363" ph="Start" />
+                <marker date="1536007463909" expanded="true" signature="1692:2347" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="2112:2315" ph="{...}" />
+                <marker date="1536007463909" expanded="false" signature="2377:2940" ph="FixedUpdate" />
+                <marker date="1536007463909" expanded="true" signature="2430:2924" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="2468:2873" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="2975:3168" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="3204:4736" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="3449:4095" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="4790:5686" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="4819:5680" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="5717:5777" ph="{...}" />
+                <marker date="1536007463909" expanded="false" signature="5790:9699" ph="Ghost House Rules" />
+                <marker date="1536007463909" expanded="true" signature="5821:5947" ph="/// Set the number of dots PacMan needs to have eaten for ghosts to leave the ghost house ... " />
+                <marker date="1536007463909" expanded="true" signature="5981:6546" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="6061:6301" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="6349:6540" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="6552:6688" ph="/// Once our eyes hit the home location, put them back in the ghost house and reincarnate the ghost ... " />
+                <marker date="1536007463909" expanded="true" signature="6727:7176" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="6771:6820" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="6865:7170" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="7182:7253" ph="/// Get the ghost out of the house ... " />
+                <marker date="1536007463909" expanded="true" signature="7287:8507" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="7488:8501" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="7641:7766" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="7842:8093" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="8164:8274" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="8348:8491" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="8513:8598" ph="/// Figure out which ghost is tracking dot count ... " />
+                <marker date="1536007463909" expanded="true" signature="8635:8808" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="8814:8901" ph="/// Increase the dot count for the preferred ghost ... " />
+                <marker date="1536007463909" expanded="true" signature="8936:9001" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="9007:9090" ph="/// Bounce the ghost around in the ghost house ... " />
+                <marker date="1536007463909" expanded="true" signature="9128:9683" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="9272:9385" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="9509:9624" ph="{...}" />
+                <marker date="1536007463909" expanded="false" signature="9705:13827" ph="Ghost Mode" />
+                <marker date="1536007463909" expanded="true" signature="9729:9798" ph="/// Set the ghost's current mode ... " />
+                <marker date="1536007463909" expanded="true" signature="9825:10363" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="10369:10525" ph="/// Get the ghost mode based on the number of seconds since the start of the level ... " />
+                <marker date="1536007463909" expanded="true" signature="10551:12004" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="12010:12209" ph="/// Gets or sets a value indicating whether this &lt;see cref=&quot;GhostMove&quot;/&gt; is frightened. ... " />
+                <marker date="1536007463909" expanded="true" signature="12236:12820" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="12255:12317" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="12330:12814" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="12355:12573" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="12387:12559" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="12826:12933" ph="/// Kick off the coroutine to blink the ghosts when they're frightened ... " />
+                <marker date="1536007463909" expanded="true" signature="12964:13119" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="13125:13251" ph="/// If the ghost is frightened, it will start to blink after a certain number of seconds. ... " />
+                <marker date="1536007463909" expanded="true" signature="13287:13811" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="13452:13751" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="13833:20747" ph="Ghost Movement" />
+                <marker date="1536007463909" expanded="true" signature="13861:13946" ph="/// Set the ghost's speed based on a few factors ... " />
+                <marker date="1536007463909" expanded="true" signature="13979:15083" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="14101:14183" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="14239:14386" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="14463:14605" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="14696:14778" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="14852:14987" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="15089:15466" ph="/// Find the right direction to go based on mode. If 2 or more directions have the same distance from ... " />
+                <marker date="1536007463909" expanded="true" signature="15520:16648" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="15641:15807" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="16654:16787" ph="/// Retrieve the available exits from the current location ... " />
+                <marker date="1536007463909" expanded="true" signature="16824:17341" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="17043:17312" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="17254:17302" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="17347:17430" ph="/// Figure out where the ghost should be going ... " />
+                <marker date="1536007463909" expanded="true" signature="17455:18283" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="17551:18225" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="17707:18215" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="17725:17834" ph="/* Based on the ghost's location, figure out which directions he can go based ... */" />
+                <marker date="1536007463909" expanded="true" signature="17924:18045" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="18289:18380" ph="/// Check to see if Blinky can enter Cruise Elroy mode ... " />
+                <marker date="1536007463909" expanded="true" signature="18403:19094" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="18603:18757" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="18934:19088" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="19100:19161" ph="/// Initialize the ghost ... " />
+                <marker date="1536007463909" expanded="true" signature="19189:20731" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="19604:20725" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="20753:25629" ph="Ghost Targeting" />
+                <marker date="1536007463909" expanded="true" signature="20782:20845" ph="/// Get the ghost's target ... " />
+                <marker date="1536007463909" expanded="true" signature="20874:21628" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="20951:20988" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="21019:21622" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="21142:21491" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="21634:21881" ph="/// If in scatter mode, return the scatter target for Inky, Pinky and Clyde. ... " />
+                <marker date="1536007463909" expanded="true" signature="21918:22066" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="21982:22029" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="22072:22176" ph="/// Pick a random exit ... " />
+                <marker date="1536007463909" expanded="true" signature="22216:22544" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="22284:22538" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="22550:22651" ph="/// Blinky targets PacMan ... " />
+                <marker date="1536007463909" expanded="true" signature="22686:22738" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="22744:22892" ph="/// Pinky's target is always 4 tiles ahead of PacMan's current direction ... " />
+                <marker date="1536007463909" expanded="true" signature="22926:23290" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="23059:23167" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="23296:23466" ph="/// Inky has similar targeting to Pinky, but it also uses Blinky's position in its calculation ... " />
+                <marker date="1536007463909" expanded="true" signature="23499:24007" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="23580:23688" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="24013:24188" ph="/// Clyde will target PacMan if he is within 8 tiles of him. Otherwise, he reverts to scatter mode. ... " />
+                <marker date="1536007463909" expanded="true" signature="24222:24385" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="24391:24510" ph="/// Draw colored boxes - one for each ghost - showing what that ghost is targeting ... " />
+                <marker date="1536007463909" expanded="true" signature="24540:25613" ph="{...}" />
+                <marker date="1536007463909" expanded="true" signature="24627:25019" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62857D45-756B-46AB-BE2B-033F2C8C6D95/d5/c6d952ea/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/BlinkPowerPellet.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+              <folding>
+                <marker date="1535722645011" expanded="false" signature="6:77" ph="..." />
+                <marker date="1535722645011" expanded="true" signature="125:795" ph="{...}" />
+                <marker date="1535722645011" expanded="true" signature="302:510" ph="{...}" />
+                <marker date="1535722645011" expanded="true" signature="543:793" ph="{...}" />
+                <marker date="1535722645011" expanded="true" signature="571:787" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Wait</find>
+      <find>PacManInit</find>
+      <find>DrawD</find>
+      <find>removepac</find>
+      <find>RenderExtraPacs</find>
+      <find>Reset</find>
+      <find>StartInitial</find>
+      <find>2.0</find>
+      <find>RenderFruitLevelDisplay</find>
+      <find>CheckFor</find>
+      <find>CurrentLevel</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BlinkPowerPellet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maze.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BaseController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PacManMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DrawGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TableOfValues.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AudioController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62857D45-756B-46AB-BE2B-033F2C8C6D95/d5/c6d952ea/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BaseActor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatFruit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatPacDot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GhostMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScoreBoard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatPowerPellet.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/BlinkPowerPellet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DrawGrid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EatFruit.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EatPacDot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EatPowerPellet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Maze.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TableOfValues.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BaseController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AudioController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BaseActor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GhostMove.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ScoreBoard.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PacManMove.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="788" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.build.unityPlugin" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="62522">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="62522" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78d1e6df-79a8-43d7-8ff7-820be6a4b2f9" name="Default" comment="" />
+      <created>1524402108123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1524402108123</updated>
+      <workItem from="1524402111449" duration="8002000" />
+      <workItem from="1529372720839" duration="23000" />
+      <workItem from="1529372783287" duration="461000" />
+      <workItem from="1531702755120" duration="864000" />
+      <workItem from="1532303542692" duration="935000" />
+      <workItem from="1534717401436" duration="3140000" />
+      <workItem from="1535721247031" duration="4718000" />
+      <workItem from="1535804962739" duration="1075000" />
+      <workItem from="1535887622335" duration="2004000" />
+      <workItem from="1535998371659" duration="11939000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="33161000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="2560" height="1359" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10127085" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.2363344" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" />
+      <window_info anchor="bottom" id="TeamCity" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="15" />
+      <window_info anchor="bottom" id="Build" order="16" weight="0.17765273" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Scenes/FirstIntermission.unity">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5836" />
+      </provider>
+    </entry>
+    <entry file="file:///var/folders/ps/9mspz28576z6y56d619dxkf80000gn/T/.NETFramework,Version=v4.5.AssemblyAttributes.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Maze.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/EatPacDot.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/DrawGrid.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <marker date="1535722689177" expanded="true" signature="58:576" ph="{...}" />
+            <marker date="1535722689177" expanded="true" signature="116:574" ph="{...}" />
+            <marker date="1535722689177" expanded="true" signature="156:571" ph="{...}" />
+            <marker date="1535722689177" expanded="true" signature="200:561" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/EatFruit.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <marker date="1535722792655" expanded="true" signature="58:1863" ph="{...}" />
+            <marker date="1535722792655" expanded="true" signature="229:564" ph="{...}" />
+            <marker date="1535722792655" expanded="true" signature="596:934" ph="{...}" />
+            <marker date="1535722792655" expanded="true" signature="940:1026" ph="/// Display the point value in place of the fruit ... " />
+            <marker date="1535722792655" expanded="true" signature="1056:1266" ph="{...}" />
+            <marker date="1535722792655" expanded="true" signature="1272:1385" ph="/// Call back to the game controller to add the points to the player's score ... " />
+            <marker date="1535722792655" expanded="true" signature="1414:1526" ph="{...}" />
+            <marker date="1535722792655" expanded="true" signature="1532:1712" ph="/// Gets a value indicating whether this &lt;see cref=&quot;EatFruit&quot;/&gt; is eaten. ... " />
+            <marker date="1535722792655" expanded="true" signature="1735:1861" ph="{...}" />
+            <marker date="1535722792655" expanded="true" signature="1754:1855" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/EatPowerPellet.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding>
+            <marker date="1535722873792" expanded="true" signature="64:641" ph="{...}" />
+            <marker date="1535722873792" expanded="true" signature="163:435" ph="{...}" />
+            <marker date="1535722873792" expanded="true" signature="467:639" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BaseController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <marker date="1535805928978" expanded="false" signature="6:58" ph="..." />
+            <marker date="1535805928978" expanded="true" signature="103:667" ph="{...}" />
+            <marker date="1535805928978" expanded="true" signature="110:412" ph="/// Give us a nice, easy way of waiting around for a specified ... " />
+            <marker date="1535805928978" expanded="true" signature="464:521" ph="{...}" />
+            <marker date="1535805928978" expanded="true" signature="589:665" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BlinkPowerPellet.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding>
+            <marker date="1535722645011" expanded="false" signature="6:77" ph="..." />
+            <marker date="1535722645011" expanded="true" signature="125:795" ph="{...}" />
+            <marker date="1535722645011" expanded="true" signature="302:510" ph="{...}" />
+            <marker date="1535722645011" expanded="true" signature="543:793" ph="{...}" />
+            <marker date="1535722645011" expanded="true" signature="571:787" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/AudioController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+          <folding>
+            <marker date="1535999524984" expanded="true" signature="65:4663" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="1338:1532" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="1395:1460" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="1592:3052" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3082:3234" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3101:3228" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3240:3307" ph="/// Alternate the chomp sounds ... " />
+            <marker date="1535999524984" expanded="true" signature="3332:3517" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3363:3412" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3425:3474" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3552:3786" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3571:3630" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3643:3780" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3820:3980" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="3839:3974" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="4014:4061" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="4093:4138" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="4170:4215" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="4248:4294" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="4323:4365" ph="{...}" />
+            <marker date="1535999524984" expanded="true" signature="4371:4525" ph="/// Pull a sound clip from assets ... " />
+            <marker date="1535999524984" expanded="true" signature="4581:4661" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62857D45-756B-46AB-BE2B-033F2C8C6D95/d5/c6d952ea/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BaseActor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4812">
+          <caret line="217" column="5" selection-start-line="217" selection-start-column="5" selection-end-line="217" selection-end-column="5" />
+          <folding>
+            <marker date="1536003340207" expanded="true" signature="6:32" ph="..." />
+            <marker date="1536003340207" expanded="true" signature="34:169" ph="/// Base Actor class that all characters share. It handles things ... " />
+            <marker date="1536003340207" expanded="true" signature="208:6205" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="624:880" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="886:1013" ph="/// Get or set the location of the actor's rigid body ... " />
+            <marker date="1536003340207" expanded="true" signature="1041:1146" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="1060:1140" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="1152:1281" ph="/// Return the integer tile of the actor's current location ... " />
+            <marker date="1536003340207" expanded="true" signature="1398:1559" ph="/// Return the coordinates of the center of the tile of the actor's current location ... " />
+            <marker date="1536003340207" expanded="true" signature="1696:1838" ph="/// Set the destination tile ... " />
+            <marker date="1536003340207" expanded="true" signature="1891:2124" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="1929:2070" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="2130:2321" ph="/// Determine whether the direction from the current tile is a valid location ... " />
+            <marker date="1536003340207" expanded="true" signature="2365:2444" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="2450:2548" ph="/// Move the actor toward a position represented as a Vector2 ... " />
+            <marker date="1536003340207" expanded="true" signature="2574:2758" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="2764:2869" ph="/// If the actor enters the tunnel, transport them to the other side ... " />
+            <marker date="1536003340207" expanded="true" signature="2901:3373" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="2945:3142" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="3496:3554" ph="/// Animate the actor ... " />
+            <marker date="1536003340207" expanded="true" signature="3583:3691" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="3697:3765" ph="/// Reset the actor's animation ... " />
+            <marker date="1536003340207" expanded="true" signature="3798:3847" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="3853:3963" ph="/// Gets the game controller. ... " />
+            <marker date="1536003340207" expanded="true" signature="4033:4129" ph="/// Gets the animator. ... " />
+            <marker date="1536003340207" expanded="true" signature="4176:4272" ph="/// Set the actor's speed ... " />
+            <marker date="1536003340207" expanded="true" signature="4295:4418" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4322:4360" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4373:4412" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4424:4537" ph="/// Set the actor's destination tile ... " />
+            <marker date="1536003340207" expanded="true" signature="4568:4705" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4597:4641" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4654:4699" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4711:4835" ph="/// Set the direction that the actor is moving in ... " />
+            <marker date="1536003340207" expanded="true" signature="4864:4987" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4883:4925" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4938:4981" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="4993:5111" ph="/// Gets or sets the animation speed. ... " />
+            <marker date="1536003340207" expanded="true" signature="5143:5284" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5170:5217" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5230:5278" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5290:5479" ph="/// Sets a value indicating whether this &lt;see cref=&quot;BaseActor&quot;/&gt; is animating. ... " />
+            <marker date="1536003340207" expanded="true" signature="5506:5730" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5520:5724" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5545:5609" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5736:5873" ph="/// Hide and unhide the actor ... " />
+            <marker date="1536003340207" expanded="true" signature="5896:6203" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5915:6197" ph="{...}" />
+            <marker date="1536003340207" expanded="true" signature="5940:6068" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GhostMove.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="756" column="70" selection-start-line="756" selection-start-column="70" selection-end-line="756" selection-end-column="70" />
+          <folding>
+            <marker date="1536007463909" expanded="true" signature="6:113" ph="..." />
+            <marker date="1536007463909" expanded="true" signature="150:25631" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="334:405" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="427:490" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="518:604" ph="{...}" />
+            <marker date="1536007463909" expanded="false" signature="1649:2363" ph="Start" />
+            <marker date="1536007463909" expanded="true" signature="1692:2347" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="2112:2315" ph="{...}" />
+            <marker date="1536007463909" expanded="false" signature="2377:2940" ph="FixedUpdate" />
+            <marker date="1536007463909" expanded="true" signature="2430:2924" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="2468:2873" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="2975:3168" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="3204:4736" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="3449:4095" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="4790:5686" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="4819:5680" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="5717:5777" ph="{...}" />
+            <marker date="1536007463909" expanded="false" signature="5790:9699" ph="Ghost House Rules" />
+            <marker date="1536007463909" expanded="true" signature="5821:5947" ph="/// Set the number of dots PacMan needs to have eaten for ghosts to leave the ghost house ... " />
+            <marker date="1536007463909" expanded="true" signature="5981:6546" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="6061:6301" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="6349:6540" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="6552:6688" ph="/// Once our eyes hit the home location, put them back in the ghost house and reincarnate the ghost ... " />
+            <marker date="1536007463909" expanded="true" signature="6727:7176" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="6771:6820" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="6865:7170" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="7182:7253" ph="/// Get the ghost out of the house ... " />
+            <marker date="1536007463909" expanded="true" signature="7287:8507" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="7488:8501" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="7641:7766" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="7842:8093" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="8164:8274" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="8348:8491" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="8513:8598" ph="/// Figure out which ghost is tracking dot count ... " />
+            <marker date="1536007463909" expanded="true" signature="8635:8808" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="8814:8901" ph="/// Increase the dot count for the preferred ghost ... " />
+            <marker date="1536007463909" expanded="true" signature="8936:9001" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="9007:9090" ph="/// Bounce the ghost around in the ghost house ... " />
+            <marker date="1536007463909" expanded="true" signature="9128:9683" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="9272:9385" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="9509:9624" ph="{...}" />
+            <marker date="1536007463909" expanded="false" signature="9705:13827" ph="Ghost Mode" />
+            <marker date="1536007463909" expanded="true" signature="9729:9798" ph="/// Set the ghost's current mode ... " />
+            <marker date="1536007463909" expanded="true" signature="9825:10363" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="10369:10525" ph="/// Get the ghost mode based on the number of seconds since the start of the level ... " />
+            <marker date="1536007463909" expanded="true" signature="10551:12004" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="12010:12209" ph="/// Gets or sets a value indicating whether this &lt;see cref=&quot;GhostMove&quot;/&gt; is frightened. ... " />
+            <marker date="1536007463909" expanded="true" signature="12236:12820" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="12255:12317" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="12330:12814" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="12355:12573" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="12387:12559" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="12826:12933" ph="/// Kick off the coroutine to blink the ghosts when they're frightened ... " />
+            <marker date="1536007463909" expanded="true" signature="12964:13119" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="13125:13251" ph="/// If the ghost is frightened, it will start to blink after a certain number of seconds. ... " />
+            <marker date="1536007463909" expanded="true" signature="13287:13811" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="13452:13751" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="13833:20747" ph="Ghost Movement" />
+            <marker date="1536007463909" expanded="true" signature="13861:13946" ph="/// Set the ghost's speed based on a few factors ... " />
+            <marker date="1536007463909" expanded="true" signature="13979:15083" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="14101:14183" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="14239:14386" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="14463:14605" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="14696:14778" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="14852:14987" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="15089:15466" ph="/// Find the right direction to go based on mode. If 2 or more directions have the same distance from ... " />
+            <marker date="1536007463909" expanded="true" signature="15520:16648" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="15641:15807" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="16654:16787" ph="/// Retrieve the available exits from the current location ... " />
+            <marker date="1536007463909" expanded="true" signature="16824:17341" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="17043:17312" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="17254:17302" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="17347:17430" ph="/// Figure out where the ghost should be going ... " />
+            <marker date="1536007463909" expanded="true" signature="17455:18283" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="17551:18225" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="17707:18215" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="17725:17834" ph="/* Based on the ghost's location, figure out which directions he can go based ... */" />
+            <marker date="1536007463909" expanded="true" signature="17924:18045" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="18289:18380" ph="/// Check to see if Blinky can enter Cruise Elroy mode ... " />
+            <marker date="1536007463909" expanded="true" signature="18403:19094" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="18603:18757" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="18934:19088" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="19100:19161" ph="/// Initialize the ghost ... " />
+            <marker date="1536007463909" expanded="true" signature="19189:20731" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="19604:20725" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="20753:25629" ph="Ghost Targeting" />
+            <marker date="1536007463909" expanded="true" signature="20782:20845" ph="/// Get the ghost's target ... " />
+            <marker date="1536007463909" expanded="true" signature="20874:21628" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="20951:20988" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="21019:21622" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="21142:21491" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="21634:21881" ph="/// If in scatter mode, return the scatter target for Inky, Pinky and Clyde. ... " />
+            <marker date="1536007463909" expanded="true" signature="21918:22066" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="21982:22029" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="22072:22176" ph="/// Pick a random exit ... " />
+            <marker date="1536007463909" expanded="true" signature="22216:22544" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="22284:22538" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="22550:22651" ph="/// Blinky targets PacMan ... " />
+            <marker date="1536007463909" expanded="true" signature="22686:22738" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="22744:22892" ph="/// Pinky's target is always 4 tiles ahead of PacMan's current direction ... " />
+            <marker date="1536007463909" expanded="true" signature="22926:23290" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="23059:23167" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="23296:23466" ph="/// Inky has similar targeting to Pinky, but it also uses Blinky's position in its calculation ... " />
+            <marker date="1536007463909" expanded="true" signature="23499:24007" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="23580:23688" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="24013:24188" ph="/// Clyde will target PacMan if he is within 8 tiles of him. Otherwise, he reverts to scatter mode. ... " />
+            <marker date="1536007463909" expanded="true" signature="24222:24385" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="24391:24510" ph="/// Draw colored boxes - one for each ghost - showing what that ghost is targeting ... " />
+            <marker date="1536007463909" expanded="true" signature="24540:25613" ph="{...}" />
+            <marker date="1536007463909" expanded="true" signature="24627:25019" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TableOfValues.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="541" column="5" selection-start-line="541" selection-start-column="5" selection-end-line="541" selection-end-column="5" />
+          <folding>
+            <marker date="1535724496906" expanded="true" signature="0:285" ph="/// This class contains a bunch of values as they relate to PacMan, the ghosts, fruits, etc. ... " />
+            <marker date="1535724496906" expanded="true" signature="312:11750" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="388:400" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="444:519" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="525:595" ph="/// Constant speed for all actors ... " />
+            <marker date="1535724496906" expanded="true" signature="627:660" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="666:861" ph="/// The speed of PacMan while he's eating dots for every level ... " />
+            <marker date="1535724496906" expanded="true" signature="911:1446" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="941:1440" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="1452:1605" ph="/// PacMan's speed while he's high on power pellets ... " />
+            <marker date="1535724496906" expanded="true" signature="1663:2156" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="1693:2150" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="2162:2334" ph="/// The speed of PacMan for every level ... " />
+            <marker date="1535724496906" expanded="true" signature="2381:2915" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="2410:2909" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="2921:3080" ph="/// PacMan's speed when the ghosts are in frightened mode ... " />
+            <marker date="1535724496906" expanded="true" signature="3137:3579" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="3167:3573" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="3585:3766" ph="/// PacMan's speed while the ghosts are in frightened mode and he's eating dots ... " />
+            <marker date="1535724496906" expanded="true" signature="3826:4268" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="3856:4262" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="4274:4430" ph="/// The amount of time ghosts will remained frightened ... " />
+            <marker date="1535724496906" expanded="true" signature="4483:4964" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="4513:4958" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="4970:5108" ph="/// The number of times ghosts flash ... " />
+            <marker date="1535724496906" expanded="true" signature="5164:5574" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="5194:5568" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="5580:5749" ph="/// The ghosts' speed for each level ... " />
+            <marker date="1535724496906" expanded="true" signature="5795:6288" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="5825:6282" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="6294:6444" ph="/// Speed of the ghosts while they're frightened ... " />
+            <marker date="1535724496906" expanded="true" signature="6500:6993" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="6530:6987" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="6999:7163" ph="/// The speed of the ghosts while traveling through the tunnel ... " />
+            <marker date="1535724496906" expanded="true" signature="7215:7725" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="7245:7719" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="7731:7905" ph="/// The number of dots remaining before Blinky turns into Cruise Elroy (1st time) ... " />
+            <marker date="1535724496906" expanded="true" signature="7959:8579" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="7989:8573" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="8585:8759" ph="/// The number of dots remaining before Blinky turns into Cruise Elroy (2nd time) ... " />
+            <marker date="1535724496906" expanded="true" signature="8813:9431" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="8843:9425" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="9437:9602" ph="/// Blinky's speed the 1st time he goes into Cruise Elroy mode. ... " />
+            <marker date="1535724496906" expanded="true" signature="9655:10165" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="9685:10159" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="10171:10336" ph="/// Blinky's speed the 2nd time he goes into Cruise Elroy mode. ... " />
+            <marker date="1535724496906" expanded="true" signature="10389:10899" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="10419:10893" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="10905:11073" ph="/// Bonus points for each level ... " />
+            <marker date="1535724496906" expanded="true" signature="11118:11748" ph="{...}" />
+            <marker date="1535724496906" expanded="true" signature="11148:11742" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+          <folding>
+            <marker date="1536010303995" expanded="false" signature="6:78" ph="..." />
+            <marker date="1536010303995" expanded="true" signature="125:17821" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="2170:2332" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="2392:2951" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="2978:3095" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="3101:3172" ph="/// Reset and start the next level ... " />
+            <marker date="1536010303995" expanded="true" signature="3206:3510" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="3318:3399" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="3516:3582" ph="/// On your marks. Get set... ... " />
+            <marker date="1536010303995" expanded="true" signature="3606:4117" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="3643:4054" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="3992:4039" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="4067:4111" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="4123:4197" ph="/// Check to see if the maze is clear ... " />
+            <marker date="1536010303995" expanded="true" signature="4227:4666" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="4672:8325" ph="Dots and Power Pellets" />
+            <marker date="1536010303995" expanded="true" signature="4708:4762" ph="/// Draw the dots ... " />
+            <marker date="1536010303995" expanded="true" signature="4790:5752" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="4926:5187" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="4964:5177" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="5231:5444" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="5490:5527" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="5570:5607" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="5758:5867" ph="/// Eat some small dots ... " />
+            <marker date="1536010303995" expanded="true" signature="5913:6255" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="6261:6373" ph="/// Eat some power pellets ... " />
+            <marker date="1536010303995" expanded="true" signature="6419:6662" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="7062:7196" ph="/// Keep track of the time the last dot was eaten ... " />
+            <marker date="1536010303995" expanded="true" signature="7250:7400" ph="/// Keep track of how long it's been since the last dot was eaten ... " />
+            <marker date="1536010303995" expanded="true" signature="7478:7735" ph="/// Convert the dot/powerpellet locations to game objects using their prefabs ... " />
+            <marker date="1536010303995" expanded="true" signature="7825:8309" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="7923:8278" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="7956:8090" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="8124:8268" ph="{...}" />
+            <marker date="1536010303995" expanded="false" signature="8331:9147" ph="Ghosts" />
+            <marker date="1536010303995" expanded="true" signature="8581:8643" ph="/// Initialize the ghosts ... " />
+            <marker date="1536010303995" expanded="true" signature="8673:8817" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="8823:8920" ph="/// Make sure the ghosts know how many dots have been eaten. ... " />
+            <marker date="1536010303995" expanded="true" signature="8959:9131" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="9178:9225" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="9288:9355" ph="/// Display &quot;Game Over&quot; banner ... " />
+            <marker date="1536010303995" expanded="true" signature="9383:9446" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="9452:9563" ph="/// Which level is being played? ... " />
+            <marker date="1536010303995" expanded="true" signature="9619:9800" ph="/// Get/Set whether the game controller is ready for play ... " />
+            <marker date="1536010303995" expanded="true" signature="9824:10078" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="9843:9883" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="9896:10072" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="10084:10210" ph="/// Add integer points to the player's score ... " />
+            <marker date="1536010303995" expanded="true" signature="10248:10295" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="10301:10438" ph="/// Add points from a PointSource to the player's score ... " />
+            <marker date="1536010303995" expanded="true" signature="10484:11005" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="10523:10743" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="11043:11565" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="11151:11304" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="11406:11559" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="11602:11833" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="11878:12093" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="12099:12174" ph="/// Show the number of lives remaining ... " />
+            <marker date="1536010303995" expanded="true" signature="12209:12465" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="12336:12459" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="12498:12808" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="12693:12802" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="12814:12900" ph="/// Check to see if we can de-frighten the ghosts ... " />
+            <marker date="1536010303995" expanded="true" signature="12936:13701" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="13155:13297" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="13496:13695" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="13550:13685" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="13609:13671" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="13707:13767" ph="/// Frighten the ghosts ... " />
+            <marker date="1536010303995" expanded="true" signature="13800:14172" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="14178:14329" ph="/// Figure out which, if any ghosts are still in frightened mode ... " />
+            <marker date="1536010303995" expanded="true" signature="14379:14892" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="14898:15004" ph="/// Get the fruit associated with a level ... " />
+            <marker date="1536010303995" expanded="true" signature="15051:15755" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="15148:15749" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="15761:15969" ph="/// Return an instantiated prefab for a graphical representation of the points ... " />
+            <marker date="1536010303995" expanded="true" signature="16008:16700" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="16045:16694" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="16706:16843" ph="/// Get the number of points the fruit is worth on this level ... " />
+            <marker date="1536010303995" expanded="true" signature="16875:16944" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="16950:17110" ph="/// Render the fruit display in the lower right corner of the screen to indicate ... " />
+            <marker date="1536010303995" expanded="true" signature="17153:17819" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="17209:17254" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="17344:17425" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="17438:17534" ph="{...}" />
+            <marker date="1536010303995" expanded="true" signature="17628:17813" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/ScoreBoard.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+          <folding>
+            <marker date="1536011089930" expanded="false" signature="6:125" ph="..." />
+            <marker date="1536011089930" expanded="true" signature="167:4653" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="929:993" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="1080:1284" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="1137:1207" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="1344:1396" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="1594:1921" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="1633:1680" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="1954:2081" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="2087:2148" ph="/// Flash the 1UP or 2UP ... " />
+            <marker date="1536011089930" expanded="true" signature="2193:2662" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="2374:2656" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="2504:2572" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="2672:2895" ph="/// Display the player's score ... " />
+            <marker date="1536011089930" expanded="true" signature="2970:4298" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="3315:4292" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="3378:4153" ph="{...}" />
+            <marker date="1536011089930" expanded="true" signature="4304:4477" ph="/// Reverse a string. Really? The String class doesn't have a fucking .Reverse method?! ... " />
+            <marker date="1536011089930" expanded="true" signature="4528:4651" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PacManMove.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <folding>
+            <marker date="1536011546749" expanded="false" signature="6:78" ph="..." />
+            <marker date="1536011546749" expanded="true" signature="116:5656" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="571:915" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="986:1227" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="1233:1353" ph="/// PacMan doesn't really get frightened, but this lets us know that the ghosts are ... " />
+            <marker date="1536011546749" expanded="true" signature="1380:1505" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="1399:1442" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="1455:1499" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="1632:2438" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="1668:1952" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="1980:2104" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="2154:2432" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="2444:2544" ph="/// Check to see if the ghosts and Pac Man occupy the same tile ... " />
+            <marker date="1536011546749" expanded="true" signature="2586:2825" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="2756:2819" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="2831:2969" ph="/// Get the ghost that currently shares PacMan's tile ... " />
+            <marker date="1536011546749" expanded="true" signature="3011:3365" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="3371:3462" ph="/// PacMan has been eaten! ... " />
+            <marker date="1536011546749" expanded="true" signature="3507:4435" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="4441:4544" ph="/// Get player input and figure out which direction to move PacMan ... " />
+            <marker date="1536011546749" expanded="true" signature="4573:4977" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="5014:5382" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="5112:5163" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="5205:5301" ph="{...}" />
+            <marker date="1536011546749" expanded="true" signature="5388:5470" ph="/// Move PacMan back to his starting position ... " />
+            <marker date="1536011546749" expanded="true" signature="5499:5654" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

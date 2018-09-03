@@ -1,66 +1,62 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EatFruit : MonoBehaviour {
+    private GameController _gameController;
+    private AudioController _audio;
 
-    GameController gameController;
-    AudioController _audio;
+    private Vector2 _tileCenter;
+    private bool _fruitEaten;
 
-    Vector2 TileCenter;
-    bool fruitEaten = false;
-
-    void Start()
+    private void Start()
     {
-        GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
+        var gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
-            gameController = gc.GetComponent<GameController> ();
+            _gameController = gc.GetComponent<GameController> ();
         _audio = AudioController.Instance;
-        TileCenter = new Vector2 (Mathf.Ceil (transform.position.x) - 0.5f, Mathf.Ceil (transform.position.y) - 0.5f);
+        _tileCenter = new Vector2 (Mathf.Ceil (transform.position.x) - 0.5f, Mathf.Ceil (transform.position.y) - 0.5f);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         // Don't handle collision detection for the fruit at the bottom of the screen since PacMan will never eat it
-        if (TileCenter != new Vector2 (13.5f, 15.5f))
+        if (_tileCenter != new Vector2 (13.5f, 15.5f))
             return;
-        
-        if (Eaten) {
-            fruitEaten = true;
-            _audio.PlayEatFruit ();
-            AddPoints ();
-            ShowPoints ();
-        }
+
+        if (!Eaten) return;
+        _fruitEaten = true;
+        _audio.PlayEatFruit ();
+        AddPoints ();
+        ShowPoints ();
     }
 
     /// <summary>
     /// Display the point value in place of the fruit
     /// </summary>
-    void ShowPoints()
+    private void ShowPoints()
     {
         gameObject.transform.position = new Vector2 (-10, -10);
         Destroy (gameObject, 1.0f);
-        GameObject fruitPoints = gameController.GetFruitPoints ();
+        var fruitPoints = _gameController.GetFruitPoints ();
         Destroy (fruitPoints, 2.0f);
     }
 
     /// <summary>
     /// Call back to the game controller to add the points to the player's score
     /// </summary>
-    void AddPoints()
+    private void AddPoints()
     {
-        int points = gameController.GetBonusPoints ();
-        gameController.AddPoints (points);
+        var points = _gameController.GetBonusPoints ();
+        _gameController.AddPoints (points);
     }
 
     /// <summary>
     /// Gets a value indicating whether this <see cref="EatFruit"/> is eaten.
     /// </summary>
     /// <value><c>true</c> if eaten; otherwise, <c>false</c>.</value>
-    bool Eaten
+    private bool Eaten
     {
         get {
-            return gameController.PacManMover.TileCenter == TileCenter && !fruitEaten;
+            return _gameController.PacManMover.TileCenter == _tileCenter && !_fruitEaten;
         }
     }
 }

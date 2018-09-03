@@ -1,110 +1,122 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioController : MonoBehaviour 
 {
     public float StartMusicLength;
-    public float EatFruitLength;
     public float EatGhostLength;
-    public float ExtraLifeLength;
-    public float DeathLength;
-
-    private static AudioController _instance;
 
     private bool _siren;
     private bool _blueGhosts;
 
-    AudioSource _startMusicSource;
-    AudioSource _sirenSource;
-    AudioSource _blueGhostsSource;
-    AudioSource _ghostEyesSource;
+    private AudioSource _startMusicSource;
+    private AudioSource _sirenSource;
+    private AudioSource _blueGhostsSource;
+    private AudioSource _ghostEyesSource;
 
-    AudioSource _eatFruitSource;
-    AudioSource _eatGhostSource;
-    AudioSource _extraLifeSource;
-    AudioSource _deathSource;
+    private AudioSource _eatFruitSource;
+    private AudioSource _eatGhostSource;
+    private AudioSource _extraLifeSource;
+    private AudioSource _deathSource;
 
-    const string START_MUSIC = "start_music";
-    const string SIREN = "siren";
-    const string BLUE_GHOSTS = "blue_ghosts";
-    const string GHOST_EYES = "ghost_eyes";
-    const string EAT_FRUIT = "eat_fruit";
-    const string EAT_GHOST = "eat_ghost";
-    const string EXTRA_LIFE = "extra_life";
-    const string DEATH = "death";
+    private AudioSource _eatDot1;
+    private AudioSource _eatDot2;
 
-    public static AudioController Instance
+    private const string StartMusic = "start_music";
+    
+    private const string Siren1 = "siren1";
+    private const string Siren2 = "siren2";
+    private const string Siren3 = "siren3";
+    private const string Siren4 = "siren4";
+
+    private const string EatDot1 = "chomp1";
+    private const string EatDot2 = "chomp2";
+    private bool _eatingDot1;
+    
+    private const string BlueGhosts = "blue_ghosts";
+    private const string GhostEyes = "ghost-eyes";
+    private const string EatFruit = "eat_fruit";
+    private const string EatGhost = "eat_ghost";
+    private const string ExtraLife = "extra_life";
+    private const string Death = "death";
+
+    public static AudioController Instance { get; private set; }
+
+    private void Awake()
     {
-        get {
-            return _instance;
-        }
-    }
-
-    void Awake()
-    {
-        if (_instance != null && _instance != this) {
-            Destroy (this.gameObject);
+        if (Instance != null && Instance != this) {
+            Destroy (gameObject);
             return;
         }
 
-        _instance = this;
-        DontDestroyOnLoad (this.gameObject);
+        Instance = this;
+        DontDestroyOnLoad (gameObject);
     }
 
 	// Use this for initialization
-	void Start () 
+    private void Start () 
     {
         _startMusicSource = gameObject.AddComponent<AudioSource> ();
-        _startMusicSource.clip = LoadAudioClip (START_MUSIC);
+        _startMusicSource.clip = LoadAudioClip (StartMusic);
 
         _sirenSource = gameObject.AddComponent<AudioSource> ();
         _sirenSource.loop = true;
-        _sirenSource.clip = LoadAudioClip (SIREN);
+        _sirenSource.clip = LoadAudioClip (Siren1);
 
         _blueGhostsSource = gameObject.AddComponent<AudioSource> ();
         _blueGhostsSource.loop = true;
-        _blueGhostsSource.clip = LoadAudioClip (BLUE_GHOSTS);
+        _blueGhostsSource.clip = LoadAudioClip (BlueGhosts);
 
         _ghostEyesSource = gameObject.AddComponent<AudioSource> ();
         _ghostEyesSource.loop = true;
-        _ghostEyesSource.clip = LoadAudioClip (GHOST_EYES);
+        _ghostEyesSource.clip = LoadAudioClip (GhostEyes);
 
         _eatFruitSource = gameObject.AddComponent<AudioSource> ();
-        _eatFruitSource.clip = LoadAudioClip (EAT_FRUIT);
+        _eatFruitSource.clip = LoadAudioClip (EatFruit);
 
         _eatGhostSource = gameObject.AddComponent<AudioSource> ();
-        _eatGhostSource.clip = LoadAudioClip (EAT_GHOST);
+        _eatGhostSource.clip = LoadAudioClip (EatGhost);
 
         _extraLifeSource = gameObject.AddComponent<AudioSource> ();
-        _extraLifeSource.clip = LoadAudioClip (EXTRA_LIFE);
+        _extraLifeSource.clip = LoadAudioClip (ExtraLife);
 
         _deathSource = gameObject.AddComponent<AudioSource> ();
-        _deathSource.clip = LoadAudioClip (DEATH);
+        _deathSource.clip = LoadAudioClip (Death);
 
+        _eatDot1 = gameObject.AddComponent<AudioSource>();
+        _eatDot1.clip = LoadAudioClip(EatDot1);
+
+        _eatDot2 = gameObject.AddComponent<AudioSource>();
+        _eatDot2.clip = LoadAudioClip(EatDot2);
+        
         StartMusicLength = _startMusicSource.clip.length;
-        EatFruitLength = _eatFruitSource.clip.length;
         EatGhostLength = _eatGhostSource.clip.length;
-        ExtraLifeLength = _extraLifeSource.clip.length;
-        DeathLength = _deathSource.clip.length;	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	}
+    }
 
     public bool SirenPlaying
     {
-        get {
-            return _sirenSource.isPlaying;
-        }
         set {
             if (value)
                 _sirenSource.Play ();
             else
                 _sirenSource.Stop ();
         }
+    }
+
+    /// <summary>
+    /// Alternate the chomp sounds
+    /// </summary>
+    public void EatDot()
+    {
+        if (_eatingDot1)
+        {
+            _eatDot1.Play();
+        }
+        else
+        {
+            _eatDot2.Play();
+        }
+
+        _eatingDot1 = !_eatingDot1;
     }
 
     public bool BlueGhostsPlaying
@@ -122,9 +134,6 @@ public class AudioController : MonoBehaviour
 
     public bool GhostEyesPlaying
     {
-        get {
-            return _ghostEyesSource.isPlaying;
-        }
         set {
             if (value)
                 _ghostEyesSource.Play ();
@@ -163,7 +172,7 @@ public class AudioController : MonoBehaviour
     /// </summary>
     /// <returns>The audio clip.</returns>
     /// <param name="name">Name.</param>
-    private AudioClip LoadAudioClip(string name)
+    private static AudioClip LoadAudioClip(string name)
     {
         return (AudioClip)Resources.Load (name, typeof(AudioClip));
     }

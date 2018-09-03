@@ -1,27 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EatPacDot : MonoBehaviour {
+    private GameController _gameController;
+    private Vector2 _tile;
 
-    GameController gameController;
-    Vector2 Tile;
-
-    void Start()
+    private void Start()
     {
-        GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
+        var gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
-            gameController = gc.GetComponent<GameController> ();
-        Tile = new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
+            _gameController = gc.GetComponent<GameController> ();
+        _tile = new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (gameController.PacManMover.Tile == Tile) {
-            gameController.EatSmallDot (Tile);
+        if (_gameController.PacManMover.Tile == _tile) {
+            _gameController.EatSmallDot (_tile);
             Destroy (gameObject);
         } else {
-            gameController.PacManMover.EatingSmallDots = false;
+            _gameController.PacManMover.EatingSmallDots = false;
         }
     }
 }

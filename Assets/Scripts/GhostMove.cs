@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GhostMove : BaseActor {
     public GameObject PacMan;
@@ -33,68 +34,69 @@ public class GhostMove : BaseActor {
         NORMAL
     }
 
-    private Color BLINKY_COLOR = new Color (.81f, .24f, .098f);
-    private Color PINKY_COLOR = new Color (.917f, .509f, .898f);
-    private Color INKY_COLOR = new Color (.274f, .749f, .933f);
-    private Color CLYDE_COLOR = new Color (.858f, .521f, .109f);
+    private readonly Color _blinkyColor = new Color (.81f, .24f, .098f);
+    private readonly Color _pinkyColor = new Color (.917f, .509f, .898f);
+    private readonly Color _inkyColor = new Color (.274f, .749f, .933f);
+    private readonly Color _clydeColor = new Color (.858f, .521f, .109f);
 
     public Ghost ThisGhost;
     public Mode CurrentMode = Mode.CHASE;
 
-    private Vector2 ScatterTarget = Vector2.zero;
-    private List<Vector2> Directions = new List<Vector2> ();
+    private Vector2 _scatterTarget = Vector2.zero;
+    private readonly List<Vector2> _directions = new List<Vector2> ();
     private TableOfValues _tov = TableOfValues.Instance();
-    private GhostMove BlinkyMover;
-    private PacManMove PacManMover;
+    private GhostMove _blinkyMover;
+    private PacManMove _pacManMover;
 
-    private bool InCruiseElroy = false;
+    private bool _inCruiseElroy;
 
-    private bool InGhostHouse = false;
-    private bool LeavingGhostHouse = false;
-    private int DotCounter;
-    private int DotsToLeave;
-    private bool IsPreferred = false;
+    private bool _inGhostHouse;
+    private bool _leavingGhostHouse;
+    private int _dotCounter;
+    private int _dotsToLeave;
+    private bool _isPreferred;
 
-    public bool IsEaten = false;
-    public bool IsBlinking = false;
-    public int CurrentBlink = 0;
+    public bool IsEaten;
+    public bool IsBlinking;
+    public int CurrentBlink;
 
-    private float playStartTime = 0.0f;
-    private Vector2 Home = new Vector2 (14, 22);
-    private Vector2 GhostHome = Vector2.zero;
+    private float _playStartTime;
+    private readonly Vector2 _home = new Vector2 (14, 22);
+    private Vector2 _ghostHome = Vector2.zero;
 
     #region Start
 
-    new void Start()
+    private new void Start()
     {
         base.Start ();
 
-        Directions.Add (Vector2.up);
-        Directions.Add (Vector2.down);
-        Directions.Add (Vector2.left);
-        Directions.Add (Vector2.right);
+        _directions.Add (Vector2.up);
+        _directions.Add (Vector2.down);
+        _directions.Add (Vector2.left);
+        _directions.Add (Vector2.right);
 
         // Start off moving left
         SetDestination (Vector2.left);
         Direction = Vector2.left;
         Animation = true;
 
-        PacManMover = PacMan.GetComponent<PacManMove> ();
+        _pacManMover = PacMan.GetComponent<PacManMove> ();
         if (ThisGhost == Ghost.INKY) {
             Debug.Log ("Linking Blinky's mover to Inky's");
-            GameObject blinky = GameObject.FindGameObjectWithTag ("Blinky");
-            BlinkyMover = blinky.GetComponent<GhostMove> ();
+            var blinky = GameObject.FindGameObjectWithTag ("Blinky");
+            _blinkyMover = blinky.GetComponent<GhostMove> ();
         }
+        SetDotsToLeave();
     }
 
     #endregion
         
     #region FixedUpdate
 
-	void FixedUpdate () {
+    private void FixedUpdate () {
         if (GameController.IsReady) {
-            if (playStartTime == 0.0f)
-                playStartTime = Time.fixedTime;
+            if (_playStartTime == 0.0f)
+                _playStartTime = Time.fixedTime;
             
             SetMode ();
             Animation = true;
@@ -113,19 +115,18 @@ public class GhostMove : BaseActor {
 
     #endregion
 
-    void CheckCollision()
+    private void CheckCollision()
     {
-        if (PacManMover.Tile == Tile && CurrentMode == Mode.FRIGHTENED && !IsEaten) {
-            Debug.Log (ThisGhost + " has been eaten");
-            StartCoroutine (EatGhost ());
-        }
+        if (_pacManMover.Tile != Tile || CurrentMode != Mode.FRIGHTENED || IsEaten) return;
+        Debug.Log (ThisGhost + " has been eaten");
+        StartCoroutine (EatGhost ());
     }
 
-    IEnumerator EatGhost()
+    private IEnumerator EatGhost()
     {
         Vector2 position = transform.position;
 
-        PacManMover.Hidden = true;
+        _pacManMover.Hidden = true;
         Hidden = true;
         IsEaten = true;
         IsBlinking = false;
@@ -134,19 +135,19 @@ public class GhostMove : BaseActor {
         switch (GameController.GhostsEaten) {
         case 0:
             points = Instantiate (Ghost200);
-            GameController.AddPoints (GameController.PointSource.FIRST_GHOST);
+            GameController.AddPoints (GameController.PointSource.FirstGhost);
             break;
         case 1:
             points = Instantiate (Ghost400);
-            GameController.AddPoints (GameController.PointSource.SECOND_GHOST);
+            GameController.AddPoints (GameController.PointSource.SecondGhost);
             break;
         case 2:
             points = Instantiate (Ghost800);
-            GameController.AddPoints (GameController.PointSource.THIRD_GHOST);
+            GameController.AddPoints (GameController.PointSource.ThirdGhost);
             break;
         case 3:
             points = Instantiate (Ghost1600);
-            GameController.AddPoints (GameController.PointSource.FOURTH_GHOST);
+            GameController.AddPoints (GameController.PointSource.FourthGhost);
             break;
         }
 
@@ -157,20 +158,20 @@ public class GhostMove : BaseActor {
         points.transform.position = position;
 
         GameController.IsReady = false;
-        _audio.PlayEatGhost ();
+        Audio.PlayEatGhost ();
 
-        Destroy (points, _audio.EatGhostLength);
-        yield return new WaitForSecondsRealtime (_audio.EatGhostLength);
+        Destroy (points, Audio.EatGhostLength);
+        yield return new WaitForSecondsRealtime (Audio.EatGhostLength);
 
         GameController.IsReady = true;
         SetAnimation (Animations.EYES);
 
-        _audio.BlueGhostsPlaying = false;
-        _audio.GhostEyesPlaying = true;
-        _audio.SirenPlaying = false;
+        Audio.BlueGhostsPlaying = false;
+        Audio.GhostEyesPlaying = true;
+        Audio.SirenPlaying = false;
 
         Hidden = false;
-        PacManMover.Hidden = false;
+        _pacManMover.Hidden = false;
     }
        
     public void SetAnimation(Animations anim)
@@ -202,7 +203,7 @@ public class GhostMove : BaseActor {
 
     private float LevelTime()
     {
-        return Time.fixedTime - playStartTime;
+        return Time.fixedTime - _playStartTime;
     }
        
     #region Ghost House Rules
@@ -210,43 +211,43 @@ public class GhostMove : BaseActor {
     /// <summary>
     /// Set the number of dots PacMan needs to have eaten for ghosts to leave the ghost house
     /// </summary>
-    void SetDotsToLeave()
+    private void SetDotsToLeave()
     {
-        DotsToLeave = 0;
+        _dotsToLeave = 0;
 
         if (GameController.CurrentLevel == 1) {
             if (ThisGhost == Ghost.PINKY)
-                DotsToLeave = 0;
+                _dotsToLeave = 0;
             if (ThisGhost == Ghost.INKY)
-                DotsToLeave = 30;
+                _dotsToLeave = 30;
             if (ThisGhost == Ghost.CLYDE)
-                DotsToLeave = 60;
+                _dotsToLeave = 60;
         }
 
         if (GameController.CurrentLevel == 2) {
             if (ThisGhost == Ghost.PINKY || ThisGhost == Ghost.INKY)
-                DotsToLeave = 0;
+                _dotsToLeave = 0;
             if (ThisGhost == Ghost.CLYDE)
-                DotsToLeave = 50;
+                _dotsToLeave = 50;
         }
     }
 
     /// <summary>
     /// Once our eyes hit the home location, put them back in the ghost house and reincarnate the ghost
     /// </summary>
-    void PutGhostBackInHouse()
+    private void PutGhostBackInHouse()
     {
-        if (IsEaten && Tile == Home){
-            Destination = GhostHome;
+        if (IsEaten && Tile == _home){
+            Destination = _ghostHome;
         }
 
-        if (IsEaten && Tile == GhostHome) {
-            _audio.GhostEyesPlaying = false;
-            _audio.BlueGhostsPlaying = true;
+        if (IsEaten && Tile == _ghostHome) {
+            Audio.GhostEyesPlaying = false;
+            Audio.BlueGhostsPlaying = true;
             SetAnimation (Animations.NORMAL);
-            DotsToLeave = 0;
-            DotCounter = 0;
-            InGhostHouse = true;
+            _dotsToLeave = 0;
+            _dotCounter = 0;
+            _inGhostHouse = true;
             IsEaten = false;
             CurrentMode = GetMode ();
         }
@@ -258,8 +259,8 @@ public class GhostMove : BaseActor {
     public void LeaveGhostHouse()
     {
         //if ((DotCounter >= DotsToLeave && InGhostHouse) || (InGhostHouse && IsPreferred && GameController.TimeSinceLastDot >= 4.0f)) {
-        if(DotCounter >= DotsToLeave && InGhostHouse) {
-            LeavingGhostHouse = true;
+        if(_dotCounter >= _dotsToLeave && _inGhostHouse) {
+            _leavingGhostHouse = true;
 
             // Wait until the ghost hits the top of the ghost house
             if (transform.position.y < 19) {
@@ -281,7 +282,7 @@ public class GhostMove : BaseActor {
             }
 
             if ((Vector2)transform.position == new Vector2 (14, 21.5f)) {
-                InGhostHouse = false;
+                _inGhostHouse = false;
                 SetDestination (Vector2.left);
                 Direction = Vector2.left;
             }
@@ -293,7 +294,7 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void SetPreferredGhost()
     {
-        IsPreferred = (ThisGhost == Ghost.PINKY && InGhostHouse) || (ThisGhost == Ghost.INKY && InGhostHouse) || (ThisGhost == Ghost.CLYDE && InGhostHouse);
+        _isPreferred = (ThisGhost == Ghost.PINKY && _inGhostHouse) || (ThisGhost == Ghost.INKY && _inGhostHouse) || (ThisGhost == Ghost.CLYDE && _inGhostHouse);
     }
 
     /// <summary>
@@ -301,8 +302,8 @@ public class GhostMove : BaseActor {
     /// </summary>
     public void IncreaseDotCount()
     {
-        if (IsPreferred)
-            DotCounter++;
+        if (_isPreferred)
+            _dotCounter++;
     }
 
     /// <summary>
@@ -310,7 +311,7 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void BounceInGhostHouse()
     {
-        if (!InGhostHouse || LeavingGhostHouse)
+        if (!_inGhostHouse || _leavingGhostHouse)
             return;
 
         if (transform.position.y < 19 && Direction == Vector2.up) {
@@ -336,14 +337,17 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void SetMode()
     {
-        if (CurrentMode != Mode.FRIGHTENED) {
-            Mode mode = GetMode ();
-            if (mode != CurrentMode && !InGhostHouse) {
-                Direction = -Direction;
-                Debug.Log (LevelTime() + " : Setting " + ThisGhost + " mode from " + CurrentMode + " to " + mode);
-                CurrentMode = mode;
-            }
-        }
+        // If frightened, just return
+        if (CurrentMode == Mode.FRIGHTENED) return;
+        var mode = GetMode ();
+        
+        // If the new mode is the same as the current mode, or the ghost is in the house, return
+        if (mode == CurrentMode || _inGhostHouse) return;
+        
+        // Changing the mode reverses the direction of the ghost
+        Direction = -Direction;
+        Debug.Log (LevelTime() + " : Setting " + ThisGhost + " mode from " + CurrentMode + " to " + mode);
+        CurrentMode = mode;
     }
 
     /// <summary>
@@ -418,7 +422,7 @@ public class GhostMove : BaseActor {
     /// </summary>
     public IEnumerator BlinkGhost()
     {        
-        int totalBlinks = _tov.GhostFrightenedFlashes (GameController.CurrentLevel);
+        int totalBlinks = TableOfValues.GhostFrightenedFlashes (GameController.CurrentLevel);
         while (CurrentBlink <= totalBlinks && !IsEaten) {
             SetAnimation (Animations.SEMI_FRIGHTENED);
             yield return new WaitForSeconds (.25f);
@@ -444,32 +448,32 @@ public class GhostMove : BaseActor {
     {
         // Ghost is eaten and is currently a set of eyes on their way back to the ghost house
         if (IsEaten) {
-            Speed = _tov.Speed () * 2.0f;
+            Speed = TableOfValues.Speed () * 2.0f;
             return;
         }
 
         // Ghost is in the tunnel
         if(InTunnel)
         {
-            Speed = _tov.GhostTunnelSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            Speed = TableOfValues.GhostTunnelSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
             return;
         }
 
         // Ghost is frightened
         if (CurrentMode == Mode.FRIGHTENED) {
-            Speed = _tov.GhostFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            Speed = TableOfValues.GhostFrightenedSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
             return;
         }
 
         // Ghost is in the ghost house. Cut the speed in half
-        if (InGhostHouse) {
-            Speed = _tov.Speed () * 0.5f;
+        if (_inGhostHouse) {
+            Speed = TableOfValues.Speed () * 0.5f;
             return;
         }
 
         // Set normal speed for this level
-        if (!InCruiseElroy) {
-            Speed = _tov.GhostSpeed (GameController.CurrentLevel) * _tov.Speed ();   
+        if (!_inCruiseElroy) {
+            Speed = TableOfValues.GhostSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();   
             return;
         }         
 
@@ -478,23 +482,38 @@ public class GhostMove : BaseActor {
     }
 
     /// <summary>
-    /// Find the right direction to go based on mode
+    /// Find the right direction to go based on mode. If 2 or more directions have the same distance from
+    /// the target tile, the order of precedence is up, left, down, right.
     /// </summary>
-    /// <returns>The direction.</returns>
-    /// <param name="exits">Exits.</param>
+    /// <returns>The direction that the ghost will be traveling</returns>
+    /// <param name="exits">The list of available exits from the ghost's location</param>
     private Vector2 GetDirection(List<Vector2> exits)
     {
-        float shortestDistance = float.PositiveInfinity;
-        Vector2 shortestVector = Vector2.zero;
-        foreach (Vector2 exit in exits) {
-            float distance = Vector2.Distance (TileCenter + exit, Target ());
-            //if (distance < shortestDistance || Random.Range(1,10) == 5) {
-            if (distance < shortestDistance) {
-                shortestDistance = distance;
-                shortestVector = exit;
-            }
+        var target = Target();
+
+        var shortest = float.PositiveInfinity;
+        foreach (var exit in exits)
+        {
+            var distance = Vector2.Distance(TileCenter + exit, target);
+            if (distance < shortest)
+                shortest = distance;
         }
-        return shortestVector;
+
+        var upDistance = Vector2.Distance(TileCenter + Vector2.up, target);
+        var downDistance = Vector2.Distance(TileCenter + Vector2.down, target);
+        var leftDistance = Vector2.Distance(TileCenter + Vector2.left, target);
+        var rightDistance = Vector2.Distance(TileCenter + Vector2.right, target);
+
+        if (exits.Contains(Vector2.up) && Mathf.Approximately(shortest, upDistance))
+            return Vector2.up;
+        if (exits.Contains(Vector2.left) && Mathf.Approximately(shortest, leftDistance))
+            return Vector2.left;
+        if (exits.Contains(Vector2.down) && Mathf.Approximately(shortest, downDistance))
+            return Vector2.down;
+        if (exits.Contains(Vector2.right) && Mathf.Approximately(shortest, rightDistance))
+            return Vector2.right;
+
+        return Vector2.zero;
     }
 
     /// <summary>
@@ -503,20 +522,16 @@ public class GhostMove : BaseActor {
     /// <returns>The exits.</returns>
     private List<Vector2> GetExits()
     {
-        bool canGoUp = true;
-        if (_maze.SpecialLocations().Contains (Tile) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER))
-            canGoUp = false;
+        var canGoUp = !(Maze.SpecialLocations().Contains (Tile) && (CurrentMode == Mode.CHASE || CurrentMode == Mode.SCATTER));
+        var exits = new List<Vector2> ();
 
-        List<Vector2> exits = new List<Vector2> ();
-
-        foreach (Vector2 dir in Directions) {
+        foreach (var dir in _directions) {
             if (dir == Vector2.up && !canGoUp)
                 continue;
-            if (dir != -Direction) {
-                Vector2 dest = Tile + dir;
-                if (_maze.ValidLocations ().Contains (dest)) {
-                    exits.Add (dir);
-                }
+            if (dir == -Direction) continue;
+            var dest = Tile + dir;
+            if (Maze.ValidLocations ().Contains (dest)) {
+                exits.Add (dir);
             }
         }
 
@@ -529,7 +544,7 @@ public class GhostMove : BaseActor {
     void NavigateGhost()
     {
         // This is for ghosts that have left the ghost house
-        if (!InGhostHouse) {
+        if (!_inGhostHouse) {
             ShowTarget ();
             // The ghost has reached his/her destination. Find the next destination
             if (TileCenter == Destination) {
@@ -555,15 +570,15 @@ public class GhostMove : BaseActor {
     void CruiseElroy()
     {
         // Check for Cruise Elroy 1
-        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy1DotsLeft(GameController.CurrentLevel) && !InCruiseElroy) {
-            Speed = _tov.CruiseElroy1Speed (GameController.CurrentLevel) * _tov.Speed ();
-            InCruiseElroy = true;
+        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == TableOfValues.CruiseElroy1DotsLeft(GameController.CurrentLevel) && !_inCruiseElroy) {
+            Speed = TableOfValues.CruiseElroy1Speed (GameController.CurrentLevel) * TableOfValues.Speed ();
+            _inCruiseElroy = true;
         }
 
         // Check for Cruise Elroy 2
-        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == _tov.CruiseElroy2DotsLeft (GameController.CurrentLevel)) {
-            Speed = _tov.CruiseElroy2Speed (GameController.CurrentLevel) * _tov.Speed ();
-            InCruiseElroy = true;
+        if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == TableOfValues.CruiseElroy2DotsLeft (GameController.CurrentLevel)) {
+            Speed = TableOfValues.CruiseElroy2Speed (GameController.CurrentLevel) * TableOfValues.Speed ();
+            _inCruiseElroy = true;
         }
     }
 
@@ -576,13 +591,13 @@ public class GhostMove : BaseActor {
         IsEaten = false;
         IsBlinking = false;
         Destination = Vector2.zero;
-        playStartTime = 0.0f;
-        InCruiseElroy = false;
-        LeavingGhostHouse = false;
+        _playStartTime = 0.0f;
+        _inCruiseElroy = false;
+        _leavingGhostHouse = false;
         CurrentMode = Mode.SCATTER;
 
         if (Animator == null)
-            _anim = GetComponent<Animator> ();
+            Anim = GetComponent<Animator> ();
 
         SetAnimation (Animations.NORMAL);
 
@@ -591,30 +606,30 @@ public class GhostMove : BaseActor {
             Location = new Vector2 (14.0f, 21.5f);
             Direction = Vector2.left;
             Destination = TileCenter + Vector2.left;
-            InGhostHouse = false;
-            ScatterTarget = new Vector2 (28, 36);
-            GhostHome = new Vector2 (14, 19);
+            _inGhostHouse = false;
+            _scatterTarget = new Vector2 (28, 36);
+            _ghostHome = new Vector2 (14, 19);
             break;
         case Ghost.PINKY:
             Location = new Vector2 (14.0f, 18.5f);
             Direction = Vector2.down;
-            InGhostHouse = true;
-            ScatterTarget = new Vector2 (3, 36);
-            GhostHome = new Vector2 (14, 19);
+            _inGhostHouse = true;
+            _scatterTarget = new Vector2 (3, 36);
+            _ghostHome = new Vector2 (14, 19);
             break;
         case Ghost.INKY:
             Location = new Vector2 (12.0f, 18.5f);
             Direction = Vector2.up;
-            InGhostHouse = true;
-            ScatterTarget = new Vector2 (28, 1);
-            GhostHome = new Vector2 (12, 19);
+            _inGhostHouse = true;
+            _scatterTarget = new Vector2 (28, 1);
+            _ghostHome = new Vector2 (12, 19);
             break;
         case Ghost.CLYDE:
             Location = new Vector2 (16.0f, 18.5f);
             Direction = Vector2.up;
-            InGhostHouse = true;
-            ScatterTarget = new Vector2 (1, 1);
-            GhostHome = new Vector2 (16, 19);
+            _inGhostHouse = true;
+            _scatterTarget = new Vector2 (1, 1);
+            _ghostHome = new Vector2 (16, 19);
             break;
         }
     }
@@ -630,7 +645,7 @@ public class GhostMove : BaseActor {
     {
         // Quick out if the ghost has been eaten
         if (IsEaten) {
-            return Home;
+            return _home;
         }
 
         switch (CurrentMode) {
@@ -663,10 +678,10 @@ public class GhostMove : BaseActor {
     /// <returns>The scatter target for this ghost</returns>
     private Vector2 ProcessScatter()
     {
-        if (ThisGhost == Ghost.BLINKY && InCruiseElroy) {
+        if (ThisGhost == Ghost.BLINKY && _inCruiseElroy) {
             return BlinkyTarget ();
         }
-        return ScatterTarget;
+        return _scatterTarget;
     }
 
     /// <summary>
@@ -675,13 +690,16 @@ public class GhostMove : BaseActor {
     /// <returns>The next location</returns>
     private Vector2 ProcessFrightened()
     {
-        List<Vector2> exits = GetExits ();
-        if (exits.Count == 0)
-            return TileCenter - Direction;
-        if (exits.Count == 1)
-            return TileCenter + exits [0];
-        else
-            return TileCenter + exits [Random.Range (0, exits.Count - 1)];
+        var exits = GetExits ();
+        switch (exits.Count)
+        {
+            case 0:
+                return TileCenter - Direction;
+            case 1:
+                return TileCenter + exits [0];
+            default:
+                return TileCenter + exits [Random.Range (0, exits.Count - 1)];
+        }
     }
 
     /// <summary>
@@ -690,7 +708,7 @@ public class GhostMove : BaseActor {
     /// <returns>The target.</returns>
     private Vector2 BlinkyTarget()
     {
-        return PacManMover.TileCenter;
+        return _pacManMover.TileCenter;
     }
 
     /// <summary>
@@ -699,32 +717,32 @@ public class GhostMove : BaseActor {
     /// <returns>The target.</returns>
     private Vector2 PinkyTarget()
     {
-        Vector2 target = Vector2.zero;
+        Vector2 target;
         // Simulate overflow bug in original PacMan
-        if (PacManMover.Direction == Vector2.up) {
-            target = new Vector2 (PacManMover.TileCenter.x - 4, PacManMover.TileCenter.y + 4);
+        if (_pacManMover.Direction == Vector2.up) {
+            target = new Vector2 (_pacManMover.TileCenter.x - 4, _pacManMover.TileCenter.y + 4);
         } else {
-            target = PacManMover.TileCenter + (PacManMover.Direction * 4);
+            target = _pacManMover.TileCenter + (_pacManMover.Direction * 4);
         }
         return target;
     }
 
     /// <summary>
-    /// Inky has similar targetting to Pinky, but it also uses Blinky's position in its calculation
+    /// Inky has similar targeting to Pinky, but it also uses Blinky's position in its calculation
     /// </summary>
     /// <returns>The target.</returns>
     private Vector2 InkyTarget()
     {
-        Vector2 target = Vector2.zero;
-        if (PacManMover.Direction == Vector2.up) {
-            target = new Vector2 (PacManMover.TileCenter.x - 2, PacManMover.TileCenter.y + 2);
+        Vector2 target;
+        if (_pacManMover.Direction == Vector2.up) {
+            target = new Vector2 (_pacManMover.TileCenter.x - 2, _pacManMover.TileCenter.y + 2);
         } else {
-            target = PacManMover.TileCenter + (PacManMover.Direction * 2);
+            target = _pacManMover.TileCenter + (_pacManMover.Direction * 2);
         }
 
         // Compute vector from blinky's position to target and then double to get Inky's target
-        Vector2 blinkysPos = BlinkyMover.TileCenter;
-        Vector2 diff =  target - blinkysPos;
+        var blinkysPos = _blinkyMover.TileCenter;
+        var diff =  target - blinkysPos;
 
         return target + diff;
     }
@@ -735,12 +753,8 @@ public class GhostMove : BaseActor {
     /// <returns>The target.</returns>
     private Vector2 ClydeTarget()
     {
-        float distance = Vector2.Distance (TileCenter, PacManMover.TileCenter);
-        if (distance > 8) {
-            return ScatterTarget;
-        } else {
-            return PacManMover.TileCenter;
-        }
+        var distance = Vector2.Distance (TileCenter, _pacManMover.TileCenter);
+        return distance > 8 ? _pacManMover.TileCenter : _scatterTarget;
     }
 
     /// <summary>
@@ -748,26 +762,27 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void ShowTarget()
     {
-        Vector2 target = Target ();
-        Color color = Color.white;
+        var target = Target ();
+        Color color;
         switch (ThisGhost) {
         case Ghost.BLINKY:
-            color = BLINKY_COLOR;
+            color = _blinkyColor;
             break;
         case Ghost.CLYDE:
-            color = CLYDE_COLOR;
+            color = _clydeColor;
             break;
         case Ghost.PINKY:
-            color = PINKY_COLOR;
+            color = _pinkyColor;
             break;
         case Ghost.INKY:
-            color = INKY_COLOR;
+            color = _inkyColor;
             break;
         default:
             color = Color.white;
             break;
         }
 
+        Debug.DrawLine(TileCenter, target, color);
         Debug.DrawLine (new Vector3 (target.x - .5f, target.y - .5f), new Vector3 (target.x + .5f, target.y - .5f), color, 0, false);
         Debug.DrawLine (new Vector3 (target.x - .5f, target.y - .5f), new Vector3 (target.x - .5f, target.y + .5f), color, 0, false);
         Debug.DrawLine (new Vector3 (target.x - .5f, target.y + .5f), new Vector3 (target.x + .5f, target.y + .5f), color, 0, false);

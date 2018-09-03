@@ -1,26 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// Base Actor class that all characters share. It handles things
+/// like movement, animation, speed, etc
+/// </summary>
 public class BaseActor : MonoBehaviour
 {
     protected GameController _gameController;
-    protected Animator _anim;
+    protected Animator Anim;
     protected float _animationSpeed = 0.8f;
     protected float _speed;
     protected Vector2 _destination = Vector2.zero;
     protected Vector2 _direction = Vector2.zero;
-    protected Vector2 _savePosition = Vector2.zero;
-    protected Maze _maze = Maze.Instance();
-    protected AudioController _audio;
-    protected bool _isHidden;
+    private Vector2 _savePosition = Vector2.zero;
+    protected readonly Maze Maze = Maze.Instance();
+    protected AudioController Audio;
 
     protected void Start()
     {
-        GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
+        var gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
             _gameController = gc.GetComponent<GameController> ();
-        _anim = GetComponent<Animator> ();
-        _audio = AudioController.Instance;
+        Anim = GetComponent<Animator> ();
+        Audio = AudioController.Instance;
     }
 
     /// <summary>
@@ -29,9 +32,6 @@ public class BaseActor : MonoBehaviour
     /// <value>The location.</value>
     public Vector2 Location
     {
-        get {
-            return transform.position;
-        }
         set {
             GetComponent<Rigidbody2D> ().transform.position = value;
         }
@@ -41,23 +41,13 @@ public class BaseActor : MonoBehaviour
     /// Return the integer tile of the actor's current location
     /// </summary>
     /// <value>The tile.</value>
-    public Vector2 Tile
-    {
-        get {
-            return new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
-        }
-    }
+    public Vector2 Tile => new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
 
     /// <summary>
     /// Return the coordinates of the center of the tile of the actor's current location
     /// </summary>
     /// <value>The tile center.</value>
-    public Vector2 TileCenter
-    {
-        get {
-            return new Vector2 (Mathf.Ceil (transform.position.x) - 0.5f, Mathf.Ceil (transform.position.y) - 0.5f);
-        }
-    }
+    public Vector2 TileCenter => new Vector2 (Mathf.Ceil (transform.position.x) - 0.5f, Mathf.Ceil (transform.position.y) - 0.5f);
 
     /// <summary>
     /// Set the destination tile
@@ -80,7 +70,7 @@ public class BaseActor : MonoBehaviour
     /// <param name="direction">The direction of travel as a Vector2</param>
     protected bool Valid(Vector2 direction)
     {
-        return _maze.ValidLocations ().Contains (Tile + direction);
+        return Maze.ValidLocations ().Contains (Tile + direction);
     }
 
     /// <summary>
@@ -88,7 +78,7 @@ public class BaseActor : MonoBehaviour
     /// </summary>
     protected void Move()
     {
-        Vector2 p = Vector2.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
+        var p = Vector2.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
         GetComponent<Rigidbody2D>().MovePosition(p);
         HandleTunnel ();
     }
@@ -98,23 +88,17 @@ public class BaseActor : MonoBehaviour
     /// </summary>
     private void HandleTunnel()
     {
-        if (Tile == _maze.LeftTunnel) {
-            transform.position = new Vector2 (_maze.RightTunnel.x - 0.5f, _maze.RightTunnel.y - 0.5f) + Vector2.left;
+        if (Tile == Maze.LeftTunnel) {
+            transform.position = new Vector2 (Maze.RightTunnel.x - 0.5f, Maze.RightTunnel.y - 0.5f) + Vector2.left;
             Destination = (Vector2)transform.position + Vector2.left;
         }
-            
-        if (Tile == _maze.RightTunnel) {
-            transform.position = new Vector2 (_maze.LeftTunnel.x - 0.5f, _maze.LeftTunnel.y - 0.5f) + Vector2.right;
-            Destination = (Vector2)transform.position + Vector2.right;
-        }
+
+        if (Tile != Maze.RightTunnel) return;
+        transform.position = new Vector2 (Maze.LeftTunnel.x - 0.5f, Maze.LeftTunnel.y - 0.5f) + Vector2.right;
+        Destination = (Vector2)transform.position + Vector2.right;
     }
 
-    public bool InTunnel
-    {
-        get {
-            return (Tile.y == 19 && ((Tile.x >= -1 && Tile.x <= 5) || (Tile.x >= 24 && Tile.x <= 32)));
-        }
-    }
+    protected bool InTunnel => (Tile.y == 19 && ((Tile.x >= -1 && Tile.x <= 5) || (Tile.x >= 24 && Tile.x <= 32)));
 
     /// <summary>
     /// Animate the actor
@@ -137,23 +121,13 @@ public class BaseActor : MonoBehaviour
     /// Gets the game controller.
     /// </summary>
     /// <value>The game controller.</value>
-    public GameController GameController
-    {
-        get {
-            return _gameController;
-        }
-    }
+    protected GameController GameController => _gameController;
 
     /// <summary>
     /// Gets the animator.
     /// </summary>
     /// <value>The animator.</value>
-    public Animator Animator
-    {
-        get {
-            return _anim;
-        }
-    }
+    protected Animator Animator => Anim;
 
     /// <summary>
     /// Set the actor's speed
@@ -161,7 +135,7 @@ public class BaseActor : MonoBehaviour
     /// <value>The speed.</value>
     public float Speed
     {
-        get {
+        private get {
             return _speed;
         }
         set {
@@ -175,7 +149,7 @@ public class BaseActor : MonoBehaviour
     /// <value>The destination.</value>
     public Vector2 Destination
     {
-        get {
+        protected get {
             return _destination;
         }
         set {
@@ -203,7 +177,7 @@ public class BaseActor : MonoBehaviour
     /// <value>The animation speed.</value>
     public float AnimationSpeed
     {
-        get {
+        private get {
             return _animationSpeed;
         }
         set {
@@ -232,11 +206,7 @@ public class BaseActor : MonoBehaviour
     /// <value><c>true</c> if hidden; otherwise, <c>false</c>.</value>
     public bool Hidden
     {
-        get {
-            return _isHidden;
-        }
         set {
-            _isHidden = value;
             if (value) {
                 _savePosition = transform.position;
                 transform.position = new Vector2 (-10, -10);

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,12 +14,6 @@ public class GameController : BaseController
     public GameObject clyde;
     public GameObject powerPellet;
     public GameObject dot;
-
-    private PacManMove pacManMover;
-    private GhostMove blinkyMover;
-    private GhostMove pinkyMover;
-    private GhostMove inkyMover;
-    private GhostMove clydeMover;
 
     public GameObject cherry;
     public GameObject cherryPoints;
@@ -43,139 +36,134 @@ public class GameController : BaseController
     public int startLevel;
     public int extraPacScore;
 
-    private bool player1ExtraLifeAwarded;
-    private bool player2ExtraLifeAwarded;
-    private bool isCleared = false;
+    private bool _player1ExtraLifeAwarded;
+    private bool _player2ExtraLifeAwarded;
+    private bool _isCleared;
 
-    private int currentLevel;
-    private List<GameObject> pacMen = new List<GameObject>();
-    private List<GameObject> levelFruits = new List<GameObject>();
+    private readonly List<GameObject> _pacMen = new List<GameObject>();
+    private readonly List<GameObject> _levelFruits = new List<GameObject>();
 
-    private List<Vector2> p1Dots = new List<Vector2>();
-    private List<Vector2> p2Dots = new List<Vector2>();
-    private List<Vector2> p1PowerPellets = new List<Vector2> ();
-    private List<Vector2> p2PowerPellets = new List<Vector2>();
-    private List<GameObject> dots = new List<GameObject> ();
-    private List<GameObject> powerPellets = new List<GameObject>();
+    private List<Vector2> _p1Dots = new List<Vector2>();
+    private List<Vector2> _p2Dots = new List<Vector2>();
+    private List<Vector2> _p1PowerPellets = new List<Vector2> ();
+    private List<Vector2> _p2PowerPellets = new List<Vector2>();
+    private List<GameObject> _dots = new List<GameObject> ();
+    private List<GameObject> _powerPellets = new List<GameObject>();
 
-    private int currentPlayer = 1;
-    private int p1SmallDotsEaten = 0;
-    private int p2SmallDotsEaten = 0;
-    private int p1LargeDotsEaten = 0;
-    private int p2LargeDotsEaten = 0;
-    private int ghostsEaten = 0;
-    private float frightenStartTime = 0.0f;
-    private float lastDotEatenTime = 0.0f;
+    private const int CurrentPlayer = 1;
+    private int _p1SmallDotsEaten;
+    private int _p2SmallDotsEaten;
+    private int _p1LargeDotsEaten;
+    private int _p2LargeDotsEaten;
+    private float _frightenStartTime;
 
-    private TableOfValues _tov = TableOfValues.Instance ();
-    private Maze _maze = Maze.Instance();
+    private readonly Maze _maze = Maze.Instance();
     private AudioController _audio;
     private ScoreBoard _score;
 
-    private bool isReady = false;
-    private GameObject fruit;
+    private bool _isReady;
+    private GameObject _fruit;
+
+    public float PacManAnimationSpeed = 2.0f;
 
     public enum PointSource {
-        SMALLDOT = 10,
-        POWER_PELLET = 50,
-        FIRST_GHOST = 200,
-        SECOND_GHOST = 400,
-        THIRD_GHOST = 800,
-        FOURTH_GHOST = 1600
+        Smalldot = 10,
+        PowerPellet = 50,
+        FirstGhost = 200,
+        SecondGhost = 400,
+        ThirdGhost = 800,
+        FourthGhost = 1600
     }
 
 	// Use this for initialization
-	void Start () 
+    private void Start () 
     {
         _audio = AudioController.Instance;
         _score = ScoreBoard.Instance;
 
-        currentLevel = 0;
+        CurrentLevel = 0;
 
         // Get the movers
-        pacManMover = pacMan.GetComponent<PacManMove> ();
-        blinkyMover = blinky.GetComponent<GhostMove> ();
-        pinkyMover = pinky.GetComponent<GhostMove> ();
-        inkyMover = inky.GetComponent<GhostMove> ();
-        clydeMover = clyde.GetComponent<GhostMove> ();
+        PacManMover = pacMan.GetComponent<PacManMove> ();
+        BlinkyMover = blinky.GetComponent<GhostMove> ();
+        PinkyMover = pinky.GetComponent<GhostMove> ();
+        InkyMover = inky.GetComponent<GhostMove> ();
+        ClydeMover = clyde.GetComponent<GhostMove> ();
 
         pacMan.SetActive (false);
 
         _audio.PlayStartMusic ();
         StartNextLevel ();
 
-        RenderExtraPacs ();
-        RenderLevel ();
         StartCoroutine (RemovePac ());
-        StartCoroutine (StartInitialSiren ());
 	}
 
-    void Update()
+    private void Update()
     {
         DisplayFruit ();
         DeFrightenGhosts ();
-        if(!isCleared)
+        if(!_isCleared)
             CheckClear ();
     }
 
     /// <summary>
     /// Reset and start the next level
     /// </summary>
-    void StartNextLevel()
+    private void StartNextLevel()
     {
-        isCleared = false;
-        currentLevel++;
+        _isCleared = false;
+        CurrentLevel++;
         DrawDots ();
-        Ready ();
-    }
-
-    /// <summary>
-    /// When PacMan is eaten...
-    /// </summary>
-    void ResetCurrentLevel()
-    {
-        Ready ();
-    }
-
-    /// <summary>
-    /// On your marks. Get ready..
-    /// </summary>
-    void Ready()
-    {
-        lastDotEatenTime = 0.0f;
-        if (currentPlayer == 1) {
-            p1SmallDotsEaten = 0;
-            p1LargeDotsEaten = 0;
+        if (CurrentPlayer == 1) {
+            _p1SmallDotsEaten = 0;
+            _p1LargeDotsEaten = 0;
         } else {
-            p2SmallDotsEaten = 0;
-            p2LargeDotsEaten = 0;
+            _p2SmallDotsEaten = 0;
+            _p2LargeDotsEaten = 0;
         }
-        InitGhosts ();
-        InitPacMan ();
-        GameObject readyInst = Instantiate (ready);
-        Destroy (readyInst, 4.0f);
-        Wait (4, () => {
-            IsReady = true;
-        });
+        Ready ();
+    }
+
+    /// <summary>
+    /// On your marks. Get set...
+    /// </summary>
+    public void Ready()
+    {
+        if (numberOfPacs >= 0)
+        {
+            RenderExtraPacs ();
+            RenderFruitLevelDisplay ();
+            StartCoroutine (StartInitialSiren ());
+        
+            LastDotEatenTime = 0.0f;
+            InitGhosts ();
+            InitPacMan ();
+            var readyInst = Instantiate (ready);
+            Destroy (readyInst, 4.0f);
+            Wait (5, () => {
+                IsReady = true;
+            });   
+        }
+        else
+        {
+            GameOver();
+        }
     }
 
     /// <summary>
     /// Check to see if the maze is clear
     /// </summary>
-    void CheckClear()
+    private void CheckClear()
     {
-        if((currentPlayer == 1 && p1Dots.Count == 0 && p1PowerPellets.Count == 0) || (currentPlayer == 2 && p2Dots.Count == 0 && p2PowerPellets.Count == 0))
-        {
-            isCleared = true;
-            PacManMover.Animation = false;
-            _audio.SirenPlaying = false;
-            _audio.BlueGhostsPlaying = false;
-            _audio.GhostEyesPlaying = false;
-            IsReady = false;
-            Wait (2, () => {
-                StartNextLevel();
-            });
-        }
+        if ((CurrentPlayer != 1 || _p1Dots.Count != 0 || _p1PowerPellets.Count != 0) &&
+            (CurrentPlayer != 2 || _p2Dots.Count != 0 || _p2PowerPellets.Count != 0)) return;
+        _isCleared = true;
+        PacManMover.Animation = false;
+        _audio.SirenPlaying = false;
+        _audio.BlueGhostsPlaying = false;
+        _audio.GhostEyesPlaying = false;
+        IsReady = false;
+        Wait (2, StartNextLevel);
     }
 
     #region Dots and Power Pellets
@@ -183,35 +171,35 @@ public class GameController : BaseController
     /// <summary>
     /// Draw the dots
     /// </summary>
-    void DrawDots()
+    private void DrawDots()
     {
-        List<Vector2> dotList = new List<Vector2> ();
-        List<Vector2> powerPelletList = new List<Vector2> ();
+        var dotList = new List<Vector2> ();
+        var powerPelletList = new List<Vector2> ();
 
-        if (currentPlayer == 1) {
-            if (p1Dots.Count == 0) {
-                p1Dots = _maze.DotLocations ();
-                dotList = p1Dots;
-                p1PowerPellets = _maze.EnergizerLocations ();
-                powerPelletList = p1PowerPellets;
+        if (CurrentPlayer == 1) {
+            if (_p1Dots.Count == 0) {
+                _p1Dots = _maze.DotLocations ();
+                dotList = _p1Dots;
+                _p1PowerPellets = _maze.EnergizerLocations ();
+                powerPelletList = _p1PowerPellets;
             }
         } else {
-            if (p2Dots.Count == 0) {
-                p2Dots = _maze.DotLocations ();
-                dotList = p2Dots;
-                p2PowerPellets = _maze.EnergizerLocations ();
-                powerPelletList = p2PowerPellets;
+            if (_p2Dots.Count == 0) {
+                _p2Dots = _maze.DotLocations ();
+                dotList = _p2Dots;
+                _p2PowerPellets = _maze.EnergizerLocations ();
+                powerPelletList = _p2PowerPellets;
             }
         }
 
-        foreach (GameObject go in dots) {
+        foreach (var go in _dots) {
             Destroy (go);
         }
-        foreach (GameObject go in powerPellets) {
+        foreach (var go in _powerPellets) {
             Destroy (go);
         }
-        dots = LocationsToGameObjects (dotList, "dot");
-        powerPellets = LocationsToGameObjects (powerPelletList, "power_pellet");
+        _dots = LocationsToGameObjects (dotList, "dot");
+        _powerPellets = LocationsToGameObjects (powerPelletList, "power_pellet");
     }
 
     /// <summary>
@@ -220,14 +208,15 @@ public class GameController : BaseController
     /// <param name="location">Location.</param>
     public void EatSmallDot(Vector2 location)
     {
-        if (currentPlayer == 1)
-            p1Dots.Remove (location);
-        if (currentPlayer == 2)
-            p2Dots.Remove (location);
+        if (CurrentPlayer == 1)
+            _p1Dots.Remove (location);
+        if (CurrentPlayer == 2)
+            _p2Dots.Remove (location);
 
+        _audio.EatDot();
         LastDotEatenTime = Time.fixedTime;
         PacManMover.EatingSmallDots = true;
-        AddPoints (PointSource.SMALLDOT);
+        AddPoints (PointSource.Smalldot);
         UpdateGhostDotCounts ();
     }
 
@@ -237,67 +226,34 @@ public class GameController : BaseController
     /// <param name="location">Location.</param>
     public void EatLargeDot(Vector2 location)
     {
-        if (currentPlayer == 1)
-            p1PowerPellets.Remove (location);
-        if (currentPlayer == 2)
-            p2PowerPellets.Remove (location);
+        if (CurrentPlayer == 1)
+            _p1PowerPellets.Remove (location);
+        if (CurrentPlayer == 2)
+            _p2PowerPellets.Remove (location);
 
-        AddPoints (PointSource.POWER_PELLET);
+        AddPoints (PointSource.PowerPellet);
         FrightenGhosts ();
     }
 
-    public int SmallDotsEaten
-    {
-        get {
-            return currentPlayer == 1 ? p1Dots.Count : p2Dots.Count;
-        }
-    }
+    public int SmallDotsEaten => CurrentPlayer == 1 ? _p1Dots.Count : _p2Dots.Count;
 
-    public int SmallDotsLeft
-    {
-        get {
-            return currentPlayer == 1 ? 240 - p1Dots.Count : 240 - p2Dots.Count;
-        }
-    }
+    public int SmallDotsLeft => CurrentPlayer == 1 ? 240 - _p1Dots.Count : 240 - _p2Dots.Count;
 
-    public int LargeDotsEaten
-    {
-        get {
-            return currentPlayer == 1 ? p1PowerPellets.Count : p2PowerPellets.Count;
-        }
-    }
+    public int LargeDotsEaten => CurrentPlayer == 1 ? _p1PowerPellets.Count : _p2PowerPellets.Count;
 
-    public int LargeDotsLeft
-    {
-        get {
-            return currentPlayer == 1 ? 4 - p1PowerPellets.Count : 4 - p2PowerPellets.Count;
-        }
-    }
+    public int LargeDotsLeft => CurrentPlayer == 1 ? 4 - _p1PowerPellets.Count : 4 - _p2PowerPellets.Count;
 
     /// <summary>
     /// Keep track of the time the last dot was eaten
     /// </summary>
     /// <value>The last dot eaten time.</value>
-    public float LastDotEatenTime
-    {
-        get {
-            return lastDotEatenTime;
-        }
-        set {
-            lastDotEatenTime = value;
-        }
-    }
+    public float LastDotEatenTime { get; set; }
 
     /// <summary>
     /// Keep track of how long it's been since the last dot was eaten
     /// </summary>
     /// <value>The time since last dot.</value>
-    public float TimeSinceLastDot
-    {
-        get {
-            return Time.fixedTime - LastDotEatenTime;
-        }
-    }
+    public float TimeSinceLastDot => Time.fixedTime - LastDotEatenTime;
 
     /// <summary>
     /// Convert the dot/powerpellet locations to game objects using their prefabs
@@ -305,10 +261,10 @@ public class GameController : BaseController
     /// <returns>The to game objects.</returns>
     /// <param name="locations">Locations.</param>
     /// <param name="objs">Objects.</param>
-    List<GameObject> LocationsToGameObjects(List<Vector2> locations, string objs)
+    private List<GameObject> LocationsToGameObjects(List<Vector2> locations, string objs)
     {
-        List<GameObject> objects = new List<GameObject> ();
-        foreach (Vector2 location in locations) {
+        var objects = new List<GameObject> ();
+        foreach (var location in locations) {
             if (objs == "dot") {
                 objects.Add(Instantiate(dot, new Vector2(location.x - 0.5f, location.y - 0.5f), Quaternion.identity));
             } else if (objs == "power_pellet") {
@@ -323,48 +279,16 @@ public class GameController : BaseController
 
     #region Ghosts
 
-    public GhostMove BlinkyMover
-    {
-        get {
-            return blinkyMover;
-        }
-    }
-
-    public GhostMove PinkyMover
-    {
-        get {
-            return pinkyMover;
-        }
-    }
-
-    public GhostMove InkyMover
-    {
-        get {
-            return inkyMover;
-        }
-    }
-
-    public GhostMove ClydeMover
-    {
-        get {
-            return clydeMover;
-        }
-    }
-
-    public int GhostsEaten
-    {
-        get {
-            return ghostsEaten;
-        }
-        set{
-            ghostsEaten = value;
-        }
-    }
+    private GhostMove BlinkyMover { get; set; }
+    private GhostMove PinkyMover { get; set; }
+    private GhostMove InkyMover { get; set; }
+    private GhostMove ClydeMover { get; set; }
+    public int GhostsEaten { get; set; }
 
     /// <summary>
     /// Initialize the ghosts
     /// </summary>
-    void InitGhosts()
+    private void InitGhosts()
     {
         BlinkyMover.GhostInit ();
         PinkyMover.GhostInit ();
@@ -385,50 +309,26 @@ public class GameController : BaseController
 
     #endregion
 
-    void InitPacMan()
+    private void InitPacMan()
     {
         PacManMover.PacManInit ();
     }
 
-    public PacManMove PacManMover
-    {
-        get {
-            return pacManMover;
-        }
-    }
-       
-
-    /// <summary>
-    /// Set up the game and get ready to rumble!!!
-    /// </summary>
-    public void Reset()
-    {       
-        numberOfPacs--;
-        if (numberOfPacs == 0) {
-            GameOver ();
-        } else {
-            RemovePac ();
-        }
-    }
+    public PacManMove PacManMover { get; private set; }
 
     /// <summary>
     /// Display "Game Over" banner
     /// </summary>
-    void GameOver()
+    private void GameOver()
     {
-        GameObject gameOverInst = Instantiate (gameOver);
+        var gameOverInst = Instantiate (gameOver);
     }
 
     /// <summary>
     /// Which level is being played?
     /// </summary>
     /// <value>The current level.</value>
-    public int CurrentLevel
-    {
-        get {
-            return currentLevel;
-        }
-    }
+    public int CurrentLevel { get; private set; }
 
     /// <summary>
     /// Get/Set whether the game controller is ready for play
@@ -437,11 +337,11 @@ public class GameController : BaseController
     public bool IsReady
     {
         get {
-            return isReady;
+            return _isReady;
         }
         set {
             _audio.SirenPlaying = value;
-            isReady = value;
+            _isReady = value;
             if (!value)
                 pacMan.GetComponent<PacManMove> ().ResetAnimation ();
         }
@@ -462,77 +362,84 @@ public class GameController : BaseController
     /// <param name="source">Source.</param>
     public void AddPoints(PointSource source)
     {
-        if (currentPlayer == 1) {
+        if (CurrentPlayer == 1) {
             AddPoints((int)source);
-            if (source == PointSource.SMALLDOT)
-                p1SmallDotsEaten++;
-            if (source == PointSource.POWER_PELLET)
-                p1LargeDotsEaten++;
+            if (source == PointSource.Smalldot)
+                _p1SmallDotsEaten++;
+            if (source == PointSource.PowerPellet)
+                _p1LargeDotsEaten++;
         } else {
             AddPoints((int)source);
-            if (source == PointSource.SMALLDOT)
-                p2SmallDotsEaten++;
-            if (source == PointSource.POWER_PELLET)
-                p2LargeDotsEaten++;
+            if (source == PointSource.Smalldot)
+                _p2SmallDotsEaten++;
+            if (source == PointSource.PowerPellet)
+                _p2LargeDotsEaten++;
         }
         CheckForExtraLife ();
     }
 
     private void CheckForExtraLife()
     {
-        if (currentPlayer == 1 && _score.Player1Score >= extraPacScore && !player1ExtraLifeAwarded) {
+        if (CurrentPlayer == 1 && _score.Player1Score >= extraPacScore && !_player1ExtraLifeAwarded) {
             _audio.PlayExtraLife ();
-            player1ExtraLifeAwarded = true;
+            _player1ExtraLifeAwarded = true;
             numberOfPacs++;
             RenderExtraPacs ();
         }
-        if (currentPlayer == 2 && _score.Player2Score >= extraPacScore && !player2ExtraLifeAwarded) {
+        if (CurrentPlayer == 2 && _score.Player2Score >= extraPacScore && !_player2ExtraLifeAwarded) {
             _audio.PlayExtraLife ();
-            player2ExtraLifeAwarded = true;
+            _player2ExtraLifeAwarded = true;
             numberOfPacs++;
             RenderExtraPacs ();
         }
     }
 
-    public IEnumerator RemovePac()
+    private IEnumerator RemovePac()
     {
         yield return new WaitForSecondsRealtime (2);
-        Destroy (pacMen [pacMen.Count - 1]);
+        numberOfPacs--;
+        RenderExtraPacs();
         pacMan.SetActive (true);
         PacManMover.AnimationSpeed = 0.0f;
         PacManMover.Animation = false;
     }
 
-    public IEnumerator StartInitialSiren()
+    private IEnumerator StartInitialSiren()
     {
         yield return new WaitForSecondsRealtime (_audio.StartMusicLength + .25f);
-        PacManMover.AnimationSpeed = 0.8f;
+        PacManMover.AnimationSpeed = PacManAnimationSpeed;
         PacManMover.Animation = true;
         IsReady = true;
     }
 
+    /// <summary>
+    /// Show the number of lives remaining
+    /// </summary>
     private void RenderExtraPacs()
     {
-        for (int i = 0; i < numberOfPacs; i++) {
-            pacMen.Add(Instantiate (extraPac, new Vector3 (3.0f + (2.0f * i), 1.0f, 0), Quaternion.identity));
+        foreach(var live in _pacMen)
+            Destroy(live);
+        
+        for (var i = 0; i < numberOfPacs; i++) {
+            _pacMen.Add(Instantiate (extraPac, new Vector3 (3.0f + (2.0f * i), 1.0f, 0), Quaternion.identity));
         }
     }
 
-    void DisplayFruit()
+    private void DisplayFruit()
     {
-        if ((currentPlayer == 1 && (p1SmallDotsEaten == 70 || p1SmallDotsEaten == 170) || currentPlayer == 2 && (p2SmallDotsEaten == 70 || p2SmallDotsEaten == 170)) && fruit == null) {
-            fruit = GetFruit ();
-            Destroy (fruit, UnityEngine.Random.Range (9, 10));
+        if ((CurrentPlayer == 1 && (_p1SmallDotsEaten == 70 || _p1SmallDotsEaten == 170) || CurrentPlayer == 2 && (_p2SmallDotsEaten == 70 || _p2SmallDotsEaten == 170)) && _fruit == null) {
+            _fruit = GetFruit ();
+            Destroy (_fruit, UnityEngine.Random.Range (9, 10));
         }
     }
 
     /// <summary>
     /// Check to see if we can de-frighten the ghosts
     /// </summary>
-    void DeFrightenGhosts()
+    private void DeFrightenGhosts()
     {
         // First, see if we've eaten all of the ghosts and they're all back in the maze
-        List<GhostMove> frightenedGhosts = GetFrightenedGhosts ();
+        var frightenedGhosts = GetFrightenedGhosts ();
         if (frightenedGhosts.Count == 0 && _audio.BlueGhostsPlaying) {
             _audio.BlueGhostsPlaying = false;
             _audio.GhostEyesPlaying = false;
@@ -540,8 +447,8 @@ public class GameController : BaseController
         }
             
         // If we still have ghosts, see if time's up
-        if (frightenedGhosts.Count > 0 && (Time.fixedTime - frightenStartTime > _tov.GhostFrightenedTime (CurrentLevel))) {
-            foreach (GhostMove ghost in frightenedGhosts) {
+        if (frightenedGhosts.Count > 0 && (Time.fixedTime - _frightenStartTime > TableOfValues.GhostFrightenedTime (CurrentLevel))) {
+            foreach (var ghost in frightenedGhosts) {
                 if (!ghost.IsEaten && !ghost.IsBlinking) {
                     ghost.DoBlinkGhost ();
                 }
@@ -554,18 +461,17 @@ public class GameController : BaseController
     /// </summary>
     public void FrightenGhosts()
     {
-        if (!PacManMover.Frightened) {
-            BlinkyMover.Frightened = true;
-            PinkyMover.Frightened = true;
-            InkyMover.Frightened = true;
-            ClydeMover.Frightened = true;
-            PacManMover.Frightened = true;
+        if (PacManMover.Frightened) return;
+        BlinkyMover.Frightened = true;
+        PinkyMover.Frightened = true;
+        InkyMover.Frightened = true;
+        ClydeMover.Frightened = true;
+        PacManMover.Frightened = true;
 
-            frightenStartTime = Time.fixedTime;
+        _frightenStartTime = Time.fixedTime;
 
-            _audio.SirenPlaying = false;
-            _audio.BlueGhostsPlaying = true;
-        }
+        _audio.SirenPlaying = false;
+        _audio.BlueGhostsPlaying = true;
     }
 
     /// <summary>
@@ -574,7 +480,7 @@ public class GameController : BaseController
     /// <returns>The frightened ghosts.</returns>
     private List<GhostMove> GetFrightenedGhosts()
     {
-        List<GhostMove> frightened = new List<GhostMove> ();
+        var frightened = new List<GhostMove> ();
         if (BlinkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
             frightened.Add (BlinkyMover);
         if (PinkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
@@ -587,9 +493,16 @@ public class GameController : BaseController
         return frightened;
     }
 
-    public GameObject GetFruit()
+    /// <summary>
+    /// Get the fruit associated with a level
+    /// </summary>
+    /// <returns></returns>
+    private GameObject GetFruit(int level = 0)
     {
-        switch (currentLevel) {
+        if (level == 0)
+            level = CurrentLevel;
+        
+        switch (level) {
         case 1:
             return Instantiate (cherry);
         case 2:
@@ -620,10 +533,10 @@ public class GameController : BaseController
     /// Return an instantiated prefab for a graphical representation of the points
     /// for the fruit on this level
     /// </summary>
-    /// <returns>The fruit points.</returns>
+    /// <returns>The fruit points game object.</returns>
     public GameObject GetFruitPoints()
     {
-        switch (currentLevel) {
+        switch (CurrentLevel) {
         case 1:
             return Instantiate (cherryPoints);
         case 2:
@@ -650,28 +563,47 @@ public class GameController : BaseController
         }
     }
 
+    /// <summary>
+    /// Get the number of points the fruit is worth on this level
+    /// </summary>
+    /// <returns>Point value</returns>
     public int GetBonusPoints()
     {
-        return _tov.BonusPoints (CurrentLevel);
+        return TableOfValues.BonusPoints (CurrentLevel);
     }
 
-    private void RenderLevel()
+    /// <summary>
+    /// Render the fruit display in the lower right corner of the screen to indicate
+    /// what level PacMan is currently on.
+    /// </summary>
+    private void RenderFruitLevelDisplay()
     {
-        foreach (GameObject levelFruit in levelFruits) {
+        foreach (var levelFruit in _levelFruits) {
             Destroy (levelFruit);
         }
 
-        if (currentLevel >= 1)
-            levelFruits.Add(Instantiate(cherry, new Vector3(25.0f, 1.0f, 0), Quaternion.identity));
-        if (currentLevel >= 2)
-            levelFruits.Add (Instantiate (strawberry, new Vector3 (23.0f, 1.0f, 0), Quaternion.identity));
-        if (currentLevel >= 3)
-            levelFruits.Add (Instantiate (orange, new Vector3 (21.0f, 1.0f, 0), Quaternion.identity));
-        if (currentLevel >= 4)
-            levelFruits.Add (Instantiate (orange, new Vector3 (19.0f, 1.0f, 0), Quaternion.identity));
-        if (currentLevel >= 5)
-            levelFruits.Add (Instantiate (apple, new Vector3 (17.0f, 1.0f, 0), Quaternion.identity));
-        if (currentLevel >= 6)
-            levelFruits.Add (Instantiate (apple, new Vector3 (15.0f, 1.0f, 0), Quaternion.identity));
+        var startPos = 0;
+        var endPos = 0;
+        
+        if (CurrentLevel < 7)
+        {
+            startPos = 1;
+            endPos = CurrentLevel;
+        }
+        else
+        {
+            startPos = CurrentLevel - 6;
+            endPos = CurrentLevel;
+        }
+
+        var x = 25.0f;
+        
+        for (var level = startPos; level <= endPos; level++)
+        {
+            var fruit = GetFruit(level);
+            fruit.transform.position = new Vector3(x, 1.0f, 0);
+            _levelFruits.Add(fruit);
+            x -= 2.0f;
+        }
     }
 }

@@ -1,6 +1,7 @@
-﻿using System;
-using UnityEngine;
-
+﻿/// <summary>
+/// This class contains a bunch of values as they relate to PacMan, the ghosts, fruits, etc.
+/// Most of what I know about the original PacMan game came from this excellent page: http://gameinternals.com/post/2072558330/understanding-pac-man-ghost-behavior
+/// </summary>
 public class TableOfValues
 {
     private static TableOfValues _instance;
@@ -11,15 +12,13 @@ public class TableOfValues
 
     public static TableOfValues Instance()
     {
-        if (_instance == null)
-            _instance = new TableOfValues ();
-        return _instance;
+        return _instance ?? (_instance = new TableOfValues());
     }
 
     /// <summary>
     /// Constant speed for all actors
     /// </summary>
-    public float Speed()
+    public static float Speed()
     {
         return 9.0f;
     }
@@ -29,7 +28,7 @@ public class TableOfValues
     /// </summary>
     /// <returns>The speed as a percentage</returns>
     /// <param name="level">Level.</param>
-    public float PacManDotSpeed(int level)
+    public static float PacManDotSpeed(int level)
     {
         switch (level) {
         case 1:
@@ -62,7 +61,12 @@ public class TableOfValues
         }
     }
 
-    public float PacManPowerPelletSpeed(int level)
+    /// <summary>
+    /// PacMan's speed while he's high on power pellets
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static float PacManPowerPelletSpeed(int level)
     {
         switch (level) {
         case 1:
@@ -98,7 +102,7 @@ public class TableOfValues
     /// </summary>
     /// <returns>The speed as a percentage</returns>
     /// <param name="level">Level.</param>
-    public float PacManSpeed(int level)
+    public static float PacManSpeed(int level)
     {
         switch(level) {
         case 1:
@@ -131,7 +135,12 @@ public class TableOfValues
         }
     }
 
-    public float PacManFrightenedSpeed(int level)
+    /// <summary>
+    /// PacMan's speed when the ghosts are in frightened mode
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static float PacManFrightenedSpeed(int level)
     {
         switch (level) {
         case 1:
@@ -159,7 +168,12 @@ public class TableOfValues
         }
     }
 
-    public float PacManFrightenedDotSpeed(int level)
+    /// <summary>
+    /// PacMan's speed while the ghosts are in frightened mode and he's eating dots
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static float PacManFrightenedDotSpeed(int level)
     {
         switch (level) {
         case 1:
@@ -187,7 +201,12 @@ public class TableOfValues
         }
     }
 
-    public int GhostFrightenedTime(int level)
+    /// <summary>
+    /// The amount of time ghosts will remained frightened
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static int GhostFrightenedTime(int level)
     {
         switch (level) {
         case 1:
@@ -217,7 +236,12 @@ public class TableOfValues
         }
     }
 
-    public int GhostFrightenedFlashes(int level)
+    /// <summary>
+    /// The number of times ghosts flash
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static int GhostFrightenedFlashes(int level)
     {
         switch (level) {
         case 1:
@@ -249,7 +273,7 @@ public class TableOfValues
     /// </summary>
     /// <returns>The speed as a percentage</returns>
     /// <param name="level">Level.</param>
-    public float GhostSpeed(int level)
+    public static float GhostSpeed(int level)
     {
         switch (level) {
         case 1:
@@ -280,7 +304,12 @@ public class TableOfValues
         }
     }
 
-    public float GhostFrightenedSpeed(int level)
+    /// <summary>
+    /// Speed of the ghosts while they're frightened
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static float GhostFrightenedSpeed(int level)
     {
         switch (level) {
         case 1:
@@ -311,7 +340,12 @@ public class TableOfValues
         }
     }
 
-    public float GhostTunnelSpeed(int level)
+    /// <summary>
+    /// The speed of the ghosts while traveling through the tunnel
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static float GhostTunnelSpeed(int level)
     {
         switch (level) {
         case 1:
@@ -347,7 +381,7 @@ public class TableOfValues
     /// The number of dots remaining before Blinky turns into Cruise Elroy (1st time)
     /// </summary>
     /// <returns>The number of dots remaining</returns>
-    public int CruiseElroy1DotsLeft(int level)
+    public static int CruiseElroy1DotsLeft(int level)
     {
         switch (level) {
         case 1:
@@ -388,7 +422,7 @@ public class TableOfValues
     /// The number of dots remaining before Blinky turns into Cruise Elroy (2nd time)
     /// </summary>
     /// <returns>The number of dots remaining</returns>
-    public int CruiseElroy2DotsLeft(int level)
+    public static int CruiseElroy2DotsLeft(int level)
     {
         switch (level) {
         case 1:
@@ -425,7 +459,12 @@ public class TableOfValues
         }
     }
 
-    public float CruiseElroy1Speed(int level)
+    /// <summary>
+    /// Blinky's speed the 1st time he goes into Cruise Elroy mode.
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static float CruiseElroy1Speed(int level)
     {
         switch (level) {
         case 1:
@@ -457,7 +496,12 @@ public class TableOfValues
         }
     }
 
-    public float CruiseElroy2Speed(int level)
+    /// <summary>
+    /// Blinky's speed the 2nd time he goes into Cruise Elroy mode.
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public static float CruiseElroy2Speed(int level)
     {
         switch (level) {
         case 1:
@@ -493,8 +537,8 @@ public class TableOfValues
     /// Bonus points for each level
     /// </summary>
     /// <returns>TThe number of points for the fruit</returns>
-    /// <param name="level">Level.</param>
-    public int BonusPoints(int level)
+    /// <param name="level"></param>
+    public static int BonusPoints(int level)
     {
         switch (level) {
         case 1:

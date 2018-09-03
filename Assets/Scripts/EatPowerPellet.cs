@@ -1,25 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EatPowerPellet : MonoBehaviour 
 {
-    GameController gameController;
-    Vector2 Tile;
+    private GameController _gameController;
+    private Vector2 _tile;
 
-    void Start()
+    private void Start()
     {
-        GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
+        var gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
-            gameController = gc.GetComponent<GameController> ();
-        Tile = new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
+            _gameController = gc.GetComponent<GameController> ();
+        _tile = new Vector2 (Mathf.Ceil (transform.position.x), Mathf.Ceil (transform.position.y));
     }
-	
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
-        if (gameObject != null && gameController.PacManMover.Tile == Tile) {
-            gameController.EatLargeDot (Tile);
-            Destroy (gameObject);
-        }
+        if (gameObject == null || _gameController.PacManMover.Tile != _tile) return;
+        _gameController.EatLargeDot (_tile);
+        Destroy (gameObject);
     }
 }

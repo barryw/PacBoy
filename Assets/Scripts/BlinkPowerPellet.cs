@@ -1,24 +1,24 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BlinkPowerPellet : MonoBehaviour {
-    public float flashTime = 0.12f;
+    [FormerlySerializedAs("flashTime")] public float FlashTime = 0.12f;
     private GameController _gameController;
 
 	// Use this for initialization
-	void Start () {
-        GameObject gc = GameObject.FindGameObjectWithTag ("GameController");
+    private void Start () {
+        var gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
             _gameController = gc.GetComponent<GameController> ();
         
         StartCoroutine (Blink ());
 	}
 
-    IEnumerator Blink()
+    private IEnumerator Blink()
     {
         while (true) {
-            yield return new WaitForSecondsRealtime (flashTime);
+            yield return new WaitForSecondsRealtime (FlashTime);
             if(_gameController.IsReady)
                 GetComponent<SpriteRenderer> ().enabled = !GetComponent<SpriteRenderer> ().enabled;
         }

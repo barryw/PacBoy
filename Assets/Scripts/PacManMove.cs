@@ -9,46 +9,43 @@ public class PacManMove : BaseActor {
     public GameObject Inky;
     public GameObject Clyde;
 
-    private GhostMove BlinkyMover;
-    private GhostMove PinkyMover;
-    private GhostMove InkyMover;
-    private GhostMove ClydeMover;
+    private GhostMove _blinkyMover;
+    private GhostMove _pinkyMover;
+    private GhostMove _inkyMover;
+    private GhostMove _clydeMover;
 
     private TableOfValues _tov = TableOfValues.Instance ();
 
-    Vector2 _nextDir = Vector2.right;
+    private Vector2 _nextDir = Vector2.right;
 
-    bool dying = false;
-    bool eatingSmallDots = false;
-    bool eatingBigDots = false;
-    bool frightened = false;
+    private bool _dying;
+    private bool _frightened;
 
-    new void Start () {
+    private new void Start () {
         base.Start ();
         Direction = Vector2.left;
         Animation = true;
-        AnimationSpeed = 1.5f;
+        AnimationSpeed = 10.5f;
 
-        BlinkyMover = Blinky.GetComponent<GhostMove> ();
-        PinkyMover = Pinky.GetComponent<GhostMove> ();
-        InkyMover = Inky.GetComponent<GhostMove> ();
-        ClydeMover = Clyde.GetComponent<GhostMove> ();
+        _blinkyMover = Blinky.GetComponent<GhostMove> ();
+        _pinkyMover = Pinky.GetComponent<GhostMove> ();
+        _inkyMover = Inky.GetComponent<GhostMove> ();
+        _clydeMover = Clyde.GetComponent<GhostMove> ();
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-        if (dying)
+    private void FixedUpdate () {
+        if (_dying)
             return;
 
-        if (GameController.IsReady) {
-            SetPacManSpeed ();
-            CheckForGhostCollision ();
-            Move ();
-            ReadInput ();
-            ReadInputAndMove();
-            Animate();
-        }
-	}
+        if (!GameController.IsReady) return;
+        SetPacManSpeed ();
+        CheckForGhostCollision ();
+        Move ();
+        ReadInput ();
+        ReadInputAndMove();
+        Animate();
+    }
 
     /// <summary>
     /// PacMan doesn't really get frightened, but this lets us know that the ghosts are
@@ -56,61 +53,45 @@ public class PacManMove : BaseActor {
     public bool Frightened
     {
         get {
-            return frightened;
+            return _frightened;
         }
         set {
-            frightened = false;
+            _frightened = false;
         }
     }
 
-    public bool EatingSmallDots
-    {
-        get {
-            return eatingSmallDots;
-        }
-        set {
-            eatingSmallDots = value;
-        }
-    }
+    public bool EatingSmallDots { get; set; }
 
-    public bool EatingBigDots
-    {
-        get {
-            return eatingBigDots;
-        }
-        set {
-            eatingBigDots = value;
-        }
-    }
+    public bool EatingBigDots { get; set; }
 
     private void SetPacManSpeed()
     {
         if (EatingSmallDots) {
             if (Frightened)
-                Speed = _tov.PacManFrightenedDotSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                Speed = TableOfValues.PacManFrightenedDotSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
             else
-                Speed = _tov.PacManDotSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                Speed = TableOfValues.PacManDotSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
         }
         if (EatingBigDots) {
-            Speed = _tov.PacManPowerPelletSpeed (GameController.CurrentLevel) * _tov.Speed ();
+            Speed = TableOfValues.PacManPowerPelletSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
         }
 
         if (!EatingBigDots && !EatingSmallDots) {
             if (Frightened)
-                Speed = _tov.PacManFrightenedSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                Speed = TableOfValues.PacManFrightenedSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
             else
-                Speed = _tov.PacManSpeed (GameController.CurrentLevel) * _tov.Speed ();
+                Speed = TableOfValues.PacManSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
         }
     }
 
     /// <summary>
     /// Check to see if the ghosts and Pac Man occupy the same tile
     /// </summary>
-    void CheckForGhostCollision()
+    private void CheckForGhostCollision()
     {
-        GhostMove ghost = GhostAtPacManTile ();
+        var ghost = GhostAtPacManTile ();
         if (ghost != null && (ghost.CurrentMode == GhostMove.Mode.CHASE || ghost.CurrentMode == GhostMove.Mode.SCATTER)) {
-            //StartCoroutine (ShowDeathAnimation ());
+            StartCoroutine (ShowDeathAnimation ());
         }
     }
 
@@ -118,52 +99,64 @@ public class PacManMove : BaseActor {
     /// Get the ghost that currently shares PacMan's tile
     /// </summary>
     /// <returns>The at pac man tile.</returns>
-    public GhostMove GhostAtPacManTile()
+    private GhostMove GhostAtPacManTile()
     {
         GhostMove ghost = null;
 
-        if (BlinkyMover.Tile == Tile)
-            ghost = BlinkyMover;
+        if (_blinkyMover.Tile == Tile)
+            ghost = _blinkyMover;
 
-        if(PinkyMover.Tile == Tile)
-            ghost = PinkyMover;
+        if(_pinkyMover.Tile == Tile)
+            ghost = _pinkyMover;
 
-        if (InkyMover.Tile == Tile)
-            ghost = InkyMover;
+        if (_inkyMover.Tile == Tile)
+            ghost = _inkyMover;
 
-        if (ClydeMover.Tile == Tile)
-            ghost = ClydeMover;
+        if (_clydeMover.Tile == Tile)
+            ghost = _clydeMover;
 
         return ghost;
     }
 
-    IEnumerator ShowDeathAnimation()
+    /// <summary>
+    /// PacMan has been eaten!
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator ShowDeathAnimation()
     {
         AnimationSpeed = 0.0f;
-        dying = true;
+        _dying = true;
 
-        _audio.SirenPlaying = false;
-        _audio.BlueGhostsPlaying = false;
-        _audio.GhostEyesPlaying = false;
+        Audio.SirenPlaying = false;
+        Audio.BlueGhostsPlaying = false;
+        Audio.GhostEyesPlaying = false;
 
         GameController.IsReady = false;
         Animation = false;
         yield return new WaitForSecondsRealtime (0.75f);
-        BlinkyMover.Hidden = true;
-        InkyMover.Hidden = true;
-        PinkyMover.Hidden = true;
-        ClydeMover.Hidden = true;
+        _blinkyMover.Hidden = true;
+        _inkyMover.Hidden = true;
+        _pinkyMover.Hidden = true;
+        _clydeMover.Hidden = true;
         yield return new WaitForSecondsRealtime (0.25f);
         AnimationSpeed = 0.8f;
-        _audio.PlayDeath ();
+        Audio.PlayDeath ();
         Animation = true;
         Animator.SetBool ("Died", true);
         yield return new WaitForSecondsRealtime (2.0f);
         Hidden = true;
-        GameController.Reset ();
+        yield return new WaitForSecondsRealtime(.75f);
+        Animator.SetBool("Died", false);
+        _dying = false;
+        Animation = true;
+        GameController.numberOfPacs--;
+        GameController.Ready();
     }
 
-    void ReadInput()
+    /// <summary>
+    /// Get player input and figure out which direction to move PacMan
+    /// </summary>
+    private void ReadInput()
     {
         if (Input.GetAxis("Horizontal") > 0) 
             _nextDir = Vector2.right;
@@ -178,7 +171,7 @@ public class PacManMove : BaseActor {
             _nextDir = Vector2.zero;
     }
 
-    void ReadInputAndMove()
+    private void ReadInputAndMove()
     {
         // Continue in _dir if no button was pressed
         if (_nextDir == Vector2.zero) {
@@ -193,9 +186,13 @@ public class PacManMove : BaseActor {
         }
     }
 
+    /// <summary>
+    /// Move PacMan back to his starting position
+    /// </summary>
     public void PacManInit()
     {
         Frightened = false;
+        Animator.SetBool ("Died", false);
         Location = new Vector2 (14.2f, 9.5f);
         Animation = false;
     }
