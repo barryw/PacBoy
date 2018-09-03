@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -487,17 +489,11 @@ public class GhostMove : BaseActor {
     /// </summary>
     /// <returns>The direction that the ghost will be traveling</returns>
     /// <param name="exits">The list of available exits from the ghost's location</param>
-    private Vector2 GetDirection(List<Vector2> exits)
+    private Vector2 GetDirection(ICollection<Vector2> exits)
     {
         var target = Target();
 
-        var shortest = float.PositiveInfinity;
-        foreach (var exit in exits)
-        {
-            var distance = Vector2.Distance(TileCenter + exit, target);
-            if (distance < shortest)
-                shortest = distance;
-        }
+        var shortest = exits.Select(exit => Vector2.Distance(TileCenter + exit, target)).Concat(new[] {float.PositiveInfinity}).Min();
 
         var upDistance = Vector2.Distance(TileCenter + Vector2.up, target);
         var downDistance = Vector2.Distance(TileCenter + Vector2.down, target);
@@ -541,7 +537,7 @@ public class GhostMove : BaseActor {
     /// <summary>
     /// Figure out where the ghost should be going
     /// </summary>
-    void NavigateGhost()
+    private void NavigateGhost()
     {
         // This is for ghosts that have left the ghost house
         if (!_inGhostHouse) {
@@ -567,7 +563,7 @@ public class GhostMove : BaseActor {
     /// <summary>
     /// Check to see if Blinky can enter Cruise Elroy mode
     /// </summary>
-    void CruiseElroy()
+    private void CruiseElroy()
     {
         // Check for Cruise Elroy 1
         if (ThisGhost == Ghost.BLINKY && GameController.SmallDotsLeft == TableOfValues.CruiseElroy1DotsLeft(GameController.CurrentLevel) && !_inCruiseElroy) {
@@ -607,7 +603,7 @@ public class GhostMove : BaseActor {
             Direction = Vector2.left;
             Destination = TileCenter + Vector2.left;
             _inGhostHouse = false;
-            _scatterTarget = new Vector2 (28, 36);
+            _scatterTarget = new Vector2 (26, 36);
             _ghostHome = new Vector2 (14, 19);
             break;
         case Ghost.PINKY:
