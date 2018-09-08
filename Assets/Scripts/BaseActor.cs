@@ -1,27 +1,21 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <inheritdoc />
 /// <summary>
 /// Base Actor class that all characters share. It handles things
 /// like movement, animation, speed, etc
 /// </summary>
 public class BaseActor : MonoBehaviour
 {
-    protected GameController _gameController;
     protected Animator Anim;
-    protected float _animationSpeed = 0.8f;
-    protected float _speed;
-    protected Vector2 _destination = Vector2.zero;
-    protected Vector2 _direction = Vector2.zero;
     private Vector2 _savePosition = Vector2.zero;
-    protected readonly Maze Maze = Maze.Instance();
     protected AudioController Audio;
 
     protected void Start()
     {
         var gc = GameObject.FindGameObjectWithTag ("GameController");
         if (gc != null)
-            _gameController = gc.GetComponent<GameController> ();
+            GameController = gc.GetComponent<GameController> ();
         Anim = GetComponent<Animator> ();
         Audio = AudioController.Instance;
     }
@@ -98,7 +92,7 @@ public class BaseActor : MonoBehaviour
         Destination = (Vector2)transform.position + Vector2.right;
     }
 
-    protected bool InTunnel => (Tile.y == 19 && ((Tile.x >= -1 && Tile.x <= 5) || (Tile.x >= 24 && Tile.x <= 32)));
+    protected bool InTunnel => (Mathf.Approximately(Tile.y, Maze.LeftTunnel.y) && ((Tile.x >= -1 && Tile.x <= 5) || (Tile.x >= 24 && Tile.x <= 32)));
 
     /// <summary>
     /// Animate the actor
@@ -121,7 +115,7 @@ public class BaseActor : MonoBehaviour
     /// Gets the game controller.
     /// </summary>
     /// <value>The game controller.</value>
-    protected GameController GameController => _gameController;
+    protected GameController GameController { get; private set; }
 
     /// <summary>
     /// Gets the animator.
@@ -133,57 +127,25 @@ public class BaseActor : MonoBehaviour
     /// Set the actor's speed
     /// </summary>
     /// <value>The speed.</value>
-    public float Speed
-    {
-        private get {
-            return _speed;
-        }
-        set {
-            _speed = value;
-        }
-    }
+    public float Speed { private get; set; }
 
     /// <summary>
     /// Set the actor's destination tile
     /// </summary>
     /// <value>The destination.</value>
-    public Vector2 Destination
-    {
-        protected get {
-            return _destination;
-        }
-        set {
-            _destination = value;
-        }
-    }
+    public Vector2 Destination { protected get; set; } = Vector2.zero;
 
     /// <summary>
     /// Set the direction that the actor is moving in
     /// </summary>
     /// <value>The direction.</value>
-    public Vector2 Direction
-    {
-        get {
-            return _direction;
-        }
-        set {
-            _direction = value;
-        }
-    }
+    public Vector2 Direction { get; set; } = Vector2.zero;
 
     /// <summary>
     /// Gets or sets the animation speed.
     /// </summary>
     /// <value>The animation speed.</value>
-    public float AnimationSpeed
-    {
-        private get {
-            return _animationSpeed;
-        }
-        set {
-            _animationSpeed = value;
-        }
-    }
+    public float AnimationSpeed { private get; set; } = 0.8f;
 
     /// <summary>
     /// Sets a value indicating whether this <see cref="BaseActor"/> is animating.
@@ -209,7 +171,7 @@ public class BaseActor : MonoBehaviour
         set {
             if (value) {
                 _savePosition = transform.position;
-                transform.position = new Vector2 (-10, -10);
+                transform.position = Maze.HiddenPosition;
             } else {
                 transform.position = _savePosition;
                 _savePosition = Vector2.zero;

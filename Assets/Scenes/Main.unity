@@ -327,6 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a71c337589b442208dcfa58aac1a168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticle: {fileID: 1736909824779232, guid: 4284a36660b2e4c7cad754f1081c2e7a,
+    type: 2}
   Blinky: {fileID: 450124888}
   Pinky: {fileID: 443530462}
   Inky: {fileID: 1946233059}

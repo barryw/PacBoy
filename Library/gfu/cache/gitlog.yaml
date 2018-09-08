@@ -12,9 +12,567 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 3
-  lastUpdatedAtString: 2018-09-03T18:23:34.7971580-04:00
-  initializedAtString: 2018-09-03T17:24:38.8686340-04:00
+  lastUpdatedAtString: 2018-09-03T20:50:43.2328180-04:00
+  initializedAtString: 2018-09-03T19:50:05.9658410-04:00
   log:
+  - commitID: 7cb12e4006dae36df3cc413c4d1475fb621ba561
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: Remove webgl build
+    description: Remove webgl build
+    timeString: 2018-09-03T19:56:12.0000000-04:00
+    commitTimeString: 2018-09-03T19:56:12.0000000-04:00
+    changes:
+    - path: PacBoyWebGL/TemplateData/UnityProgress.js
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/UnityProgress.js
+      projectPath: PacBoyWebGL/TemplateData/UnityProgress.js
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/favicon.ico
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/favicon.ico
+      projectPath: PacBoyWebGL/TemplateData/favicon.ico
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/fullscreen.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/fullscreen.png
+      projectPath: PacBoyWebGL/TemplateData/fullscreen.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressEmpty.Dark.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressEmpty.Dark.png
+      projectPath: PacBoyWebGL/TemplateData/progressEmpty.Dark.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressEmpty.Light.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressEmpty.Light.png
+      projectPath: PacBoyWebGL/TemplateData/progressEmpty.Light.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressFull.Dark.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressFull.Dark.png
+      projectPath: PacBoyWebGL/TemplateData/progressFull.Dark.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressFull.Light.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressFull.Light.png
+      projectPath: PacBoyWebGL/TemplateData/progressFull.Light.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressLogo.Dark.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressLogo.Dark.png
+      projectPath: PacBoyWebGL/TemplateData/progressLogo.Dark.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressLogo.Light.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressLogo.Light.png
+      projectPath: PacBoyWebGL/TemplateData/progressLogo.Light.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/style.css
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/style.css
+      projectPath: PacBoyWebGL/TemplateData/style.css
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/webgl-logo.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/webgl-logo.png
+      projectPath: PacBoyWebGL/TemplateData/webgl-logo.png
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: PacBoyWebGL/index.html
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/index.html
+      projectPath: PacBoyWebGL/index.html
+      originalPath: 
+      status: 5
+      staged: 0
+  - commitID: 35f76e7300fe76f10e9ba022553b25ee221be1f0
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: Add WebGL build
+    description: Add WebGL build
+    timeString: 2018-09-03T19:53:11.0000000-04:00
+    commitTimeString: 2018-09-03T19:53:11.0000000-04:00
+    changes:
+    - path: PacBoyWebGL/TemplateData/UnityProgress.js
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/UnityProgress.js
+      projectPath: PacBoyWebGL/TemplateData/UnityProgress.js
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/favicon.ico
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/favicon.ico
+      projectPath: PacBoyWebGL/TemplateData/favicon.ico
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/fullscreen.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/fullscreen.png
+      projectPath: PacBoyWebGL/TemplateData/fullscreen.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressEmpty.Dark.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressEmpty.Dark.png
+      projectPath: PacBoyWebGL/TemplateData/progressEmpty.Dark.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressEmpty.Light.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressEmpty.Light.png
+      projectPath: PacBoyWebGL/TemplateData/progressEmpty.Light.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressFull.Dark.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressFull.Dark.png
+      projectPath: PacBoyWebGL/TemplateData/progressFull.Dark.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressFull.Light.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressFull.Light.png
+      projectPath: PacBoyWebGL/TemplateData/progressFull.Light.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressLogo.Dark.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressLogo.Dark.png
+      projectPath: PacBoyWebGL/TemplateData/progressLogo.Dark.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/progressLogo.Light.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/progressLogo.Light.png
+      projectPath: PacBoyWebGL/TemplateData/progressLogo.Light.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/style.css
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/style.css
+      projectPath: PacBoyWebGL/TemplateData/style.css
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/TemplateData/webgl-logo.png
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/TemplateData/webgl-logo.png
+      projectPath: PacBoyWebGL/TemplateData/webgl-logo.png
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: PacBoyWebGL/index.html
+      fullPath: /Users/barry/PacBoy/PacBoyWebGL/index.html
+      projectPath: PacBoyWebGL/index.html
+      originalPath: 
+      status: 4
+      staged: 0
+  - commitID: 6fc163222b756f179b79454a6c1c617c856d865f
+    mergeA: 
+    mergeB: 
+    authorName: Barry Walker
+    authorEmail: barrywalker@gmail.com
+    commitEmail: barrywalker@gmail.com
+    commitName: Barry Walker
+    summary: Fixes
+    description: Fixes
+    timeString: 2018-09-03T19:50:02.0000000-04:00
+    commitTimeString: 2018-09-03T19:50:02.0000000-04:00
+    changes:
+    - path: .idea/.idea.PacBoy/.idea/workspace.xml
+      fullPath: /Users/barry/PacBoy/.idea/.idea.PacBoy/.idea/workspace.xml
+      projectPath: .idea/.idea.PacBoy/.idea/workspace.xml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assembly-CSharp.csproj
+      fullPath: /Users/barry/PacBoy/Assembly-CSharp.csproj
+      projectPath: Assembly-CSharp.csproj
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Scripts/GhostMove.cs
+      fullPath: /Users/barry/PacBoy/Assets/Scripts/GhostMove.cs
+      projectPath: Assets/Scripts/GhostMove.cs
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Assets/Videos/pacman-fever.mp4
+      fullPath: /Users/barry/PacBoy/Assets/Videos/pacman-fever.mp4
+      projectPath: Assets/Videos/pacman-fever.mp4
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Assets/Videos/pacman-fever.mp4.meta
+      fullPath: /Users/barry/PacBoy/Assets/Videos/pacman-fever.mp4.meta
+      projectPath: Assets/Videos/pacman-fever.mp4.meta
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Library/AssetImportState
+      fullPath: /Users/barry/PacBoy/Library/AssetImportState
+      projectPath: Library/AssetImportState
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/CurrentLayout.dwlt
+      fullPath: /Users/barry/PacBoy/Library/CurrentLayout.dwlt
+      projectPath: Library/CurrentLayout.dwlt
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/CurrentMaximizeLayout.dwlt
+      fullPath: /Users/barry/PacBoy/Library/CurrentMaximizeLayout.dwlt
+      projectPath: Library/CurrentMaximizeLayout.dwlt
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/EditorInstance.json
+      fullPath: /Users/barry/PacBoy/Library/EditorInstance.json
+      projectPath: Library/EditorInstance.json
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/EditorUserBuildSettings.asset
+      fullPath: /Users/barry/PacBoy/Library/EditorUserBuildSettings.asset
+      projectPath: Library/EditorUserBuildSettings.asset
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/LastBuild.buildreport
+      fullPath: /Users/barry/PacBoy/Library/LastBuild.buildreport
+      projectPath: Library/LastBuild.buildreport
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      fullPath: /Users/barry/PacBoy/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      projectPath: Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/assetDatabase3
+      fullPath: /Users/barry/PacBoy/Library/assetDatabase3
+      projectPath: Library/assetDatabase3
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/branches.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/branches.yaml
+      projectPath: Library/gfu/cache/branches.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitlog.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitlog.yaml
+      projectPath: Library/gfu/cache/gitlog.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitstatusentries.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gitstatusentries.yaml
+      projectPath: Library/gfu/cache/gitstatusentries.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gittrackingstatus.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/gittrackingstatus.yaml
+      projectPath: Library/gfu/cache/gittrackingstatus.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/repoinfo.yaml
+      fullPath: /Users/barry/PacBoy/Library/gfu/cache/repoinfo.yaml
+      projectPath: Library/gfu/cache/repoinfo.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/00/00000000000000006100000000000000
+      fullPath: /Users/barry/PacBoy/Library/metadata/00/00000000000000006100000000000000
+      projectPath: Library/metadata/00/00000000000000006100000000000000
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/10/10bf81265ad87424d946598c575f45a0
+      fullPath: /Users/barry/PacBoy/Library/metadata/10/10bf81265ad87424d946598c575f45a0
+      projectPath: Library/metadata/10/10bf81265ad87424d946598c575f45a0
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/10/10bf81265ad87424d946598c575f45a0.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/10/10bf81265ad87424d946598c575f45a0.info
+      projectPath: Library/metadata/10/10bf81265ad87424d946598c575f45a0.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/1b/1b32bcce201b4494ea8848326290c5d5
+      fullPath: /Users/barry/PacBoy/Library/metadata/1b/1b32bcce201b4494ea8848326290c5d5
+      projectPath: Library/metadata/1b/1b32bcce201b4494ea8848326290c5d5
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/1b/1b32bcce201b4494ea8848326290c5d5.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/1b/1b32bcce201b4494ea8848326290c5d5.info
+      projectPath: Library/metadata/1b/1b32bcce201b4494ea8848326290c5d5.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/25/2572a5d94e71b42e8917601a0a0fb6e1
+      fullPath: /Users/barry/PacBoy/Library/metadata/25/2572a5d94e71b42e8917601a0a0fb6e1
+      projectPath: Library/metadata/25/2572a5d94e71b42e8917601a0a0fb6e1
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/29/292df658a2edb4fafb896ef51f44cf6a
+      fullPath: /Users/barry/PacBoy/Library/metadata/29/292df658a2edb4fafb896ef51f44cf6a
+      projectPath: Library/metadata/29/292df658a2edb4fafb896ef51f44cf6a
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb
+      fullPath: /Users/barry/PacBoy/Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb
+      projectPath: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.info
+      projectPath: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.resource
+      fullPath: /Users/barry/PacBoy/Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.resource
+      projectPath: Library/metadata/40/40fbe6b78f7fa420eb9d52cf81f032bb.resource
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46
+      fullPath: /Users/barry/PacBoy/Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46
+      projectPath: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.info
+      projectPath: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.resource
+      fullPath: /Users/barry/PacBoy/Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.resource
+      projectPath: Library/metadata/5b/5bc06e01cd9bb445fa7d0b0767333a46.resource
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f
+      fullPath: /Users/barry/PacBoy/Library/metadata/64/6483cc88510c14645bf15dbf348aa76f
+      projectPath: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/64/6483cc88510c14645bf15dbf348aa76f.info
+      projectPath: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f.resource
+      fullPath: /Users/barry/PacBoy/Library/metadata/64/6483cc88510c14645bf15dbf348aa76f.resource
+      projectPath: Library/metadata/64/6483cc88510c14645bf15dbf348aa76f.resource
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078
+      fullPath: /Users/barry/PacBoy/Library/metadata/78/78f8abd6689894865bcf016cfc8fb078
+      projectPath: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.info
+      projectPath: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.resource
+      fullPath: /Users/barry/PacBoy/Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.resource
+      projectPath: Library/metadata/78/78f8abd6689894865bcf016cfc8fb078.resource
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      fullPath: /Users/barry/PacBoy/Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      projectPath: Library/metadata/b1/b102105b839ce4557b367a90571050f6
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4
+      fullPath: /Users/barry/PacBoy/Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4
+      projectPath: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.info
+      projectPath: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.resource
+      fullPath: /Users/barry/PacBoy/Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.resource
+      projectPath: Library/metadata/b2/b27c8f9d203924843895af281b2b1cb4.resource
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc
+      fullPath: /Users/barry/PacBoy/Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc
+      projectPath: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.info
+      projectPath: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.info
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.resource
+      fullPath: /Users/barry/PacBoy/Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.resource
+      projectPath: Library/metadata/ca/ca67a1e3b800841b094c034dfbd320dc.resource
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/dd/dd4849f00ce9d4c5dba0b33601f7603d
+      fullPath: /Users/barry/PacBoy/Library/metadata/dd/dd4849f00ce9d4c5dba0b33601f7603d
+      projectPath: Library/metadata/dd/dd4849f00ce9d4c5dba0b33601f7603d
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/e7/e79ff84eb961e409a9f001434e1484ba
+      fullPath: /Users/barry/PacBoy/Library/metadata/e7/e79ff84eb961e409a9f001434e1484ba
+      projectPath: Library/metadata/e7/e79ff84eb961e409a9f001434e1484ba
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/eb/eb343d7eb70e145d7a262fa8a25d98ee
+      fullPath: /Users/barry/PacBoy/Library/metadata/eb/eb343d7eb70e145d7a262fa8a25d98ee
+      projectPath: Library/metadata/eb/eb343d7eb70e145d7a262fa8a25d98ee
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91
+      fullPath: /Users/barry/PacBoy/Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91
+      projectPath: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.resource
+      fullPath: /Users/barry/PacBoy/Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.resource
+      projectPath: Library/metadata/ec/ec54098d5b7ca41238b0d08c83e47a91.resource
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/metadata/ee/eedae47c4a482485a9ee4df02934c4b6
+      fullPath: /Users/barry/PacBoy/Library/metadata/ee/eedae47c4a482485a9ee4df02934c4b6
+      projectPath: Library/metadata/ee/eedae47c4a482485a9ee4df02934c4b6
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Library/metadata/ee/eedae47c4a482485a9ee4df02934c4b6.info
+      fullPath: /Users/barry/PacBoy/Library/metadata/ee/eedae47c4a482485a9ee4df02934c4b6.info
+      projectPath: Library/metadata/ee/eedae47c4a482485a9ee4df02934c4b6.info
+      originalPath: 
+      status: 5
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler0.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler0.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler0.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler1.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler1.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler1.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler2.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler2.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler2.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler3.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler3.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler3.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler4.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler4.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler4.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler5.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler5.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler5.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler6.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler6.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler6.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/shadercompiler-UnityShaderCompiler7.log
+      fullPath: /Users/barry/PacBoy/Library/shadercompiler-UnityShaderCompiler7.log
+      projectPath: Library/shadercompiler-UnityShaderCompiler7.log
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: ProjectSettings/GraphicsSettings.asset
+      fullPath: /Users/barry/PacBoy/ProjectSettings/GraphicsSettings.asset
+      projectPath: ProjectSettings/GraphicsSettings.asset
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: README.md
+      fullPath: /Users/barry/PacBoy/README.md
+      projectPath: README.md
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: obj/Debug/Assembly-CSharp.dll
+      fullPath: /Users/barry/PacBoy/obj/Debug/Assembly-CSharp.dll
+      projectPath: obj/Debug/Assembly-CSharp.dll
+      originalPath: 
+      status: 3
+      staged: 0
   - commitID: 63c93b4b02505074a1cf95eb088ee129b989bc0b
     mergeA: 
     mergeB: 

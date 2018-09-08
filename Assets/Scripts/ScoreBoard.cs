@@ -16,7 +16,7 @@ public class ScoreBoard : MonoBehaviour {
     [FormerlySerializedAs("eight")] public GameObject Eight;
     [FormerlySerializedAs("nine")] public GameObject Nine;
 
-    private int _highScore = 0;
+    private int _highScore;
     private readonly Dictionary<string, List<GameObject>> _scores = new Dictionary<string, List<GameObject>> ();
 
     public ScoreBoard()
@@ -30,12 +30,12 @@ public class ScoreBoard : MonoBehaviour {
     private void Awake()
     {
         if (Instance != null && Instance != this) {
-            Destroy (this.gameObject);
+            Destroy (gameObject);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad (this.gameObject);
+        DontDestroyOnLoad (gameObject);
     }
 
 	// Use this for initialization

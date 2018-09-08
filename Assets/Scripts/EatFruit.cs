@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class EatFruit : MonoBehaviour {
+public class EatFruit : MonoBehaviour
+{    
     private GameController _gameController;
     private AudioController _audio;
-
     private Vector2 _tileCenter;
     private bool _fruitEaten;
 
@@ -33,7 +33,7 @@ public class EatFruit : MonoBehaviour {
     /// Display the point value in place of the fruit
     /// </summary>
     private void ShowPoints()
-    {
+    {        
         gameObject.transform.position = new Vector2 (-10, -10);
         Destroy (gameObject, 1.0f);
         var fruitPoints = _gameController.GetFruitPoints ();

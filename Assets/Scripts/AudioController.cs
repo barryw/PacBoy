@@ -7,9 +7,12 @@ public class AudioController : MonoBehaviour
 
     private bool _siren;
     private bool _blueGhosts;
-
+    
     private AudioSource _startMusicSource;
+    
     private AudioSource _sirenSource;
+    private bool _sirenShouldPlay;
+    
     private AudioSource _blueGhostsSource;
     private AudioSource _ghostEyesSource;
 
@@ -27,6 +30,7 @@ public class AudioController : MonoBehaviour
     private const string Siren2 = "siren2";
     private const string Siren3 = "siren3";
     private const string Siren4 = "siren4";
+    private int _currentSiren;
 
     private const string EatDot1 = "chomp1";
     private const string EatDot2 = "chomp2";
@@ -54,13 +58,13 @@ public class AudioController : MonoBehaviour
 
 	// Use this for initialization
     private void Start () 
-    {
+    {        
         _startMusicSource = gameObject.AddComponent<AudioSource> ();
         _startMusicSource.clip = LoadAudioClip (StartMusic);
 
         _sirenSource = gameObject.AddComponent<AudioSource> ();
         _sirenSource.loop = true;
-        _sirenSource.clip = LoadAudioClip (Siren1);
+        _sirenSource.clip = LoadAudioClip(Siren1);
 
         _blueGhostsSource = gameObject.AddComponent<AudioSource> ();
         _blueGhostsSource.loop = true;
@@ -92,13 +96,58 @@ public class AudioController : MonoBehaviour
         EatGhostLength = _eatGhostSource.clip.length;
     }
 
+    /// <summary>
+    /// Set the current siren pitch
+    /// </summary>
+    public int CurrentSiren
+    {
+        set
+        {
+            if (value == _currentSiren) return;
+            _currentSiren = value;
+            
+            switch (value)
+            {
+                case 1:
+                    _sirenSource.clip = LoadAudioClip(Siren1);
+                    break;
+                case 2:
+                    _sirenSource.clip = LoadAudioClip(Siren2);
+                    break;
+                case 3:
+                    _sirenSource.clip = LoadAudioClip(Siren3);
+                    break;
+                case 4:
+                    _sirenSource.clip = LoadAudioClip(Siren4);
+                    break;
+                default:
+                    _sirenSource.clip = LoadAudioClip(Siren1);
+                    break;
+            }
+
+            _sirenSource.loop = true;
+            if(SirenPlaying)
+                _sirenSource.Play();
+        }
+    }
+    
+    /// <summary>
+    /// Start or stop the siren
+    /// </summary>
     public bool SirenPlaying
     {
-        set {
-            if (value)
-                _sirenSource.Play ();
+        get { return _sirenShouldPlay; }
+        set
+        {
+            _sirenShouldPlay = value;
+            if (value && !_sirenSource.isPlaying)
+            {
+                _sirenSource.Play();
+            }
             else
-                _sirenSource.Stop ();
+            {
+                _sirenSource.Stop();
+            }
         }
     }
 

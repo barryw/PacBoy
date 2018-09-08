@@ -39,6 +39,7 @@ public class GameController : BaseController
     private bool _player1ExtraLifeAwarded;
     private bool _player2ExtraLifeAwarded;
     private bool _isCleared;
+    private bool _startOfPlay = true;
 
     private readonly List<GameObject> _pacMen = new List<GameObject>();
     private readonly List<GameObject> _levelFruits = new List<GameObject>();
@@ -57,7 +58,6 @@ public class GameController : BaseController
     private int _p2LargeDotsEaten;
     private float _frightenStartTime;
 
-    private readonly Maze _maze = Maze.Instance();
     private AudioController _audio;
     private ScoreBoard _score;
 
@@ -104,6 +104,7 @@ public class GameController : BaseController
         DeFrightenGhosts ();
         if(!_isCleared)
             CheckClear ();
+        AdjustSiren();
     }
 
     /// <summary>
@@ -123,7 +124,7 @@ public class GameController : BaseController
         }
         Ready ();
     }
-
+    
     /// <summary>
     /// On your marks. Get set...
     /// </summary>
@@ -133,16 +134,20 @@ public class GameController : BaseController
         {
             RenderExtraPacs ();
             RenderFruitLevelDisplay ();
-            StartCoroutine (StartInitialSiren ());
-        
             LastDotEatenTime = 0.0f;
             InitGhosts ();
             InitPacMan ();
+            
             var readyInst = Instantiate (ready);
-            Destroy (readyInst, 4.0f);
-            Wait (5, () => {
+            var waitLength = _startOfPlay ? _audio.StartMusicLength + .25f : 3.0f;
+            
+            Wait(waitLength, () => { 
+                _startOfPlay = false;
                 IsReady = true;
-            });   
+                Destroy(readyInst);
+                PacManMover.AnimationSpeed = PacManAnimationSpeed;
+                PacManMover.Animation = true;
+            });
         }
         else
         {
@@ -159,11 +164,34 @@ public class GameController : BaseController
             (CurrentPlayer != 2 || _p2Dots.Count != 0 || _p2PowerPellets.Count != 0)) return;
         _isCleared = true;
         PacManMover.Animation = false;
+        PacManMover.AnimationSpeed = 0.0f;
         _audio.SirenPlaying = false;
         _audio.BlueGhostsPlaying = false;
         _audio.GhostEyesPlaying = false;
         IsReady = false;
         Wait (2, StartNextLevel);
+    }
+
+    /// <summary>
+    /// Adjust the pitch of the siren based on the number of dots remaining.
+    /// </summary>
+    private void AdjustSiren()
+    {
+        var totalDotsEaten = SmallDotsEaten + LargeDotsEaten;
+        if (totalDotsEaten < 61)
+        {
+            _audio.CurrentSiren = 1;
+        } else if (totalDotsEaten >= 61 && totalDotsEaten < 122)
+        {
+            _audio.CurrentSiren = 2;
+        } else if (totalDotsEaten >= 122 && totalDotsEaten < 183)
+        {
+            _audio.CurrentSiren = 3;
+        }
+        else
+        {
+            _audio.CurrentSiren = 4;
+        }
     }
 
     #region Dots and Power Pellets
@@ -178,16 +206,16 @@ public class GameController : BaseController
 
         if (CurrentPlayer == 1) {
             if (_p1Dots.Count == 0) {
-                _p1Dots = _maze.DotLocations ();
+                _p1Dots = Maze.DotLocations ();
                 dotList = _p1Dots;
-                _p1PowerPellets = _maze.EnergizerLocations ();
+                _p1PowerPellets = Maze.EnergizerLocations ();
                 powerPelletList = _p1PowerPellets;
             }
         } else {
             if (_p2Dots.Count == 0) {
-                _p2Dots = _maze.DotLocations ();
+                _p2Dots = Maze.DotLocations ();
                 dotList = _p2Dots;
-                _p2PowerPellets = _maze.EnergizerLocations ();
+                _p2PowerPellets = Maze.EnergizerLocations ();
                 powerPelletList = _p2PowerPellets;
             }
         }
@@ -235,13 +263,13 @@ public class GameController : BaseController
         FrightenGhosts ();
     }
 
-    public int SmallDotsEaten => CurrentPlayer == 1 ? _p1Dots.Count : _p2Dots.Count;
+    public int SmallDotsEaten => CurrentPlayer == 1 ? 240 - _p1Dots.Count : 240 - _p2Dots.Count;
 
-    public int SmallDotsLeft => CurrentPlayer == 1 ? 240 - _p1Dots.Count : 240 - _p2Dots.Count;
+    public int SmallDotsLeft => CurrentPlayer == 1 ? _p1Dots.Count : _p2Dots.Count;
 
-    public int LargeDotsEaten => CurrentPlayer == 1 ? _p1PowerPellets.Count : _p2PowerPellets.Count;
+    public int LargeDotsEaten => CurrentPlayer == 1 ? 4 - _p1PowerPellets.Count : 4 - _p2PowerPellets.Count;
 
-    public int LargeDotsLeft => CurrentPlayer == 1 ? 4 - _p1PowerPellets.Count : 4 - _p2PowerPellets.Count;
+    public int LargeDotsLeft => CurrentPlayer == 1 ? _p1PowerPellets.Count : _p2PowerPellets.Count;
 
     /// <summary>
     /// Keep track of the time the last dot was eaten
@@ -311,6 +339,8 @@ public class GameController : BaseController
 
     private void InitPacMan()
     {
+        PacManMover.AnimationSpeed = 0.0f;
+        PacManMover.Animation = false;
         PacManMover.PacManInit ();
     }
 
@@ -404,14 +434,6 @@ public class GameController : BaseController
         PacManMover.Animation = false;
     }
 
-    private IEnumerator StartInitialSiren()
-    {
-        yield return new WaitForSecondsRealtime (_audio.StartMusicLength + .25f);
-        PacManMover.AnimationSpeed = PacManAnimationSpeed;
-        PacManMover.Animation = true;
-        IsReady = true;
-    }
-
     /// <summary>
     /// Show the number of lives remaining
     /// </summary>
@@ -429,7 +451,7 @@ public class GameController : BaseController
     {
         if ((CurrentPlayer == 1 && (_p1SmallDotsEaten == 70 || _p1SmallDotsEaten == 170) || CurrentPlayer == 2 && (_p2SmallDotsEaten == 70 || _p2SmallDotsEaten == 170)) && _fruit == null) {
             _fruit = GetFruit ();
-            Destroy (_fruit, UnityEngine.Random.Range (9, 10));
+            Destroy (_fruit, Random.Range (9, 10));
         }
     }
 
@@ -481,13 +503,13 @@ public class GameController : BaseController
     private List<GhostMove> GetFrightenedGhosts()
     {
         var frightened = new List<GhostMove> ();
-        if (BlinkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+        if (BlinkyMover.CurrentMode == GhostMove.Mode.Frightened)
             frightened.Add (BlinkyMover);
-        if (PinkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+        if (PinkyMover.CurrentMode == GhostMove.Mode.Frightened)
             frightened.Add (PinkyMover);
-        if (InkyMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+        if (InkyMover.CurrentMode == GhostMove.Mode.Frightened)
             frightened.Add (InkyMover);
-        if (ClydeMover.CurrentMode == GhostMove.Mode.FRIGHTENED)
+        if (ClydeMover.CurrentMode == GhostMove.Mode.Frightened)
             frightened.Add (ClydeMover);
 
         return frightened;
@@ -582,8 +604,8 @@ public class GameController : BaseController
             Destroy (levelFruit);
         }
 
-        var startPos = 0;
-        var endPos = 0;
+        int startPos;
+        int endPos;
         
         if (CurrentLevel < 7)
         {

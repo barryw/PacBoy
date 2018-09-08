@@ -4,17 +4,6 @@
 /// </summary>
 public class TableOfValues
 {
-    private static TableOfValues _instance;
-
-    private TableOfValues ()
-    {
-    }
-
-    public static TableOfValues Instance()
-    {
-        return _instance ?? (_instance = new TableOfValues());
-    }
-
     /// <summary>
     /// Constant speed for all actors
     /// </summary>
