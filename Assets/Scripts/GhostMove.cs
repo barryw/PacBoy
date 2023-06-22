@@ -30,7 +30,7 @@ public class GhostDriver
 
 public class GhostMove : BaseActor {
     StateMachine<GhostStates, GhostDriver> _fsmState;
-    StateMachine<GhostAnimations, GhostDriver> _fsmAnimation;
+    StateMachine<GhostAnimations> _fsmAnimation;
     
     public GameObject PacMan;
 
@@ -47,31 +47,15 @@ public class GhostMove : BaseActor {
         Clyde
     }
 
-    public enum Mode
-    {
-        Chase,
-        Scatter,
-        Frightened
-    }
-
-    public enum Animations
-    {
-        Frightened,
-        SemiFrightened,
-        Eyes,
-        Normal
-    }
-
     private readonly Color _blinkyColor = new Color (.81f, .24f, .098f);
     private readonly Color _pinkyColor = new Color (.917f, .509f, .898f);
     private readonly Color _inkyColor = new Color (.274f, .749f, .933f);
     private readonly Color _clydeColor = new Color (.858f, .521f, .109f);
 
     public Ghost ThisGhost;
-    public Mode CurrentMode = Mode.Chase;
 
     private Vector2 _scatterTarget = Vector2.zero;
-    private readonly List<Vector2> _directions = new List<Vector2> ();
+    private readonly List<Vector2> _directions = new();
     private GhostMove _blinkyMover;
     private PacManMove _pacManMover;
 
@@ -91,20 +75,37 @@ public class GhostMove : BaseActor {
     private readonly Vector2 _home = new Vector2 (14, 22);
     private Vector2 _ghostHome = Vector2.zero;
 
+    private bool IsEatable => _pacManMover.Tile == Tile && CurrentMode == GhostStates.Frightened && !IsEaten;
+
+    public GhostStates CurrentMode
+    {
+        get => _fsmState.State;
+        set => _fsmState.ChangeState(value);
+    }
+
+    public GhostAnimations CurrentAnimation
+    {
+        get => _fsmAnimation.State;
+        set => _fsmAnimation.ChangeState(value);
+    }
+
     #region Start
 
     void Awake()
     {
+        Anim = GetComponent<Animator> ();
+        
         _fsmState = new StateMachine<GhostStates, GhostDriver>(this);
-        _fsmState.ChangeState(GhostStates.Idle);
-        _fsmAnimation = new StateMachine<GhostAnimations, GhostDriver>(this);
-        _fsmAnimation.ChangeState(GhostAnimations.AnimNormal);
+        _fsmAnimation = new StateMachine<GhostAnimations>(this);
+        
+        CurrentMode = GhostStates.Idle;
+        CurrentAnimation = GhostAnimations.AnimNormal;
     }
     
     private new void Start()
     {
         base.Start ();
-        
+
         _directions.Add (Vector2.up);
         _directions.Add (Vector2.down);
         _directions.Add (Vector2.left);
@@ -128,16 +129,22 @@ public class GhostMove : BaseActor {
 
     #region Ghost States
     
+    #region Chase
+    
     void Chase_Enter()
     {
-        
+        CurrentAnimation = GhostAnimations.AnimNormal;
     }
 
     void Chase_FixedUpdates()
     {
         DoUpdates();
     }
+    
+    #endregion
 
+    #region Frightened
+    
     void Frightened_Enter()
     {
         _fsmAnimation.ChangeState(GhostAnimations.AnimFrightened);
@@ -147,27 +154,97 @@ public class GhostMove : BaseActor {
     {
         DoUpdates();
     }
+    
+    #endregion
 
+    #region Scatter
+    
     void Scatter_Enter()
     {
-        
+        CurrentAnimation = GhostAnimations.AnimNormal;
     }
 
     void Scatter_FixedUpdate()
     {
+        DoUpdates();    
+    }
+    
+    #endregion
+    
+    #region Dead
+    
+    IEnumerator Dead_Enter()
+    {
+        Audio.PlayEatGhost();
+
+        Vector2 position = transform.position;
+
+        _pacManMover.Hidden = true;
+        Hidden = true;
+        IsEaten = true;
+        IsBlinking = false;
+
+        GameObject points = null;
+        switch (GameController.GhostsEaten) {
+            case 0:
+                points = Instantiate (Ghost200);
+                GameController.AddPoints (GameController.PointSource.FirstGhost);
+                break;
+            case 1:
+                points = Instantiate (Ghost400);
+                GameController.AddPoints (GameController.PointSource.SecondGhost);
+                break;
+            case 2:
+                points = Instantiate (Ghost800);
+                GameController.AddPoints (GameController.PointSource.ThirdGhost);
+                break;
+            case 3:
+                points = Instantiate (Ghost1600);
+                GameController.AddPoints (GameController.PointSource.FourthGhost);
+                break;
+        }
+
+        GameController.GhostsEaten++;
+        if (GameController.GhostsEaten == 4)
+            GameController.GhostsEaten = 0;
+        
+        points.transform.position = position;
+
+        GameController.IsReady = false;
+        Audio.PlayEatGhost ();
+
+        Destroy (points, Audio.EatGhostLength);
+        yield return new WaitForSecondsRealtime (Audio.EatGhostLength);
+
+        GameController.IsReady = true;
+
+        Audio.BlueGhostsPlaying = false;
+        Audio.GhostEyesPlaying = true;
+        Audio.SirenPlaying = false;
+
+        Hidden = false;
+        _pacManMover.Hidden = false;
+        
+        CurrentMode = GhostStates.Dead;
+        CurrentAnimation = GhostAnimations.AnimEyes;
+    }
+
+    void Dead_FixedUpdate()
+    {
         DoUpdates();
     }
 
-    void Dead_Enter()
-    {
-        Audio.PlayEatGhost();
-    }
+    #endregion
 
+    #region Idle
+    
     void Idle_FixedUpdate()
     {
         DoUpdates();
     }
 
+    #endregion
+    
     private void DoUpdates()
     {
         if (GameController.IsReady) {
@@ -195,22 +272,30 @@ public class GhostMove : BaseActor {
     
     void AnimFrightened_Enter()
     {
-        SetAnimation(Animations.Frightened);
+        Animator.SetBool ("Frightened", true);
+        Animator.SetBool ("SemiFrightened", false);
+        Animator.SetBool ("Eaten", false);
     }
     
     void AnimSemiFrightened_Enter()
     {
-        SetAnimation(Animations.SemiFrightened);
+        Animator.SetBool ("SemiFrightened", true);
+        Animator.SetBool ("Frightened", false);
+        Animator.SetBool ("Eaten", false);
     }
     
     void AnimEyes_Enter()
     {
-        SetAnimation(Animations.Eyes);
+        Animator.SetBool ("SemiFrightened", false);
+        Animator.SetBool ("Frightened", false);
+        Animator.SetBool ("Eaten", true);
     }
     
     void AnimNormal_Enter()
     {
-        SetAnimation(Animations.Normal);
+        Animator.SetBool ("SemiFrightened", false);
+        Animator.SetBool ("Frightened", false);
+        Animator.SetBool ("Eaten", false);
     }
     
     #endregion
@@ -226,90 +311,8 @@ public class GhostMove : BaseActor {
 
     private void CheckCollision()
     {
-        if (_pacManMover.Tile != Tile || CurrentMode != Mode.Frightened || IsEaten) return;
-        _fsmState.ChangeState(GhostStates.Dead);
-    }
-
-    private IEnumerator EatGhost()
-    {
-        Vector2 position = transform.position;
-
-        _pacManMover.Hidden = true;
-        Hidden = true;
-        IsEaten = true;
-        IsBlinking = false;
-
-        GameObject points = null;
-        switch (GameController.GhostsEaten) {
-        case 0:
-            points = Instantiate (Ghost200);
-            GameController.AddPoints (GameController.PointSource.FirstGhost);
-            break;
-        case 1:
-            points = Instantiate (Ghost400);
-            GameController.AddPoints (GameController.PointSource.SecondGhost);
-            break;
-        case 2:
-            points = Instantiate (Ghost800);
-            GameController.AddPoints (GameController.PointSource.ThirdGhost);
-            break;
-        case 3:
-            points = Instantiate (Ghost1600);
-            GameController.AddPoints (GameController.PointSource.FourthGhost);
-            break;
-        }
-
-        GameController.GhostsEaten++;
-        if (GameController.GhostsEaten == 4)
-            GameController.GhostsEaten = 0;
-        
-        points.transform.position = position;
-
-        GameController.IsReady = false;
-        Audio.PlayEatGhost ();
-
-        Destroy (points, Audio.EatGhostLength);
-        yield return new WaitForSecondsRealtime (Audio.EatGhostLength);
-
-        GameController.IsReady = true;
-        SetAnimation (Animations.Eyes);
-
-        Audio.BlueGhostsPlaying = false;
-        Audio.GhostEyesPlaying = true;
-        Audio.SirenPlaying = false;
-
-        Hidden = false;
-        _pacManMover.Hidden = false;
-    }
-       
-    public void SetAnimation(Animations anim)
-    {
-        if (Animator == null)
-            Anim = GetComponent<Animator> ();
-        
-        switch (anim) {
-        case Animations.Frightened:
-            Animator.SetBool ("Frightened", true);
-            Animator.SetBool ("SemiFrightened", false);
-            Animator.SetBool ("Eaten", false);
-            break;
-        case Animations.SemiFrightened:
-            Animator.SetBool ("SemiFrightened", true);
-            Animator.SetBool ("Frightened", false);
-            Animator.SetBool ("Eaten", false);
-            break;
-        case  Animations.Eyes:
-            Animator.SetBool ("SemiFrightened", false);
-            Animator.SetBool ("Frightened", false);
-            Animator.SetBool ("Eaten", true);
-            break;
-        case Animations.Normal:
-        default:
-            Animator.SetBool ("SemiFrightened", false);
-            Animator.SetBool ("Frightened", false);
-            Animator.SetBool ("Eaten", false);
-            break;
-        }
+        if (IsEatable)
+            CurrentMode = GhostStates.Dead;
     }
 
     private float LevelTime()
@@ -376,18 +379,18 @@ public class GhostMove : BaseActor {
         
         Audio.GhostEyesPlaying = false;
         Audio.BlueGhostsPlaying = true;
-        SetAnimation (Animations.Normal);
+        CurrentAnimation = GhostAnimations.AnimNormal;
         _dotsToLeave = 0;
         _dotCounter = 0;
         _inGhostHouse = true;
         IsEaten = false;
-        CurrentMode = GetMode ();
+        CurrentMode = GetMode();
     }
 
     /// <summary>
     /// Get the ghost out of the house
     /// </summary>
-    public void LeaveGhostHouse()
+    private void LeaveGhostHouse()
     {
         //if ((DotCounter >= DotsToLeave && InGhostHouse) || (InGhostHouse && IsPreferred && GameController.TimeSinceLastDot >= 4.0f)) {
         if (_dotCounter < _dotsToLeave || !_inGhostHouse) return;
@@ -474,8 +477,14 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void SetMode()
     {
-        // If frightened, just return
-        if (CurrentMode == Mode.Frightened) return;
+        if (IsEaten)
+        {
+            CurrentMode = GhostStates.Dead;
+            return;
+        }
+            
+        if (CurrentMode == GhostStates.Frightened) return;
+        
         var mode = GetMode ();
         
         // If the new mode is the same as the current mode, or the ghost is in the house, return
@@ -491,27 +500,27 @@ public class GhostMove : BaseActor {
     /// Get the ghost mode based on the number of seconds since the start of the level
     /// </summary>
     /// <returns>The mode.</returns>
-    public Mode GetMode()
+    private GhostStates GetMode()
     {
         int level = GameController.CurrentLevel;
         float levelSeconds = LevelTime ();
 
-        if ((level >= 1 && level <= 4 && levelSeconds <= 7) || (level >=5 && levelSeconds <= 5))
-            return Mode.Scatter;
+        if ((level >= 1 && level <= 4 && levelSeconds <= 7) || (level >= 5 && levelSeconds <= 5))
+            return GhostStates.Scatter;
         if ((level >= 1 && level <= 4 && levelSeconds >= 7 && levelSeconds < 27) || (level >= 5 && levelSeconds >= 5 && levelSeconds < 25))
-            return Mode.Chase;
+            return GhostStates.Chase;
         if ((level >= 1 && level <= 4 && levelSeconds >= 27 && levelSeconds < 34) || (level >= 5 && levelSeconds >= 25 && levelSeconds < 30))
-            return Mode.Scatter;
+            return GhostStates.Scatter;
         if ((level >= 1 && level <= 4 && levelSeconds >= 34 && levelSeconds < 54) || (level >=5 && levelSeconds >= 30 && levelSeconds < 50))
-            return Mode.Chase;
+            return GhostStates.Chase;
         if ((level >= 1 && level <= 4 && levelSeconds >= 54 && levelSeconds < 59) || (level >= 5 && levelSeconds >= 50 && levelSeconds < 55))
-            return Mode.Scatter;
+            return GhostStates.Scatter;
         if ((level == 1 && levelSeconds >= 59 && levelSeconds < 79) || (level >= 2 && level <= 4 && levelSeconds >= 59 && levelSeconds < 1092) || (level >= 5 && levelSeconds >= 55 && levelSeconds < 1092))
-            return Mode.Chase;
+            return GhostStates.Chase;
         if ((level == 1 && levelSeconds >= 79 && levelSeconds < 84) || (level >= 2 && level <= 4 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f) || (level >=5 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f))
-            return Mode.Scatter;
+            return GhostStates.Scatter;
 
-        return Mode.Chase;
+        return GhostStates.Chase;
     }
 
     /// <summary>
@@ -520,22 +529,20 @@ public class GhostMove : BaseActor {
     /// <value><c>true</c> if frightened; otherwise, <c>false</c>.</value>
     public bool Frightened
     {
-        get {
-            return CurrentMode == Mode.Frightened;
-        }
+        get => CurrentMode == GhostStates.Frightened;
         set {
             if (value) {
                 if (!IsEaten) {
-                    CurrentMode = Mode.Frightened;
-                    SetAnimation (Animations.Frightened);
+                    CurrentMode = GhostStates.Frightened;
                     Direction = -Direction;
                 }
-            } else {
-                CurrentMode = GetMode ();
+            } else
+            {
+                CurrentMode = GetMode();
+                CurrentAnimation = GhostAnimations.AnimNormal;
                 IsBlinking = false;
                 CurrentBlink = 0;
                 GameController.GhostsEaten = 0;
-                SetAnimation (Animations.Normal);
             }
         }
     }
@@ -561,11 +568,11 @@ public class GhostMove : BaseActor {
     {        
         int totalBlinks = TableOfValues.GhostFrightenedFlashes (GameController.CurrentLevel);
         while (CurrentBlink <= totalBlinks && !IsEaten) {
-            SetAnimation (Animations.SemiFrightened);
+            _fsmAnimation.ChangeState(GhostAnimations.AnimSemiFrightened);
             yield return new WaitForSeconds (.25f);
             if (IsEaten)
                 continue;
-            SetAnimation (Animations.Frightened);
+            _fsmAnimation.ChangeState(GhostAnimations.AnimFrightened);
             yield return new WaitForSeconds (.25f);
             CurrentBlink++;
         }
@@ -597,7 +604,7 @@ public class GhostMove : BaseActor {
         }
 
         // Ghost is frightened
-        if (CurrentMode == Mode.Frightened) {
+        if (CurrentMode == GhostStates.Frightened) {
             Speed = TableOfValues.GhostFrightenedSpeed (GameController.CurrentLevel) * TableOfValues.Speed ();
             return;
         }
@@ -653,7 +660,7 @@ public class GhostMove : BaseActor {
     /// <returns>The exits.</returns>
     private List<Vector2> GetExits()
     {
-        var canGoUp = !(Maze.SpecialLocations().Contains (Tile) && (CurrentMode == Mode.Chase || CurrentMode == Mode.Scatter));
+        var canGoUp = !(Maze.SpecialLocations().Contains (Tile) && (CurrentMode == GhostStates.Chase || CurrentMode == GhostStates.Scatter));
         var exits = new List<Vector2> ();
 
         foreach (var dir in _directions) {
@@ -709,11 +716,10 @@ public class GhostMove : BaseActor {
     /// Initialize the ghost
     /// </summary>
     public void GhostInit()
-    {        
-        _fsmAnimation.ChangeState(GhostAnimations.AnimNormal);
-        _fsmState.ChangeState(GhostStates.Idle);
-        
-        CurrentMode = Mode.Scatter;
+    {
+        CurrentAnimation = GhostAnimations.AnimNormal;
+        CurrentMode = GhostStates.Scatter;
+
         IsEaten = false;
         IsBlinking = false;
         Destination = Vector2.zero;
@@ -769,9 +775,9 @@ public class GhostMove : BaseActor {
         }
 
         switch (CurrentMode) {
-        case Mode.Scatter:
+        case GhostStates.Scatter:
             return ProcessScatter ();
-        case Mode.Chase:
+        case GhostStates.Chase:
             switch (ThisGhost) {
             case Ghost.Blinky:
                 return BlinkyTarget ();
@@ -784,7 +790,7 @@ public class GhostMove : BaseActor {
             default:
                 return Vector2.zero;
             }
-        case Mode.Frightened:
+        case GhostStates.Frightened:
             return ProcessFrightened ();
         default:
             return Vector2.zero;

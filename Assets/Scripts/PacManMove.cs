@@ -89,7 +89,7 @@ public class PacManMove : BaseActor
     private void CheckForGhostCollision()
     {
         var ghost = GhostAtPacManTile ();
-        if (ghost != null && (ghost.CurrentMode == GhostMove.Mode.Chase || ghost.CurrentMode == GhostMove.Mode.Scatter)) {
+        if (ghost != null && (ghost.CurrentMode == GhostStates.Chase || ghost.CurrentMode == GhostStates.Scatter)) {
             StartCoroutine (ShowDeathAnimation ());
         }
     }

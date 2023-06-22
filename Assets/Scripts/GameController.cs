@@ -503,13 +503,13 @@ public class GameController : BaseController
     private List<GhostMove> GetFrightenedGhosts()
     {
         var frightened = new List<GhostMove> ();
-        if (BlinkyMover.CurrentMode == GhostMove.Mode.Frightened)
+        if (BlinkyMover.CurrentMode == GhostStates.Frightened)
             frightened.Add (BlinkyMover);
-        if (PinkyMover.CurrentMode == GhostMove.Mode.Frightened)
+        if (PinkyMover.CurrentMode == GhostStates.Frightened)
             frightened.Add (PinkyMover);
-        if (InkyMover.CurrentMode == GhostMove.Mode.Frightened)
+        if (InkyMover.CurrentMode == GhostStates.Frightened)
             frightened.Add (InkyMover);
-        if (ClydeMover.CurrentMode == GhostMove.Mode.Frightened)
+        if (ClydeMover.CurrentMode == GhostStates.Frightened)
             frightened.Add (ClydeMover);
 
         return frightened;
