@@ -1,106 +1,294 @@
 fileFormatVersion: 2
 guid: eb343d7eb70e145d7a262fa8a25d98ee
-timeCreated: 1522548407
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Ready
-    21300002: PacManDeath_0
-    21300004: PacManDeath_1
-    21300006: PacManDeath_2
-    21300008: PacManDeath_3
-    21300010: PacManDeath_4
-    21300012: PacManDeath_5
-    21300014: PacManDeath_6
-    21300016: PacManDeath_7
-    21300018: PacManDeath_8
-    21300020: PacManDeath_9
-    21300022: PacManDeath_10
-    21300024: GameOver
-    21300026: Ghost_200
-    21300028: Ghost_400
-    21300030: Ghost_800
-    21300032: Ghost_1600
-    21300034: PacManLeft_1
-    21300036: PacManLeft_0
-    21300038: PacManFull
-    21300040: PacManRight_1
-    21300042: PacManRight_0
-    21300044: PacManUp_1
-    21300046: PacManUp_0
-    21300048: PacManDown_1
-    21300050: PacManDown_0
-    21300052: Cherry
-    21300054: Strawberry
-    21300056: Grapes
-    21300058: Bell
-    21300060: GalaxianBoss
-    21300062: Key
-    21300064: Apple
-    21300066: Orange
-    21300068: BlinkyUp_0
-    21300070: BlinkyUp_1
-    21300072: BlinkyDown_0
-    21300074: BlinkyDown_1
-    21300076: BlinkyLeft_0
-    21300078: BlinkyLeft_1
-    21300080: BlinkyRight_0
-    21300082: BlinkyRight_1
-    21300084: InkyUp_0
-    21300086: InkyUp_1
-    21300088: InkyDown_0
-    21300090: InkyDown_1
-    21300092: InkyLeft_0
-    21300094: InkyLeft_1
-    21300096: InkyRight_0
-    21300098: InkyRight_1
-    21300100: PinkyUp_0
-    21300102: PinkyUp_1
-    21300104: PinkyDown_0
-    21300106: PinkyDown_1
-    21300108: PinkyLeft_0
-    21300110: PinkyLeft_1
-    21300112: PinkyRight_0
-    21300114: PinkyRight_1
-    21300116: ClydeUp_0
-    21300118: ClydeUp_1
-    21300120: ClydeDown_0
-    21300122: ClydeDown_1
-    21300124: ClydeLeft_0
-    21300126: ClydeLeft_1
-    21300128: ClydeRight_0
-    21300130: ClydeRight_1
-    21300132: Fruit_100
-    21300134: Fruit_5000
-    21300136: Fruit_300
-    21300138: Fruit_500
-    21300140: 1UP
-    21300142: 2UP
-    21300144: Fruit_700
-    21300146: Fruit_1000
-    21300148: Fruit_2000
-    21300150: Fruit_3000
-    21300152: DarkBlueGhost_0
-    21300154: DarkBlueGhost_1
-    21300156: LightBlueGhost_0
-    21300158: LightBlueGhost_1
-    21300160: Zero
-    21300162: One
-    21300164: Two
-    21300166: Three
-    21300168: Four
-    21300170: Five
-    21300172: Six
-    21300174: Seven
-    21300176: Eight
-    21300178: Nine
-    21300180: ExtraPac
-    21300182: Eyes_UP
-    21300184: Eyes_DOWN
-    21300186: Eyes_LEFT
-    21300188: Eyes_RIGHT
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Ready
+  - first:
+      213: 21300002
+    second: PacManDeath_0
+  - first:
+      213: 21300004
+    second: PacManDeath_1
+  - first:
+      213: 21300006
+    second: PacManDeath_2
+  - first:
+      213: 21300008
+    second: PacManDeath_3
+  - first:
+      213: 21300010
+    second: PacManDeath_4
+  - first:
+      213: 21300012
+    second: PacManDeath_5
+  - first:
+      213: 21300014
+    second: PacManDeath_6
+  - first:
+      213: 21300016
+    second: PacManDeath_7
+  - first:
+      213: 21300018
+    second: PacManDeath_8
+  - first:
+      213: 21300020
+    second: PacManDeath_9
+  - first:
+      213: 21300022
+    second: PacManDeath_10
+  - first:
+      213: 21300024
+    second: GameOver
+  - first:
+      213: 21300026
+    second: Ghost_200
+  - first:
+      213: 21300028
+    second: Ghost_400
+  - first:
+      213: 21300030
+    second: Ghost_800
+  - first:
+      213: 21300032
+    second: Ghost_1600
+  - first:
+      213: 21300034
+    second: PacManLeft_1
+  - first:
+      213: 21300036
+    second: PacManLeft_0
+  - first:
+      213: 21300038
+    second: PacManFull
+  - first:
+      213: 21300040
+    second: PacManRight_1
+  - first:
+      213: 21300042
+    second: PacManRight_0
+  - first:
+      213: 21300044
+    second: PacManUp_1
+  - first:
+      213: 21300046
+    second: PacManUp_0
+  - first:
+      213: 21300048
+    second: PacManDown_1
+  - first:
+      213: 21300050
+    second: PacManDown_0
+  - first:
+      213: 21300052
+    second: Cherry
+  - first:
+      213: 21300054
+    second: Strawberry
+  - first:
+      213: 21300056
+    second: Grapes
+  - first:
+      213: 21300058
+    second: Bell
+  - first:
+      213: 21300060
+    second: GalaxianBoss
+  - first:
+      213: 21300062
+    second: Key
+  - first:
+      213: 21300064
+    second: Apple
+  - first:
+      213: 21300066
+    second: Orange
+  - first:
+      213: 21300068
+    second: BlinkyUp_0
+  - first:
+      213: 21300070
+    second: BlinkyUp_1
+  - first:
+      213: 21300072
+    second: BlinkyDown_0
+  - first:
+      213: 21300074
+    second: BlinkyDown_1
+  - first:
+      213: 21300076
+    second: BlinkyLeft_0
+  - first:
+      213: 21300078
+    second: BlinkyLeft_1
+  - first:
+      213: 21300080
+    second: BlinkyRight_0
+  - first:
+      213: 21300082
+    second: BlinkyRight_1
+  - first:
+      213: 21300084
+    second: InkyUp_0
+  - first:
+      213: 21300086
+    second: InkyUp_1
+  - first:
+      213: 21300088
+    second: InkyDown_0
+  - first:
+      213: 21300090
+    second: InkyDown_1
+  - first:
+      213: 21300092
+    second: InkyLeft_0
+  - first:
+      213: 21300094
+    second: InkyLeft_1
+  - first:
+      213: 21300096
+    second: InkyRight_0
+  - first:
+      213: 21300098
+    second: InkyRight_1
+  - first:
+      213: 21300100
+    second: PinkyUp_0
+  - first:
+      213: 21300102
+    second: PinkyUp_1
+  - first:
+      213: 21300104
+    second: PinkyDown_0
+  - first:
+      213: 21300106
+    second: PinkyDown_1
+  - first:
+      213: 21300108
+    second: PinkyLeft_0
+  - first:
+      213: 21300110
+    second: PinkyLeft_1
+  - first:
+      213: 21300112
+    second: PinkyRight_0
+  - first:
+      213: 21300114
+    second: PinkyRight_1
+  - first:
+      213: 21300116
+    second: ClydeUp_0
+  - first:
+      213: 21300118
+    second: ClydeUp_1
+  - first:
+      213: 21300120
+    second: ClydeDown_0
+  - first:
+      213: 21300122
+    second: ClydeDown_1
+  - first:
+      213: 21300124
+    second: ClydeLeft_0
+  - first:
+      213: 21300126
+    second: ClydeLeft_1
+  - first:
+      213: 21300128
+    second: ClydeRight_0
+  - first:
+      213: 21300130
+    second: ClydeRight_1
+  - first:
+      213: 21300132
+    second: Fruit_100
+  - first:
+      213: 21300134
+    second: Fruit_5000
+  - first:
+      213: 21300136
+    second: Fruit_300
+  - first:
+      213: 21300138
+    second: Fruit_500
+  - first:
+      213: 21300140
+    second: 1UP
+  - first:
+      213: 21300142
+    second: 2UP
+  - first:
+      213: 21300144
+    second: Fruit_700
+  - first:
+      213: 21300146
+    second: Fruit_1000
+  - first:
+      213: 21300148
+    second: Fruit_2000
+  - first:
+      213: 21300150
+    second: Fruit_3000
+  - first:
+      213: 21300152
+    second: DarkBlueGhost_0
+  - first:
+      213: 21300154
+    second: DarkBlueGhost_1
+  - first:
+      213: 21300156
+    second: LightBlueGhost_0
+  - first:
+      213: 21300158
+    second: LightBlueGhost_1
+  - first:
+      213: 21300160
+    second: Zero
+  - first:
+      213: 21300162
+    second: One
+  - first:
+      213: 21300164
+    second: Two
+  - first:
+      213: 21300166
+    second: Three
+  - first:
+      213: 21300168
+    second: Four
+  - first:
+      213: 21300170
+    second: Five
+  - first:
+      213: 21300172
+    second: Six
+  - first:
+      213: 21300174
+    second: Seven
+  - first:
+      213: 21300176
+    second: Eight
+  - first:
+      213: 21300178
+    second: Nine
+  - first:
+      213: 21300180
+    second: ExtraPac
+  - first:
+      213: 21300182
+    second: Eyes_UP
+  - first:
+      213: 21300184
+    second: Eyes_DOWN
+  - first:
+      213: 21300186
+    second: Eyes_LEFT
+  - first:
+      213: 21300188
+    second: Eyes_RIGHT
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -117,7 +305,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -126,12 +319,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -148,11 +341,19 @@ TextureImporter:
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -161,8 +362,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -171,7 +375,35 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -189,6 +421,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_0
       rect:
@@ -203,6 +442,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_1
       rect:
@@ -217,6 +463,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_2
       rect:
@@ -231,6 +484,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_3
       rect:
@@ -245,6 +505,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_4
       rect:
@@ -259,6 +526,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_5
       rect:
@@ -273,6 +547,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_6
       rect:
@@ -287,6 +568,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_7
       rect:
@@ -301,6 +589,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_8
       rect:
@@ -315,6 +610,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_9
       rect:
@@ -329,6 +631,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDeath_10
       rect:
@@ -343,6 +652,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: GameOver
       rect:
@@ -357,6 +673,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Ghost_200
       rect:
@@ -371,6 +694,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Ghost_400
       rect:
@@ -385,6 +715,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Ghost_800
       rect:
@@ -399,6 +736,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Ghost_1600
       rect:
@@ -413,6 +757,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManLeft_1
       rect:
@@ -427,6 +778,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManLeft_0
       rect:
@@ -441,6 +799,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManFull
       rect:
@@ -455,6 +820,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManRight_1
       rect:
@@ -469,6 +841,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManRight_0
       rect:
@@ -483,6 +862,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManUp_1
       rect:
@@ -497,6 +883,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManUp_0
       rect:
@@ -511,6 +904,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDown_1
       rect:
@@ -525,6 +925,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PacManDown_0
       rect:
@@ -539,6 +946,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Cherry
       rect:
@@ -553,6 +967,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Strawberry
       rect:
@@ -567,6 +988,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Grapes
       rect:
@@ -581,6 +1009,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Bell
       rect:
@@ -595,6 +1030,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: GalaxianBoss
       rect:
@@ -609,6 +1051,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Key
       rect:
@@ -623,6 +1072,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Apple
       rect:
@@ -637,6 +1093,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Orange
       rect:
@@ -651,6 +1114,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyUp_0
       rect:
@@ -665,6 +1135,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyUp_1
       rect:
@@ -679,6 +1156,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyDown_0
       rect:
@@ -693,6 +1177,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyDown_1
       rect:
@@ -707,6 +1198,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyLeft_0
       rect:
@@ -721,6 +1219,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyLeft_1
       rect:
@@ -735,6 +1240,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyRight_0
       rect:
@@ -749,6 +1261,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: BlinkyRight_1
       rect:
@@ -763,6 +1282,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyUp_0
       rect:
@@ -777,6 +1303,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyUp_1
       rect:
@@ -791,6 +1324,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyDown_0
       rect:
@@ -805,6 +1345,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyDown_1
       rect:
@@ -819,6 +1366,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyLeft_0
       rect:
@@ -833,6 +1387,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyLeft_1
       rect:
@@ -847,6 +1408,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyRight_0
       rect:
@@ -861,6 +1429,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: InkyRight_1
       rect:
@@ -875,6 +1450,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyUp_0
       rect:
@@ -889,6 +1471,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyUp_1
       rect:
@@ -903,6 +1492,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyDown_0
       rect:
@@ -917,6 +1513,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyDown_1
       rect:
@@ -931,6 +1534,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyLeft_0
       rect:
@@ -945,6 +1555,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyLeft_1
       rect:
@@ -959,6 +1576,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyRight_0
       rect:
@@ -973,6 +1597,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PinkyRight_1
       rect:
@@ -987,6 +1618,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeUp_0
       rect:
@@ -1001,6 +1639,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeUp_1
       rect:
@@ -1015,6 +1660,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeDown_0
       rect:
@@ -1029,6 +1681,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeDown_1
       rect:
@@ -1043,6 +1702,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeLeft_0
       rect:
@@ -1057,6 +1723,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeLeft_1
       rect:
@@ -1071,6 +1744,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeRight_0
       rect:
@@ -1085,6 +1765,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ClydeRight_1
       rect:
@@ -1099,6 +1786,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_100
       rect:
@@ -1113,6 +1807,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_5000
       rect:
@@ -1127,6 +1828,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_300
       rect:
@@ -1141,6 +1849,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_500
       rect:
@@ -1155,6 +1870,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: 1UP
       rect:
@@ -1169,6 +1891,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: 2UP
       rect:
@@ -1183,6 +1912,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_700
       rect:
@@ -1197,6 +1933,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_1000
       rect:
@@ -1211,6 +1954,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_2000
       rect:
@@ -1225,6 +1975,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fruit_3000
       rect:
@@ -1239,6 +1996,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DarkBlueGhost_0
       rect:
@@ -1253,6 +2017,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DarkBlueGhost_1
       rect:
@@ -1267,6 +2038,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: LightBlueGhost_0
       rect:
@@ -1281,6 +2059,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: LightBlueGhost_1
       rect:
@@ -1295,6 +2080,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Zero
       rect:
@@ -1309,6 +2101,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: One
       rect:
@@ -1323,6 +2122,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2c305410000000000800000000000000
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Two
       rect:
@@ -1337,6 +2143,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4c305410000000000800000000000000
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Three
       rect:
@@ -1351,6 +2164,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6c305410000000000800000000000000
+      internalID: 21300166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Four
       rect:
@@ -1365,6 +2185,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8c305410000000000800000000000000
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Five
       rect:
@@ -1379,6 +2206,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ac305410000000000800000000000000
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Six
       rect:
@@ -1393,6 +2227,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cc305410000000000800000000000000
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Seven
       rect:
@@ -1407,6 +2248,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Eight
       rect:
@@ -1421,6 +2269,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Nine
       rect:
@@ -1435,6 +2290,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ExtraPac
       rect:
@@ -1449,6 +2311,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Eyes_UP
       rect:
@@ -1463,6 +2332,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Eyes_DOWN
       rect:
@@ -1477,6 +2353,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8d305410000000000800000000000000
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Eyes_LEFT
       rect:
@@ -1491,6 +2374,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Eyes_RIGHT
       rect:
@@ -1505,9 +2395,121 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cd305410000000000800000000000000
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
-  spritePackingTag: 
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      1UP: 21300140
+      2UP: 21300142
+      Apple: 21300064
+      Bell: 21300058
+      BlinkyDown_0: 21300072
+      BlinkyDown_1: 21300074
+      BlinkyLeft_0: 21300076
+      BlinkyLeft_1: 21300078
+      BlinkyRight_0: 21300080
+      BlinkyRight_1: 21300082
+      BlinkyUp_0: 21300068
+      BlinkyUp_1: 21300070
+      Cherry: 21300052
+      ClydeDown_0: 21300120
+      ClydeDown_1: 21300122
+      ClydeLeft_0: 21300124
+      ClydeLeft_1: 21300126
+      ClydeRight_0: 21300128
+      ClydeRight_1: 21300130
+      ClydeUp_0: 21300116
+      ClydeUp_1: 21300118
+      DarkBlueGhost_0: 21300152
+      DarkBlueGhost_1: 21300154
+      Eight: 21300176
+      ExtraPac: 21300180
+      Eyes_DOWN: 21300184
+      Eyes_LEFT: 21300186
+      Eyes_RIGHT: 21300188
+      Eyes_UP: 21300182
+      Five: 21300170
+      Four: 21300168
+      Fruit_100: 21300132
+      Fruit_1000: 21300146
+      Fruit_2000: 21300148
+      Fruit_300: 21300136
+      Fruit_3000: 21300150
+      Fruit_500: 21300138
+      Fruit_5000: 21300134
+      Fruit_700: 21300144
+      GalaxianBoss: 21300060
+      GameOver: 21300024
+      Ghost_1600: 21300032
+      Ghost_200: 21300026
+      Ghost_400: 21300028
+      Ghost_800: 21300030
+      Grapes: 21300056
+      InkyDown_0: 21300088
+      InkyDown_1: 21300090
+      InkyLeft_0: 21300092
+      InkyLeft_1: 21300094
+      InkyRight_0: 21300096
+      InkyRight_1: 21300098
+      InkyUp_0: 21300084
+      InkyUp_1: 21300086
+      Key: 21300062
+      LightBlueGhost_0: 21300156
+      LightBlueGhost_1: 21300158
+      Nine: 21300178
+      One: 21300162
+      Orange: 21300066
+      PacManDeath_0: 21300002
+      PacManDeath_1: 21300004
+      PacManDeath_10: 21300022
+      PacManDeath_2: 21300006
+      PacManDeath_3: 21300008
+      PacManDeath_4: 21300010
+      PacManDeath_5: 21300012
+      PacManDeath_6: 21300014
+      PacManDeath_7: 21300016
+      PacManDeath_8: 21300018
+      PacManDeath_9: 21300020
+      PacManDown_0: 21300050
+      PacManDown_1: 21300048
+      PacManFull: 21300038
+      PacManLeft_0: 21300036
+      PacManLeft_1: 21300034
+      PacManRight_0: 21300042
+      PacManRight_1: 21300040
+      PacManUp_0: 21300046
+      PacManUp_1: 21300044
+      PinkyDown_0: 21300104
+      PinkyDown_1: 21300106
+      PinkyLeft_0: 21300108
+      PinkyLeft_1: 21300110
+      PinkyRight_0: 21300112
+      PinkyRight_1: 21300114
+      PinkyUp_0: 21300100
+      PinkyUp_1: 21300102
+      Ready: 21300000
+      Seven: 21300174
+      Six: 21300172
+      Strawberry: 21300054
+      Three: 21300166
+      Two: 21300164
+      Zero: 21300160
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

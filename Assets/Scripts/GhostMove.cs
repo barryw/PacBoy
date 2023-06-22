@@ -1,10 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MonsterLove;
+using MonsterLove.Events;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum GhostStates
+{
+    Idle,
+    Chase,
+    Scatter,
+    Frightened,
+    Dead
+}
+
+public enum GhostAnimations
+{
+    AnimFrightened,
+    AnimSemiFrightened,
+    AnimEyes,
+    AnimNormal
+}
+
+public class GhostDriver
+{
+    public StateEvent FixedUpdate;
+}
+
 public class GhostMove : BaseActor {
+    StateMachine<GhostStates, GhostDriver> _fsmState;
+    StateMachine<GhostAnimations, GhostDriver> _fsmAnimation;
+    
     public GameObject PacMan;
 
     public GameObject Ghost200;
@@ -66,10 +93,18 @@ public class GhostMove : BaseActor {
 
     #region Start
 
+    void Awake()
+    {
+        _fsmState = new StateMachine<GhostStates, GhostDriver>(this);
+        _fsmState.ChangeState(GhostStates.Idle);
+        _fsmAnimation = new StateMachine<GhostAnimations, GhostDriver>(this);
+        _fsmAnimation.ChangeState(GhostAnimations.AnimNormal);
+    }
+    
     private new void Start()
     {
         base.Start ();
-
+        
         _directions.Add (Vector2.up);
         _directions.Add (Vector2.down);
         _directions.Add (Vector2.left);
@@ -90,10 +125,51 @@ public class GhostMove : BaseActor {
     }
 
     #endregion
-        
-    #region FixedUpdate
 
-    private void FixedUpdate () {
+    #region Ghost States
+    
+    void Chase_Enter()
+    {
+        
+    }
+
+    void Chase_FixedUpdates()
+    {
+        DoUpdates();
+    }
+
+    void Frightened_Enter()
+    {
+        _fsmAnimation.ChangeState(GhostAnimations.AnimFrightened);
+    }
+
+    void Frightened_FixedUpdate()
+    {
+        DoUpdates();
+    }
+
+    void Scatter_Enter()
+    {
+        
+    }
+
+    void Scatter_FixedUpdate()
+    {
+        DoUpdates();
+    }
+
+    void Dead_Enter()
+    {
+        Audio.PlayEatGhost();
+    }
+
+    void Idle_FixedUpdate()
+    {
+        DoUpdates();
+    }
+
+    private void DoUpdates()
+    {
         if (GameController.IsReady) {
             if (Mathf.Approximately(_playStartTime, 0.0f))
                 _playStartTime = Time.fixedTime;
@@ -111,15 +187,47 @@ public class GhostMove : BaseActor {
         } else {
             Animation = false;
         }
-	}
+    }
+    
+    #endregion
+    
+    #region Ghost Animation States
+    
+    void AnimFrightened_Enter()
+    {
+        SetAnimation(Animations.Frightened);
+    }
+    
+    void AnimSemiFrightened_Enter()
+    {
+        SetAnimation(Animations.SemiFrightened);
+    }
+    
+    void AnimEyes_Enter()
+    {
+        SetAnimation(Animations.Eyes);
+    }
+    
+    void AnimNormal_Enter()
+    {
+        SetAnimation(Animations.Normal);
+    }
+    
+    #endregion
+    
+    #region FixedUpdate
+
+    private void FixedUpdate () {
+        _fsmState.Driver.FixedUpdate.Invoke();
+        _fsmAnimation.Driver.FixedUpdate.Invoke();
+    }
 
     #endregion
 
     private void CheckCollision()
     {
         if (_pacManMover.Tile != Tile || CurrentMode != Mode.Frightened || IsEaten) return;
-        Debug.Log (ThisGhost + " has been eaten");
-        StartCoroutine (EatGhost ());
+        _fsmState.ChangeState(GhostStates.Dead);
     }
 
     private IEnumerator EatGhost()
@@ -602,7 +710,9 @@ public class GhostMove : BaseActor {
     /// </summary>
     public void GhostInit()
     {        
-        SetAnimation(Animations.Normal);
+        _fsmAnimation.ChangeState(GhostAnimations.AnimNormal);
+        _fsmState.ChangeState(GhostStates.Idle);
+        
         CurrentMode = Mode.Scatter;
         IsEaten = false;
         IsBlinking = false;
