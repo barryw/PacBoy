@@ -607,25 +607,37 @@ public class GhostMove : BaseActor {
     /// <returns>The mode.</returns>
     private GhostStates GetMode()
     {
-        int level = GameController.CurrentLevel;
-        float levelSeconds = LevelTime ();
+        var level = GameController.CurrentLevel;
+        var levelSeconds = LevelTime ();
 
-        if ((level >= 1 && level <= 4 && levelSeconds <= 7) || (level >= 5 && levelSeconds <= 5))
-            return GhostStates.Scatter;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 7 && levelSeconds < 27) || (level >= 5 && levelSeconds >= 5 && levelSeconds < 25))
-            return GhostStates.Chase;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 27 && levelSeconds < 34) || (level >= 5 && levelSeconds >= 25 && levelSeconds < 30))
-            return GhostStates.Scatter;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 34 && levelSeconds < 54) || (level >=5 && levelSeconds >= 30 && levelSeconds < 50))
-            return GhostStates.Chase;
-        if ((level >= 1 && level <= 4 && levelSeconds >= 54 && levelSeconds < 59) || (level >= 5 && levelSeconds >= 50 && levelSeconds < 55))
-            return GhostStates.Scatter;
-        if ((level == 1 && levelSeconds >= 59 && levelSeconds < 79) || (level >= 2 && level <= 4 && levelSeconds >= 59 && levelSeconds < 1092) || (level >= 5 && levelSeconds >= 55 && levelSeconds < 1092))
-            return GhostStates.Chase;
-        if ((level == 1 && levelSeconds >= 79 && levelSeconds < 84) || (level >= 2 && level <= 4 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f) || (level >=5 && levelSeconds >= 1092 && levelSeconds < 1092.01666666f))
-            return GhostStates.Scatter;
-
-        return GhostStates.Chase;
+        switch (level)
+        {
+            case >= 1 and <= 4 when levelSeconds <= 7:
+            case >= 5 when levelSeconds <= 5:
+                return GhostStates.Scatter;
+            case >= 1 and <= 4 when levelSeconds is >= 7 and < 27:
+            case >= 5 when levelSeconds is >= 5 and < 25:
+                return GhostStates.Chase;
+            case >= 1 and <= 4 when levelSeconds is >= 27 and < 34:
+            case >= 5 when levelSeconds is >= 25 and < 30:
+                return GhostStates.Scatter;
+            case >= 1 and <= 4 when levelSeconds is >= 34 and < 54:
+            case >= 5 when levelSeconds is >= 30 and < 50:
+                return GhostStates.Chase;
+            case >= 1 and <= 4 when levelSeconds is >= 54 and < 59:
+            case >= 5 when levelSeconds is >= 50 and < 55:
+                return GhostStates.Scatter;
+            case 1 when levelSeconds is >= 59 and < 79:
+            case >= 2 and <= 4 when levelSeconds is >= 59 and < 1092:
+            case >= 5 when levelSeconds is >= 55 and < 1092:
+                return GhostStates.Chase;
+            case 1 when levelSeconds is >= 79 and < 84:
+            case >= 2 and <= 4 when levelSeconds is >= 1092 and < 1092.01666666f:
+            case >= 5 when levelSeconds is >= 1092 and < 1092.01666666f:
+                return GhostStates.Scatter;
+            default:
+                return GhostStates.Chase;
+        }
     }
 
     /// <summary>
