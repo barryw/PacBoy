@@ -26,9 +26,7 @@ public class BaseActor : MonoBehaviour
     /// <value>The location.</value>
     public Vector2 Location
     {
-        set {
-            GetComponent<Rigidbody2D> ().transform.position = value;
-        }
+        set => GetComponent<Rigidbody2D> ().transform.position = value;
     }
 
     /// <summary>

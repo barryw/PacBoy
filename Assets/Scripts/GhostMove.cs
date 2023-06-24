@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
+using JetBrains.Annotations;
 using MonsterLove;
 using MonsterLove.Events;
 using UnityEngine;
@@ -8,7 +11,9 @@ using Random = UnityEngine.Random;
 
 public enum GhostStates
 {
-    Idle,
+    InitialPosition,
+    InGhostHouse,
+    LeavingGhostHouse,
     Chase,
     Scatter,
     Frightened,
@@ -33,7 +38,6 @@ public class GhostMove : BaseActor {
     StateMachine<GhostAnimations> _fsmAnimation;
     
     public GameObject PacMan;
-
     public GameObject Ghost200;
     public GameObject Ghost400;
     public GameObject Ghost800;
@@ -60,14 +64,11 @@ public class GhostMove : BaseActor {
     private PacManMove _pacManMover;
 
     private bool _inCruiseElroy;
-
-    private bool _inGhostHouse;
-    private bool _leavingGhostHouse;
+    
     private int _dotCounter;
     private int _dotsToLeave;
     private bool _isPreferred;
-
-    public bool IsEaten;
+    
     public bool IsBlinking;
     public int CurrentBlink;
 
@@ -75,7 +76,7 @@ public class GhostMove : BaseActor {
     private readonly Vector2 _home = new Vector2 (14, 22);
     private Vector2 _ghostHome = Vector2.zero;
 
-    private bool IsEatable => _pacManMover.Tile == Tile && CurrentMode == GhostStates.Frightened && !IsEaten;
+    private bool IsEatable => _pacManMover.Tile == Tile && CurrentMode == GhostStates.Frightened;
 
     public GhostStates CurrentMode
     {
@@ -89,16 +90,31 @@ public class GhostMove : BaseActor {
         set => _fsmAnimation.ChangeState(value);
     }
 
+    private Color GhostColor
+    {
+        get
+        {
+            return ThisGhost switch
+            {
+                Ghost.Blinky => _blinkyColor,
+                Ghost.Pinky => _pinkyColor,
+                Ghost.Inky => _inkyColor,
+                Ghost.Clyde => _clydeColor,
+                _ => Color.white
+            };
+        }
+    }
+
     #region Start
 
-    void Awake()
+    private void Awake()
     {
         Anim = GetComponent<Animator> ();
         
         _fsmState = new StateMachine<GhostStates, GhostDriver>(this);
         _fsmAnimation = new StateMachine<GhostAnimations>(this);
         
-        CurrentMode = GhostStates.Idle;
+        CurrentMode = GhostStates.InitialPosition;
         CurrentAnimation = GhostAnimations.AnimNormal;
     }
     
@@ -114,11 +130,9 @@ public class GhostMove : BaseActor {
         // Start off moving left
         SetDestination (Vector2.left);
         Direction = Vector2.left;
-        Animation = true;
-        
+
         _pacManMover = PacMan.GetComponent<PacManMove> ();
         if (ThisGhost == Ghost.Inky) {
-            Debug.Log ("Linking Blinky's mover to Inky's");
             var blinky = GameObject.FindGameObjectWithTag ("Blinky");
             _blinkyMover = blinky.GetComponent<GhostMove> ();
         }
@@ -129,14 +143,154 @@ public class GhostMove : BaseActor {
 
     #region Ghost States
     
+    #region Initial Position
+
+    [UsedImplicitly]
+    void InitialPosition_Enter()
+    {
+        Animation = false;
+        IsBlinking = false;
+        Destination = Vector2.zero;
+        _playStartTime = 0.0f;
+        _inCruiseElroy = false;
+        CurrentAnimation = GhostAnimations.AnimNormal;
+
+        switch (ThisGhost) {
+            case Ghost.Blinky:
+                Location = Maze.BlinkyStartLocation;
+                Direction = Maze.BlinkyStartDirection;
+                Destination = TileCenter + Vector2.left;
+                CurrentMode = GhostStates.Scatter;
+                _scatterTarget = Maze.BlinkyScatterTarget;
+                _ghostHome = Maze.Ghost2Home;
+                break;
+            case Ghost.Pinky:
+                Location = Maze.PinkyStartLocation;
+                Direction = Maze.PinkyStartDirection;
+                CurrentMode = GhostStates.InGhostHouse;
+                _scatterTarget = Maze.PinkyScatterTarget;
+                _ghostHome = Maze.Ghost2Home;
+                break;
+            case Ghost.Inky:
+                Location = Maze.InkyStartLocation;
+                Direction = Maze.InkyStartDirection;
+                CurrentMode = GhostStates.InGhostHouse;
+                _scatterTarget = Maze.InkyScatterTarget;
+                _ghostHome = Maze.Ghost1Home;
+                break;
+            case Ghost.Clyde:
+                Location = Maze.ClydeStartLocation;
+                Direction = Maze.ClydeStartDirection;
+                CurrentMode = GhostStates.InGhostHouse;
+                _scatterTarget = Maze.ClydeScatterTarget;
+                _ghostHome = Maze.Ghost3Home;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    [UsedImplicitly]
+    private void InitialPosition_FixedUpdate()
+    {
+        DoUpdates();
+    }
+    
+    #endregion
+    
+    #region In Ghost House
+
+    [UsedImplicitly]
+    private void InGhostHouse_Enter()
+    {
+        Animation = false;
+    }
+
+    [UsedImplicitly]
+    private void InGhostHouse_FixedUpdate()
+    {
+        DoUpdates();
+        
+        if (transform.position.y < 19 && Direction == Vector2.up) {
+            Destination = new Vector2 (transform.position.x, 19);
+            Direction = Vector2.up;
+        } else {
+            Direction = Vector2.down;
+        }
+        if (transform.position.y > 18 && Direction == Vector2.down) {
+            Destination = new Vector2 (transform.position.x, 18);
+            Direction = Vector2.down;
+        } else {
+            Direction = Vector2.up;
+        }
+    }
+    
+    #endregion
+    
+    #region Leaving Ghost House
+    
+    [UsedImplicitly]
+    private void LeavingGhostHouse_Enter()
+    {
+        CurrentAnimation = GhostAnimations.AnimNormal;
+        Destination = _home;
+    }
+    
+    [UsedImplicitly]
+    private void LeavingGhostHouse_FixedUpdate()
+    {
+        DoUpdates();
+        
+        // Wait until the ghost hits the top of the ghost house
+        if (transform.position.y < 19) {
+            Destination = new Vector2 (transform.position.x, 19);
+            Direction = Vector2.up;
+        }
+
+        // If we're inky and clyde, we need to move to the center of the ghost house before exiting
+        // Blinky and pinky can just exit
+        if (!Mathf.Approximately(transform.position.x, 14) && Mathf.Approximately(transform.position.y, 19))
+        {
+            Destination = Maze.Ghost2Home;
+            switch (ThisGhost)
+            {
+                case Ghost.Inky:
+                    Direction = Vector2.right;
+                    break;
+                case Ghost.Clyde:
+                    Direction = Vector2.left;
+                    break;
+            }
+        }
+
+        // Once in the center, set their target to the ghost house door
+        if ((Vector2)transform.position == Maze.Ghost2Home)
+        {
+            Destination = Maze.BlinkyStartLocation;
+            Direction = Vector2.up;
+        }
+        
+        // If they haven't reached the door yet, just keep moving
+        if ((Vector2) transform.position != Maze.BlinkyStartLocation) return;
+        
+        // Once outside, set the mode and direction
+        CurrentMode = GetMode();
+        SetDestination (Vector2.left);
+        Direction = Vector2.left;
+    }
+    
+    #endregion
+    
     #region Chase
     
+    [UsedImplicitly]
     void Chase_Enter()
     {
         CurrentAnimation = GhostAnimations.AnimNormal;
     }
 
-    void Chase_FixedUpdates()
+    [UsedImplicitly]
+    void Chase_FixedUpdate()
     {
         DoUpdates();
     }
@@ -145,12 +299,14 @@ public class GhostMove : BaseActor {
 
     #region Frightened
     
-    void Frightened_Enter()
+    [UsedImplicitly]
+    private void Frightened_Enter()
     {
-        _fsmAnimation.ChangeState(GhostAnimations.AnimFrightened);
+        CurrentAnimation = GhostAnimations.AnimFrightened;
     }
 
-    void Frightened_FixedUpdate()
+    [UsedImplicitly]
+    private void Frightened_FixedUpdate()
     {
         DoUpdates();
     }
@@ -159,12 +315,14 @@ public class GhostMove : BaseActor {
 
     #region Scatter
     
-    void Scatter_Enter()
+    [UsedImplicitly]
+    private void Scatter_Enter()
     {
         CurrentAnimation = GhostAnimations.AnimNormal;
     }
 
-    void Scatter_FixedUpdate()
+    [UsedImplicitly]
+    private void Scatter_FixedUpdate()
     {
         DoUpdates();    
     }
@@ -173,18 +331,18 @@ public class GhostMove : BaseActor {
     
     #region Dead
     
-    IEnumerator Dead_Enter()
+    [UsedImplicitly]
+    private IEnumerator Dead_Enter()
     {
         Audio.PlayEatGhost();
 
-        Vector2 position = transform.position;
-
+        var position = transform.position;
+        
         _pacManMover.Hidden = true;
         Hidden = true;
-        IsEaten = true;
         IsBlinking = false;
 
-        GameObject points = null;
+        GameObject points;
         switch (GameController.GhostsEaten) {
             case 0:
                 points = Instantiate (Ghost200);
@@ -202,6 +360,8 @@ public class GhostMove : BaseActor {
                 points = Instantiate (Ghost1600);
                 GameController.AddPoints (GameController.PointSource.FourthGhost);
                 break;
+            default:
+                throw new ArgumentException();
         }
 
         GameController.GhostsEaten++;
@@ -229,7 +389,8 @@ public class GhostMove : BaseActor {
         CurrentAnimation = GhostAnimations.AnimEyes;
     }
 
-    void Dead_FixedUpdate()
+    [UsedImplicitly]
+    private void Dead_FixedUpdate()
     {
         DoUpdates();
     }
@@ -238,7 +399,8 @@ public class GhostMove : BaseActor {
 
     #region Idle
     
-    void Idle_FixedUpdate()
+    [UsedImplicitly]
+    private void Idle_FixedUpdate()
     {
         DoUpdates();
     }
@@ -247,55 +409,59 @@ public class GhostMove : BaseActor {
     
     private void DoUpdates()
     {
-        if (GameController.IsReady) {
-            if (Mathf.Approximately(_playStartTime, 0.0f))
-                _playStartTime = Time.fixedTime;
+        DebugAids.ShowTarget(this, Target(), GhostColor);
+        DebugAids.ShowGrid();
+
+        if (!GameController.IsReady) return;
+        
+        if (Mathf.Approximately(_playStartTime, 0.0f))
+            _playStartTime = Time.fixedTime;
             
-            SetMode ();
-            Animation = true;
-            SetGhostSpeed ();
-            Animate ();
-            SetPreferredGhost ();
-            Move ();
-            CheckCollision ();
-            PutGhostBackInHouse ();
-            LeaveGhostHouse ();
-            NavigateGhost ();
-        } else {
-            Animation = false;
-        }
+        SetMode ();
+        SetGhostSpeed ();
+        Animate ();
+        SetPreferredGhost ();
+        Move ();
+        CheckCollision ();
+        PutGhostBackInHouse ();
+        GetGhostDestination ();
+        GetGhostOutOfGhostHouse ();
     }
     
     #endregion
     
     #region Ghost Animation States
     
-    void AnimFrightened_Enter()
+    [UsedImplicitly]
+    private void AnimFrightened_Enter()
     {
-        Animator.SetBool ("Frightened", true);
-        Animator.SetBool ("SemiFrightened", false);
-        Animator.SetBool ("Eaten", false);
+        Animator.SetBool (Constants.SEMI_FRIGTHENED, false);
+        Animator.SetBool (Constants.FRIGHTENED, true);
+        Animator.SetBool (Constants.EATEN, false);
     }
-    
-    void AnimSemiFrightened_Enter()
+
+    [UsedImplicitly]
+    private void AnimSemiFrightened_Enter()
     {
-        Animator.SetBool ("SemiFrightened", true);
-        Animator.SetBool ("Frightened", false);
-        Animator.SetBool ("Eaten", false);
+        Animator.SetBool (Constants.SEMI_FRIGTHENED, true);
+        Animator.SetBool (Constants.FRIGHTENED, false);
+        Animator.SetBool (Constants.EATEN, false);
     }
-    
-    void AnimEyes_Enter()
+
+    [UsedImplicitly]
+    private void AnimEyes_Enter()
     {
-        Animator.SetBool ("SemiFrightened", false);
-        Animator.SetBool ("Frightened", false);
-        Animator.SetBool ("Eaten", true);
+        Animator.SetBool (Constants.SEMI_FRIGTHENED, false);
+        Animator.SetBool (Constants.FRIGHTENED, false);
+        Animator.SetBool (Constants.EATEN, true);
     }
-    
-    void AnimNormal_Enter()
+
+    [UsedImplicitly]
+    private void AnimNormal_Enter()
     {
-        Animator.SetBool ("SemiFrightened", false);
-        Animator.SetBool ("Frightened", false);
-        Animator.SetBool ("Eaten", false);
+        Animator.SetBool (Constants.SEMI_FRIGTHENED, false);
+        Animator.SetBool (Constants.FRIGHTENED, false);
+        Animator.SetBool (Constants.EATEN, false);
     }
     
     #endregion
@@ -333,18 +499,13 @@ public class GhostMove : BaseActor {
         {
             case 1:
             {
-                switch (ThisGhost)
+                _dotsToLeave = ThisGhost switch
                 {
-                    case Ghost.Pinky:
-                        _dotsToLeave = 0;
-                        break;
-                    case Ghost.Inky:
-                        _dotsToLeave = 30;
-                        break;
-                    case Ghost.Clyde:
-                        _dotsToLeave = 60;
-                        break;
-                }
+                    Ghost.Pinky => 0,
+                    Ghost.Inky => 30,
+                    Ghost.Clyde => 60,
+                    _ => _dotsToLeave
+                };
 
                 break;
             }
@@ -359,6 +520,10 @@ public class GhostMove : BaseActor {
                     case Ghost.Clyde:
                         _dotsToLeave = 50;
                         break;
+                    case Ghost.Blinky:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
 
                 break;
@@ -367,66 +532,32 @@ public class GhostMove : BaseActor {
     }
 
     /// <summary>
+    /// Determine if the ghost should leave the ghost house. If so, set the mode to LeavingGhostHouse
+    /// </summary>
+    private void GetGhostOutOfGhostHouse()
+    {
+        if (CurrentMode != GhostStates.InGhostHouse || GameController.SmallDotsEaten < _dotsToLeave) return;
+        CurrentMode = GhostStates.LeavingGhostHouse;
+    }
+    
+    /// <summary>
     /// Once our eyes hit the home location, put them back in the ghost house and reincarnate the ghost
     /// </summary>
     private void PutGhostBackInHouse()
     {
-        if (IsEaten && Tile == _home){
+        if (CurrentMode != GhostStates.Dead) return;
+        
+        if (Tile == _home){
             Destination = _ghostHome;
         }
-
-        if (!IsEaten || Tile != _ghostHome) return;
+        
+        if (CurrentMode != GhostStates.Dead || Tile != _ghostHome) return;
         
         Audio.GhostEyesPlaying = false;
         Audio.BlueGhostsPlaying = true;
-        CurrentAnimation = GhostAnimations.AnimNormal;
         _dotsToLeave = 0;
         _dotCounter = 0;
-        _inGhostHouse = true;
-        IsEaten = false;
-        CurrentMode = GetMode();
-    }
-
-    /// <summary>
-    /// Get the ghost out of the house
-    /// </summary>
-    private void LeaveGhostHouse()
-    {
-        //if ((DotCounter >= DotsToLeave && InGhostHouse) || (InGhostHouse && IsPreferred && GameController.TimeSinceLastDot >= 4.0f)) {
-        if (_dotCounter < _dotsToLeave || !_inGhostHouse) return;
-        _leavingGhostHouse = true;
-
-        // Wait until the ghost hits the top of the ghost house
-        if (transform.position.y < 19) {
-            Destination = new Vector2 (transform.position.x, 19);
-            Direction = Vector2.up;
-        }
-
-        if (!Mathf.Approximately(transform.position.x, 14) && Mathf.Approximately(transform.position.y, 19))
-        {
-            Destination = Maze.Ghost2Home;
-            switch (ThisGhost)
-            {
-                case Ghost.Inky:
-                    Direction = Vector2.right;
-                    break;
-                case Ghost.Clyde:
-                    Direction = Vector2.left;
-                    break;
-            }
-        }
-
-        if ((Vector2)transform.position == Maze.Ghost2Home)
-        {
-            Destination = Maze.BlinkyStartLocation;
-            Direction = Vector2.up;
-        }
-
-        if ((Vector2) transform.position != Maze.BlinkyStartLocation) return;
-        
-        _inGhostHouse = false;
-        SetDestination (Vector2.left);
-        Direction = Vector2.left;
+        CurrentMode = GhostStates.LeavingGhostHouse;
     }
 
     /// <summary>
@@ -434,7 +565,9 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void SetPreferredGhost()
     {
-        _isPreferred = (ThisGhost == Ghost.Pinky && _inGhostHouse) || (ThisGhost == Ghost.Inky && _inGhostHouse) || (ThisGhost == Ghost.Clyde && _inGhostHouse);
+        _isPreferred = (ThisGhost == Ghost.Pinky && CurrentMode == GhostStates.InGhostHouse) 
+                       || (ThisGhost == Ghost.Inky && CurrentMode == GhostStates.InGhostHouse) 
+                       || (ThisGhost == Ghost.Clyde && CurrentMode == GhostStates.InGhostHouse);
     }
 
     /// <summary>
@@ -446,28 +579,6 @@ public class GhostMove : BaseActor {
             _dotCounter++;
     }
 
-    /// <summary>
-    /// Bounce the ghost around in the ghost house
-    /// </summary>
-    private void BounceInGhostHouse()
-    {
-        if (!_inGhostHouse || _leavingGhostHouse)
-            return;
-
-        if (transform.position.y < 19 && Direction == Vector2.up) {
-            Destination = new Vector2 (transform.position.x, 19);
-            Direction = Vector2.up;
-        } else {
-            Direction = Vector2.down;
-        }
-        if (transform.position.y > 18 && Direction == Vector2.down) {
-            Destination = new Vector2 (transform.position.x, 18);
-            Direction = Vector2.down;
-        } else {
-            Direction = Vector2.up;
-        }
-    }
-
     #endregion
 
     #region Ghost Mode
@@ -477,18 +588,12 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void SetMode()
     {
-        if (IsEaten)
-        {
-            CurrentMode = GhostStates.Dead;
-            return;
-        }
-            
-        if (CurrentMode == GhostStates.Frightened) return;
+        if (CurrentMode is GhostStates.Frightened or GhostStates.Dead or GhostStates.InGhostHouse or GhostStates.LeavingGhostHouse) return;
         
         var mode = GetMode ();
         
-        // If the new mode is the same as the current mode, or the ghost is in the house, return
-        if (mode == CurrentMode || _inGhostHouse) return;
+        // If the new mode is the same as the current mode, just return
+        if (mode == CurrentMode) return;
         
         // Changing the mode reverses the direction of the ghost
         Direction = -Direction;
@@ -532,7 +637,7 @@ public class GhostMove : BaseActor {
         get => CurrentMode == GhostStates.Frightened;
         set {
             if (value) {
-                if (!IsEaten) {
+                if (CurrentMode != GhostStates.Dead) {
                     CurrentMode = GhostStates.Frightened;
                     Direction = -Direction;
                 }
@@ -552,7 +657,7 @@ public class GhostMove : BaseActor {
     /// </summary>
     public void DoBlinkGhost()
     {
-        if (IsEaten)
+        if (CurrentMode == GhostStates.Dead)
             return;
         
         IsBlinking = true;
@@ -564,20 +669,20 @@ public class GhostMove : BaseActor {
     /// <summary>
     /// If the ghost is frightened, it will start to blink after a certain number of seconds.
     /// </summary>
-    public IEnumerator BlinkGhost()
+    private IEnumerator BlinkGhost()
     {        
         int totalBlinks = TableOfValues.GhostFrightenedFlashes (GameController.CurrentLevel);
-        while (CurrentBlink <= totalBlinks && !IsEaten) {
+        while (CurrentBlink <= totalBlinks && CurrentMode != GhostStates.Dead) {
             _fsmAnimation.ChangeState(GhostAnimations.AnimSemiFrightened);
             yield return new WaitForSeconds (.25f);
-            if (IsEaten)
+            if (CurrentMode == GhostStates.Dead)
                 continue;
             _fsmAnimation.ChangeState(GhostAnimations.AnimFrightened);
             yield return new WaitForSeconds (.25f);
             CurrentBlink++;
         }
 
-        if(!IsEaten)
+        if(CurrentMode != GhostStates.Dead)
             Frightened = false;
     }
 
@@ -591,7 +696,7 @@ public class GhostMove : BaseActor {
     private void SetGhostSpeed()
     {
         // Ghost is eaten and is currently a set of eyes on their way back to the ghost house
-        if (IsEaten) {
+        if (CurrentMode == GhostStates.Dead) {
             Speed = TableOfValues.Speed () * 2.0f;
             return;
         }
@@ -610,7 +715,7 @@ public class GhostMove : BaseActor {
         }
 
         // Ghost is in the ghost house. Cut the speed in half
-        if (_inGhostHouse) {
+        if (CurrentMode == GhostStates.InGhostHouse) {
             Speed = TableOfValues.Speed () * 0.5f;
             return;
         }
@@ -660,38 +765,28 @@ public class GhostMove : BaseActor {
     /// <returns>The exits.</returns>
     private List<Vector2> GetExits()
     {
-        var canGoUp = !(Maze.SpecialLocations().Contains (Tile) && (CurrentMode == GhostStates.Chase || CurrentMode == GhostStates.Scatter));
-        var exits = new List<Vector2> ();
+        var canGoUp = !(Maze.SpecialLocations().Contains (Tile) && CurrentMode is GhostStates.Chase or GhostStates.Scatter);
 
-        foreach (var dir in _directions) {
-            if (dir == Vector2.up && !canGoUp)
-                continue;
-            if (dir == -Direction) continue;
-            var dest = Tile + dir;
-            if (Maze.ValidLocations ().Contains (dest)) {
-                exits.Add (dir);
-            }
-        }
-
-        return exits;
+        return (from dir in _directions 
+            where dir != Vector2.up || canGoUp 
+            where dir != -Direction 
+            let dest = Tile + dir 
+            where Maze.ValidLocations().Contains(dest) 
+            select dir)
+            .ToList();
     }
 
     /// <summary>
     /// Figure out where the ghost should be going
     /// </summary>
-    private void NavigateGhost()
+    private void GetGhostDestination()
     {
         // This is for ghosts that have left the ghost house
-        if (!_inGhostHouse) {
-            ShowTarget ();
-            // The ghost has reached his/her destination. Find the next destination
-            if (TileCenter != Destination) return;
-            // Based on the ghost's location, figure out which directions he can go based on our mode.
-            var exits = GetExits ();
-            SetDestination(exits.Count == 1 ? exits[0] : GetDirection(exits));
-        } else {
-            BounceInGhostHouse ();
-        }
+        if (CurrentMode == GhostStates.InGhostHouse || TileCenter != Destination) return;
+        
+        // Based on the ghost's location, figure out which directions he can go based on our mode.
+        var exits = GetExits ();
+        SetDestination(exits.Count == 1 ? exits[0] : GetDirection(exits));
     }
 
     /// <summary>
@@ -712,54 +807,6 @@ public class GhostMove : BaseActor {
         }
     }
 
-    /// <summary>
-    /// Initialize the ghost
-    /// </summary>
-    public void GhostInit()
-    {
-        CurrentAnimation = GhostAnimations.AnimNormal;
-        CurrentMode = GhostStates.Scatter;
-
-        IsEaten = false;
-        IsBlinking = false;
-        Destination = Vector2.zero;
-        _playStartTime = 0.0f;
-        _inCruiseElroy = false;
-        _leavingGhostHouse = false;
-
-        switch (ThisGhost) {
-        case Ghost.Blinky:
-            Location = Maze.BlinkyStartLocation;
-            Direction = Maze.BlinkyStartDirection;
-            Destination = TileCenter + Vector2.left;
-            _inGhostHouse = false;
-            _scatterTarget = Maze.BlinkyScatterTarget;
-            _ghostHome = Maze.Ghost2Home;
-            break;
-        case Ghost.Pinky:
-            Location = Maze.PinkyStartLocation;
-            Direction = Maze.PinkyStartDirection;
-            _inGhostHouse = true;
-            _scatterTarget = Maze.PinkyScatterTarget;
-            _ghostHome = Maze.Ghost2Home;
-            break;
-        case Ghost.Inky:
-            Location = Maze.InkyStartLocation;
-            Direction = Maze.InkyStartDirection;
-            _inGhostHouse = true;
-            _scatterTarget = Maze.InkyScatterTarget;
-            _ghostHome = Maze.Ghost1Home;
-            break;
-        case Ghost.Clyde:
-            Location = Maze.ClydeStartLocation;
-            Direction = Maze.ClydeStartDirection;
-            _inGhostHouse = true;
-            _scatterTarget = Maze.ClydeScatterTarget;
-            _ghostHome = Maze.Ghost3Home;
-            break;
-        }
-    }
-
     #endregion
 
     #region Ghost Targeting
@@ -770,7 +817,7 @@ public class GhostMove : BaseActor {
     private Vector2 Target()
     {
         // Quick out if the ghost has been eaten
-        if (IsEaten) {
+        if (CurrentMode == GhostStates.Dead) {
             return _home;
         }
 
@@ -817,15 +864,12 @@ public class GhostMove : BaseActor {
     private Vector2 ProcessFrightened()
     {
         var exits = GetExits ();
-        switch (exits.Count)
+        return exits.Count switch
         {
-            case 0:
-                return TileCenter - Direction;
-            case 1:
-                return TileCenter + exits [0];
-            default:
-                return TileCenter + exits [Random.Range (0, exits.Count - 1)];
-        }
+            0 => TileCenter - Direction,
+            1 => TileCenter + exits[0],
+            _ => TileCenter + exits[Random.Range(0, exits.Count - 1)]
+        };
     }
 
     /// <summary>
@@ -882,38 +926,6 @@ public class GhostMove : BaseActor {
         var distance = Vector2.Distance (TileCenter, _pacManMover.TileCenter);
         return distance > 8 ? _pacManMover.TileCenter : _scatterTarget;
     }
-
-    /// <summary>
-    /// Draw colored boxes - one for each ghost - showing what that ghost is targeting
-    /// </summary>
-    private void ShowTarget()
-    {
-        var target = Target ();
-        Color color;
-        switch (ThisGhost) {
-        case Ghost.Blinky:
-            color = _blinkyColor;
-            break;
-        case Ghost.Clyde:
-            color = _clydeColor;
-            break;
-        case Ghost.Pinky:
-            color = _pinkyColor;
-            break;
-        case Ghost.Inky:
-            color = _inkyColor;
-            break;
-        default:
-            color = Color.white;
-            break;
-        }
-
-        Debug.DrawLine(TileCenter, target, color);
-        Debug.DrawLine (new Vector3 (target.x - .5f, target.y - .5f), new Vector3 (target.x + .5f, target.y - .5f), color, 0, false);
-        Debug.DrawLine (new Vector3 (target.x - .5f, target.y - .5f), new Vector3 (target.x - .5f, target.y + .5f), color, 0, false);
-        Debug.DrawLine (new Vector3 (target.x - .5f, target.y + .5f), new Vector3 (target.x + .5f, target.y + .5f), color, 0, false);
-        Debug.DrawLine (new Vector3 (target.x + .5f, target.y - .5f), new Vector3 (target.x + .5f, target.y + .5f), color, 0, false);
-    }
-
+    
     #endregion
 }

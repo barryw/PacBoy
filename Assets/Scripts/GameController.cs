@@ -318,16 +318,16 @@ public class GameController : BaseController
     /// </summary>
     private void InitGhosts()
     {
-        BlinkyMover.GhostInit ();
-        PinkyMover.GhostInit ();
-        InkyMover.GhostInit ();
-        ClydeMover.GhostInit ();
+        BlinkyMover.CurrentMode = GhostStates.InitialPosition;
+        PinkyMover.CurrentMode = GhostStates.InitialPosition;
+        InkyMover.CurrentMode = GhostStates.InitialPosition;
+        ClydeMover.CurrentMode = GhostStates.InitialPosition;
     }
 
     /// <summary>
     /// Make sure the ghosts know how many dots have been eaten.
     /// </summary>
-    public void UpdateGhostDotCounts()
+    private void UpdateGhostDotCounts()
     {
         BlinkyMover.IncreaseDotCount ();
         PinkyMover.IncreaseDotCount ();
@@ -471,7 +471,7 @@ public class GameController : BaseController
         // If we still have ghosts, see if time's up
         if (frightenedGhosts.Count > 0 && (Time.fixedTime - _frightenStartTime > TableOfValues.GhostFrightenedTime (CurrentLevel))) {
             foreach (var ghost in frightenedGhosts) {
-                if (!ghost.IsEaten && !ghost.IsBlinking) {
+                if (ghost.CurrentMode != GhostStates.Dead && !ghost.IsBlinking) {
                     ghost.DoBlinkGhost ();
                 }
             }

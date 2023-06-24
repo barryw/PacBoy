@@ -1,9 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MonsterLove;
+using MonsterLove.Events;
 using UnityEngine;
+
+public enum PacManState
+{
+    Idle,
+    Normal,
+    Dead
+}
+
+public enum PacManAnimation
+{
+    Initial,
+    Up,
+    Down,
+    Left,
+    Right,
+    Dead
+}
+
+public class PacManDriver
+{
+    public StateEvent FixedUpdate;
+}
 
 public class PacManMove : BaseActor
 {    
+    StateMachine<PacManState, PacManDriver> _fsmState;
+    StateMachine<PacManAnimation> _fsmAnimation;
+    
     public GameObject Blinky;
     public GameObject Pinky;
     public GameObject Inky;
@@ -19,6 +46,32 @@ public class PacManMove : BaseActor
     private bool _dying;
     private bool _frightened;
 
+    public PacManState CurrentMode
+    {
+        get => _fsmState.State;
+        set => _fsmState.ChangeState(value);
+    }
+
+    public PacManAnimation CurrentAnimation
+    {
+        get => _fsmAnimation.State;
+        set => _fsmAnimation.ChangeState(value);
+    }
+    
+    public bool EatingSmallDots { private get; set; }
+    public bool EatingBigDots { private get; set; }
+
+    private void Awake()
+    {
+        Anim = GetComponent<Animator> ();
+        
+        _fsmState = new StateMachine<PacManState, PacManDriver>(this);
+        _fsmAnimation = new StateMachine<PacManAnimation>(this);
+
+        CurrentMode = PacManState.Idle;
+        CurrentAnimation = PacManAnimation.Initial;
+    }
+    
     private new void Start () {
         base.Start ();
         Direction = Vector2.left;
@@ -31,8 +84,30 @@ public class PacManMove : BaseActor
         _clydeMover = Clyde.GetComponent<GhostMove> ();
 	}
 
+    private void Idle_Enter()
+    {
+        
+    }
+
+    private void Idle_FixedUpdate()
+    {
+        
+    }
+
+    private void Dead_Enter()
+    {
+        
+    }
+
+    private void Dead_FixedUpdate()
+    {
+        
+    }
+    
     private void FixedUpdate()
     {
+        _fsmState.Driver.FixedUpdate.Invoke();
+        
         if (!GameController.IsReady || _dying) return;
         
         SetPacManSpeed ();
@@ -52,17 +127,11 @@ public class PacManMove : BaseActor
     /// </summary>
     public bool Frightened
     {
-        get {
-            return _frightened;
-        }
-        set {
-            _frightened = false;
-        }
+        get => _frightened;
+        set => _frightened = false;
     }
 
-    public bool EatingSmallDots { private get; set; }
-
-    public bool EatingBigDots { private get; set; }
+    
 
     private void SetPacManSpeed()
     {
@@ -89,9 +158,8 @@ public class PacManMove : BaseActor
     private void CheckForGhostCollision()
     {
         var ghost = GhostAtPacManTile ();
-        if (ghost != null && (ghost.CurrentMode == GhostStates.Chase || ghost.CurrentMode == GhostStates.Scatter)) {
+        if(ghost != null && (ghost.CurrentMode == GhostStates.Chase || ghost.CurrentMode == GhostStates.Scatter))
             StartCoroutine (ShowDeathAnimation ());
-        }
     }
 
     /// <summary>
