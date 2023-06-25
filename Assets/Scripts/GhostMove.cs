@@ -545,7 +545,7 @@ public class GhostMove : BaseActor {
     /// </summary>
     private void PutGhostBackInHouse()
     {
-        if (CurrentMode != GhostStates.Dead) return;
+        if (CurrentMode is not GhostStates.Dead or GhostStates.InGhostHouse or GhostStates.LeavingGhostHouse) return;
         
         if (Tile == _home){
             Destination = _ghostHome;

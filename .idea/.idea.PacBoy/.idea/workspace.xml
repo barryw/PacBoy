@@ -30,6 +30,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PacBoy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PacBoy/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GhostMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GhostMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacBoy.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/PacBoy.sln.DotSettings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -737,7 +738,7 @@
       <workItem from="1687481531829" duration="5300000" />
       <workItem from="1687516098040" duration="7786000" />
       <workItem from="1687639866497" duration="33000" />
-      <workItem from="1687639916425" duration="5691000" />
+      <workItem from="1687639916425" duration="7155000" />
     </task>
     <servers />
   </component>
